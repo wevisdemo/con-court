@@ -53,7 +53,7 @@ export default function Modal({}: Props) {
                     to get users going in the right direction. Be bold and offer
                     just enough help to get the work started, and then get out
                     of the way. Give accurate information so users can make
-                    educated decisions. Know your user's struggles and desired
+                    educated decisions. Know your user struggles and desired
                     outcomes and give just enough information to let them get
                     where they need to go.
                   </p>
