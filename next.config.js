@@ -5,6 +5,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  basePath: '/con-court',
 };
 
 module.exports = nextConfig;
