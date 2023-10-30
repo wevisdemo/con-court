@@ -14,8 +14,9 @@ export default function IndexPage({}: Props) {
 
   return (
     <div>
-      Index
-      <br />
+      <div className='text-h3 text-law'>Title</div>
+      <div className='text-h4 text-politics'>หัวข้อ</div>
+      <div className='text-h7'>Index ทดสอบ</div>
       <Button />
       <br />
       <Collapse />

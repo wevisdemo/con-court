@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
-
-const inter = Inter({ subsets: ['latin'] });
+import { twMerge } from 'tailwind-merge';
+import { bodyFont, headerFont } from './fonts';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,8 +14,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
-      <body className={inter.className}>{children}</body>
+    <html
+      lang='en'
+      className={twMerge(
+        headerFont.variable,
+        bodyFont.variable,
+        'bg-black text-white'
+      )}
+    >
+      <body className='bg-black text-white'>{children}</body>
     </html>
   );
 }
