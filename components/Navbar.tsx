@@ -36,7 +36,7 @@ export default function Navbar({}: Props) {
   ];
 
   const selectMenu = (id: string) => {
-    goToSection(id, '/');
+    goToSection('/', id);
     setShowMenu(false);
   };
 
