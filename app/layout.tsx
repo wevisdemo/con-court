@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import './globals.css';
-import { twMerge } from 'tailwind-merge';
-import { bodyFont, headerFont } from './fonts';
+import '@wevisdemo/ui/styles/index.css';
+import '../styles/globals.css';
+import Navbar from '@/components/Navbar';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,13 +16,12 @@ export default function RootLayout({
   return (
     <html
       lang='en'
-      className={twMerge(
-        headerFont.variable,
-        bodyFont.variable,
-        'bg-black text-white'
-      )}
+      className='wv-ibmplex bg-black'
     >
-      <body className='bg-black text-white'>{children}</body>
+      <body>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
