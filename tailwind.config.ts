@@ -19,6 +19,7 @@ const config: Config = {
         stability: '#A180FE',
         sentreq: '#FF9A7A',
         accreq: '#FFB9A3',
+        grey1: '#979797',
         grey3: '#3E3E3E',
       },
     },

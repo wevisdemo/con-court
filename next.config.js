@@ -1,11 +1,14 @@
 /** @type {import('next').NextConfig} */
+
+const basePath = '/con-court';
+
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
-  images: {
-    unoptimized: true,
+  basePath: basePath,
+  env: {
+    basePath: basePath,
   },
-  basePath: '/con-court',
 };
 
 module.exports = nextConfig;

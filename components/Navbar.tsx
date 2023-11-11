@@ -6,6 +6,8 @@ import { useState } from 'react';
 import { useScroll } from '@/hooks/useScroll';
 import { twMerge } from 'tailwind-merge';
 import { useLockBodyScroll } from 'react-use';
+import { useSnapshot } from 'valtio';
+import { state } from '@/stores';
 
 type Props = {};
 
@@ -13,27 +15,9 @@ export default function Navbar({}: Props) {
   const { goToSection } = usePage();
   const [showMenu, setShowMenu] = useState(false);
   const { scrollDirection } = useScroll();
+  const { menuList } = useSnapshot(state);
 
   useLockBodyScroll(showMenu);
-
-  const menuList = [
-    {
-      label: 'หน้าแรก',
-      value: 'intro',
-    },
-    {
-      label: 'การตรวจสอบสถาบันทางการเมือง',
-      value: 'part1',
-    },
-    {
-      label: 'การคุ้มครองสิทธิเสรีภาพของประชาชนและความมั่นคงของรัฐ',
-      value: 'part2',
-    },
-    {
-      label: 'เพราะเหตุใดศาลรัฐธรรมนูญไม่ทำหน้าที่ตามค่านิยม ?',
-      value: 'part3',
-    },
-  ];
 
   const selectMenu = (id: string) => {
     goToSection('/', id);
@@ -45,7 +29,7 @@ export default function Navbar({}: Props) {
       <div className='h-[55px]'>
         <div
           className={twMerge(
-            'relative',
+            'relative z-50',
             scrollDirection === 'down' && 'fixed inset-x-0 top-0'
           )}
         >

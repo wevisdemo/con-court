@@ -18,7 +18,7 @@ export default function RootLayout({
       lang='en'
       className='wv-ibmplex bg-black'
     >
-      <body>
+      <body className='overflow-x-hidden'>
         <Navbar />
         {children}
       </body>
