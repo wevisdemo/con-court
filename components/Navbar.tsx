@@ -35,6 +35,7 @@ export default function Navbar({}: Props) {
         >
           <WvNavbar
             dark
+            alwayShowSlot
             title='The Constitutional Court Cases Unveiled'
           >
             <button
