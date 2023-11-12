@@ -4,7 +4,7 @@ import Part2 from '@/components/Part2';
 import Part3 from '@/components/Part3';
 import SectionWhat from '@/components/SectionWhat';
 import SectionSpotlight from '@/components/SectionSpotlight';
-import SectionDo from '@/components/SectionDo';
+import SectionTodo from '@/components/SectionTodo';
 
 export default function IndexPage() {
   return (
@@ -12,7 +12,7 @@ export default function IndexPage() {
       <SectionIntro />
       <SectionWhat />
       <SectionSpotlight />
-      <SectionDo />
+      <SectionTodo />
       <Part1 />
       <Part2 />
       <Part3 />

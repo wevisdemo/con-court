@@ -1,8 +1,9 @@
 import CustomImg from './CustomImg';
 import IconWithBg from './IconWithBg';
 import Popover from './Popover';
+import ScrollHint from './ScrollHint';
 
-export default function SectionDo() {
+export default function SectionTodo() {
   const todoList = [
     {
       name: 'หน้าที่ตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ',
@@ -126,7 +127,7 @@ export default function SectionDo() {
   ];
 
   return (
-    <div className='max-w-[1180px] mx-auto'>
+    <div className='max-w-[1180px] mx-auto py-20'>
       <div className='relative'>
         <div className='wv-h4 wv-kondolar wv-black'>
           ศาลรัฐธรรมนูญ ทำอะไรบ้าง ?
@@ -210,6 +211,7 @@ export default function SectionDo() {
           </div>
         ))}
       </div>
+      <ScrollHint className='mt-5' />
     </div>
   );
 }
