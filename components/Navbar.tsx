@@ -49,11 +49,11 @@ export default function Navbar() {
             </button>
           </WvNavbar>
           {showMenu && (
-            <div className='absolute right-0 w-[316px] top-full bg-black text-white'>
+            <div className='absolute right-0 text-left w-[316px] top-full bg-black text-white'>
               {menuList.map((i) => (
                 <div
                   key={i.label}
-                  className='wv-h10 px-5 py-[10px] border-b border-grey3 cursor-pointer hover:bg-white/20'
+                  className='wv-h10 px-5 py-[10px] border-b border-grey3 last:border-b-0 cursor-pointer hover:bg-white/20'
                   onClick={() => selectMenu(i.value)}
                 >
                   {i.label}

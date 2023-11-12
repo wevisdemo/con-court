@@ -133,7 +133,7 @@ export default function SectionTodo() {
           ศาลรัฐธรรมนูญ ทำอะไรบ้าง ?
         </div>
         <div className='wv-h7 wv-kondolar mt-6'>
-          คดีรัฐธรรมนูญเริ่มต้นขึ้นเมื่อมี "ผู้ร้อง"
+          คดีรัฐธรรมนูญเริ่มต้นขึ้นเมื่อมี &quot;ผู้ร้อง&quot;
           ส่งคำร้องให้ศาลรัฐธรรมนูญพิจารณาวินิจฉัย
         </div>
         <div className='wv-h11 flex flex-col items-center absolute right-0 top-0'>

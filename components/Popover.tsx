@@ -3,13 +3,15 @@
 import { useRef, useState } from 'react';
 import CustomImg from './CustomImg';
 import { useClickAway } from 'react-use';
+import { twMerge } from 'tailwind-merge';
 
 type Props = {
   children: React.ReactNode;
   content: React.ReactNode;
+  popoverCls?: string;
 };
 
-export default function Popover({ children, content }: Props) {
+export default function Popover({ children, content, popoverCls }: Props) {
   const ref = useRef(null);
   const [showPopover, setShowPopver] = useState(false);
 
@@ -29,7 +31,12 @@ export default function Popover({ children, content }: Props) {
         {children}
       </div>
       {showPopover && (
-        <div className='absolute z-10 top-[120%] right-0 text-black bg-white rounded-md w-[387px] overflow-hidden'>
+        <div
+          className={twMerge(
+            'absolute z-10 top-[120%] right-0 text-black bg-white rounded-md w-[387px] overflow-hidden',
+            popoverCls
+          )}
+        >
           <div className='relative'>
             <CustomImg
               src='/images/icon_x.png'

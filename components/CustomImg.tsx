@@ -1,26 +1,22 @@
 import { basePath } from '@/utils/basePath';
+import Image from 'next/image';
 import { twMerge } from 'tailwind-merge';
 
 type Props = {
   src: string;
-  placeholder?: string;
   className?: string;
+  noBase?: boolean;
   onClick?: () => void;
 };
 
-export default function CustomImg({
-  src,
-  placeholder,
-  className,
-  onClick,
-}: Props) {
-  const defaultPlaceholder = placeholder ?? '';
-
+export default function CustomImg({ src, className, noBase, onClick }: Props) {
   return (
-    <img
-      src={basePath(src ?? defaultPlaceholder)}
+    <Image
+      src={noBase ? src : basePath(src)}
       alt='image'
-      className={twMerge('object-cover', className)}
+      width={0}
+      height={0}
+      className={twMerge('object-cover w-auto h-auto', className)}
       // onError={(e) => {
       //   e.target.onerror = null;
       //   e.target.src = defaultPlaceholder;
