@@ -1,6 +1,6 @@
+import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/react';
 import CustomImg from './CustomImg';
 import IconWithBg from './IconWithBg';
-import Popover from './Popover';
 import ScrollHint from './ScrollHint';
 
 export default function SectionTodo() {
@@ -139,29 +139,32 @@ export default function SectionTodo() {
         <div className='wv-h11 flex flex-col items-center absolute right-0 top-0'>
           คำย่อและอักษรย่อ
           <Popover
-            content={
-              <>
-                <div className='wv-h9 wv-bold p-4 pb-2'>คำย่อและอักษรย่อ</div>
-                <div className='overflow-y-auto max-h-[360px] px-9 text-left'>
-                  {wordList.map((i) => (
-                    <div
-                      key={i.name}
-                      className='flex py-2 wv-h10 border-b border-grey0'
-                    >
-                      <div className='wv-bold w-[100px] flex-none'>
-                        {i.name}
-                      </div>
-                      <div>{i.text}</div>
-                    </div>
-                  ))}
-                </div>
-              </>
-            }
+            placement='bottom-end'
+            radius='md'
+            classNames={{
+              content: 'bg-white text-black w-[386px] p-0 overflow-hidden',
+            }}
           >
-            <CustomImg
-              src='/images/icon_info.png'
-              className='w-10 hover:bg-white/30 rounded-full'
-            />
+            <PopoverTrigger>
+              <CustomImg
+                src='/images/icon_info.png'
+                className='w-10 hover:bg-white/30 rounded-full cursor-pointer'
+              />
+            </PopoverTrigger>
+            <PopoverContent>
+              <div className='wv-h9 wv-bold p-4 pb-2'>คำย่อและอักษรย่อ</div>
+              <div className='overflow-y-auto max-h-[360px] px-9 text-left'>
+                {wordList.map((i) => (
+                  <div
+                    key={i.name}
+                    className='flex py-2 wv-h10 border-b border-grey0'
+                  >
+                    <div className='wv-bold w-[100px] flex-none'>{i.name}</div>
+                    <div>{i.text}</div>
+                  </div>
+                ))}
+              </div>
+            </PopoverContent>
           </Popover>
         </div>
       </div>

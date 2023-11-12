@@ -8,7 +8,7 @@ import SectionTodo from '@/components/SectionTodo';
 
 export default function IndexPage() {
   return (
-    <div className='text-white'>
+    <>
       <SectionIntro />
       <SectionWhat />
       <SectionSpotlight />
@@ -24,6 +24,6 @@ export default function IndexPage() {
       <Collapse />
       <br />
       <Modal /> */}
-    </div>
+    </>
   );
 }

@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import '@wevisdemo/ui/styles/index.css';
 import '../styles/globals.css';
-import Navbar from '@/components/Navbar';
+import AppNavbar from '@/components/AppNavbar';
+import { Providers } from './providers';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,11 +17,13 @@ export default function RootLayout({
   return (
     <html
       lang='en'
-      className='wv-ibmplex bg-black text-center'
+      className='wv-ibmplex text-center'
     >
       <body className='overflow-x-hidden'>
-        <Navbar />
-        {children}
+        <Providers>
+          <AppNavbar />
+          {children}
+        </Providers>
       </body>
     </html>
   );
