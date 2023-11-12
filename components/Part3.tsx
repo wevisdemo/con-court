@@ -1,6 +1,4 @@
-type Props = {};
-
-export default function Part3({}: Props) {
+export default function Part3() {
   return (
     <div
       id='part3'

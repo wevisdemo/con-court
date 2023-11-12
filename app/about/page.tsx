@@ -7,15 +7,11 @@ import WvButton from '@wevisdemo/ui/react/button';
 import WvSharer from '@wevisdemo/ui/react/sharer';
 import WvFooter from '@wevisdemo/ui/react/footer';
 
-type Props = {};
-
-export default function AboutPage({}: Props) {
+export default function AboutPage() {
   return (
     <div className='wv-b4 bg-white'>
       <WvContainer heading='The Constitutional Court Cases Unveiled'>
-        <div className='wv-h6 text-center !mt-2'>
-          ชำแหละคำวินิจฉัยศาลรัฐธรรมนูญไทย
-        </div>
+        <div className='wv-h6 !mt-2'>ชำแหละคำวินิจฉัยศาลรัฐธรรมนูญไทย</div>
         <WvParagraphGroup heading='เกี่ยวกับโปรเจกต์นี้'>
           <p>
             พออายุ 18

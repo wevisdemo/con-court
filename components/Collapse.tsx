@@ -1,6 +1,4 @@
-type Props = {};
-
-export default function Collapse({}: Props) {
+export default function Collapse() {
   return (
     <>
       <button

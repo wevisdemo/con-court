@@ -1,6 +1,4 @@
-type Props = {};
-
-export default function Button({}: Props) {
+export default function Button() {
   return (
     <button
       type='button'

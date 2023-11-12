@@ -16,10 +16,10 @@ export default function RootLayout({
   return (
     <html
       lang='en'
-      className='wv-ibmplex bg-black'
+      className='wv-ibmplex bg-black text-center'
     >
       <body className='overflow-x-hidden'>
-        <Navbar />
+        {/* <Navbar /> */}
         {children}
       </body>
     </html>

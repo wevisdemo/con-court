@@ -5,7 +5,6 @@ const config: Config = {
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
-    'node_modules/preline/dist/*.js',
   ],
   theme: {
     extend: {
@@ -19,11 +18,13 @@ const config: Config = {
         stability: '#A180FE',
         sentreq: '#FF9A7A',
         accreq: '#FFB9A3',
+        grey0: '#D9D9D9',
         grey1: '#979797',
+        grey2: '#6D6D6D',
         grey3: '#3E3E3E',
+        grey4: '#1D1D1D',
       },
     },
   },
-  plugins: [require('preline/plugin')],
 };
 export default config;

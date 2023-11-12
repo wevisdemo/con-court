@@ -1,21 +1,18 @@
-'use client';
-
-import Intro from '@/components/Intro';
-import { useEffect } from 'react';
+import SectionIntro from '@/components/SectionIntro';
 import Part1 from '@/components/Part1';
 import Part2 from '@/components/Part2';
 import Part3 from '@/components/Part3';
+import SectionWhat from '@/components/SectionWhat';
+import SectionSpotlight from '@/components/SectionSpotlight';
+import SectionDo from '@/components/SectionDo';
 
-type Props = {};
-
-export default function IndexPage({}: Props) {
-  useEffect(() => {
-    import('preline');
-  }, []);
-
+export default function IndexPage() {
   return (
     <div className='text-white'>
-      <Intro />
+      <SectionIntro />
+      <SectionWhat />
+      <SectionSpotlight />
+      <SectionDo />
       <Part1 />
       <Part2 />
       <Part3 />

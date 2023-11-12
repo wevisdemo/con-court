@@ -1,11 +1,10 @@
 import { basePath } from '@/utils/basePath';
-import { CSSProperties } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 type Props = {
   src: string;
   placeholder?: string;
   className?: string;
-  style?: CSSProperties;
   onClick?: () => void;
 };
 
@@ -13,7 +12,6 @@ export default function CustomImg({
   src,
   placeholder,
   className,
-  style,
   onClick,
 }: Props) {
   const defaultPlaceholder = placeholder ?? '';
@@ -22,8 +20,7 @@ export default function CustomImg({
     <img
       src={basePath(src ?? defaultPlaceholder)}
       alt='image'
-      style={{ ...style, objectFit: 'cover' }}
-      className={className}
+      className={twMerge('object-cover', className)}
       // onError={(e) => {
       //   e.target.onerror = null;
       //   e.target.src = defaultPlaceholder;

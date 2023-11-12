@@ -1,20 +1,21 @@
+'use client';
+
 import { useSnapshot } from 'valtio';
 import BorderBox from './BorderBox';
 import CustomImg from './CustomImg';
 import { state } from '@/stores';
 import { usePage } from '@/hooks/usePage';
 import ScrollHint from './ScrollHint';
+import IconWithBg from './IconWithBg';
 
-type Props = {};
-
-export default function Intro({}: Props) {
+export default function SectionIntro() {
   const { menuTabs } = useSnapshot(state);
   const { goToSection } = usePage();
 
   return (
     <div
       id='intro'
-      className='min-h-screen relative'
+      className='relative pb-14'
     >
       <CustomImg
         src='/images/paper_intro.png'
@@ -24,22 +25,22 @@ export default function Intro({}: Props) {
         src='/images/paper_intro.png'
         className='w-[260px] absolute top-[150px] -right-5 z-10 -scale-x-100'
       />
-      <div className='bg-grey3 text-center relative'>
+      <div className='bg-grey3 relative pt-[100px]'>
         <CustomImg
           src='/images/bg_intro.png'
           className='absolute inset-x-0 mx-auto top-2'
         />
-        <div className='relative top-[100px] bg-black w-[80%] max-w-[1200px] rounded-full mx-auto'>
+        <div className='relative bg-black w-[80%] max-w-[1200px] rounded-t-full mx-auto'>
           <div className='wv-h11 text-grey1'>
             (อัพเดทข้อมูลเมื่อวันที่ xx/xx/xxxx)
           </div>
           <div className='flex flex-col items-center gap-6'>
             <CustomImg
               src='/images/logo_intro.png'
-              className='w-[643px] mx-auto mt-10'
+              className='w-[643px] mt-10'
             />
             <BorderBox>
-              <div className='wv-h5 wv-bold px-10 py-4'>
+              <div className='wv-h5 wv-kondolar wv-bold px-10 py-4'>
                 ชำแหละคำวินิจฉัย
                 <br />
                 ศาลรัฐธรรมนูญไทย
@@ -53,9 +54,10 @@ export default function Intro({}: Props) {
                   className='flex items-center text-start gap-2 border-r border-white p-2 w-[290px] wv-h11 last:border-r-0 hover:bg-white/20'
                   onClick={() => goToSection('/', i.value)}
                 >
-                  <CustomImg
-                    src={i.icon ?? ''}
-                    className='w-[30px]'
+                  <IconWithBg
+                    icon={i.icon ?? ''}
+                    color='white'
+                    className='w-[30px] h-[30px] flex-none'
                   />
                   {i.label}
                   <CustomImg
@@ -69,7 +71,6 @@ export default function Intro({}: Props) {
           </div>
         </div>
       </div>
-      Intro
     </div>
   );
 }

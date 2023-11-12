@@ -1,6 +1,4 @@
-type Props = {};
-
-export default function Modal({}: Props) {
+export default function Modal() {
   return (
     <>
       <button

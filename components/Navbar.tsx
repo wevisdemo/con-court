@@ -9,9 +9,7 @@ import { useLockBodyScroll } from 'react-use';
 import { useSnapshot } from 'valtio';
 import { state } from '@/stores';
 
-type Props = {};
-
-export default function Navbar({}: Props) {
+export default function Navbar() {
   const { goToSection } = usePage();
   const [showMenu, setShowMenu] = useState(false);
   const { scrollDirection } = useScroll();
