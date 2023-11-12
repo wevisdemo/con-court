@@ -28,6 +28,7 @@ export default function SectionIntro() {
       <div className='bg-grey3 relative pt-[100px]'>
         <CustomImg
           src='/images/bg_intro.png'
+          priority={true}
           className='absolute inset-x-0 mx-auto top-2'
         />
         <div className='relative bg-black w-[80%] max-w-[1200px] rounded-t-full mx-auto'>
