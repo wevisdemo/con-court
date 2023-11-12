@@ -5,14 +5,20 @@ import Part3 from '@/components/Part3';
 import SectionWhat from '@/components/SectionWhat';
 import SectionSpotlight from '@/components/SectionSpotlight';
 import SectionTodo from '@/components/SectionTodo';
+import Chart from '@/components/Chart';
+import LandingSection1 from '@/components/LandingSection1';
 
 export default function IndexPage() {
   return (
     <>
-      <SectionIntro />
-      <SectionWhat />
-      <SectionSpotlight />
-      <SectionTodo />
+      <Chart />
+      <div className='bg-black relative'>
+        <SectionIntro />
+        <SectionWhat />
+        <SectionSpotlight />
+        <SectionTodo />
+      </div>
+      <LandingSection1 />
       <Part1 />
       <Part2 />
       <Part3 />

@@ -24,6 +24,7 @@ export default function AppNavbar() {
     <Navbar
       shouldHideOnScroll
       maxWidth='full'
+      isBlurred={false}
       classNames={{ wrapper: 'p-0' }}
     >
       <div className='w-full'>
@@ -34,7 +35,8 @@ export default function AppNavbar() {
         >
           <Dropdown
             placement='bottom-end'
-            classNames={{ content: 'rounded-none bg-black p-0' }}
+            radius='none'
+            classNames={{ content: 'bg-black p-0' }}
           >
             <DropdownTrigger>
               <button className='flex flex-col gap-2'>
