@@ -3,7 +3,7 @@ import { proxy } from 'valtio';
 
 type State = {
   menuList: TMenu[];
-  menuTabs: () => TMenu[];
+  menuTabs: TMenu[];
 };
 
 export const state = proxy<State>({
