@@ -10,9 +10,11 @@ import CustomImg from '@/components/CustomImg';
 
 export default function AboutPage() {
   return (
-    <div className='wv-b4 bg-white'>
+    <div className='wv-b4 bg-white text-black text-left'>
       <WvContainer heading='The Constitutional Court Cases Unveiled'>
-        <div className='wv-h6 !mt-2'>ชำแหละคำวินิจฉัยศาลรัฐธรรมนูญไทย</div>
+        <div className='wv-h6 !mt-2 text-center'>
+          ชำแหละคำวินิจฉัยศาลรัฐธรรมนูญไทย
+        </div>
         <WvParagraphGroup heading='เกี่ยวกับโปรเจกต์นี้'>
           <p>
             พออายุ 18

@@ -1,6 +1,12 @@
+import { TMenu } from '@/models/menu';
 import { proxy } from 'valtio';
 
-export const state = proxy({
+type State = {
+  menuList: TMenu[];
+  menuTabs: () => TMenu[];
+};
+
+export const state = proxy<State>({
   menuList: [
     {
       label: 'หน้าแรก',
@@ -23,6 +29,6 @@ export const state = proxy({
     },
   ],
   get menuTabs() {
-    return this.menuList.filter((i) => i.value !== 'intro');
+    return this.menuList.filter((i: TMenu) => i.value !== 'intro');
   },
 });
