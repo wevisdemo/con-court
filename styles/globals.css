@@ -12,6 +12,6 @@
   background: theme('colors.grey2');
 }
 .screen {
-  min-height: 720px;
-  height: 100vh;
+  min-height: 900px;
+  height: 100%;
 }

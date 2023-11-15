@@ -127,39 +127,39 @@ export default function SectionTodo() {
   ];
 
   return (
-    <div className='max-w-[1180px] mx-auto py-20'>
-      <div className='relative'>
-        <div className='wv-h4 wv-kondolar wv-black'>
+    <div className="mx-auto max-w-[1180px] py-20">
+      <div className="relative">
+        <div className="wv-h4 wv-kondolar wv-black">
           ศาลรัฐธรรมนูญ ทำอะไรบ้าง ?
         </div>
-        <div className='wv-h7 wv-kondolar mt-6'>
+        <div className="wv-h7 wv-kondolar mt-6">
           คดีรัฐธรรมนูญเริ่มต้นขึ้นเมื่อมี &quot;ผู้ร้อง&quot;
           ส่งคำร้องให้ศาลรัฐธรรมนูญพิจารณาวินิจฉัย
         </div>
-        <div className='wv-h11 flex flex-col items-center absolute right-0 top-0'>
+        <div className="wv-h11 absolute right-0 top-0 flex flex-col items-center">
           คำย่อและอักษรย่อ
           <Popover
-            placement='bottom-end'
-            radius='md'
+            placement="bottom-end"
+            radius="md"
             classNames={{
               content: 'bg-white text-black w-[386px] p-0 overflow-hidden',
             }}
           >
             <PopoverTrigger>
               <CustomImg
-                src='/images/icon_info.png'
-                className='w-10 hover:bg-white/30 rounded-full cursor-pointer'
+                src="/images/icon_info.png"
+                className="w-10 cursor-pointer rounded-full hover:bg-white/30"
               />
             </PopoverTrigger>
             <PopoverContent>
-              <div className='wv-h9 wv-bold p-4 pb-2'>คำย่อและอักษรย่อ</div>
-              <div className='overflow-y-auto max-h-[360px] px-9 text-left'>
+              <div className="wv-h9 wv-bold p-4 pb-2">คำย่อและอักษรย่อ</div>
+              <div className="max-h-[360px] overflow-y-auto px-9 text-left">
                 {wordList.map((i) => (
                   <div
                     key={i.name}
-                    className='flex py-2 wv-h10 border-b border-grey0'
+                    className="wv-h10 flex border-b border-grey0 py-2"
                   >
-                    <div className='wv-bold w-[100px] flex-none'>{i.name}</div>
+                    <div className="wv-bold w-[100px] flex-none">{i.name}</div>
                     <div>{i.text}</div>
                   </div>
                 ))}
@@ -168,23 +168,23 @@ export default function SectionTodo() {
           </Popover>
         </div>
       </div>
-      <div className='grid grid-cols-3 gap-8 mt-6'>
+      <div className="mt-6 grid grid-cols-3 gap-8">
         {todoList.map((t) => (
           <div key={t.name}>
             <div
               style={{ backgroundImage: `url(${t.bg})` }}
-              className='h-[236px] rounded-md overflow-hidden wv-h8 wv-bold text-black relative bg-cover flex items-center justify-center'
+              className="wv-h8 wv-bold relative flex h-[236px] items-center justify-center overflow-hidden rounded-md bg-cover text-black"
             >
-              <div className='absolute inset-0 bg-white/50'></div>
+              <div className="absolute inset-0 bg-white/50"></div>
               <div
                 style={{ backgroundColor: t.color }}
-                className='absolute inset-0 mix-blend-screen'
+                className="absolute inset-0 mix-blend-screen"
               ></div>
-              <div className='relative max-w-[260px] flex flex-col items-center gap-4'>
+              <div className="relative flex max-w-[260px] flex-col items-center gap-4">
                 <IconWithBg
                   icon={t.icon}
                   color={t.color}
-                  className='w-[80px] h-[80px]'
+                  className="h-[80px] w-[80px]"
                 />
                 <div
                   style={{
@@ -196,16 +196,16 @@ export default function SectionTodo() {
                 </div>
               </div>
             </div>
-            <div className='max-h-[520px] overflow-y-auto'>
+            <div className="max-h-[520px] overflow-y-auto">
               {t.items.map((i) => (
                 <div
                   key={i.name}
-                  className='flex items-center p-6 border-b border-grey3 text-left gap-3'
+                  className="flex items-center gap-3 border-b border-grey3 p-6 text-left"
                 >
                   <IconWithBg
                     icon={i.icon}
                     color={t.color}
-                    className='w-[80px] h-[80px] flex-none'
+                    className="h-[80px] w-[80px] flex-none"
                   />
                   {i.name}
                 </div>
@@ -214,7 +214,7 @@ export default function SectionTodo() {
           </div>
         ))}
       </div>
-      <ScrollHint className='mt-5' />
+      <ScrollHint className="mt-5" mode="dark" />
     </div>
   );
 }

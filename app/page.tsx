@@ -6,7 +6,7 @@ import SectionWhat from '@/components/SectionWhat';
 import SectionSpotlight from '@/components/SectionSpotlight';
 import SectionTodo from '@/components/SectionTodo';
 import Chart from '@/components/Chart';
-import LandingSection1 from '@/components/LandingSection1';
+import SectionLanding from '@/components/SectionLanding';
 import { TLegend } from '@/models/chart';
 
 export default function IndexPage() {
@@ -33,31 +33,19 @@ export default function IndexPage() {
 
   return (
     <>
-      <Chart
-        mode='stack'
-        legends={legends}
-      />
-      <div className='relative pointer-events-none'>
-        <div className='bg-black pointer-events-auto'>
+      <Chart mode="stack" legends={legends} />
+      <div className="pointer-events-none relative">
+        <div className="pointer-events-auto bg-black">
           <SectionIntro />
           <SectionWhat />
           <SectionSpotlight />
           <SectionTodo />
         </div>
-        <LandingSection1 />
-        <div className='screen'></div>
+        <SectionLanding />
       </div>
-      {/* <Part1 />
+      <Part1 />
       <Part2 />
-      <Part3 /> */}
-      {/* <div className='text-h3 text-law'>Title</div>
-      <div className='text-h4 text-politics'>หัวข้อ</div>
-      <div className='text-h7'>Index ทดสอบ</div>
-      <Button />
-      <br />
-      <Collapse />
-      <br />
-      <Modal /> */}
+      <Part3 />
     </>
   );
 }

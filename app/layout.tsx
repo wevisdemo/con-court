@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import '@wevisdemo/ui/styles/index.css';
 import '../styles/globals.css';
-import AppNavbar from '@/components/AppNavbar';
+import NavbarApp from '@/components/NavbarApp';
 import { Providers } from './providers';
 
 export const metadata: Metadata = {
@@ -15,13 +15,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang='en'
-      className='wv-ibmplex text-center'
-    >
-      <body className='overflow-x-hidden'>
+    <html lang="en" className="wv-ibmplex text-center">
+      <body className="overflow-x-hidden">
         <Providers>
-          <AppNavbar />
+          <NavbarApp />
           {children}
         </Providers>
       </body>

@@ -12,7 +12,7 @@ import {
   Navbar,
 } from '@nextui-org/react';
 
-export default function AppNavbar() {
+export default function NavbarApp() {
   const { goToSection } = usePage();
   const { menuList } = useSnapshot(state);
 
@@ -23,27 +23,27 @@ export default function AppNavbar() {
   return (
     <Navbar
       shouldHideOnScroll
-      maxWidth='full'
+      maxWidth="full"
       isBlurred={false}
       classNames={{ wrapper: 'p-0' }}
     >
-      <div className='w-full'>
+      <div className="w-full">
         <WvNavbar
           dark
           alwayShowSlot
-          title='The Constitutional Court Cases Unveiled'
+          title="The Constitutional Court Cases Unveiled"
         >
           <Dropdown
-            placement='bottom-end'
-            radius='none'
+            placement="bottom-end"
+            radius="none"
             classNames={{ content: 'bg-black p-0' }}
           >
             <DropdownTrigger>
-              <button className='flex flex-col gap-2'>
+              <button className="flex flex-col gap-2">
                 {new Array(3).fill('').map((i, index) => (
                   <div
                     key={index}
-                    className='bg-white h-[5px] w-10 rounded-lg'
+                    className="h-[5px] w-10 rounded-lg bg-white"
                   ></div>
                 ))}
               </button>
@@ -58,7 +58,7 @@ export default function AppNavbar() {
             >
               {menuList.map((i) => (
                 <DropdownItem key={i.value}>
-                  <div className='wv-h10'>{i.label}</div>
+                  <div className="wv-h10">{i.label}</div>
                 </DropdownItem>
               ))}
             </DropdownMenu>

@@ -4,23 +4,24 @@ import { twMerge } from 'tailwind-merge';
 
 type Props = {
   icon: string;
-  color: string;
+  color?: string;
   className?: string;
 };
 
-export default function IconWithBg({ icon, color, className }: Props) {
+export default function IconWithBg({
+  icon,
+  color = 'white',
+  className,
+}: Props) {
   return (
     <div
       style={{ backgroundColor: color }}
       className={twMerge(
-        'rounded-md flex items-center justify-center',
-        className
+        'flex items-center justify-center rounded-md',
+        className,
       )}
     >
-      <CustomImg
-        src={icon}
-        className='h-[65%]'
-      />
+      <CustomImg src={icon} className="h-[65%]" />
     </div>
   );
 }
