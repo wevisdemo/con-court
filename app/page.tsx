@@ -1,5 +1,5 @@
 import SectionIntro from '@/components/SectionIntro';
-import Part1 from '@/components/Part1';
+import SectionPart1 from '@/components/SectionPart1';
 import Part2 from '@/components/Part2';
 import Part3 from '@/components/Part3';
 import SectionWhat from '@/components/SectionWhat';
@@ -42,8 +42,8 @@ export default function IndexPage() {
           <SectionTodo />
         </div>
         <SectionLanding />
+        <SectionPart1 />
       </div>
-      <Part1 />
       <Part2 />
       <Part3 />
     </>

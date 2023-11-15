@@ -1,4 +1,3 @@
-import React from 'react';
 import CustomImg from './CustomImg';
 import { twMerge } from 'tailwind-merge';
 
