@@ -26,6 +26,21 @@ export default function SectionPart1() {
     },
   ];
 
+  const decisionList = [
+    {
+      label: "ฝ่ายร่วมรัฐบาล",
+      image: "/images/decision_1.png",
+    },
+    {
+      label: "ฝ่ายค้าน",
+      image: "/images/decision_1.png",
+    },
+    {
+      label: "อื่นๆ",
+      image: "/images/decision_2.png",
+    },
+  ];
+
   return (
     <>
       <div
@@ -102,9 +117,9 @@ export default function SectionPart1() {
               </div>
             </>
           }
-          image="/images/image_1.png"
+          image="/images/sit_1.png"
           body={
-            <div className="wv-h9">
+            <>
               <div>
                 ตลอดช่วงการบังคับใช้รัฐธรรมนูญ 2540 ศาลรัฐธรรมนูญ
                 มีบทบาทอย่างแข็งขันในการวินิจฉัยชี้ขาดกรณีที่พรรคการเมืองใดทำผิด
@@ -124,8 +139,201 @@ export default function SectionPart1() {
                   ไปกว่า 28 ราย
                 </span>
               </div>
-            </div>
+            </>
           }
+        />
+      </SectionBox>
+      <SectionBox boxCls="p-12 wv-h10">
+        <div>
+          หากแบ่งคำวินิจฉัยตามประเภท
+          <br />
+          'ผู้ถูกร้อง' จะแบ่งคำวินิจฉัยเป็น 3 กลุ่มสำคัญ
+        </div>
+        <div className="mt-5 flex justify-center">
+          {decisionList.map((i) => (
+            <div
+              key={i.label}
+              className="w-[170px] border-r-2 border-grey0 px-3"
+            >
+              <CustomImg src={i.image} className="mx-auto w-[74px]" />
+              <div className="wv-h9 wv-bold mt-3">{i.label}</div>
+            </div>
+          ))}
+        </div>
+      </SectionBox>
+      <SectionBox boxCls="p-12">
+        <div className="mx-auto flex max-w-[410px] flex-col gap-5">
+          <div className="wv-h10">
+            ผลของคำวินิจฉัยในคดีตรวจสอบสถาบันทางการเมือง จะปรากฏใน 2 รูปแบบ
+            ได้แก่
+          </div>
+          <div>
+            <div className="flex items-center justify-center gap-3">
+              <div className="h-9 w-9 bg-minus"></div>
+              <div className="wv-h10">
+                คำวินิจฉัยที่ส่งผลกระทบ
+                <span className="wv-bold">ลบต่อผู้ถูกร้อง</span>
+              </div>
+            </div>
+            <div className="wv-h11 mt-3 rounded-md bg-minus/30 px-5 py-3 text-left">
+              เป็นคำวินิจฉัยที่ผู้ถูกร้องเสียประโยชน์/มีความผิด เช่น
+              ยุบพรรคการเมือง, สถานะการเป็น สส. สิ้นสุดลง,
+              หลุดจากตำแหน่งรัฐมนตรี
+            </div>
+          </div>
+          <div>
+            <div className="flex items-center justify-center gap-3">
+              <div className="h-9 w-9 bg-plus"></div>
+              <div className="wv-h10">
+                คำวินิจฉัยที่ส่งผลกระทบ
+                <span className="wv-bold">บวกต่อผู้ถูกร้อง</span>
+              </div>
+            </div>
+            <div className="wv-h11 mt-3 rounded-md bg-plus/30 px-5 py-3 text-left">
+              เป็นคำวินิจฉัยที่ผู้ถูกร้องได้ประโยชน์/ไม่เสียประโยชน์
+              /ไม่มีความผิด เช่น ศาลยกคำร้อง, คงสถานะการเป็น สส. ,
+              ไม่หลุดจากตำแหน่งรัฐมนตรี
+            </div>
+          </div>
+          <div>
+            <div className="flex items-center justify-center gap-3">
+              <CustomImg src="/images/stripe_2.png" className="w-9" />
+              <div className="wv-h10">
+                คำวินิจฉัยที่มีผล
+                <span className="wv-bold">คำวินิจฉัยปรากฏเป็น 2 กรณี</span>
+              </div>
+            </div>
+            <div className="wv-h11 mt-3 rounded-md border-2 border-grey0 px-5 py-3 text-left">
+              <ul className="list-disc pl-6">
+                <li>
+                  คำวินิจฉัยที่มีผู้ถูกร้องมากกว่า 1
+                  คนและมีผลคำวินิจฉัยที่ทั้งส่งผลกระทบบวกและลบ
+                </li>
+                <li>
+                  คำวินิจฉัยที่มีผู้ถูกร้อง 2 ฝ่าย ได้แก่ ฝ่ายรัฐบาลและฝ่ายค้าน
+                  และผลคำวินิจฉัยมีกรณีเดียว คือส่งผลกระทบลบ
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </SectionBox>
+      <div className="screen"></div>
+      <SectionBox>
+        <SituationDetail
+          date="06/01/2544"
+          title="2544 เลือกตั้งสมาชิกสภาผู้แทนราษฎร"
+          collapseDetail={
+            <>
+              การเลือกตั้ง สส. ครั้งแรกของรัฐธรรมนูญ พ.ศ. 2540{" "}
+              <span className="wv-bold">
+                แบ่งเป็นระบบ บัญชีรายชื่อ 100 คน และแบ่งเขตเลือกตั้งอีก 400 คน
+              </span>{" "}
+              ภายใต้การกำกับดูแล กกต.
+            </>
+          }
+          image="/images/sit_2.png"
+          body={
+            <>
+              <div>
+                ทักษิณ ชินวัตร ชนะการเลือกตั้งและดำรงตำแหน่งนายกรัฐมนตรี 2 สมัย
+                ติดต่อกัน ในช่วงระยะเวลานี้{" "}
+                <span className="wv-bold">
+                  ศาลรัฐธรรมนูญวินิจฉัย 2 คดีสำคัญของ นายทักษิณฯ ให้เป็นผลบวก
+                  ทำให้นายทักษิณฯ รอดจาก การหลุดจากตำแหน่งนายกฯ ถึง 2 ครั้ง
+                </span>{" "}
+                ศาลรัฐธรรมนูญจึงถูกมอง ว่าโอนอ่อนต่อรัฐบาลทักษิณฯ
+                ที่อยู่ในวาระในช่วงนั้นมากเกินควร
+              </div>
+              <div className="mx-auto mt-4 flex max-w-[500px] flex-col gap-3">
+                {[
+                  "คดียื่นบัญชีทรัพย์สินหนี้สินอันเป็นเท็จกรณีซุกหุ้น",
+                  "วินิจฉัยไม่รับคำร้องคดีขอให้พ้นจากตำแหน่งนายกฯ ของ 28 สว.",
+                ].map((i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <CustomImg
+                      src="/images/paper_green.png"
+                      className="w-[26px]"
+                    />
+                    <div className="wv-h10">{i}</div>
+                  </div>
+                ))}
+              </div>
+            </>
+          }
+        />
+      </SectionBox>
+      <div className="screen"></div>
+      <SectionBox>
+        <SituationDetail
+          date="25/04/2549"
+          title="ในหลวงรัชกาลที่ 9 มีพระราชดำรัสแก่ผู้พิพากษา"
+          collapseDetail={
+            <>
+              ในหลวงรัชกาลที่ 9 มีพระราชดำรัสแก่ผู้พิพากษาในวาระถวายสัตย์ปฏิญาณ
+              ก่อนเข้ารับตำแหน่ง โดยส่วนหนึ่งของพระราชดำรัสมีใจความว่า
+              <div className="wv-bold">
+                “ต้องขอร้องฝ่ายศาลให้ช่วยกันเถิด
+                เวลานี้ประชาชนทั่วไปเขาหวังในศาล โดยเฉพาะ ศาลฎีกา และศาลอื่นๆ
+                ประชาชนบอกว่า ศาลดียังมีความซื่อสัตย์สุจริต มีความรู้ เพราะได้
+                เรียนรู้กฎหมายมา และพิจารณากฎหมายที่ต้องศึกษาดีๆ
+                ประเทศชาติจึงจะรอดพ้นได้”
+              </div>
+            </>
+          }
+          image="/images/sit_3.png"
+          body={
+            <>
+              หนึ่งใน “เหตุการณ์สำคัญ” ที่อาจสร้างจุดเปลี่ยนต่อแนวทางการวินิจฉัย
+              ในคดีทางการเมืองของศาลรัฐธรรมนูญไทย{" "}
+              <span className="wv-bold">
+                เมื่อในหลวงรัชกาลที่ 9
+                มีพระราชดำรัสแก่ผู้พิพากษาว่าศาลต้องมีความซื่อสัตย์สุจริตในการ
+                พิจารณาตัดสินคดี
+              </span>
+            </>
+          }
+        />
+      </SectionBox>
+      <SectionBox>
+        <SituationDetail
+          date="19/09/2549"
+          title="รัฐประหารโดยคณะปฏิรูปการปกครองในระบอบ
+          ประชาธิปไตยอันมีพระมหากษัตริย์ทรงเป็นประมุข"
+          collapseDetail={
+            <>
+              คณะปฏิรูปการปกครองในระบอบประชาธิปไตย
+              อันมีพระมหากษัตริย์ทรงเป็นประมุข (คปค.) ทำรัฐประหาร
+              มีผลทำให้สิ้นสุดการบังคับใช้รัฐธรรมนูญ 2540{" "}
+              <span className="wv-bold">
+                นำไปสู่การยุบศาลรัฐธรรมนูญ ตามประกาศ คปค. ฉบับที่ 3 ลงวันที่ 20
+                กันยายน พ.ศ. 2549 และจัดตั้งคณะตุลาการ รัฐธรรมนูญขึ้นมา
+              </span>
+              ด้วยผลแห่งมาตรา 35 ของรัฐธรรมนูญ 2549 (ฉบับชั่วคราว)
+            </>
+          }
+          image="/images/sit_4.png"
+          body={
+            <>
+              <span className="wv-bold">
+                การรัฐประหารในปี 2549
+                มาพร้อมกับคำวินิจฉัยที่เริ่มสร้างผลลัพธ์ด้านลบ ต่อ
+                “รัฐบาลทักษิณฯ”
+              </span>{" "}
+              คณะตุลาการที่แต่งตั้งโดยคณะรัฐประหาร
+              มีผลสำคัญที่ทำให้พรรคไทยรักไทยถูกวินิจฉัยให้ยุบพรรคการเมือง
+            </>
+          }
+        />
+      </SectionBox>
+      <div className="screen"></div>
+      <SectionBox>
+        <SituationDetail
+          date="24/08/2550"
+          title="รัฐธรรมนูญ 2550 มีผลใช้บังคับ"
+          collapseDetail={<></>}
+          image="/images/sit_5.png"
+          body={<></>}
         />
       </SectionBox>
     </>
