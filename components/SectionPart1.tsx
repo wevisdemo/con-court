@@ -1,27 +1,27 @@
-import BorderBox from './BorderBox';
-import Bracket from './Bracket';
-import CustomImg from './CustomImg';
-import IconWithBg from './IconWithBg';
-import ScrollHint from './ScrollHint';
-import SectionBox from './SectionBox';
-import SituationDetail from './SituationDetail';
+import BorderBox from "./BorderBox";
+import Bracket from "./Bracket";
+import CustomImg from "./CustomImg";
+import IconWithBg from "./IconWithBg";
+import ScrollHint from "./ScrollHint";
+import SectionBox from "./SectionBox";
+import SituationDetail from "./SituationDetail";
 
 export default function SectionPart1() {
   const conList = [
     {
-      label: 'ผู้พิพากษาศาลฎีกา 5 คน',
+      label: "ผู้พิพากษาศาลฎีกา 5 คน",
       people: 5,
     },
     {
-      label: 'ตุลาการในศาลปกครองสูงสุด 2 คน ',
+      label: "ตุลาการในศาลปกครองสูงสุด 2 คน ",
       people: 2,
     },
     {
-      label: 'ผู้ทรงคุณวุฒิสาขานิติศาสตร์ 5 คน ',
+      label: "ผู้ทรงคุณวุฒิสาขานิติศาสตร์ 5 คน ",
       people: 5,
     },
     {
-      label: 'ผู้ทรงคุณวุฒิสาขารัฐศาสตร์ 3 คน',
+      label: "ผู้ทรงคุณวุฒิสาขารัฐศาสตร์ 3 คน",
       people: 3,
     },
   ];
@@ -30,7 +30,7 @@ export default function SectionPart1() {
     <>
       <div
         id="part1"
-        className="screen flex flex-col items-center justify-center gap-[120px] bg-black"
+        className="screen pointer-events-auto flex flex-col items-center justify-center gap-[120px] bg-black"
       >
         <BorderBox color="#FFC164" className="w-[790px] p-8">
           <IconWithBg
@@ -67,7 +67,7 @@ export default function SectionPart1() {
               <div>
                 <span className="wv-bold">
                   จุดเริ่มต้นของการจัดตั้งศาลรัฐธรรมนูญไทยในฐานะองค์กรตุลาการ
-                </span>{' '}
+                </span>{" "}
                 ตามรัฐธรรมนูญ ประกอบด้วย ประธานศาลรัฐธรรมนูญ 1 คน
                 และตุลาการศาลรัฐธรรมนูญอีก 14 คน รวมเป็นจำนวน 15 คน
                 ซึ่งพระมหากษัตริย์ทรงแต่งตั้งตามคำแนะนำของวุฒิสภา
@@ -84,7 +84,7 @@ export default function SectionPart1() {
                           borderColor="black"
                         />
                         <div className="inline-flex">
-                          {new Array(i.people).fill('').map((i) => (
+                          {new Array(i.people).fill("").map((i) => (
                             <CustomImg
                               key={i}
                               src="/images/icon_con.png"
@@ -108,7 +108,7 @@ export default function SectionPart1() {
               <div>
                 ตลอดช่วงการบังคับใช้รัฐธรรมนูญ 2540 ศาลรัฐธรรมนูญ
                 มีบทบาทอย่างแข็งขันในการวินิจฉัยชี้ขาดกรณีที่พรรคการเมืองใดทำผิด
-                พ.ร.ป. ว่าด้วยพรรคการเมืองฯ{' '}
+                พ.ร.ป. ว่าด้วยพรรคการเมืองฯ{" "}
                 <span className="wv-bold bg-politics">
                   มีผลทำให้พรรคการเมืองขนาดเล็ก จำนวน 76
                   พรรคถูกยุบพรรคลงเพราะไม่สามารถปฏิบัติตามเงื่อนไข
