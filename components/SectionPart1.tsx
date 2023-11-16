@@ -147,7 +147,7 @@ export default function SectionPart1() {
         <div>
           หากแบ่งคำวินิจฉัยตามประเภท
           <br />
-          'ผู้ถูกร้อง' จะแบ่งคำวินิจฉัยเป็น 3 กลุ่มสำคัญ
+          &apos;ผู้ถูกร้อง&apos; จะแบ่งคำวินิจฉัยเป็น 3 กลุ่มสำคัญ
         </div>
         <div className="mt-5 flex justify-center">
           {decisionList.map((i) => (
