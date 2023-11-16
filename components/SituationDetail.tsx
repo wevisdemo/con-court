@@ -25,7 +25,7 @@ export default function SituationDetail({
     <>
       <div className="bg-highlight py-5 pb-0 text-black">
         <div className="wv-h10">{date} เกิดเหตุการณ์</div>
-        <div className="wv-bold wv-h7 my-2 flex items-center justify-center px-12">
+        <div className="wv-bold wv-h7 my-2 flex items-center justify-center px-8">
           <CustomImg src="/images/icon_star_2.png" className="w-10" />
           {title}
         </div>
