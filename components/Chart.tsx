@@ -1,5 +1,5 @@
 import { TLegend } from "@/models/chart";
-import ChartLegends from "./ChartLegends";
+import Legends from "./Legends";
 
 type Props = {
   legends: TLegend[];
@@ -18,7 +18,7 @@ export default function Chart({ legends }: Props) {
       <div className="wv-h5 wv-black wv-kondolar">
         ภาพรวมสัดส่วนคำวินิจฉัยศาลรัฐธรรมนูญ
       </div>
-      <ChartLegends data={legends} />
+      <Legends data={legends} />
       <div className="relative mb-10 ml-[120px] mr-[86px] mt-12 flex max-h-[65vh] flex-1 gap-[68px]">
         <div className="absolute inset-0 flex flex-col">
           {years.map((i, index) => (

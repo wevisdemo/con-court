@@ -7,10 +7,10 @@ import SectionSpotlight from "@/components/SectionSpotlight";
 import SectionTodo from "@/components/SectionTodo";
 import Chart from "@/components/Chart";
 import SectionLanding from "@/components/SectionLanding";
-import { TLegend } from "@/models/chart";
+import SectionPart2 from "@/components/SectionPart2";
 
 export default function IndexPage() {
-  const legends: TLegend[] = [
+  const legends = [
     {
       label: "คำวินิจฉัยที่ส่งผลกระทบลบต่อผู้ถูกร้อง (xxx คดี)",
       value: "green",
@@ -43,6 +43,7 @@ export default function IndexPage() {
         </div>
         <SectionLanding />
         <SectionPart1 />
+        <SectionPart2 />
       </div>
       <Part2 />
       <Part3 />

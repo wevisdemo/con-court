@@ -1,36 +1,38 @@
-import { twMerge } from 'tailwind-merge';
-import CustomImg from './CustomImg';
-import { TLegend } from '@/models/chart';
+import CustomImg from "./CustomImg";
+import { TLegend } from "@/models/chart";
 
 type Props = {
   data: TLegend[];
+  boxSize?: string;
 };
 
-export default function ChartLegends({ data = [] }: Props) {
+export default function Legends({ data = [], boxSize = "20px" }: Props) {
   return (
     <div className="flex flex-wrap justify-center gap-5">
       {data.map((i) => (
         <div
           key={i.value}
-          className="wv-h10 flex w-[256px] items-center gap-2 text-left"
+          className="wv-h10 flex w-[280px] items-center gap-3 text-left"
         >
           <div
             style={{
-              backgroundColor: i.value === 'interest' ? 'white' : i.color,
+              backgroundColor: i.value === "interest" ? "white" : i.color,
+              width: boxSize,
+              height: boxSize,
             }}
-            className={twMerge('h-5 w-5 flex-none')}
+            className="flex-none"
           >
-            {i.value === 'multi' && (
+            {i.value === "multi" && (
               <CustomImg src="/images/stripe.png" className="h-full w-full" />
             )}
-            {i.value === 'interest' && (
+            {i.value === "interest" && (
               <CustomImg
                 src="/images/icon_star.png"
                 className="h-full w-full"
               />
             )}
           </div>
-          {i.label}
+          <div>{i.label}</div>
         </div>
       ))}
     </div>

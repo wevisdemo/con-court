@@ -1,10 +1,10 @@
 import BorderBox from "./BorderBox";
-import Bracket from "./Bracket";
 import CustomImg from "./CustomImg";
 import IconWithBg from "./IconWithBg";
 import JudgeList from "./JudgeList";
 import ScrollHint from "./ScrollHint";
 import SectionBox from "./SectionBox";
+import SectionPart1Summary from "./SectionPart1Summary";
 import SituationDetail from "./SituationDetail";
 
 export default function SectionPart1() {
@@ -29,16 +29,16 @@ export default function SectionPart1() {
 
   const con2550List = [
     {
-      label: "ผู้พิพากษาในศาลฎีกาจำนวน 3 คน ",
+      label: "ผู้พิพากษาในศาลฎีกาจำนวน 3 คน",
       subLabel: "(ซึ่งดำรงตำแหน่งไม่ต่ำกว่าผู้พิพากษาศาลฎีกา)",
       people: 3,
     },
     {
-      label: "ตุลาการในศาลปกครองสูงสุด 2 คน ",
+      label: "ตุลาการในศาลปกครองสูงสุด 2 คน",
       people: 2,
     },
     {
-      label: "ผู้ทรงคุณวุฒิสาขานิติศาสตร์ 2 คน ",
+      label: "ผู้ทรงคุณวุฒิสาขานิติศาสตร์ 2 คน",
       people: 2,
     },
     {
@@ -50,15 +50,15 @@ export default function SectionPart1() {
 
   const con2560List = [
     {
-      label: "ผู้พิพากษาในศาลฎีกาจำนวน 3 คน ",
+      label: "ผู้พิพากษาในศาลฎีกาจำนวน 3 คน",
       people: 3,
     },
     {
-      label: "ตุลาการในศาลปกครองสูงสุด 2 คน ",
+      label: "ตุลาการในศาลปกครองสูงสุด 2 คน",
       people: 2,
     },
     {
-      label: "ผู้ทรงคุณวุฒิสาขานิติศาสตร์ 1 คน ",
+      label: "ผู้ทรงคุณวุฒิสาขานิติศาสตร์ 1 คน",
       people: 1,
     },
     {
@@ -524,6 +524,8 @@ export default function SectionPart1() {
           }
         />
       </SectionBox>
+      <div className="screen"></div>
+      <SectionPart1Summary />
     </>
   );
 }

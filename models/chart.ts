@@ -1,5 +1,5 @@
 export type TLegend = {
-  label: string;
+  label: React.ReactNode;
   value: string;
   color?: string;
 };
