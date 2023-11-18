@@ -177,14 +177,20 @@ export default function SectionPart1Summary() {
         <div className="mt-5 flex justify-center gap-5">
           {situationList.map((i) => (
             <>
-              <div className="w-[160px] overflow-hidden rounded-md">
+              <div
+                key={`${i.image}_paper}`}
+                className="w-[160px] overflow-hidden rounded-md"
+              >
                 <CustomImg src={i.image} className="h-[160px] w-full" />
                 <div className="wv-h10 wv-bold flex h-[160px] items-center bg-grey3 px-5">
                   <div>{i.detail}</div>
                 </div>
               </div>
               {i.next && (
-                <div className="flex flex-col items-center justify-center gap-3">
+                <div
+                  key={`${i.image}_detail}`}
+                  className="flex flex-col items-center justify-center gap-3"
+                >
                   <div className="wv-h11">{i.next}</div>
                   <CustomImg
                     src="/images/icon_arrow_right.png"
