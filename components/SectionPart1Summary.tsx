@@ -1,23 +1,24 @@
-import BarStacked from "./BarStacked";
-import Bracket from "./Bracket";
-import CustomImg from "./CustomImg";
-import Legends from "./Legends";
-import ScrollHint from "./ScrollHint";
+import BarStacked from './BarStacked';
+import Bracket from './Bracket';
+import CustomImg from './CustomImg';
+import Legends from './Legends';
+import Paper from './Paper';
+import ScrollHint from './ScrollHint';
 
 export default function SectionPart1Summary() {
   const situationList = [
     {
-      image: "/images/sit_sum_1.png",
+      image: '/images/sit_sum_1.png',
       detail: (
         <>
           <div>เหตุการณ์สำคัญ</div>
           <div className="wv-h11">เช่น รัฐประหาร พระราชดำรัส</div>
         </>
       ),
-      next: "ส่งผลต่อ",
+      next: 'ส่งผลต่อ',
     },
     {
-      image: "/images/sit_sum_2.png",
+      image: '/images/sit_sum_2.png',
       detail: (
         <>
           <div>การทำงานของ ศาลรัฐธรรมนูญ</div>
@@ -25,15 +26,15 @@ export default function SectionPart1Summary() {
           <div>การลงมติของ ตุลาการ</div>
         </>
       ),
-      next: "ผลิต",
+      next: 'ผลิต',
     },
     {
-      image: "/images/sit_sum_3.png",
+      image: '/images/sit_sum_3.png',
       detail: <>คำวินิจฉัย ศาล รัฐธรรมนูญ</>,
-      next: "สร้าง",
+      next: 'สร้าง',
     },
     {
-      image: "/images/sit_sum_4.png",
+      image: '/images/sit_sum_4.png',
       detail: <>ผลลัพธ์ สำคัญ ทางการเมือง</>,
     },
   ];
@@ -46,8 +47,8 @@ export default function SectionPart1Summary() {
           กกต. หรือ ประธานสภา ไปยังศาลฯ
         </>
       ),
-      value: "1",
-      color: "#FF9A7A",
+      value: '1',
+      color: '#FF9A7A',
     },
     {
       label: (
@@ -56,17 +57,17 @@ export default function SectionPart1Summary() {
           จาก กกต. หรือ ประธานสภา
         </>
       ),
-      value: "2",
-      color: "#FFB9A3",
+      value: '2',
+      color: '#FFB9A3',
     },
   ];
 
   const groups = [
     {
-      label: "พรรคร่วมรัฐบาล",
+      label: 'พรรคร่วมรัฐบาล',
       items: [
         {
-          paper: "/images/paper_green.png",
+          color: '#ACF38A',
           name: (
             <>
               <span className="wv-bold">คดีภรรยาถือหุ้น</span>เกิน 5% ดอน
@@ -78,7 +79,7 @@ export default function SectionPart1Summary() {
           requirements: [<>ปฏิบัติหน้าที่ได้ตามปกติจนกว่าศาลฯจะวินิจฉัย</>],
         },
         {
-          paper: "/images/paper_green.png",
+          color: '#ACF38A',
           name: (
             <>
               <span className="wv-bold">คดีถือหุ้น</span>สัมปทานรัฐ 4
@@ -90,7 +91,7 @@ export default function SectionPart1Summary() {
           requirements: [<>ปฏิบัติหน้าที่ได้ตามปกติจนกว่าศาลฯจะวินิจฉัย</>],
         },
         {
-          paper: "/images/paper_green.png",
+          color: '#ACF38A',
           name: (
             <>
               <span className="wv-bold">คดีถือหุ้น</span>สื่อ 41 สส.
@@ -104,11 +105,11 @@ export default function SectionPart1Summary() {
       ],
     },
     {
-      label: "พรรคร่วมฝ่ายค้าน",
-      subLabel: "(ต่อต้าน คสช.)",
+      label: 'พรรคร่วมฝ่ายค้าน',
+      subLabel: '(ต่อต้าน คสช.)',
       items: [
         {
-          paper: "/images/paper_pink.png",
+          color: '#FF9A9A',
           name: (
             <>
               <span className="wv-bold">คดีถือหุ้น</span>สื่อ ธนาธร
@@ -128,13 +129,12 @@ export default function SectionPart1Summary() {
               ศาลฯ รับคำร้องและให้
               <span className="text-politics">
                 หยุดปฏิบัติหน้าที่ 1 วัน ก่อนเปิดสมัยประชุมรัฐสภาครั้งแรก
-              </span>{" "}
+              </span>{' '}
               (24 พ.ค. 62)
             </>,
           ],
         },
         {
-          paper: "/images/paper_q.png",
           name: (
             <>
               <span className="wv-bold">คดีถือหุ้น</span>สื่อ พิธา
@@ -147,7 +147,7 @@ export default function SectionPart1Summary() {
             <>
               <span className="text-politics">
                 ศาลฯสั่งหยุดปฏิบัติหน้าที่ สส.
-              </span>{" "}
+              </span>{' '}
               จนกว่าจะมีคำวินิจฉัย
             </>,
             <>
@@ -220,10 +220,11 @@ export default function SectionPart1Summary() {
           </div>
           {groups.map((g) => (
             <div key={g.label} className="flex gap-4">
-              <div className="flex w-20 items-center justify-end gap-4 py-10">
+              <div className="flex w-20 items-center justify-end gap-6 py-10">
                 <div className="relative h-4 w-4">
-                  <div className="wv-h10 wv-bold absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4 -rotate-90 whitespace-nowrap text-grey1">
-                    {g.label}
+                  <div className="absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4 -rotate-90 whitespace-nowrap text-grey1">
+                    <div className="wv-h10 wv-bold">{g.label}</div>
+                    {g.subLabel && <div className="wv-h11">{g.subLabel}</div>}
                   </div>
                 </div>
                 <Bracket
@@ -239,7 +240,15 @@ export default function SectionPart1Summary() {
                     className="flex gap-4 border-b border-grey3 py-4"
                   >
                     <div className="flex w-[300px] items-center gap-4">
-                      <CustomImg src={i.paper} className="w-[44px]" />
+                      {i.color ? (
+                        <Paper color={i.color} className="w-[44px] flex-none" />
+                      ) : (
+                        <CustomImg
+                          src="/images/paper_q.png"
+                          className="w-[44px] flex-none"
+                        />
+                      )}
+
                       <div>{i.name}</div>
                     </div>
                     <div className="flex w-[420px] items-center gap-3">
@@ -247,13 +256,13 @@ export default function SectionPart1Summary() {
                         className="h-[60px]"
                         data={[
                           {
-                            name: "req",
-                            color: "#FF9A7A",
+                            name: 'req',
+                            color: '#FF9A7A',
                             value: i.reqDay,
                           },
                           {
-                            name: "acc",
-                            color: "#FFB9A3",
+                            name: 'acc',
+                            color: '#FFB9A3',
                             value: i.accDay,
                           },
                         ]}
