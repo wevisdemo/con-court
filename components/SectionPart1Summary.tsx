@@ -1,4 +1,5 @@
 import BarStacked from "./BarStacked";
+import Bracket from "./Bracket";
 import CustomImg from "./CustomImg";
 import Legends from "./Legends";
 import ScrollHint from "./ScrollHint";
@@ -176,21 +177,15 @@ export default function SectionPart1Summary() {
         </div>
         <div className="mt-5 flex justify-center gap-5">
           {situationList.map((i) => (
-            <>
-              <div
-                key={`${i.image}_paper}`}
-                className="w-[160px] overflow-hidden rounded-md"
-              >
-                <CustomImg src={i.image} className="h-[160px] w-full" />
+            <div key={i.image} className="flex gap-5">
+              <div className="w-[160px] overflow-hidden rounded-md">
+                <CustomImg src={i.image} className="h-[120px] w-full" />
                 <div className="wv-h10 wv-bold flex h-[160px] items-center bg-grey3 px-5">
                   <div>{i.detail}</div>
                 </div>
               </div>
               {i.next && (
-                <div
-                  key={`${i.image}_detail}`}
-                  className="flex flex-col items-center justify-center gap-3"
-                >
+                <div className="flex w-[60px] flex-col items-center justify-center gap-3">
                   <div className="wv-h11">{i.next}</div>
                   <CustomImg
                     src="/images/icon_arrow_right.png"
@@ -198,7 +193,7 @@ export default function SectionPart1Summary() {
                   />
                 </div>
               )}
-            </>
+            </div>
           ))}
         </div>
       </div>
@@ -225,7 +220,18 @@ export default function SectionPart1Summary() {
           </div>
           {groups.map((g) => (
             <div key={g.label} className="flex gap-4">
-              <div className="w-20"></div>
+              <div className="flex w-20 items-center justify-end gap-4 py-10">
+                <div className="relative h-4 w-4">
+                  <div className="wv-h10 wv-bold absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4 -rotate-90 whitespace-nowrap text-grey1">
+                    {g.label}
+                  </div>
+                </div>
+                <Bracket
+                  position="left"
+                  borderColor="#979797"
+                  arrowColor="#1D1D1D"
+                />
+              </div>
               <div className="wv-h10 text-left">
                 {g.items.map((i) => (
                   <div
