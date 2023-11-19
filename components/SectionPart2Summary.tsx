@@ -14,7 +14,11 @@ export default function SectionPart2Summary() {
           ตัวอย่างคำวินิจฉัยที่ชวนคิดว่า“ศาลรัฐธรรมนูญ”
           ไม่ได้ทำหน้าที่ตามค่านิยม
         </div>
-        <PaperBox color="white" className="mt-8 px-10 py-12">
+        <PaperBox
+          overlayColor="#1D1D1D"
+          color="white"
+          className="mt-8 px-10 py-12"
+        >
           <div className="overflow-hidden rounded-md border border-black">
             <div className="p-3">
               <div className="wv-h10 flex justify-center gap-2">
@@ -71,7 +75,11 @@ export default function SectionPart2Summary() {
             <br />
             แต่เป็นอภิสิทธิ์ทางรัฐธรรมนูญ?
           </div>
-          <PaperBox color="white" className="mt-8 px-10 py-12">
+          <PaperBox
+            overlayColor="#1D1D1D"
+            color="white"
+            className="mt-8 px-10 py-12"
+          >
             <div className="wv-h8 wv-bold">
               นับแต่การมีอยู่ของศาลรัฐธรรนูญในปี 2540
               การเมืองไทยประสบกับเหตุการณ์รัฐประหาร มาแล้ว 2 ครั้ง ในปี 2549
