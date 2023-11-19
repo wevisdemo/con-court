@@ -1,13 +1,14 @@
 import BorderBox from './BorderBox';
 import IconWithBg from './IconWithBg';
 import ScrollHint from './ScrollHint';
+import WhyWhatDetail from './WhyWhatDetail';
 
 export default function SectionPart3() {
   return (
     <>
       <div
         id="part3"
-        className="screen pointer-events-auto flex flex-col items-center justify-center bg-black pt-20"
+        className="screen pointer-events-auto flex flex-col items-center justify-center bg-black pb-[140px] pt-20"
       >
         <BorderBox color="#FFE500" className="w-[1000px] px-[150px] py-8">
           <IconWithBg
@@ -32,6 +33,8 @@ export default function SectionPart3() {
             </span>
           </div>
         </div>
+        <WhyWhatDetail />
+        <ScrollHint mode="dark" className="mt-12" />
       </div>
     </>
   );
