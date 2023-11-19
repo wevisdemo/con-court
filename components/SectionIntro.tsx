@@ -7,6 +7,7 @@ import { state } from '@/stores';
 import { usePage } from '@/hooks/usePage';
 import ScrollHint from './ScrollHint';
 import IconWithBg from './IconWithBg';
+import ArrowDown from './ArrowDown';
 
 export default function SectionIntro() {
   const { menuTabs } = useSnapshot(state);
@@ -57,10 +58,7 @@ export default function SectionIntro() {
                     className="h-[30px] w-[30px] flex-none"
                   />
                   {i.label}
-                  <CustomImg
-                    src="/images/icon_arrow_down.png"
-                    className="w-4"
-                  />
+                  <ArrowDown color="white" className="w-4 flex-none" />
                 </button>
               ))}
             </div>

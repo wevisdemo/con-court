@@ -1,13 +1,13 @@
-import { TLegend } from "@/models/chart";
-import Legends from "./Legends";
+import { TLegend } from '@/models';
+import Legends from './Legends';
 
 type Props = {
   legends: TLegend[];
-  mode: "stack" | "box";
+  mode: 'stack' | 'box';
 };
 
 export default function Chart({ legends }: Props) {
-  const years = new Array(27).fill("");
+  const years = new Array(27).fill('');
   const xAxes = [5, 10, 15, 20];
 
   return (

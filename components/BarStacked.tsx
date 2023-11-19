@@ -1,4 +1,4 @@
-import { twMerge } from "tailwind-merge";
+import { twMerge } from 'tailwind-merge';
 
 type Props = {
   className?: string;
@@ -18,10 +18,7 @@ export default function BarStacked({ className, data, scale, width }: Props) {
   };
 
   return (
-    <div
-      style={{ width: `${width}px` }}
-      className={twMerge("flex h-10", className)}
-    >
+    <div className={twMerge('flex h-10', className)}>
       {data.map((i) => (
         <div
           key={i.name}

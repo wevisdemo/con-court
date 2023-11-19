@@ -1,3 +1,4 @@
+import { TCaseGroup } from '@/models';
 import BarStacked from './BarStacked';
 import Bracket from './Bracket';
 import CustomImg from './CustomImg';
@@ -62,7 +63,7 @@ export default function SectionPart1Summary() {
     },
   ];
 
-  const groups = [
+  const groups: TCaseGroup[] = [
     {
       label: 'พรรคร่วมรัฐบาล',
       items: [
@@ -74,8 +75,12 @@ export default function SectionPart1Summary() {
               ปรมัตถ์วินัย รมว. ต่างประเทศ (5/2561)
             </>
           ),
-          reqDay: 416,
-          accDay: 69,
+          request: {
+            day: 416,
+          },
+          accept: {
+            day: 69,
+          },
           requirements: [<>ปฏิบัติหน้าที่ได้ตามปกติจนกว่าศาลฯจะวินิจฉัย</>],
         },
         {
@@ -86,8 +91,12 @@ export default function SectionPart1Summary() {
               รัฐมนตรีในรัฐบาล คสช. (7/2562)
             </>
           ),
-          reqDay: 353,
-          accDay: 75,
+          request: {
+            day: 353,
+          },
+          accept: {
+            day: 75,
+          },
           requirements: [<>ปฏิบัติหน้าที่ได้ตามปกติจนกว่าศาลฯจะวินิจฉัย</>],
         },
         {
@@ -98,8 +107,13 @@ export default function SectionPart1Summary() {
               พรรคร่วมรัฐบาล (18-19/2563)
             </>
           ),
-          reqDay: 8,
-          accDay: 14,
+          request: {
+            day: 8,
+            info: '*ใช้เวลาน้อยกว่ากรณียื่นต่อ กกต. เพราะใน รธน. 2560 มาตรา 82 ระบุให้ประธานสภา รับคำร้องที่มาจาก สส. จำนวน 1 ใน 10 ของสมาชิกเท่าที่มีอยู่ และยื่นคำร้องแก่ศาลฯ',
+          },
+          accept: {
+            day: 14,
+          },
           requirements: [<>ปฏิบัติหน้าที่ได้ตามปกติจนกว่าศาลฯจะวินิจฉัย</>],
         },
       ],
@@ -116,8 +130,12 @@ export default function SectionPart1Summary() {
               จึงรุ่งเรืองกิจ พรรคอนาคตใหม่ (14/2562)
             </>
           ),
-          reqDay: 51,
-          accDay: 7,
+          request: {
+            day: 51,
+          },
+          accept: {
+            day: 7,
+          },
           requirements: [
             <>
               <span className="text-politics">
@@ -141,8 +159,12 @@ export default function SectionPart1Summary() {
               ลิ้มเจริญรัตน์ พรรคก้าวไกล
             </>
           ),
-          reqDay: 63,
-          accDay: 7,
+          request: {
+            day: 63,
+          },
+          accept: {
+            day: 7,
+          },
           requirements: [
             <>
               <span className="text-politics">
@@ -251,30 +273,38 @@ export default function SectionPart1Summary() {
 
                       <div>{i.name}</div>
                     </div>
-                    <div className="flex w-[420px] items-center gap-3">
+                    <div className="flex w-[420px] items-center">
                       <BarStacked
                         className="h-[60px]"
                         data={[
                           {
                             name: 'req',
                             color: '#FF9A7A',
-                            value: i.reqDay,
+                            value: i.request.day,
                           },
                           {
                             name: 'acc',
                             color: '#FFB9A3',
-                            value: i.accDay,
+                            value: i.accept.day,
                           },
                         ]}
                         scale={
-                          groups[0].items[0].reqDay + groups[0].items[0].accDay
+                          groups[0].items[0].request.day +
+                          groups[0].items[0].accept.day
                         }
                         width={260}
                       />
-                      <div className="wv-h9 flex flex-col gap-2">
-                        <div className="text-sentreq">{i.reqDay} วัน</div>
-                        <div className="text-accreq">{i.accDay} วัน</div>
+                      <div className="wv-h9 ml-3 flex flex-none flex-col gap-2">
+                        <div className="text-sentreq">
+                          {i.request.day} วัน {i.request.info && '*'}
+                        </div>
+                        <div className="text-accreq">{i.accept.day} วัน</div>
                       </div>
+                      {i.request.info && (
+                        <div className="ml-10 text-sentreq">
+                          {i.request.info}
+                        </div>
+                      )}
                     </div>
                     <div className="w-[240px]">
                       <ul className="list-disc pl-6">

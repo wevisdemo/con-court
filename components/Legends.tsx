@@ -1,12 +1,12 @@
-import CustomImg from "./CustomImg";
-import { TLegend } from "@/models/chart";
+import CustomImg from './CustomImg';
+import { TLegend } from '@/models';
 
 type Props = {
   data: TLegend[];
   boxSize?: string;
 };
 
-export default function Legends({ data = [], boxSize = "20px" }: Props) {
+export default function Legends({ data = [], boxSize = '20px' }: Props) {
   return (
     <div className="flex flex-wrap justify-center gap-5">
       {data.map((i) => (
@@ -16,16 +16,16 @@ export default function Legends({ data = [], boxSize = "20px" }: Props) {
         >
           <div
             style={{
-              backgroundColor: i.value === "interest" ? "white" : i.color,
+              backgroundColor: i.value === 'interest' ? 'white' : i.color,
               width: boxSize,
               height: boxSize,
             }}
             className="flex-none"
           >
-            {i.value === "multi" && (
+            {i.value === 'multi' && (
               <CustomImg src="/images/stripe.png" className="h-full w-full" />
             )}
-            {i.value === "interest" && (
+            {i.value === 'interest' && (
               <CustomImg
                 src="/images/icon_star.png"
                 className="h-full w-full"

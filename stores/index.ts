@@ -1,4 +1,4 @@
-import { TMenu } from '@/models/menu';
+import { TMenu } from '@/models';
 import { proxy } from 'valtio';
 
 type State = {

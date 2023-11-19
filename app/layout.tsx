@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en" className="wv-ibmplex text-center">
       <body className="overflow-x-hidden">
         <Providers>
-          <NavbarApp />
+          {/* <NavbarApp /> */}
           {children}
         </Providers>
       </body>

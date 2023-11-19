@@ -1,3 +1,15 @@
+export type TMenu = {
+  label: string;
+  value: string;
+  icon?: string;
+};
+
+export type TLegend = {
+  label: React.ReactNode;
+  value: string;
+  color?: string;
+};
+
 export type TData = {
   ปีวินิจฉัย: number;
   เลขคำวินิจฉัย: string;
@@ -20,4 +32,21 @@ export type TData = {
   เลขคำวินิจฉัยในอดีตที่ยกอ้าง: string;
   TAG: string;
   'External link': string;
+};
+
+export type TCaseGroup = {
+  label: string;
+  subLabel?: string;
+  items: {
+    color?: string;
+    name: React.ReactNode;
+    request: {
+      day: number;
+      info?: string;
+    };
+    accept: {
+      day: number;
+    };
+    requirements: React.ReactNode[];
+  }[];
 };
