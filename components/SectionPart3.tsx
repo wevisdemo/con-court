@@ -16,7 +16,7 @@ export default function SectionPart3() {
             icon="/images/icon_q.png"
             className="mx-auto h-[110px] w-[110px]"
           />
-          <div className="wv-h3 wv-black wv-kondolar mt-8 text-highlight">
+          <div className="wv-h3 wv-kondolar mt-8 font-black text-highlight">
             เพราะเหตุใดศาลรัฐธรรมนูญ จึงถูกวิจารณ์ว่าไม่ทำหน้าที่ตามค่านิยม ?
           </div>
         </BorderBox>
@@ -24,11 +24,11 @@ export default function SectionPart3() {
         <div className="mx-auto mt-12 max-w-[700px]">
           <div className="wv-h6 wv-kondolar">
             เราขออาสาพาไปสำรวจ{' '}
-            <span className="wv-bold text-highlight">
+            <span className="font-bold text-highlight">
               &quot;ความคิดเห็นของนักวิชาการ&quot;
             </span>{' '}
             ต่อประเด็นปัญหานี้ เพื่อร่วมหาคำตอบว่าแท้จริงแล้ว
-            <span className="wv-bold text-highlight">
+            <span className="font-bold text-highlight">
               เหตุที่ศาลรัฐธรรมนูญไม่ทำหน้าที่ตามค่านิยมนั้น เป็นเพราะอะไรบ้าง
             </span>
           </div>

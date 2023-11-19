@@ -1,7 +1,6 @@
 import BorderBox from './BorderBox';
 import CustomImg from './CustomImg';
 import IconWithBg from './IconWithBg';
-import JudgeList from './JudgeList';
 import Paper from './Paper';
 import ScrollHint from './ScrollHint';
 import SectionBox from './SectionBox';
@@ -121,7 +120,7 @@ export default function SectionPart1() {
             icon="/images/icon_warning_grey.png"
             className="mx-auto h-[110px] w-[110px]"
           />
-          <div className="wv-h3 wv-black wv-kondolar mt-8 text-politics">
+          <div className="wv-h3 wv-kondolar mt-8 font-black text-politics">
             คำวินิจฉัยในเรื่องการตรวจสอบ สถาบันทางการเมือง
           </div>
         </BorderBox>
@@ -129,7 +128,7 @@ export default function SectionPart1() {
       </div>
       <SectionBox boxCls="p-8">
         <div className="mx-auto max-w-[390px]">
-          <div className="wv-h5 wv-black wv-kondolar">
+          <div className="wv-h5 wv-kondolar font-black">
             ตลอดระยะเวลากว่า 26 ปี ศาลรัฐธรรมนูญได้
             <span className="bg-politics">
               วินิจฉัยคดีทางการเมือง ไปมากกว่า 190 คดี
@@ -148,14 +147,17 @@ export default function SectionPart1() {
           collapseDetail={
             <>
               <div className="mb-4">
-                <span className="wv-bold">
+                <span className="font-bold">
                   จุดเริ่มต้นของการจัดตั้งศาลรัฐธรรมนูญไทยในฐานะองค์กรตุลาการ
                 </span>{' '}
                 ตามรัฐธรรมนูญ ประกอบด้วย ประธานศาลรัฐธรรมนูญ 1 คน
                 และตุลาการศาลรัฐธรรมนูญอีก 14 คน รวมเป็นจำนวน 15 คน
                 ซึ่งพระมหากษัตริย์ทรงแต่งตั้งตามคำแนะนำของวุฒิสภา
               </div>
-              <JudgeList list={con2540List} />
+              <CustomImg
+                src="/images/con_2540.png"
+                className="mx-auto w-full max-w-[568px]"
+              />
             </>
           }
           image="/images/sit_1.png"
@@ -165,7 +167,7 @@ export default function SectionPart1() {
                 ตลอดช่วงการบังคับใช้รัฐธรรมนูญ 2540 ศาลรัฐธรรมนูญ
                 มีบทบาทอย่างแข็งขันในการวินิจฉัยชี้ขาดกรณีที่พรรคการเมืองใดทำผิด
                 พ.ร.ป. ว่าด้วยพรรคการเมืองฯ{' '}
-                <span className="wv-bold bg-politics">
+                <span className="bg-politics font-bold">
                   มีผลทำให้พรรคการเมืองขนาดเล็ก จำนวน 76
                   พรรคถูกยุบพรรคลงเพราะไม่สามารถปฏิบัติตามเงื่อนไข
                   ให้ถูกต้องตามกฎหมายได้
@@ -175,7 +177,7 @@ export default function SectionPart1() {
                 และยังมีอำนาจในการชี้ขาดว่า ผู้ที่ดำรงตำแหน่งทางการเมืองใด
                 จงใจไม่ยื่นบัญชีแสดงรายการทรัพย์สินฯ หรือแสดงรายการทรัพย์สิน
                 อันเป็นเท็จฯ ต่อคณะกรรมการ ป.ป.ช. เมื่อเข้ารับหรือออกจากตำแหน่ง
-                <span className="wv-bold bg-politics">
+                <span className="bg-politics font-bold">
                   ส่งผลให้ศาลวินิจฉัยชี้ขาดและสิ้นสุดสถานะผู้ดำรงตำแหน่งทางการเมือง
                   ไปกว่า 28 ราย
                 </span>
@@ -197,7 +199,7 @@ export default function SectionPart1() {
               className="w-[170px] border-r-2 border-grey0 px-3"
             >
               <CustomImg src={i.image} className="mx-auto w-[74px]" />
-              <div className="wv-h9 wv-bold mt-3">{i.label}</div>
+              <div className="wv-h9 mt-3 font-bold">{i.label}</div>
             </div>
           ))}
         </div>
@@ -213,7 +215,7 @@ export default function SectionPart1() {
               <div className="h-9 w-9 bg-minus"></div>
               <div className="wv-h10">
                 คำวินิจฉัยที่ส่งผลกระทบ
-                <span className="wv-bold">ลบต่อผู้ถูกร้อง</span>
+                <span className="font-bold">ลบต่อผู้ถูกร้อง</span>
               </div>
             </div>
             <div className="wv-h11 mt-3 rounded-md bg-minus/30 px-5 py-3 text-left">
@@ -227,7 +229,7 @@ export default function SectionPart1() {
               <div className="h-9 w-9 bg-plus"></div>
               <div className="wv-h10">
                 คำวินิจฉัยที่ส่งผลกระทบ
-                <span className="wv-bold">บวกต่อผู้ถูกร้อง</span>
+                <span className="font-bold">บวกต่อผู้ถูกร้อง</span>
               </div>
             </div>
             <div className="wv-h11 mt-3 rounded-md bg-plus/30 px-5 py-3 text-left">
@@ -241,7 +243,7 @@ export default function SectionPart1() {
               <CustomImg src="/images/stripe_2.png" className="w-9" />
               <div className="wv-h10">
                 คำวินิจฉัยที่มีผล
-                <span className="wv-bold">คำวินิจฉัยปรากฏเป็น 2 กรณี</span>
+                <span className="font-bold">คำวินิจฉัยปรากฏเป็น 2 กรณี</span>
               </div>
             </div>
             <div className="wv-h11 mt-3 rounded-md border-2 border-grey0 px-5 py-3 text-left">
@@ -267,7 +269,7 @@ export default function SectionPart1() {
           collapseDetail={
             <>
               การเลือกตั้ง สส. ครั้งแรกของรัฐธรรมนูญ พ.ศ. 2540{' '}
-              <span className="wv-bold">
+              <span className="font-bold">
                 แบ่งเป็นระบบ บัญชีรายชื่อ 100 คน และแบ่งเขตเลือกตั้งอีก 400 คน
               </span>{' '}
               ภายใต้การกำกับดูแล กกต.
@@ -279,7 +281,7 @@ export default function SectionPart1() {
               <div>
                 ทักษิณ ชินวัตร ชนะการเลือกตั้งและดำรงตำแหน่งนายกรัฐมนตรี 2 สมัย
                 ติดต่อกัน ในช่วงระยะเวลานี้{' '}
-                <span className="wv-bold">
+                <span className="font-bold">
                   ศาลรัฐธรรมนูญวินิจฉัย 2 คดีสำคัญของ นายทักษิณฯ ให้เป็นผลบวก
                   ทำให้นายทักษิณฯ รอดจาก การหลุดจากตำแหน่งนายกฯ ถึง 2 ครั้ง
                 </span>{' '}
@@ -310,7 +312,7 @@ export default function SectionPart1() {
             <>
               ในหลวงรัชกาลที่ 9 มีพระราชดำรัสแก่ผู้พิพากษาในวาระถวายสัตย์ปฏิญาณ
               ก่อนเข้ารับตำแหน่ง โดยส่วนหนึ่งของพระราชดำรัสมีใจความว่า
-              <div className="wv-bold">
+              <div className="font-bold">
                 “ต้องขอร้องฝ่ายศาลให้ช่วยกันเถิด
                 เวลานี้ประชาชนทั่วไปเขาหวังในศาล โดยเฉพาะ ศาลฎีกา และศาลอื่นๆ
                 ประชาชนบอกว่า ศาลดียังมีความซื่อสัตย์สุจริต มีความรู้ เพราะได้
@@ -324,7 +326,7 @@ export default function SectionPart1() {
             <>
               หนึ่งใน “เหตุการณ์สำคัญ” ที่อาจสร้างจุดเปลี่ยนต่อแนวทางการวินิจฉัย
               ในคดีทางการเมืองของศาลรัฐธรรมนูญไทย{' '}
-              <span className="wv-bold">
+              <span className="font-bold">
                 เมื่อในหลวงรัชกาลที่ 9
                 มีพระราชดำรัสแก่ผู้พิพากษาว่าศาลต้องมีความซื่อสัตย์สุจริตในการ
                 พิจารณาตัดสินคดี
@@ -343,7 +345,7 @@ export default function SectionPart1() {
               คณะปฏิรูปการปกครองในระบอบประชาธิปไตย
               อันมีพระมหากษัตริย์ทรงเป็นประมุข (คปค.) ทำรัฐประหาร
               มีผลทำให้สิ้นสุดการบังคับใช้รัฐธรรมนูญ 2540{' '}
-              <span className="wv-bold">
+              <span className="font-bold">
                 นำไปสู่การยุบศาลรัฐธรรมนูญ ตามประกาศ คปค. ฉบับที่ 3 ลงวันที่ 20
                 กันยายน พ.ศ. 2549 และจัดตั้งคณะตุลาการ รัฐธรรมนูญขึ้นมา
               </span>
@@ -353,7 +355,7 @@ export default function SectionPart1() {
           image="/images/sit_4.png"
           body={
             <>
-              <span className="wv-bold">
+              <span className="font-bold">
                 การรัฐประหารในปี 2549
                 มาพร้อมกับคำวินิจฉัยที่เริ่มสร้างผลลัพธ์ด้านลบ ต่อ
                 “รัฐบาลทักษิณฯ”
@@ -372,7 +374,7 @@ export default function SectionPart1() {
           collapseDetail={
             <>
               <div className="mb-4">
-                <span className="wv-bold">
+                <span className="font-bold">
                   รัฐธรรมนูญฉบับนี้จัดตั้งศาลรัฐธรรมนูญกลับมาในฐานะองค์กรตุลาการตามรัฐธรรมนูญ
                   อีกครั้ง
                 </span>{' '}
@@ -380,7 +382,10 @@ export default function SectionPart1() {
                 และตุลาการศาลรัฐธรรมนูญอีก 8 คน รวม 9 คน
                 ซึ่งพระมหากษัตริย์ทรงแต่งตั้ง ตามคำแนะนำของวุฒิสภา ประกอบด้วย
               </div>
-              <JudgeList list={con2550List} />
+              <CustomImg
+                src="/images/con_2550.png"
+                className="mx-auto w-full max-w-[592px]"
+              />
             </>
           }
           image="/images/sit_5.png"
@@ -388,7 +393,7 @@ export default function SectionPart1() {
             <div className="flex flex-col gap-5">
               {detail2550List.map((i) => (
                 <div key={i.title}>
-                  <div className="wv-h9 wv-bold">{i.title}</div>
+                  <div className="wv-h9 font-bold">{i.title}</div>
                   <div className="mx-auto mt-3 flex max-w-[500px] flex-col gap-3 text-left">
                     {i.labels.map((l) => (
                       <div key={l} className="flex items-center gap-3">
@@ -413,7 +418,7 @@ export default function SectionPart1() {
               คณะรักษาความสงบแห่งชาติ (คสช.) ทำรัฐประหาร และออกประกาศ คสช.
               ฉบับที่ 11/2557 มีผลให้สิ้นสุดการบังคับใช้รัฐธรรมนูญ 2550
               ยกเว้นหมวด 2 พระมหากษัตริย์{' '}
-              <span className="wv-bold">
+              <span className="font-bold">
                 โดยมีข้อยกเว้นว่า องค์กรศาล องค์กรอิสระ
                 และองค์กรอื่นตามรัฐธรรมนูญ 2550 ยังคงมีอำนาจดำเนินการ พิจารณา
                 และพิพากษาอรรถคดี หรือปฏิบัติหน้าที่ต่อไปแล้วแต่กรณี
@@ -423,7 +428,7 @@ export default function SectionPart1() {
           image="/images/sit_6.png"
           body={
             <>
-              <span className="wv-bold">
+              <span className="font-bold">
                 รัฐประหารเกิดขึ้นหลังวิกฤตการณ์การเมืองซึ่งเริ่มเมื่อเดือนตุลาคม
                 2556 เพื่อคัดค้านร่าง พ.ร.บ. นิรโทษกรรมฯ และอิทธิพลของทักษิณ
                 ชินวัตร
@@ -442,7 +447,7 @@ export default function SectionPart1() {
               คสช. ได้ออกประกาศ คสช. ฉบับที่ 48/2557 เพื่อสรรหาบุคคลดำรงตำแหน่ง
               แทนตำแหน่งตุลาการศาลรัฐธรรมนูญที่ว่าง
               ตามหลักเกณฑ์และวิธีการของรัฐธรรมนูญ 2550{' '}
-              <span className="wv-bold">
+              <span className="font-bold">
                 ซึ่งทำให้ได้ตุลาการศาลฯ มา 2 คน
                 ด้วยการคัดเลือกและรับรองโดยสภานิติบัญญัติแห่งชาติ (สนช.)
                 และคำสั่งหัวหน้า คสช. ฉบับที่ 24/2560 ให้ตุลาการศาลฯ 5 คน
@@ -454,7 +459,7 @@ export default function SectionPart1() {
           }
           image="/images/sit_7.png"
           body={
-            <div className="wv-bold">
+            <div className="font-bold">
               คสช. แทรกแซงอำนาจศาลรัฐธรรมนูญผ่านการ &apos;ต่ออายุ&apos; และ
               &apos;แต่งตั้ง&apos; ตุลาการศาลรัฐธรรมนูญ
             </div>
@@ -467,18 +472,21 @@ export default function SectionPart1() {
           title="รัฐธรรมนูญ 2560 มีผลใช้บังคับ"
           collapseDetail={
             <>
-              <div className="wv-bold mb-4">
+              <div className="mb-4 font-bold">
                 รัฐธรรมนูญกำหนดให้ตุลาการศาลรัฐธรรมนูญมีจำนวน 9 คน
                 ซึ่งพระมหากษัตริย์ทรงแต่งตั้งจากมติของวุฒิสภาประกอบด้วย
               </div>
-              <JudgeList list={con2560List} noEtc={true} />
+              <CustomImg
+                src="/images/con_2560.png"
+                className="mx-auto w-full max-w-[634px]"
+              />
             </>
           }
           image="/images/sit_8.png"
           body={
             <>
               หากนำคำวินิจฉัยคดีทางการเมืองภายใต้การบังคับใช้รัฐธรรมนูญ 2560{' '}
-              <span className="wv-bold">
+              <span className="font-bold">
                 จำนวน 20 คดีมาคิดเป็นอัตราส่วน จะพบว่า
                 คำวินิจฉัยส่วนใหญ่เป็นผลบวกกับฝ่าย คสช. และฝ่ายร่วมรัฐบาลของ
                 ครม. ประยุทธ์ 2
@@ -500,7 +508,7 @@ export default function SectionPart1() {
               เป็นการเลือกตั้งทั่วไปครั้งแรก หลังการรัฐประหารเมื่อ พ.ศ. 2557
               โดยพรรคที่ชนะการเลือกตั้งและได้ที่นั่งในสภามากที่สุด
               คือพรรคเพื่อไทย แต่
-              <span className="wv-bold">
+              <span className="font-bold">
                 ระบบเลือกตั้งแบบจัดสรรปันส่วนผสม (MMA) ทำให้พรรคที่สนับสนุน
                 คณะรัฐประหารสามารถจัดตั้งรัฐบาลผสมได้สำเร็จ
                 นำโดยพรรคพลังประชารัฐ ที่เป็นแกนนำจัดตั้งรัฐบาล
@@ -510,7 +518,7 @@ export default function SectionPart1() {
           image="/images/sit_9.png"
           body={
             <>
-              <span className="wv-bold">
+              <span className="font-bold">
                 แนวโน้มของคำวินิจฉัยส่งผลบวกต่อรัฐบาลทหารและยังคงต่อเนื่อง
                 โดยวินิจฉัยให้ประยุทธ์ จันทร์โอชา รอดจากการหลุดจากตำแหน่งนายกฯ 2
                 ครั้ง

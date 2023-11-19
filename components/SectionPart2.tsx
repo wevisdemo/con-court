@@ -32,7 +32,7 @@ export default function SectionPart2() {
             icon="/images/icon_warning_grey.png"
             className="mx-auto h-[110px] w-[110px]"
           />
-          <div className="wv-h3 wv-black wv-kondolar mt-8 text-freedom">
+          <div className="wv-h3 wv-kondolar mt-8 font-black text-freedom">
             คำวินิจฉัยในเรื่องการคุ้มครอง สิทธิเสรีภาพของประชาชน
             และความมั่นคงของรัฐ
           </div>
@@ -44,7 +44,7 @@ export default function SectionPart2() {
           <div className="wv-h9">
             นับตั้งแต่ปี 2540 ศาลรัฐธรรมนูญได้วินิจฉัย
           </div>
-          <div className="wv-h5 wv-black wv-kondolar">
+          <div className="wv-h5 wv-kondolar font-black">
             คดีกรณีการคุ้มครอง
             <br />
             สิทธิเสรีภาพของประชาชน
@@ -52,13 +52,13 @@ export default function SectionPart2() {
             และความมั่นคงของรัฐ
           </div>
           <BulletList list={caseList} />
-          <div className="wv-h5 wv-black wv-kondolar">รวมทั้งหมด 19 คดี</div>
+          <div className="wv-h5 wv-kondolar font-black">รวมทั้งหมด 19 คดี</div>
           <ScrollHint mode="light" />
         </div>
       </SectionBox>
       <div className="screen"></div>
       <SectionBox boxCls="p-8">
-        <div className="wv-bold wv-h9 mx-auto flex max-w-[540px] flex-col gap-5">
+        <div className="wv-h9 mx-auto flex max-w-[540px] flex-col gap-5 font-bold">
           <div>
             นับตั้งแต่ปี 2540 ศาลรัฐธรรมนูญได้วินิจฉัย
             คดีกรณีการคุ้มครองสิทธิเสรีภาพของประชาชนทั้งหมด 14 คดี
@@ -70,7 +70,7 @@ export default function SectionPart2() {
       <div className="screen"></div>
       <SectionBox boxCls="p-8">
         <div className="wv-h9 mx-auto flex max-w-[540px] flex-col gap-5">
-          <div className="wv-bold">
+          <div className="font-bold">
             และมีเพียง 1 คำวินิจฉัย
             <br />
             ที่มีผลให้เปลี่ยนแปลงบทกฎหมาย
@@ -78,7 +78,7 @@ export default function SectionPart2() {
           <PaperList color="#E0AEFF" count={14} actives={[13]} />
           <div>
             เพื่อขยายรับรองสิทธิของประชาชนมากขึ้น คือคำวินิจฉัยที่ 4/2563{' '}
-            <span className="wv-bold">
+            <span className="font-bold">
               กรณีแก้ไขกฎหมายอาญาในประเด็นสิทธิทำแท้ง
             </span>
             โดย นางสาวศรีสมัย เชื้อชาติ
@@ -88,13 +88,13 @@ export default function SectionPart2() {
       <div className="screen"></div>
       <SectionBox boxCls="p-8">
         <div className="mx-auto flex max-w-[580px] flex-col gap-5">
-          <div className="wv-h9 wv-bold">
+          <div className="wv-h9 font-bold">
             ในขณะที่คำวินิจฉัยในเรื่องพิทักษ์ระบอบการปกครอง
             และความมั่นคงของรัฐมีทั้งหมด 5 คำวินิจฉัย
           </div>
           <PaperList color="#A180FE" count={5} actives={[0, 1, 2, 3, 4]} />
           <div className="wv-h10">
-            <span className="wv-bold">
+            <span className="font-bold">
               โดยผู้ถูกร้องจากคดีเหล่านี้ล้วนเป็นกลุ่มหรือบุคคลที่เป็นคู่ตรงข้ามทางการเมือง
               ของคณะรัฐประหาร
             </span>

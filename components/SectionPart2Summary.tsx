@@ -10,7 +10,7 @@ export default function SectionPart2Summary() {
     <div className="pointer-events-auto bg-grey4">
       <div className="h-[154px] rounded-b-[200px] bg-black"></div>
       <div className="mx-auto max-w-[700px] pb-[150px] pt-10">
-        <div className="wv-h5 wv-bold text-freedom">
+        <div className="wv-h5 font-bold text-freedom">
           ตัวอย่างคำวินิจฉัยที่ชวนคิดว่า“ศาลรัฐธรรมนูญ”
           ไม่ได้ทำหน้าที่ตามค่านิยม
         </div>
@@ -19,20 +19,20 @@ export default function SectionPart2Summary() {
           color="white"
           className="mt-8 px-10 py-12"
         >
-          <div className="overflow-hidden rounded-md border border-black">
+          <div className="overflow-hidden rounded-md border">
             <div className="p-3">
               <div className="wv-h10 flex justify-center gap-2">
                 <CustomImg src="/images/icon_con_2.png" className="w-6" />
                 ในคำวินิจฉัยที่ 19/2564
               </div>
-              <div className="wv-h8 wv-bold mt-2">
+              <div className="wv-h8 mt-2 font-bold">
                 คดีการชุมนุมปราศรัยในนามคณะบุคคลนำโดย
                 กลุ่มนักศึกษามหาวิทยาลัยธรรมศาสตร์ฯ ในวันที่ 10 สิงหาคม 2563
               </div>
             </div>
             <CustomImg src="/images/example_1.png" className="w-full" />
           </div>
-          <div className="wv-h9 wv-bold mt-5 rounded-md border border-black p-3">
+          <div className="wv-h9 mt-5 rounded-md border p-3 font-bold">
             ผู้ถูกร้อง 3 คน ปราศรัยในที่สาธารณะเรียกร้องให้แก้ไข รัฐธรรมนูญฯ
             และยกเลิกกฎหมายอาญามาตรา 112 ผ่านข้อเรียกร้อง 10 ประการ
           </div>
@@ -42,8 +42,8 @@ export default function SectionPart2Summary() {
             ของผู้ถูกร้อง 3 คน ไว้พิจารณา
           </div>
           <ArrowDown color="black" className="mx-auto mt-3 w-6" />
-          <div className="wv-h9 mt-5 rounded-md border border-black p-3">
-            <span className="wv-bold">
+          <div className="wv-h9 mt-5 rounded-md border p-3">
+            <span className="font-bold">
               ศาลรัฐธรรมนูญ วินิจฉัยว่าการชุมนุมปราศัยของทั้ง 3 คน
               เป็นการอ้างสิทธิโดยไม่คํานึงถึงหลักความเสมอภาค
             </span>{' '}
@@ -62,7 +62,7 @@ export default function SectionPart2Summary() {
           />
           <BlurBox className="mt-8 px-[68px] py-[80px]">
             <Quote color="#E0AEFF" className="mx-auto w-11" />
-            <div className="wv-h8 wv-bold my-3 text-freedom">
+            <div className="wv-h8 my-3 font-bold text-freedom">
               หากการปราศรัยให้มีการ “ปฏิรูปกฎหมายอาญา” เป็นการล้มล้างการปกครอง
               แล้วเหตุใดการทำรัฐประหาร ที่ฉีกรัฐธรรมนูญอันเป็นกฎหมายสูงสุดทิ้ง
               และร่างใหม่ โดยคณะบุคคลที่เข้ามายึดอำนาจ
@@ -70,7 +70,7 @@ export default function SectionPart2Summary() {
             </div>
             <Quote color="#E0AEFF" className="mx-auto w-11 rotate-180" />
           </BlurBox>
-          <div className="wv-h5 wv-bold mt-[125px] text-freedom">
+          <div className="wv-h5 mt-[125px] font-bold text-freedom">
             รัฐประหารไม่เป็นความผิด
             <br />
             แต่เป็นอภิสิทธิ์ทางรัฐธรรมนูญ?
@@ -80,14 +80,14 @@ export default function SectionPart2Summary() {
             color="white"
             className="mt-8 px-10 py-12"
           >
-            <div className="wv-h8 wv-bold">
+            <div className="wv-h8 font-bold">
               นับแต่การมีอยู่ของศาลรัฐธรรนูญในปี 2540
               การเมืองไทยประสบกับเหตุการณ์รัฐประหาร มาแล้ว 2 ครั้ง ในปี 2549
               และปี 2557
             </div>
             <CustomImg src="/images/example_2.png" className="my-5 w-full" />
             <div className="wv-h9">
-              <div className="wv-bold">
+              <div className="font-bold">
                 ถึงอย่างนั้นศาลรัฐธรรมนูญก็ไม่เคยก้าวล่วงไปพิพากษาเอาผิด
                 คณะรัฐประหารที่ยึดอำนาจและฉีกรัฐธรรมนูญทิ้ง
               </div>
@@ -97,7 +97,7 @@ export default function SectionPart2Summary() {
               ที่กฎหมายของคณะรัฐประหาร จะไม่ได้รับการรับรอง
             </div>
           </PaperBox>
-          <BlurBox className="wv-bold wv-h8 mt-8 px-20 py-10 text-freedom">
+          <BlurBox className="wv-h8 mt-8 px-20 py-10 font-bold text-freedom">
             <div className="flex flex-col items-center gap-3">
               <div className="max-w-[420px]">
                 ดังนั้นแล้ว ชุดคำถามสำคัญที่

@@ -15,7 +15,7 @@ export default function Chart({ legends }: Props) {
       id="chart"
       className="fixed inset-0 mx-auto flex max-w-[1108px] flex-col justify-center gap-4"
     >
-      <div className="wv-h5 wv-black wv-kondolar">
+      <div className="wv-h5 wv-kondolar font-black">
         ภาพรวมสัดส่วนคำวินิจฉัยศาลรัฐธรรมนูญ
       </div>
       <Legends data={legends} />
@@ -35,7 +35,7 @@ export default function Chart({ legends }: Props) {
             key={i}
             className="pointer-events-none relative flex flex-1 flex-col border-l border-white"
           >
-            <div className="wv-h9 wv-bold absolute inset-x-0 -top-10">
+            <div className="wv-h9 absolute inset-x-0 -top-10 font-bold">
               นายกฯ ปี พศ.
             </div>
             <div className="absolute inset-0 flex">

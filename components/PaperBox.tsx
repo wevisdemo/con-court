@@ -16,7 +16,7 @@ export default function PaperBox({
   return (
     <div
       style={{ background: color }}
-      className={twMerge('relative border border-black text-black', className)}
+      className={twMerge('relative border text-black', className)}
     >
       <div className="absolute left-0 top-0 h-10 w-10 border">
         <div

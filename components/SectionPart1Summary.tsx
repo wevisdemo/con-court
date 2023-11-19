@@ -44,8 +44,8 @@ export default function SectionPart1Summary() {
     {
       label: (
         <>
-          <span className="wv-bold text-sentreq">จำนวนวันที่ยื่นคำร้อง</span>จาก
-          กกต. หรือ ประธานสภา ไปยังศาลฯ
+          <span className="font-bold text-sentreq">จำนวนวันที่ยื่นคำร้อง</span>
+          จาก กกต. หรือ ประธานสภา ไปยังศาลฯ
         </>
       ),
       value: '1',
@@ -54,7 +54,7 @@ export default function SectionPart1Summary() {
     {
       label: (
         <>
-          <span className="wv-bold text-accreq">จำนวนวันที่ศาลรับคำร้อง</span>
+          <span className="font-bold text-accreq">จำนวนวันที่ศาลรับคำร้อง</span>
           จาก กกต. หรือ ประธานสภา
         </>
       ),
@@ -71,7 +71,7 @@ export default function SectionPart1Summary() {
           color: '#ACF38A',
           name: (
             <>
-              <span className="wv-bold">คดีภรรยาถือหุ้น</span>เกิน 5% ดอน
+              <span className="font-bold">คดีภรรยาถือหุ้น</span>เกิน 5% ดอน
               ปรมัตถ์วินัย รมว. ต่างประเทศ (5/2561)
             </>
           ),
@@ -87,7 +87,7 @@ export default function SectionPart1Summary() {
           color: '#ACF38A',
           name: (
             <>
-              <span className="wv-bold">คดีถือหุ้น</span>สัมปทานรัฐ 4
+              <span className="font-bold">คดีถือหุ้น</span>สัมปทานรัฐ 4
               รัฐมนตรีในรัฐบาล คสช. (7/2562)
             </>
           ),
@@ -103,7 +103,7 @@ export default function SectionPart1Summary() {
           color: '#ACF38A',
           name: (
             <>
-              <span className="wv-bold">คดีถือหุ้น</span>สื่อ 41 สส.
+              <span className="font-bold">คดีถือหุ้น</span>สื่อ 41 สส.
               พรรคร่วมรัฐบาล (18-19/2563)
             </>
           ),
@@ -126,7 +126,7 @@ export default function SectionPart1Summary() {
           color: '#FF9A9A',
           name: (
             <>
-              <span className="wv-bold">คดีถือหุ้น</span>สื่อ ธนาธร
+              <span className="font-bold">คดีถือหุ้น</span>สื่อ ธนาธร
               จึงรุ่งเรืองกิจ พรรคอนาคตใหม่ (14/2562)
             </>
           ),
@@ -155,7 +155,7 @@ export default function SectionPart1Summary() {
         {
           name: (
             <>
-              <span className="wv-bold">คดีถือหุ้น</span>สื่อ พิธา
+              <span className="font-bold">คดีถือหุ้น</span>สื่อ พิธา
               ลิ้มเจริญรัตน์ พรรคก้าวไกล
             </>
           ),
@@ -188,7 +188,7 @@ export default function SectionPart1Summary() {
     <div className="pointer-events-auto bg-grey4 pb-[112px]">
       <div className="rounded-b-[200px] bg-black pb-[112px] pt-20">
         <div className="mx-auto w-[720px]">
-          <div className="wv-h5 wv-black wv-kondolar">
+          <div className="wv-h5 wv-kondolar font-black">
             หลายครั้ง “ผลลัพธ์สำคัญทางการเมือง” เกิดขึ้น
             จากการวินิจฉัยของศาลรัฐธรรมนูญ
           </div>
@@ -202,7 +202,7 @@ export default function SectionPart1Summary() {
             <div key={i.image} className="flex gap-5">
               <div className="w-[160px] overflow-hidden rounded-md">
                 <CustomImg src={i.image} className="h-[120px] w-full" />
-                <div className="wv-h10 wv-bold flex h-[160px] items-center bg-grey3 px-5">
+                <div className="wv-h10 flex h-[160px] items-center bg-grey3 px-5 font-bold">
                   <div>{i.detail}</div>
                 </div>
               </div>
@@ -221,7 +221,7 @@ export default function SectionPart1Summary() {
       </div>
       <div className="flex flex-col gap-6 pt-16">
         <div className="mx-auto w-[790px]">
-          <div className="wv-h5 wv-black wv-kondolar">
+          <div className="wv-h5 wv-kondolar font-black">
             เมื่อพิจารณาถึงคดีที่มีข้อเท็จจริงที่คล้ายคลึงกัน
             อย่างกรณีคดีการถือหุ้นของรัฐมนตรี - สส.
           </div>
@@ -234,7 +234,7 @@ export default function SectionPart1Summary() {
         </div>
         <Legends data={legends} boxSize="40px" />
         <div className="mx-auto w-fit">
-          <div className="wv-bold wv-h9 flex gap-4 py-4">
+          <div className="wv-h9 flex gap-4 py-4 font-bold">
             <div className="w-20"></div>
             <div className="w-[300px]">ชื่อคดี</div>
             <div className="w-[420px]">ระยะเวลายื่นและรับคำร้อง</div>
@@ -245,7 +245,7 @@ export default function SectionPart1Summary() {
               <div className="flex w-20 items-center justify-end gap-6 py-10">
                 <div className="relative h-4 w-4">
                   <div className="absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4 -rotate-90 whitespace-nowrap text-grey1">
-                    <div className="wv-h10 wv-bold">{g.label}</div>
+                    <div className="wv-h10 font-bold">{g.label}</div>
                     {g.subLabel && <div className="wv-h11">{g.subLabel}</div>}
                   </div>
                 </div>

@@ -39,7 +39,7 @@ export default function SectionIntro() {
               className="mt-10 w-[643px]"
             />
             <BorderBox>
-              <div className="wv-h5 wv-kondolar wv-bold px-10 py-4">
+              <div className="wv-h5 wv-kondolar px-10 py-4 font-bold">
                 ชำแหละคำวินิจฉัย
                 <br />
                 ศาลรัฐธรรมนูญไทย

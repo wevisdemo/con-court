@@ -129,7 +129,7 @@ export default function SectionTodo() {
   return (
     <div className="mx-auto max-w-[1180px] py-20">
       <div className="relative">
-        <div className="wv-h4 wv-kondolar wv-black">
+        <div className="wv-h4 wv-kondolar font-black">
           ศาลรัฐธรรมนูญ ทำอะไรบ้าง ?
         </div>
         <div className="wv-h7 wv-kondolar mt-6">
@@ -152,14 +152,16 @@ export default function SectionTodo() {
               />
             </PopoverTrigger>
             <PopoverContent>
-              <div className="wv-h9 wv-bold p-4 pb-2">คำย่อและอักษรย่อ</div>
+              <div className="wv-h9 p-4 pb-2 font-bold">คำย่อและอักษรย่อ</div>
               <div className="max-h-[360px] overflow-y-auto px-9 text-left">
                 {wordList.map((i) => (
                   <div
                     key={i.name}
                     className="wv-h10 flex border-b border-grey0 py-2"
                   >
-                    <div className="wv-bold w-[100px] flex-none">{i.name}</div>
+                    <div className="w-[100px] flex-none font-bold">
+                      {i.name}
+                    </div>
                     <div>{i.text}</div>
                   </div>
                 ))}
@@ -173,7 +175,7 @@ export default function SectionTodo() {
           <div key={t.name}>
             <div
               style={{ backgroundImage: `url(${t.bg})` }}
-              className="wv-h8 wv-bold relative flex h-[236px] items-center justify-center overflow-hidden rounded-md bg-cover text-black"
+              className="wv-h8 relative flex h-[236px] items-center justify-center overflow-hidden rounded-md bg-cover font-bold text-black"
             >
               <div className="absolute inset-0 bg-white/50"></div>
               <div

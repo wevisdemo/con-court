@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { Accordion, AccordionItem } from "@nextui-org/react";
-import CustomImg from "./CustomImg";
-import { useState } from "react";
+import { Accordion, AccordionItem } from '@nextui-org/react';
+import CustomImg from './CustomImg';
+import { useState } from 'react';
 
 type Props = {
   date: string;
@@ -25,7 +25,7 @@ export default function SituationDetail({
     <>
       <div className="bg-highlight py-5 pb-0 text-black">
         <div className="wv-h10">{date} เกิดเหตุการณ์</div>
-        <div className="wv-bold wv-h7 my-2 flex items-center justify-center px-8">
+        <div className="wv-h7 my-2 flex items-center justify-center px-8 font-bold">
           <CustomImg src="/images/icon_star_2.png" className="w-10" />
           {title}
         </div>
@@ -38,15 +38,15 @@ export default function SituationDetail({
             key="1"
             title={
               selectedKeys.size
-                ? "ซ่อนเหตุการณ์เพิ่มเติม"
-                : "อ่านเหตุการณ์เพิ่มเติม"
+                ? 'ซ่อนเหตุการณ์เพิ่มเติม'
+                : 'อ่านเหตุการณ์เพิ่มเติม'
             }
             classNames={{
-              heading: "border-b border-black",
-              trigger: "pt-0 justify-center",
-              titleWrapper: "flex-none",
-              title: "wv-h10 text-black",
-              content: "wv-h11 p-5",
+              heading: 'border-b',
+              trigger: 'pt-0 justify-center',
+              titleWrapper: 'flex-none',
+              title: 'wv-h10 text-black',
+              content: 'wv-h11 p-5',
             }}
             indicator={({ isOpen }) =>
               isOpen ? (

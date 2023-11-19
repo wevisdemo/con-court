@@ -16,7 +16,7 @@ export default function BulletList({ list }: Props) {
           ></div>
           <div className="wv-h10">{i.label}</div>
           {i.total && (
-            <div className="wv-h7 wv-kondolar wv-black ml-auto flex-none">
+            <div className="wv-h7 wv-kondolar ml-auto flex-none font-black">
               {i.total} คดี
             </div>
           )}

@@ -5,8 +5,8 @@ export default function SectionSpotlight() {
   return (
     <div className="screen relative flex items-center justify-center">
       <BlurBox className="max-w-[1080px] px-[210px] py-[110px]">
-        <div className="wv-h5 wv-bold wv-kondolar">แล้วศาลรัฐธรรมนูญ</div>
-        <div className="wv-h4 wv-black wv-kondolar mt-2">
+        <div className="wv-h5 wv-kondolar font-bold">แล้วศาลรัฐธรรมนูญ</div>
+        <div className="wv-h4 wv-kondolar mt-2 font-black">
           ได้ทำหน้าที่ตามค่านิยม
           <br />
           ที่มีไว้หรือเปล่านะ ?
@@ -17,7 +17,7 @@ export default function SectionSpotlight() {
           วินิจฉัยในประเด็นใดบ้าง 
         </div>
         <div className="rounded-md border-grey2 bg-black/30 p-4">
-          <div className="wv-h9 wv-bold flex items-center justify-center gap-2">
+          <div className="wv-h9 flex items-center justify-center gap-2 font-bold">
             <CustomImg src="/images/icon_warning.png" className="w-[28px]" />
             Disclaimer
           </div>

@@ -60,7 +60,7 @@ export default function SectionLanding() {
     <>
       <SectionBox boxCls="p-12">
         <div className="mx-auto flex max-w-[460px] flex-col gap-3">
-          <div className="wv-h5 wv-black wv-kondolar">
+          <div className="wv-h5 wv-kondolar font-black">
             ฉายคำวินิจฉัย
             <br />
             ศาลรัฐธรรมนูญไทย
@@ -80,7 +80,7 @@ export default function SectionLanding() {
       <div className="screen"></div>
       <SectionBox boxCls="p-8 wv-h9">
         สัดส่วนประเภทคำวินิจฉัยที่มีมากที่สุดคือ{' '}
-        <span className="wv-bold bg-law">
+        <span className="bg-law font-bold">
           คำวินิจฉัยในเรื่องการตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ
         </span>{' '}
         จากการวินิจฉัยว่ากฎหมายหรือร่างกฎหมายใดขัดหรือแย้งต่อรัฐธรรมนูญ
@@ -89,7 +89,7 @@ export default function SectionLanding() {
       </SectionBox>
       <SectionBox boxCls="p-8 wv-h9">
         คำวินิจฉัยที่ได้รับคำวิพากษ์วิจารณ์บ่อยครั้ง คือ{' '}
-        <span className="wv-bold bg-politics">
+        <span className="bg-politics font-bold">
           “คำวินิจฉัยในเรื่องการตรวจสอบ สถาบันทางการเมือง”
         </span>{' '}
         เพราะเป็นการวินิจฉัยต่อบุคคล หรือสถาบันที่มาจากการเลือกตั้งโดยประชาชน
@@ -98,7 +98,7 @@ export default function SectionLanding() {
       </SectionBox>
       <SectionBox boxCls="p-8 wv-h9">
         ในส่วนของ{' '}
-        <span className="wv-bold bg-freedom">
+        <span className="bg-freedom font-bold">
           “คำวินิจฉัยในเรื่องการคุ้มครองสิทธิเสรีภาพ ของประชาชน
           และความมั่นคงของรัฐ”
         </span>{' '}
@@ -112,7 +112,7 @@ export default function SectionLanding() {
           <BulletList list={typeList} />
           <div>
             ที่มักส่งผลต่อภาพลักษณ์ของศาลรัฐธรรมนูญ เช่น
-            <div className="wv-bold">
+            <div className="font-bold">
               ข้อวิจารณ์เรื่องการตีความนอกเหนือตัวบทกฎหมาย
               เมื่อมีการชี้ขาดคดีทางการเมือง และคำวินิจฉัยในเรื่องสิทธิฯ
               ที่มักไม่ได้ส่งเสริมสิทธิของประชาชน
@@ -127,11 +127,13 @@ export default function SectionLanding() {
       </SectionBox>
       <div className="screen pointer-events-auto flex flex-col justify-center gap-10 bg-black py-20">
         <div className="mx-auto max-w-[600px]">
-          <div className="wv-h5 wv-black wv-kondolar">เลือกสำรวจคำวินิจฉัย</div>
+          <div className="wv-h5 wv-kondolar font-black">
+            เลือกสำรวจคำวินิจฉัย
+          </div>
           <div className="wv-h9 mt-2">
             เพื่อให้คุณได้ลองตัดสินใจว่าที่ผ่านมา ศาลรัฐธรรมนูญไทย
             ได้ทำงานตามค่านิยมองค์กรที่ว่า{' '}
-            <span className="wv-bold">
+            <span className="font-bold">
               &quot;ยึดหลักนิติธรรม ค้ำจุนประชาธิปไตย
               ห่วงใยสิทธิและเสรีภาพของประชาชน&quot;
             </span>{' '}
@@ -155,7 +157,7 @@ export default function SectionLanding() {
                 <div className="wv-h7 mt-5">{i.label}</div>
                 <div
                   style={{ color: i.color }}
-                  className="wv-h6 wv-black wv-kondolar mt-2 group-hover:!text-white"
+                  className="wv-h6 wv-kondolar mt-2 font-black group-hover:!text-white"
                 >
                   {i.title}
                 </div>
