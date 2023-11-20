@@ -8,72 +8,72 @@ export default function SectionTodo() {
     {
       name: 'หน้าที่ตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ',
       color: '#6BB8FF',
-      icon: '/images/icon_inspect_blue.png',
-      bg: 'images/bg_inspect.png',
+      icon: '/images/icon_inspect_blue.webp',
+      bg: 'images/bg_inspect.webp',
       items: [
         {
           name: 'ตรวจสอบ “ร่างกฎหมาย” ก่อนประกาศใช้',
-          icon: '/images/icon_inspect_1.png',
+          icon: '/images/icon_inspect_1.webp',
         },
         {
           name: 'พิจารณาร่าง พ.ร.บ. งบประมาณรายจ่ายประจำปี',
-          icon: '/images/icon_inspect_2.png',
+          icon: '/images/icon_inspect_2.webp',
         },
         {
           name: 'ตรวจสอบกฎหมายที่มีผลใช้บังคับแล้ว',
-          icon: '/images/icon_inspect_3.png',
+          icon: '/images/icon_inspect_3.webp',
         },
         {
           name: 'วินิจฉัยประเด็นหน้าที่และอํานาจขององค์กรอิสระ',
-          icon: '/images/icon_inspect_4.png',
+          icon: '/images/icon_inspect_4.webp',
         },
       ],
     },
     {
       name: 'หน้าที่ตรวจสอบสถาบันทางการเมือง',
       color: '#FFC164',
-      icon: '/images/icon_protect_orange.png',
-      bg: 'images/bg_protect.png',
+      icon: '/images/icon_protect_orange.webp',
+      bg: 'images/bg_protect.webp',
       items: [
         {
           name: 'ตรวจสอบคุณสมบัติและวินิจฉัยสถานะ ของ สส. สว. และคณะรัฐมนตรี',
-          icon: '/images/icon_protect_1.png',
+          icon: '/images/icon_protect_1.webp',
         },
         {
           name: 'วินิจฉัยประเด็นหน้าที่และอํานาจของ สส. สว. คณะรัฐมนตรีและผู้ดำรงตำแหน่งทางการเมือง',
-          icon: '/images/icon_protect_2.png',
+          icon: '/images/icon_protect_2.webp',
         },
         {
           name: 'วินิจฉัยมติ ครม. และการดำเนินการของ ครม.  ตาม พ.ร.บ. การจัดทำยุทธศาสตร์ชาติ พ.ศ. 2560',
-          icon: '/images/icon_protect_3.png',
+          icon: '/images/icon_protect_3.webp',
         },
         {
           name: 'ทำหน้าที่ตาม พ.ร.ป. ว่าด้วยพรรคการเมือง พ.ศ. 2560 ได้แก่ วินิจฉัยคำร้องและคำสั่งจาก กกต. ที่มีต่อพรรคการเมือง เช่น พิจารณาตัดสินยุบพรรคการเมืองตัดสิทธิ์ทางการเมืองกรรมการบริหารพรรค',
-          icon: '/images/icon_protect_4.png',
+          icon: '/images/icon_protect_4.webp',
         },
       ],
     },
     {
       name: 'หน้าที่คุ้มครองสิทธิเสรีภาพของประชาชนและความมั่นคงของรัฐ',
       color: '#E0AEFF',
-      icon: '/images/icon_why_purple.png',
-      bg: 'images/bg_why.png',
+      icon: '/images/icon_why_purple.webp',
+      bg: 'images/bg_why.webp',
       items: [
         {
           name: ' ให้สิทธิประชาชนยื่นคำร้องเมื่อถูกละเมิดสิทธิหรือเสรีภาพ',
-          icon: '/images/icon_why_1.png',
+          icon: '/images/icon_why_1.webp',
         },
         {
           name: 'วินิจฉัยกรณีที่ประชาชนหรือชุมชนฟ้องหน่วยงานของรัฐเพื่อให้ได้รับประโยชน์ตามรัฐธรรมนูญ',
-          icon: '/images/icon_why_2.png',
+          icon: '/images/icon_why_2.webp',
         },
         {
           name: 'วินิจฉัยว่าใครใช้สิทธิเสรีภาพเพื่อล้มล้างการปกครอง',
-          icon: '/images/icon_why_3.png',
+          icon: '/images/icon_why_3.webp',
         },
         {
           name: 'วินิจฉัยความชอบด้วย รัฐธรรมนูญของร่างรัฐธรรมนูญแก้ไขเพิ่มเติม',
-          icon: '/images/icon_why_4.png',
+          icon: '/images/icon_why_4.webp',
         },
       ],
     },
@@ -147,7 +147,7 @@ export default function SectionTodo() {
           >
             <PopoverTrigger>
               <CustomImg
-                src="/images/icon_info.png"
+                src="/images/icon_info.webp"
                 className="w-10 cursor-pointer rounded-full hover:bg-white/30"
               />
             </PopoverTrigger>

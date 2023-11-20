@@ -73,7 +73,7 @@ export default function BorderBox({
       >
         {cornerOuter()}
         <CustomImg
-          src="/images/border_box_bg.png"
+          src="/images/border_box_bg.webp"
           className="absolute top-0 h-full"
         />
         <div className="m-3 overflow-hidden bg-black">

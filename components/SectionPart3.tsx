@@ -17,10 +17,10 @@ export default function SectionPart3() {
           และเพิ่มกระบวนการตรวจสอบถ่วงดุลมากขึ้น
         </>
       ),
-      image: '/images/proposal_1.png',
+      image: '/images/proposal_1.webp',
       items: [
         {
-          icon: '/images/icon_raise.png',
+          icon: '/images/icon_raise.webp',
           text: (
             <>
               รัฐธรรมนูญ 2560{' '}
@@ -35,7 +35,7 @@ export default function SectionPart3() {
           ),
         },
         {
-          icon: '/images/icon_point.png',
+          icon: '/images/icon_point.webp',
           text: (
             <>
               ทั้งนี้{' '}
@@ -61,10 +61,10 @@ export default function SectionPart3() {
           และนำความเห็นมาเป็นตัวชี้วัด การปฏิบัติหน้าที่ของศาลรัฐธรรมนูญ
         </>
       ),
-      image: '/images/proposal_2.png',
+      image: '/images/proposal_2.webp',
       items: [
         {
-          icon: '/images/icon_love.png',
+          icon: '/images/icon_love.webp',
           text: (
             <>
               งานศึกษาเปรียบเทียบรัฐธรรมนูญโดย Albert H. Chen เสนอว่า
@@ -87,7 +87,7 @@ export default function SectionPart3() {
       <BorderBox color="#FFE500" className="w-[1000px] px-[150px] py-8">
         <IconWithBg
           color="#FFE500"
-          icon="/images/icon_q.png"
+          icon="/images/icon_q.webp"
           className="mx-auto h-[110px] w-[110px]"
         />
         <div className="wv-h3 wv-kondolar mt-8 font-black text-highlight">

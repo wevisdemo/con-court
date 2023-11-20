@@ -41,14 +41,14 @@ export default function SectionLanding() {
     {
       id: 'part1',
       label: 'สำรวจคำวินิจฉัย',
-      icon: '/images/icon_protect_orange.png',
+      icon: '/images/icon_protect_orange.webp',
       title: 'ตรวจสอบสถาบันทางการเมือง',
       color: '#FFC164',
     },
     {
       id: 'part2',
       label: 'สำรวจคำวินิจฉัย',
-      icon: '/images/icon_why_purple.png',
+      icon: '/images/icon_why_purple.webp',
       title: 'คุ้มครองสิทธิเสรีภาพของประชาชนและความมั่นคงของรัฐ',
       color: '#E0AEFF',
     },

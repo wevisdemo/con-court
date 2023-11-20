@@ -18,7 +18,7 @@ export default function SectionSpotlight() {
         </div>
         <div className="rounded-md border-grey2 bg-black/30 p-4">
           <div className="wv-h9 flex items-center justify-center gap-2 font-bold">
-            <CustomImg src="/images/icon_warning.png" className="w-[28px]" />
+            <CustomImg src="/images/icon_warning.webp" className="w-[28px]" />
             Disclaimer
           </div>
           <div className="wv-h11 mt-3">

@@ -9,7 +9,7 @@ import ScrollHint from './ScrollHint';
 export default function SectionPart1Summary() {
   const situationList = [
     {
-      image: '/images/sit_sum_1.png',
+      image: '/images/sit_sum_1.webp',
       detail: (
         <>
           <div>เหตุการณ์สำคัญ</div>
@@ -19,7 +19,7 @@ export default function SectionPart1Summary() {
       next: 'ส่งผลต่อ',
     },
     {
-      image: '/images/sit_sum_2.png',
+      image: '/images/sit_sum_2.webp',
       detail: (
         <>
           <div>การทำงานของ ศาลรัฐธรรมนูญ</div>
@@ -30,12 +30,12 @@ export default function SectionPart1Summary() {
       next: 'ผลิต',
     },
     {
-      image: '/images/sit_sum_3.png',
+      image: '/images/sit_sum_3.webp',
       detail: <>คำวินิจฉัย ศาล รัฐธรรมนูญ</>,
       next: 'สร้าง',
     },
     {
-      image: '/images/sit_sum_4.png',
+      image: '/images/sit_sum_4.webp',
       detail: <>ผลลัพธ์ สำคัญ ทางการเมือง</>,
     },
   ];
@@ -210,7 +210,7 @@ export default function SectionPart1Summary() {
                 <div className="flex w-[60px] flex-col items-center justify-center gap-3">
                   <div className="wv-h11">{i.next}</div>
                   <CustomImg
-                    src="/images/icon_arrow_right.png"
+                    src="/images/icon_arrow_right.webp"
                     className="w-9"
                   />
                 </div>
@@ -266,7 +266,7 @@ export default function SectionPart1Summary() {
                         <Paper color={i.color} className="w-[44px] flex-none" />
                       ) : (
                         <CustomImg
-                          src="/images/paper_q.png"
+                          src="/images/paper_q.webp"
                           className="w-[44px] flex-none"
                         />
                       )}

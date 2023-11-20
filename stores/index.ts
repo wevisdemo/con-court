@@ -15,17 +15,17 @@ export const state = proxy<State>({
     {
       label: 'การตรวจสอบสถาบันทางการเมือง',
       value: 'part1',
-      icon: '/images/icon_inspect.png',
+      icon: '/images/icon_inspect.webp',
     },
     {
       label: 'การคุ้มครองสิทธิเสรีภาพของประชาชนและความมั่นคงของรัฐ',
       value: 'part2',
-      icon: '/images/icon_protect.png',
+      icon: '/images/icon_protect.webp',
     },
     {
       label: 'เพราะเหตุใดศาลรัฐธรรมนูญไม่ทำหน้าที่ตามค่านิยม ?',
       value: 'part3',
-      icon: '/images/icon_why.png',
+      icon: '/images/icon_why.webp',
     },
   ],
   get menuTabs() {

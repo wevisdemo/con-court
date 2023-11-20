@@ -32,15 +32,15 @@ export default function SectionPart1() {
   const decisionList = [
     {
       label: 'ฝ่ายร่วมรัฐบาล',
-      image: '/images/decision_1.png',
+      image: '/images/decision_1.webp',
     },
     {
       label: 'ฝ่ายค้าน',
-      image: '/images/decision_1.png',
+      image: '/images/decision_1.webp',
     },
     {
       label: 'อื่นๆ',
-      image: '/images/decision_2.png',
+      image: '/images/decision_2.webp',
     },
   ];
 
@@ -53,7 +53,7 @@ export default function SectionPart1() {
         <BorderBox color="#FFC164" className="w-[790px] px-8 py-[100px]">
           <IconWithBg
             color="#3E3E3E"
-            icon="/images/icon_warning_grey.png"
+            icon="/images/icon_warning_grey.webp"
             className="mx-auto h-[110px] w-[110px]"
           />
           <div className="wv-h3 wv-kondolar mt-8 font-black text-politics">
@@ -91,12 +91,12 @@ export default function SectionPart1() {
                 ซึ่งพระมหากษัตริย์ทรงแต่งตั้งตามคำแนะนำของวุฒิสภา
               </div>
               <CustomImg
-                src="/images/con_2540.png"
+                src="/images/con_2540.webp"
                 className="mx-auto w-full max-w-[568px]"
               />
             </>
           }
-          image="/images/sit_1.png"
+          image="/images/sit_1.webp"
           body={
             <>
               <div>
@@ -176,7 +176,7 @@ export default function SectionPart1() {
           </div>
           <div>
             <div className="flex items-center justify-center gap-3">
-              <CustomImg src="/images/stripe_2.png" className="w-9" />
+              <CustomImg src="/images/stripe_2.webp" className="w-9" />
               <div className="wv-h10">
                 คำวินิจฉัยที่มีผล
                 <span className="font-bold">คำวินิจฉัยปรากฏเป็น 2 กรณี</span>
@@ -211,7 +211,7 @@ export default function SectionPart1() {
               ภายใต้การกำกับดูแล กกต.
             </>
           }
-          image="/images/sit_2.png"
+          image="/images/sit_2.webp"
           body={
             <>
               <div>
@@ -257,7 +257,7 @@ export default function SectionPart1() {
               </div>
             </>
           }
-          image="/images/sit_3.png"
+          image="/images/sit_3.webp"
           body={
             <>
               หนึ่งใน “เหตุการณ์สำคัญ” ที่อาจสร้างจุดเปลี่ยนต่อแนวทางการวินิจฉัย
@@ -288,7 +288,7 @@ export default function SectionPart1() {
               ด้วยผลแห่งมาตรา 35 ของรัฐธรรมนูญ 2549 (ฉบับชั่วคราว)
             </>
           }
-          image="/images/sit_4.png"
+          image="/images/sit_4.webp"
           body={
             <>
               <span className="font-bold">
@@ -319,12 +319,12 @@ export default function SectionPart1() {
                 ซึ่งพระมหากษัตริย์ทรงแต่งตั้ง ตามคำแนะนำของวุฒิสภา ประกอบด้วย
               </div>
               <CustomImg
-                src="/images/con_2550.png"
+                src="/images/con_2550.webp"
                 className="mx-auto w-full max-w-[592px]"
               />
             </>
           }
-          image="/images/sit_5.png"
+          image="/images/sit_5.webp"
           body={
             <div className="flex flex-col gap-5">
               {detail2550List.map((i) => (
@@ -361,7 +361,7 @@ export default function SectionPart1() {
               </span>
             </>
           }
-          image="/images/sit_6.png"
+          image="/images/sit_6.webp"
           body={
             <>
               <span className="font-bold">
@@ -393,7 +393,7 @@ export default function SectionPart1() {
               ศาลรัฐธรรมนูญที่ออกตามรัฐธรรมนูญ 2560 ใช้บังคับ
             </>
           }
-          image="/images/sit_7.png"
+          image="/images/sit_7.webp"
           body={
             <div className="font-bold">
               คสช. แทรกแซงอำนาจศาลรัฐธรรมนูญผ่านการ &apos;ต่ออายุ&apos; และ
@@ -413,12 +413,12 @@ export default function SectionPart1() {
                 ซึ่งพระมหากษัตริย์ทรงแต่งตั้งจากมติของวุฒิสภาประกอบด้วย
               </div>
               <CustomImg
-                src="/images/con_2560.png"
+                src="/images/con_2560.webp"
                 className="mx-auto w-full max-w-[634px]"
               />
             </>
           }
-          image="/images/sit_8.png"
+          image="/images/sit_8.webp"
           body={
             <>
               หากนำคำวินิจฉัยคดีทางการเมืองภายใต้การบังคับใช้รัฐธรรมนูญ 2560{' '}
@@ -451,7 +451,7 @@ export default function SectionPart1() {
               </span>
             </>
           }
-          image="/images/sit_9.png"
+          image="/images/sit_9.webp"
           body={
             <>
               <span className="font-bold">

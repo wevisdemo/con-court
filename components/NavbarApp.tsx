@@ -29,6 +29,7 @@ export default function NavbarApp() {
     >
       <div className="w-full">
         <WvNavbar
+          animated
           dark
           alwayShowSlot
           title="The Constitutional Court Cases Unveiled"

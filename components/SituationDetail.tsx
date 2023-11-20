@@ -26,7 +26,7 @@ export default function SituationDetail({
       <div className="bg-highlight py-5 pb-0 text-black">
         <div className="wv-h10">{date} เกิดเหตุการณ์</div>
         <div className="wv-h7 my-2 flex items-center justify-center px-8 font-bold">
-          <CustomImg src="/images/icon_star_2.png" className="w-10" />
+          <CustomImg src="/images/icon_star_2.webp" className="w-10" />
           {title}
         </div>
         <Accordion
@@ -51,11 +51,11 @@ export default function SituationDetail({
             indicator={({ isOpen }) =>
               isOpen ? (
                 <CustomImg
-                  src="/images/icon_arrow_up.png"
+                  src="/images/icon_arrow_up.webp"
                   className="w-4 -rotate-90"
                 />
               ) : (
-                <CustomImg src="/images/icon_arrow_up.png" className="w-4" />
+                <CustomImg src="/images/icon_arrow_up.webp" className="w-4" />
               )
             }
           >

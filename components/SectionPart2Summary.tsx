@@ -22,7 +22,7 @@ export default function SectionPart2Summary() {
           <div className="overflow-hidden rounded-md border">
             <div className="p-3">
               <div className="wv-h10 flex justify-center gap-2">
-                <CustomImg src="/images/icon_con_2.png" className="w-6" />
+                <CustomImg src="/images/icon_con_2.webp" className="w-6" />
                 ในคำวินิจฉัยที่ 19/2564
               </div>
               <div className="wv-h8 mt-2 font-bold">
@@ -30,7 +30,7 @@ export default function SectionPart2Summary() {
                 กลุ่มนักศึกษามหาวิทยาลัยธรรมศาสตร์ฯ ในวันที่ 10 สิงหาคม 2563
               </div>
             </div>
-            <CustomImg src="/images/example_1.png" className="w-full" />
+            <CustomImg src="/images/example_1.webp" className="w-full" />
           </div>
           <div className="wv-h9 mt-5 rounded-md border p-3 font-bold">
             ผู้ถูกร้อง 3 คน ปราศรัยในที่สาธารณะเรียกร้องให้แก้ไข รัฐธรรมนูญฯ
@@ -53,11 +53,11 @@ export default function SectionPart2Summary() {
         </PaperBox>
         <div className="relative">
           <CustomImg
-            src="/images/questions.png"
+            src="/images/questions.webp"
             className="absolute -left-[230px] w-[110px]"
           />
           <CustomImg
-            src="/images/questions.png"
+            src="/images/questions.webp"
             className="absolute -right-[230px] w-[110px]"
           />
           <BlurBox className="mt-8 px-[68px] py-[80px]">
@@ -85,7 +85,7 @@ export default function SectionPart2Summary() {
               การเมืองไทยประสบกับเหตุการณ์รัฐประหาร มาแล้ว 2 ครั้ง ในปี 2549
               และปี 2557
             </div>
-            <CustomImg src="/images/example_2.png" className="my-5 w-full" />
+            <CustomImg src="/images/example_2.webp" className="my-5 w-full" />
             <div className="wv-h9">
               <div className="font-bold">
                 ถึงอย่างนั้นศาลรัฐธรรมนูญก็ไม่เคยก้าวล่วงไปพิพากษาเอาผิด

@@ -5,11 +5,11 @@ export default function SectionWhat() {
   return (
     <div className="relative mx-auto w-[665px] pt-14">
       <CustomImg
-        src="/images/border_box_bg_2.png"
+        src="/images/border_box_bg_2.webp"
         className="absolute top-0 w-full"
       />
       <div className="relative flex flex-col items-center">
-        <CustomImg src="/images/con_court_logo.png" className="w-[146px]" />
+        <CustomImg src="/images/con_court_logo.webp" className="w-[146px]" />
         <div className="wv-h3 wv-kondolar mt-4 font-black">ศาลรัฐธรรมนูญ</div>
         <div className="wv-h7 mt-4 max-w-[570px] font-bold">
           องค์กรตุลาการ ทำหน้าที่พิทักษ์รักษารัฐธรรมนูญผ่านการวินิจฉัยคำร้อง
@@ -21,7 +21,7 @@ export default function SectionWhat() {
             “คดีรัฐธรรมนูญ” ที่สร้างผลผูกพันกับทุกองค์กร
           </div>
           <CustomImg
-            src="/images/flow.png"
+            src="/images/flow.webp"
             className="mx-auto my-7 w-[330px]"
           />
           <div className="wv-h9">
@@ -41,11 +41,11 @@ export default function SectionWhat() {
         </div>
         <div className="relative mt-8">
           <CustomImg
-            src="/images/star.png"
+            src="/images/star.webp"
             className="absolute -left-14 -top-16 w-[54px]"
           />
           <CustomImg
-            src="/images/star.png"
+            src="/images/star.webp"
             className="absolute -bottom-8 -right-16 w-[54px]"
           />
           <BorderBox>

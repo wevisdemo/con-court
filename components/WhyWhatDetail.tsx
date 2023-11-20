@@ -21,7 +21,7 @@ export default function WhyWhatDetail({}: Props) {
 
   const whyWhatGroups = [
     {
-      icon: '/images/icon_gcon.png',
+      icon: '/images/icon_gcon.webp',
       title: 'เพราะ “คณะตุลาการ” มีปัญหา?',
       text: 'เพราะทุกคำวินิจฉัยถูกพิจารณาโดยคณะตุลาการฯ หากคำวินิจฉัยมีปัญหา ก็ย่อมเป็นปัญหาที่เกิดขึ้นจากการชี้ขาดโดยคณะตุลาการฯ หรือเปล่า ?',
       paper: {
@@ -31,7 +31,7 @@ export default function WhyWhatDetail({}: Props) {
           {
             title:
               'ตุลาการศาลไม่เป็นอิสระจึงไม่ปลอดอคติเมื่อต้องวินิจฉัยคดีทางการเมือง',
-            image: '/images/what_1.png',
+            image: '/images/what_1.webp',
             detail: (
               <div className="wv-h9 flex flex-col gap-5">
                 <div className="wv-h5 font-bold">
@@ -47,7 +47,7 @@ export default function WhyWhatDetail({}: Props) {
                   จากคำวินิจฉัยที่เกิดขึ้นได้ ในขณะที่กระบวนการทั้งหมดเกิดขึ้น
                   โดยไม่ได้มีกลไกตรวจสอบเหมือนกับสถาบันทางการเมืองจากการเลือกตั้ง
                 </div>
-                <CustomImg src="/images/what_modal_1.png" className="w-full" />
+                <CustomImg src="/images/what_modal_1.webp" className="w-full" />
                 <div>
                   งานศึกษาเปรียบเทียบรัฐธรรมนูญของ 7 ประเทศในเอเชีย โดย Albert
                   H. Chen มีผลสรุปว่า{' '}
@@ -67,7 +67,7 @@ export default function WhyWhatDetail({}: Props) {
           {
             title: 'ตุลาการไม่เชี่ยวชาญในเรื่องกฎหมายรัฐธรรมนูญมากพอ',
             subtitle: '(กฎหมายมหาชน)',
-            image: '/images/what_2.png',
+            image: '/images/what_2.webp',
             detail: (
               <div className="wv-h9 flex flex-col items-center gap-5">
                 <div className="wv-h5 font-bold">
@@ -90,7 +90,7 @@ export default function WhyWhatDetail({}: Props) {
                   </div>
                   <Quote color="black" className="mx-auto w-8 rotate-180" />
                 </div>
-                <CustomImg src="/images/what_modal_2.png" className="w-full" />
+                <CustomImg src="/images/what_modal_2.webp" className="w-full" />
                 <div>
                   ในช่วงการจัดตั้งศาลรัฐธรรมนูญ ศ.(พิเศษ)ดร.กมลชัย รัตนสกาววงศ์
                   ผู้ศึกษาเรื่องศาลรัฐธรรมนูญและวิธีพิจารณาคดีรัฐธรรมนูญ
@@ -113,7 +113,7 @@ export default function WhyWhatDetail({}: Props) {
                   </span>
                 </div>
                 <CustomImg
-                  src="/images/what_modal_con_2.png"
+                  src="/images/what_modal_con_2.webp"
                   className="w-full max-w-[470px]"
                 />
                 <div>
@@ -127,7 +127,7 @@ export default function WhyWhatDetail({}: Props) {
                   </span>
                 </div>
                 <div className="flex max-w-[620px] items-center gap-3 rounded-md border px-5 py-3">
-                  <CustomImg src="/images/question.png" className="w-9" />
+                  <CustomImg src="/images/question.webp" className="w-9" />
                   <div className="text-left font-bold">
                     คำถามสำคัญคือ ทำไมศาลรัฐธรรมนูญไทย จึงไร้ผู้ทรงคุณวุฒิ
                     ทางกฎหมายรัฐธรรมนูญทั้งที่ได้ตระหนักถึงประเด็นนี้มาตั้งแต่
@@ -140,14 +140,14 @@ export default function WhyWhatDetail({}: Props) {
           {
             title:
               'ที่มาของตุลาการยึดโยงกับประชาชนน้อย จึงไม่ได้ทำงานเพื่อส่งเสริมสิทธิของประชาชน',
-            image: '/images/what_3.png',
+            image: '/images/what_3.webp',
             detail: (
               <div className="wv-h9 flex flex-col items-center gap-5">
                 <div className="wv-h5 font-bold">
                   ที่มาของตุลาการยึดโยงกับประชาชนน้อย
                   จึงไม่ได้ทำงานเพื่อส่งเสริมสิทธิของประชาชน
                 </div>
-                <CustomImg src="/images/what_modal_3.png" className="w-full" />
+                <CustomImg src="/images/what_modal_3.webp" className="w-full" />
                 <div>
                   รัฐธรรมนูญ 2560 กำหนดให้{' '}
                   <span className="font-bold">
@@ -158,7 +158,7 @@ export default function WhyWhatDetail({}: Props) {
                   เพราะใน 5 ปีแรก สว. 250 คนมาจากการแต่งตั้งโดย คสช.
                 </div>
                 <CustomImg
-                  src="/images/what_modal_con_3.png"
+                  src="/images/what_modal_con_3.webp"
                   className="w-full max-w-[652px]"
                 />
                 <div>
@@ -191,7 +191,7 @@ export default function WhyWhatDetail({}: Props) {
       },
     },
     {
-      icon: '/images/icon_paper_warning.png',
+      icon: '/images/icon_paper_warning.webp',
       title: 'เพราะขาดซึ่ง “กลไก” ที่ให้ประชาชนตรวจสอบ ?',
       text: 'แม้ศาลรัฐธรรมนูญจะอ้างหลักความเป็นอิสระแต่การตัดสินคดีโดยไม่ถูกตรวจสอบจากสาธารณะจะทำให้ประชาชนขาดกลไกในการตรวจสอบศาลอย่างเป็นขั้นตอนและเป็นระบบ ใช่หรือไม่ ?',
       paper: {
@@ -200,13 +200,13 @@ export default function WhyWhatDetail({}: Props) {
         items: [
           {
             title: 'สังคมไร้เครื่องมือตรวจสอบอำนาจศาล',
-            image: '/images/why_1.png',
+            image: '/images/why_1.webp',
             detail: (
               <div className="wv-h9 flex flex-col items-center gap-5">
                 <div className="wv-h5 font-bold">
                   สังคมไร้เครื่องมือตรวจสอบอำนาจศาล
                 </div>
-                <CustomImg src="/images/why_modal_1.png" className="w-full" />
+                <CustomImg src="/images/why_modal_1.webp" className="w-full" />
                 <div>
                   <span className="font-bold">
                     ในปัจจุบัน ยังไม่มีองค์กรไหนที่สามารถเข้าตรวจสอบคำวินิจฉัย
@@ -240,13 +240,13 @@ export default function WhyWhatDetail({}: Props) {
           },
           {
             title: 'ประชาชนไม่สามารถวิพากษ์วิจารณ์คำวินิจฉัยศาลได้',
-            image: '/images/why_2.png',
+            image: '/images/why_2.webp',
             detail: (
               <div className="wv-h9 flex flex-col items-center gap-5">
                 <div className="wv-h5 font-bold">
                   ประชาชนไม่สามารถวิพากษ์วิจารณ์ คำวินิจฉัยศาลได้
                 </div>
-                <CustomImg src="/images/why_modal_2.png" className="w-full" />
+                <CustomImg src="/images/why_modal_2.webp" className="w-full" />
                 <div>
                   แม้รัฐธรรมนูญจะรับรองเสรีภาพในการแสดงความเห็น แต่ประเทศไทยก็มี
                   กฎหมายที่ว่าด้วยการละเมิดอำนาจศาล ข้อที่ 10
@@ -323,7 +323,7 @@ export default function WhyWhatDetail({}: Props) {
               />
               <div className="mx-auto flex max-w-[800px] items-center justify-center gap-5">
                 <IconWithBg
-                  icon="/images/icon_chat.png"
+                  icon="/images/icon_chat.webp"
                   color="white"
                   className="h-[90px] w-[90px] flex-none"
                 />

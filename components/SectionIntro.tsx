@@ -16,16 +16,16 @@ export default function SectionIntro() {
   return (
     <div id="intro" className="relative pb-14">
       <CustomImg
-        src="/images/paper_intro.png"
+        src="/images/paper_intro.webp"
         className="absolute -left-5 top-[150px] z-10 w-[260px]"
       />
       <CustomImg
-        src="/images/paper_intro.png"
+        src="/images/paper_intro.webp"
         className="absolute -right-5 top-[150px] z-10 w-[260px] -scale-x-100"
       />
       <div className="relative bg-grey3 pt-[100px]">
         <CustomImg
-          src="/images/bg_intro.png"
+          src="/images/bg_intro.webp"
           priority={true}
           className="absolute inset-x-0 top-2 mx-auto"
         />
@@ -35,7 +35,7 @@ export default function SectionIntro() {
           </div>
           <div className="flex flex-col items-center gap-6">
             <CustomImg
-              src="/images/logo_intro.png"
+              src="/images/logo_intro.webp"
               className="mt-10 w-[643px]"
             />
             <BorderBox>

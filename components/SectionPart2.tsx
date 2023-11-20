@@ -29,7 +29,7 @@ export default function SectionPart2() {
         <BorderBox color="#E0AEFF" className="w-[1000px] px-[120px] py-20">
           <IconWithBg
             color="#3E3E3E"
-            icon="/images/icon_warning_grey.png"
+            icon="/images/icon_warning_grey.webp"
             className="mx-auto h-[110px] w-[110px]"
           />
           <div className="wv-h3 wv-kondolar mt-8 font-black text-freedom">

@@ -23,11 +23,11 @@ export default function Legends({ data = [], boxSize = '20px' }: Props) {
             className="flex-none"
           >
             {i.value === 'multi' && (
-              <CustomImg src="/images/stripe.png" className="h-full w-full" />
+              <CustomImg src="/images/stripe.webp" className="h-full w-full" />
             )}
             {i.value === 'interest' && (
               <CustomImg
-                src="/images/icon_star.png"
+                src="/images/icon_star.webp"
                 className="h-full w-full"
               />
             )}
