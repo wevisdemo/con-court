@@ -336,7 +336,7 @@ export default function WhyWhatDetail({}: Props) {
                     className="w-[300px] overflow-hidden rounded-md"
                   >
                     <CustomImg src={i.image} className="h-[200px] w-full" />
-                    <div className="flex min-h-[240px] flex-col justify-between bg-white p-5">
+                    <div className="flex min-h-[240px] flex-col items-center justify-between bg-white p-5">
                       <div className="wv-h8 ">
                         <div className="font-bold">{i.title}</div>
                         {i.subtitle && <div>{i.subtitle}</div>}
