@@ -19,17 +19,6 @@ export default function WhyWhatDetail({}: Props) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [detail, setDetail] = useState<React.ReactNode | null>(null);
 
-  const conWhatModal2List = [
-    {
-      label: 'ผู้พิพากษาอาชีพจำนวน 5 คน ',
-      people: 5,
-    },
-    {
-      label: 'กลุ่มผู้ทรงคุณวุฒิ 4 คน',
-      people: 4,
-    },
-  ];
-
   const whyWhatGroups = [
     {
       icon: '/images/icon_gcon.png',

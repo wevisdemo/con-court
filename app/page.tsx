@@ -7,6 +7,7 @@ import Chart from '@/components/Chart';
 import SectionLanding from '@/components/SectionLanding';
 import SectionPart2 from '@/components/SectionPart2';
 import SectionPart3 from '@/components/SectionPart3';
+import SectionPartEnd from '@/components/SectionPartEnd';
 
 export default function IndexPage() {
   const legends = [
@@ -44,6 +45,7 @@ export default function IndexPage() {
         <SectionPart1 />
         <SectionPart2 />
         <SectionPart3 />
+        <SectionPartEnd />
       </div>
     </>
   );
