@@ -8,7 +8,7 @@ import WvSharer from '@wevisdemo/ui/react/sharer';
 import WvFooter from '@wevisdemo/ui/react/footer';
 import CustomImg from '@/components/CustomImg';
 
-export default function SectionAbout() {
+export default function AboutPage() {
   return (
     <div className="wv-b4 bg-white text-left text-black">
       <WvContainer heading="The Constitutional Court Cases Unveiled">

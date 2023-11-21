@@ -49,9 +49,9 @@ export default function SectionIntro() {
             <div className="flex rounded-sm border border-white">
               {menuTabs.map((i) => (
                 <button
-                  key={i.value}
+                  key={i.id}
                   className="wv-h11 flex w-[290px] items-center gap-2 border-r border-white p-2 text-start last:border-r-0 hover:bg-white/20"
-                  onClick={() => goToSection('/', i.value)}
+                  onClick={() => goToSection('/', i.id)}
                 >
                   <IconWithBg
                     icon={i.icon ?? ''}

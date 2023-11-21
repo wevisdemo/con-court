@@ -17,7 +17,11 @@ export default function NavbarApp() {
   const { menuList } = useSnapshot(state);
 
   const selectMenu = (id: string) => {
-    goToSection('/', id);
+    if (id === 'about') {
+      goToSection('/about', '');
+    } else {
+      goToSection('/', id);
+    }
   };
 
   return (
@@ -58,7 +62,7 @@ export default function NavbarApp() {
               onAction={(key) => selectMenu(key as string)}
             >
               {menuList.map((i) => (
-                <DropdownItem key={i.value}>
+                <DropdownItem key={i.id}>
                   <div className="wv-h10">{i.label}</div>
                 </DropdownItem>
               ))}

@@ -8,7 +8,6 @@ import SectionLanding from '@/components/SectionLanding';
 import SectionPart2 from '@/components/SectionPart2';
 import SectionPart3 from '@/components/SectionPart3';
 import SectionPartEnd from '@/components/SectionPartEnd';
-import SectionAbout from '@/components/SectionAbout';
 
 export default function IndexPage() {
   const legends = [
@@ -48,7 +47,6 @@ export default function IndexPage() {
         <SectionPart3 />
         <div className="pointer-events-auto bg-black">
           <SectionPartEnd />
-          <SectionAbout />
         </div>
       </div>
     </>

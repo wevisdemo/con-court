@@ -10,25 +10,29 @@ export const state = proxy<State>({
   menuList: [
     {
       label: 'หน้าแรก',
-      value: 'intro',
+      id: 'intro',
     },
     {
       label: 'การตรวจสอบสถาบันทางการเมือง',
-      value: 'part1',
+      id: 'part1',
       icon: '/images/icon_inspect.webp',
     },
     {
       label: 'การคุ้มครองสิทธิเสรีภาพของประชาชนและความมั่นคงของรัฐ',
-      value: 'part2',
+      id: 'part2',
       icon: '/images/icon_protect.webp',
     },
     {
       label: 'เพราะเหตุใดศาลรัฐธรรมนูญไม่ทำหน้าที่ตามค่านิยม ?',
-      value: 'part3',
+      id: 'part3',
       icon: '/images/icon_why.webp',
+    },
+    {
+      label: 'เกี่ยวกับโครงการ',
+      id: 'about',
     },
   ],
   get menuTabs() {
-    return this.menuList.filter((i: TMenu) => i.value !== 'intro');
+    return this.menuList.filter((i: TMenu) => i.icon);
   },
 });

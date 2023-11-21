@@ -1,6 +1,6 @@
 export type TMenu = {
   label: string;
-  value: string;
+  id: string;
   icon?: string;
 };
 
