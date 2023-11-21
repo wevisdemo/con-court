@@ -11,6 +11,7 @@ import {
   DropdownTrigger,
   Navbar,
 } from '@nextui-org/react';
+import { genArrayByNum } from '@/utils/array';
 
 export default function NavbarApp() {
   const { goToSection } = usePage();
@@ -45,9 +46,9 @@ export default function NavbarApp() {
           >
             <DropdownTrigger>
               <button className="flex flex-col gap-2">
-                {new Array(3).fill('').map((i, index) => (
+                {genArrayByNum(3).map((i) => (
                   <div
-                    key={index}
+                    key={i}
                     className="h-[5px] w-10 rounded-lg bg-white"
                   ></div>
                 ))}

@@ -1,5 +1,6 @@
 import { twMerge } from 'tailwind-merge';
 import Paper from './Paper';
+import { genArrayByNum } from '@/utils/array';
 
 type Props = {
   color?: string;
@@ -10,7 +11,7 @@ type Props = {
 export default function PaperList({ color, count, actives }: Props) {
   return (
     <div className="flex justify-center gap-1">
-      {new Array(count).fill('').map((i, index) => (
+      {genArrayByNum(count).map((i, index) => (
         <Paper
           key={index}
           color={color}

@@ -4,15 +4,21 @@ import { TLegend } from '@/models';
 type Props = {
   data: TLegend[];
   boxSize?: string;
+  itemWidth?: string;
 };
 
-export default function Legends({ data = [], boxSize = '20px' }: Props) {
+export default function Legends({
+  data = [],
+  boxSize = '20px',
+  itemWidth = '230px',
+}: Props) {
   return (
     <div className="flex flex-wrap justify-center gap-5">
       {data.map((i) => (
         <div
           key={i.value}
-          className="wv-h10 flex w-[280px] items-center gap-3 text-left"
+          style={{ maxWidth: itemWidth }}
+          className="wv-h10 flex items-center gap-3 text-left"
         >
           <div
             style={{

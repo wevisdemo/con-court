@@ -1,23 +1,23 @@
-import { twMerge } from "tailwind-merge";
+import { twMerge } from 'tailwind-merge';
 
 type Props = {
-  position: "top" | "bottom" | "left" | "right";
+  position: 'top' | 'bottom' | 'left' | 'right';
   borderColor: string;
   arrowColor: string;
 };
 
 export default function Bracket({
-  position = "top",
+  position = 'top',
   arrowColor,
   borderColor,
 }: Props) {
-  if (["left", "right"].includes(position)) {
+  if (['left', 'right'].includes(position)) {
     return (
       <div
         style={{ borderColor: borderColor }}
         className={twMerge(
-          "relative h-full w-4 rounded-md border-l",
-          position === "right" && "rotate-180",
+          'relative h-full w-4 rounded-md border-l',
+          position === 'right' && 'rotate-180',
         )}
       >
         <div
@@ -32,8 +32,8 @@ export default function Bracket({
     <div
       style={{ borderColor: borderColor }}
       className={twMerge(
-        "relative h-4 rounded-md border-t",
-        position === "bottom" && "rotate-180",
+        'relative h-4 rounded-md border-t',
+        position === 'bottom' && 'rotate-180',
       )}
     >
       <div
