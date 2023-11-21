@@ -6,7 +6,7 @@ import Legends from './Legends';
 import Paper from './Paper';
 import ScrollHint from './ScrollHint';
 
-export default function SectionPart1Summary() {
+export default function SectionPart1Sum() {
   const situationList = [
     {
       image: '/images/sit_sum_1.webp',

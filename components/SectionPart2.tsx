@@ -4,7 +4,7 @@ import IconWithBg from './IconWithBg';
 import ScrollHint from './ScrollHint';
 import SectionBox from './SectionBox';
 import PaperList from './PaperList';
-import SectionPart2Summary from './SectionPart2Summary';
+import SectionPart2Sum from './SectionPart2Sum';
 
 export default function SectionPart2() {
   const caseList = [
@@ -110,7 +110,7 @@ export default function SectionPart2() {
         <ScrollHint mode="light" className="mt-3" />
       </SectionBox>
       <div className="screen"></div>
-      <SectionPart2Summary />
+      <SectionPart2Sum />
     </>
   );
 }

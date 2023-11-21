@@ -5,7 +5,7 @@ import WvSharer from '@wevisdemo/ui/react/sharer';
 
 export default function SectionPartEnd() {
   return (
-    <div className="screen pointer-events-auto flex flex-col items-center justify-center gap-12 bg-black">
+    <div className="screen flex flex-col items-center justify-center gap-12">
       <BorderBox color="#FFE500" className="w-[1000px] px-[200px] py-[150px]">
         <div className="wv-h8">
           หากยึดตามค่านิยมที่ว่า &quot;ยึดหลักนิติธรรม ค้ำจุนประชาธิปไตย

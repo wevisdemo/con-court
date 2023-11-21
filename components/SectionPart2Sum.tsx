@@ -5,7 +5,7 @@ import PaperBox from './PaperBox';
 import BlurBox from './BlurBox';
 import ScrollHint from './ScrollHint';
 
-export default function SectionPart2Summary() {
+export default function SectionPart2Sum() {
   return (
     <div className="pointer-events-auto bg-grey4">
       <div className="h-[154px] rounded-b-[200px] bg-black"></div>

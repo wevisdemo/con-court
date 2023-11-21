@@ -4,7 +4,7 @@ import IconWithBg from './IconWithBg';
 import Paper from './Paper';
 import ScrollHint from './ScrollHint';
 import SectionBox from './SectionBox';
-import SectionPart1Summary from './SectionPart1Summary';
+import SectionPart1Sum from './SectionPart1Sum';
 import SituationDetail from './SituationDetail';
 
 export default function SectionPart1() {
@@ -467,7 +467,7 @@ export default function SectionPart1() {
         />
       </SectionBox>
       <div className="screen"></div>
-      <SectionPart1Summary />
+      <SectionPart1Sum />
     </>
   );
 }
