@@ -5,6 +5,7 @@ import { flatten } from 'lodash';
 import Bracket from './Bracket';
 import CustomImg from './CustomImg';
 import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/react';
+import Avatar from './Avatar';
 
 type Props = {
   legends: TLegend[];
@@ -119,6 +120,7 @@ export default function Chart({ legends }: Props) {
       <div className="wv-h5 wv-kondolar font-black">
         ภาพรวมสัดส่วนคำวินิจฉัยศาลรัฐธรรมนูญ
       </div>
+      <Avatar image="/images/thaksin.webp" />
       <Legends data={legends} />
       <div className="relative mb-10 ml-[120px] mr-[86px] mt-12 flex gap-[68px]">
         <div className="wv-h11 absolute -top-8 right-[102%] whitespace-nowrap">
