@@ -253,6 +253,7 @@ export default function SectionPart1Sum() {
                   position="left"
                   borderColor="#979797"
                   arrowColor="#1D1D1D"
+                  arrowSize="10px"
                 />
               </div>
               <div className="wv-h10 text-left">

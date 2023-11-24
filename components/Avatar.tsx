@@ -1,11 +1,13 @@
 import { Tooltip } from '@nextui-org/react';
 import CustomImg from './CustomImg';
+import { twMerge } from 'tailwind-merge';
 
 type Props = {
   image: string;
+  className?: string;
 };
 
-export default function Avatar({ image }: Props) {
+export default function Avatar({ image, className }: Props) {
   return (
     <Tooltip
       closeDelay={0}
@@ -18,7 +20,10 @@ export default function Avatar({ image }: Props) {
       }
       color="foreground"
     >
-      <CustomImg src={image} className="w-6 rounded-full" />
+      <CustomImg
+        src={image}
+        className={twMerge('w-6 rounded-full', className)}
+      />
     </Tooltip>
   );
 }

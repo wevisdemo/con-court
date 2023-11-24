@@ -1,45 +1,37 @@
 import { twMerge } from 'tailwind-merge';
 
 type Props = {
-  position: 'top' | 'bottom' | 'left' | 'right';
+  position: 'left' | 'right';
   borderColor: string;
   arrowColor: string;
+  arrowSize: string;
 };
 
 export default function Bracket({
-  position = 'top',
+  position,
   arrowColor,
   borderColor,
+  arrowSize,
 }: Props) {
-  if (['left', 'right'].includes(position)) {
-    return (
-      <div
-        style={{ borderColor: borderColor }}
-        className={twMerge(
-          'relative h-full w-4 rounded-md border-l',
-          position === 'right' && 'rotate-180',
-        )}
-      >
-        <div
-          style={{ backgroundColor: arrowColor, borderColor: borderColor }}
-          className="absolute inset-y-0 -left-[5px] my-auto h-2 w-2 rotate-45 border-b border-l"
-        ></div>
-      </div>
-    );
-  }
-
   return (
     <div
       style={{ borderColor: borderColor }}
       className={twMerge(
-        'relative h-4 rounded-md border-t',
-        position === 'bottom' && 'rotate-180',
+        'relative flex h-full w-3 items-center rounded-s-md border border-r-0',
+        position === 'right' && 'rotate-180',
       )}
     >
-      <div
-        style={{ backgroundColor: arrowColor, borderColor: borderColor }}
-        className="absolute inset-x-0 -top-[5px] mx-auto h-2 w-2 rotate-[135deg] border-b border-l"
-      ></div>
+      <div className="relative -ml-[1px] h-[1px] w-[1px]">
+        <div
+          style={{
+            backgroundColor: arrowColor,
+            borderColor: borderColor,
+            width: arrowSize,
+            height: arrowSize,
+          }}
+          className="absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4 rotate-45 border-b border-l"
+        ></div>
+      </div>
     </div>
   );
 }

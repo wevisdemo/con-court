@@ -50,3 +50,9 @@ export type TCaseGroup = {
     requirements: React.ReactNode[];
   }[];
 };
+
+export type TChart = {
+  label: string;
+  labelInfo?: string;
+  xAxes: number[];
+};
