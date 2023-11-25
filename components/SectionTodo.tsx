@@ -1,7 +1,10 @@
+'use client';
+
 import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/react';
 import CustomImg from './CustomImg';
 import IconWithBg from './IconWithBg';
 import ScrollHint from './ScrollHint';
+import { useState } from 'react';
 
 export default function SectionTodo() {
   const todoList = [
@@ -126,6 +129,8 @@ export default function SectionTodo() {
     },
   ];
 
+  const [popoverOpen, setPopoverOpen] = useState(false);
+
   return (
     <div className="mx-auto max-w-[1180px] py-20">
       <div className="relative">
@@ -144,14 +149,23 @@ export default function SectionTodo() {
             classNames={{
               content: 'bg-white text-black w-[386px] p-0 overflow-hidden',
             }}
+            isOpen={popoverOpen}
+            onOpenChange={setPopoverOpen}
           >
             <PopoverTrigger>
-              <CustomImg
-                src="/images/icon_info.webp"
-                className="w-10 cursor-pointer rounded-full hover:bg-white/30"
-              />
+              <div>
+                <CustomImg
+                  src="/images/icon_info.webp"
+                  className="w-10 cursor-pointer rounded-full hover:bg-white/30"
+                />
+              </div>
             </PopoverTrigger>
             <PopoverContent>
+              <CustomImg
+                src="/images/icon_x.webp"
+                className="absolute right-3 top-3 w-5 cursor-pointer"
+                onClick={() => setPopoverOpen(false)}
+              />
               <div className="wv-h9 p-4 pb-2 font-bold">คำย่อและอักษรย่อ</div>
               <div className="max-h-[360px] overflow-y-auto px-9 text-left">
                 {wordList.map((i) => (

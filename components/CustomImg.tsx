@@ -20,11 +20,11 @@ export default function CustomImg({
   return (
     <Image
       src={noBase ? src : basePath(src)}
-      alt='image'
+      alt="image"
       width={0}
       height={0}
       priority={priority}
-      className={twMerge('object-cover w-auto h-auto', className)}
+      className={twMerge('h-auto w-auto object-cover', className)}
       // onError={(e) => {
       //   e.target.onerror = null;
       //   e.target.src = defaultPlaceholder;

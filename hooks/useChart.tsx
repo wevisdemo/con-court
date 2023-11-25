@@ -119,16 +119,15 @@ export const useChart = () => {
                 year: y,
                 data: [
                   {
-                    category: 'ตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ',
+                    type: 'ตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ',
                     data: lawData.filter((i) => i.ปีวินิจฉัย === y),
                   },
                   {
-                    category: 'ตรวจสอบสถาบันทางการเมือง',
+                    type: 'ตรวจสอบสถาบันทางการเมือง',
                     data: politicData.filter((i) => i.ปีวินิจฉัย === y),
                   },
                   {
-                    category:
-                      'คุ้มครองสิทธิเสรีภาพของประชาชน ระบอบการปกครอง และความมั่นคงของรัฐ',
+                    type: 'คุ้มครองสิทธิเสรีภาพของประชาชน ระบอบการปกครอง และความมั่นคงของรัฐ',
                     data: freedomData.filter((i) => i.ปีวินิจฉัย === y),
                   },
                 ],
@@ -141,16 +140,180 @@ export const useChart = () => {
         id: 2,
         legends: [
           {
-            label: 'ตรวจสอบสถาบันทางการเมือง (xxx คดี)',
-            value: 'green',
+            label: `ตรวจสอบสถาบันทางการเมือง (${politicData.length} คดี)`,
+            value: 'ตรวจสอบสถาบันทางการเมือง',
             color: '#FFC164',
           },
         ],
         charts: [
           {
             id: 1,
-            xAxes: [5, 10, 15, 20, 25, 30],
-            yearData: [],
+            xAxes: [10, 20, 30, 40, 50, 60],
+            yearData: years.map((y) => {
+              return {
+                year: y,
+                data: [
+                  {
+                    type: 'ตรวจสอบสถาบันทางการเมือง',
+                    data: politicData.filter((i) => i.ปีวินิจฉัย === y),
+                  },
+                ],
+              };
+            }),
+          },
+        ],
+      },
+      {
+        id: 3,
+        legends: [
+          {
+            label: `ตรวจสอบสถาบันทางการเมือง (${politicData.length} คดี)`,
+            value: 'ตรวจสอบสถาบันทางการเมือง',
+            color: '#FFC164',
+          },
+        ],
+        charts: [
+          {
+            id: 1,
+            label: 'ฝ่ายร่วมรัฐบาล',
+            xAxes: [0, 5, 10, 15, 20],
+            yearData: years.map((y) => {
+              return {
+                year: y,
+                data: [
+                  {
+                    type: 'ฝ่ายร่วมรัฐบาล',
+                    data: politicData.filter(
+                      (i) =>
+                        i.ปีวินิจฉัย === y &&
+                        i['ฝ่ายทางการเมือง / ประเภทย่อย'] === 'ฝ่ายร่วมรัฐบาล',
+                    ),
+                  },
+                ],
+              };
+            }),
+          },
+          {
+            id: 2,
+            label: 'ฝ่ายค้าน',
+            xAxes: [0, 5, 10, 15, 20],
+            yearData: years.map((y) => {
+              return {
+                year: y,
+                data: [
+                  {
+                    type: 'ฝ่ายค้าน',
+                    data: politicData.filter(
+                      (i) =>
+                        i.ปีวินิจฉัย === y &&
+                        i['ฝ่ายทางการเมือง / ประเภทย่อย'] === 'ฝ่ายค้าน',
+                    ),
+                  },
+                ],
+              };
+            }),
+          },
+          {
+            id: 3,
+            label: 'อื่น ๆ',
+            xAxes: [0, 5, 10, 15, 20],
+            yearData: years.map((y) => {
+              return {
+                year: y,
+                data: [
+                  {
+                    type: 'อื่น ๆ',
+                    data: politicData.filter(
+                      (i) =>
+                        i.ปีวินิจฉัย === y &&
+                        i['ฝ่ายทางการเมือง / ประเภทย่อย'] === 'อื่น ๆ',
+                    ),
+                  },
+                ],
+              };
+            }),
+          },
+        ],
+      },
+      {
+        id: 4,
+        legends: [
+          {
+            label: `คำวินิจฉัยที่ส่งผลกระทบลบต่อผู้ถูกร้อง (xxx คดี)`,
+            value: 'ตรวจสอบสถาบันทางการเมือง1',
+            color: '#ACF38A',
+          },
+          {
+            label: `คำวินิจฉัยที่ส่งผลกระทบลบต่อผู้ถูกร้อง (xxx คดี)`,
+            value: 'ตรวจสอบสถาบันทางการเมือง2',
+            color: '#FF9A9A',
+          },
+          {
+            label: `คำวินิจฉัยที่ส่งผลกระทบลบต่อผู้ถูกร้อง (xxx คดี)`,
+            value: 'ตรวจสอบสถาบันทางการเมือง3',
+            color: '#FFC164',
+          },
+        ],
+        charts: [
+          {
+            id: 1,
+            label: 'ฝ่ายร่วมรัฐบาล',
+            xAxes: [0, 5, 10, 15, 20],
+            yearData: years.map((y) => {
+              return {
+                year: y,
+                data: [
+                  {
+                    type: 'ฝ่ายร่วมรัฐบาล',
+                    data: politicData.filter(
+                      (i) =>
+                        i.ปีวินิจฉัย === y &&
+                        i['ฝ่ายทางการเมือง / ประเภทย่อย'] === 'ฝ่ายร่วมรัฐบาล',
+                    ),
+                  },
+                ],
+              };
+            }),
+          },
+          {
+            id: 2,
+            label: 'ฝ่ายค้าน',
+            xAxes: [0, 5, 10, 15, 20],
+            yearData: years.map((y) => {
+              return {
+                year: y,
+                data: [
+                  {
+                    type: 'ฝ่ายค้าน',
+                    data: politicData.filter(
+                      (i) =>
+                        i.ปีวินิจฉัย === y &&
+                        i['ฝ่ายทางการเมือง / ประเภทย่อย'] === 'ฝ่ายค้าน',
+                    ),
+                  },
+                ],
+              };
+            }),
+          },
+          {
+            id: 3,
+            label: 'อื่น ๆ',
+            xAxes: [0, 5, 10, 15, 20],
+            yearData: years.map((y) => {
+              return {
+                year: y,
+                data: [
+                  {
+                    type: 'อื่น ๆ',
+                    data: politicData.filter(
+                      (i) =>
+                        i.ปีวินิจฉัย === y &&
+                        i['ฝ่ายทางการเมือง / ประเภทย่อย'] === 'อื่น ๆ',
+                    ),
+                  },
+                ],
+              };
+            }),
           },
         ],
       },
@@ -159,6 +322,7 @@ export const useChart = () => {
 
   const [group, setGroup] = useState<TChartGroup>(groupData[0]);
   const [highlightCats, setHighlightCats] = useState<TCategory[]>([]);
+  const [highlightYears, setHighlightYears] = useState<number[]>([]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -196,6 +360,19 @@ export const useChart = () => {
           if (index === 6) {
             setGroup(groupData[1]);
             setHighlightCats([]);
+            setHighlightYears([]);
+          }
+          if (index === 7) {
+            setHighlightYears([
+              2540, 2541, 2542, 2543, 2544, 2545, 2546, 2547, 2548,
+            ]);
+          }
+          if (index === 8) {
+            setHighlightYears([]);
+            setGroup(groupData[2]);
+          }
+          if (index === 9) {
+            setGroup(groupData[3]);
           }
         }
       }
@@ -208,5 +385,5 @@ export const useChart = () => {
     };
   }, []);
 
-  return { group, years, periods, primeMs, highlightCats };
+  return { group, years, periods, primeMs, highlightCats, highlightYears };
 };

@@ -10,31 +10,42 @@ import { twMerge } from 'tailwind-merge';
 import Avatar from './Avatar';
 import BarStacked from './BarStacked';
 import { last } from 'lodash';
-import { LegacyRef, useRef } from 'react';
+import { LegacyRef, useRef, useState } from 'react';
 
 export default function ChartGroup() {
-  const { group, years, periods, primeMs, highlightCats } = useChart();
+  const { group, years, periods, primeMs, highlightCats, highlightYears } =
+    useChart();
   const chartRef = useRef<Element>(null);
+  const [popoverOpen, setPopoverOpen] = useState(false);
 
   const headLabel = (chart: TChart) => {
     return (
       <div className="wv-h9 absolute inset-x-0 -top-10 flex items-center justify-center gap-2 font-bold">
         {chart.label}
-        {chart.labelInfo && (
+        {chart.label === 'อื่น ๆ' && (
           <Popover
             placement="bottom-end"
             radius="md"
             classNames={{
               content: 'bg-white text-black w-[290px] px-5 py-4',
             }}
+            isOpen={popoverOpen}
+            onOpenChange={setPopoverOpen}
           >
             <PopoverTrigger>
-              <CustomImg
-                src="/images/icon_info.webp"
-                className="w-6 cursor-pointer rounded-full hover:bg-white/30"
-              />
+              <div>
+                <CustomImg
+                  src="/images/icon_info.webp"
+                  className="w-6 cursor-pointer rounded-full hover:bg-white/30"
+                />
+              </div>
             </PopoverTrigger>
             <PopoverContent>
+              <CustomImg
+                src="/images/icon_x.webp"
+                className="absolute right-3 top-3 w-5 cursor-pointer"
+                onClick={() => setPopoverOpen(false)}
+              />
               <div className="text-left">
                 <div className="wv-h9 font-bold">อื่นๆ</div>
                 <div className="wv-h10 mt-2">
@@ -109,13 +120,18 @@ export default function ChartGroup() {
         {p.items.map((i) => (
           <div
             key={i}
-            className="flex h-5 items-center border-t border-white/5"
+            className="flex h-5 items-center overflow-hidden border-t border-white/5"
           >
             <BarStacked
-              className="h-3"
+              className={twMerge(
+                'h-3',
+                !!highlightYears?.length &&
+                  !highlightYears?.includes(i) &&
+                  'opacity-10',
+              )}
               data={getDataByYear(i).map((i, index) => {
                 return {
-                  name: i.category,
+                  name: i.type,
                   color: group.legends[index].color ?? '',
                   value: i.data.length,
                 };
@@ -145,9 +161,9 @@ export default function ChartGroup() {
                   m.items.length > 0 && 'mr-3',
                 )}
               >
-                {/* {m.infos.map((i) => (
+                {m.infos.map((i) => (
                   <Avatar key={i.name} image={i.image} />
-                ))} */}
+                ))}
               </div>
               {m.items.length > 0 ? (
                 <Bracket
@@ -166,6 +182,22 @@ export default function ChartGroup() {
     );
   };
 
+  const gridDescriptions = () => {
+    return (
+      <>
+        <div className="wv-h11 absolute -top-8 right-[102%] whitespace-nowrap">
+          นายกฯ ปี พศ.
+        </div>
+        <div className="wv-h11 absolute -top-12 left-full w-20">
+          ช่วงเวลา รัฐธรรมนูญ
+        </div>
+        <div className="wv-h11 absolute -bottom-6 left-[103%] w-16 text-left">
+          จำนวนคำ วินิจฉัย (คดี)
+        </div>
+      </>
+    );
+  };
+
   return (
     <div
       id="chart"
@@ -177,22 +209,17 @@ export default function ChartGroup() {
       <Legends data={group.legends} />
       <div
         ref={chartRef as LegacyRef<HTMLDivElement>}
-        className="relative mb-10 ml-[120px] mr-[86px] mt-12 flex gap-[68px]"
+        style={{
+          gridTemplateColumns: `repeat(${group.charts.length}, minmax(0, 1fr))`,
+        }}
+        className="relative mb-10 ml-[120px] mr-[86px] mt-12 grid gap-[68px]"
       >
-        <div className="wv-h11 absolute -top-8 right-[102%] whitespace-nowrap">
-          นายกฯ ปี พศ.
-        </div>
-        <div className="wv-h11 absolute -top-12 left-full w-20">
-          ช่วงเวลา รัฐธรรมนูญ
-        </div>
-        <div className="wv-h11 absolute -bottom-6 left-[103%] w-16 text-left">
-          จำนวนคำ วินิจฉัย (คดี)
-        </div>
+        {gridDescriptions()}
         {primeMsBrackets()}
         {group.charts.map((c, cIndex) => (
           <div
             key={c.id}
-            className="relative flex-1 border-b border-l  border-b-white border-l-white"
+            className="relative flex-1 border-b border-l border-b-white border-l-white"
           >
             {c.label && headLabel(c)}
             {xGrid(c)}

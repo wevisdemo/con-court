@@ -15,6 +15,15 @@ export type TCategory =
   | 'ตรวจสอบสถาบันทางการเมือง'
   | 'คุ้มครองสิทธิเสรีภาพของประชาชน ระบอบการปกครอง และความมั่นคงของรัฐ';
 
+export type TSide =
+  | 'ฝ่ายร่วมรัฐบาล'
+  | 'ฝ่ายค้าน'
+  | 'รัฐบาลจากคณะรัฐประหาร'
+  | 'ฝ่ายรัฐบาลเดิม'
+  | 'คดีคุ้มครองสิทธิฯ'
+  | 'คดีล้มล้างระบอบการปกครอง'
+  | 'อื่น ๆ';
+
 export type TSheet = {
   ปีวินิจฉัย: number;
   เลขคำวินิจฉัย: string;
@@ -30,7 +39,7 @@ export type TSheet = {
   ผลคำวินิจฉัย: string;
   ประเภทคำวินิจฉัย: TCategory;
   ลักษณะคำวินิจฉัย: string;
-  'ฝ่ายทางการเมือง / ประเภทย่อย': string;
+  'ฝ่ายทางการเมือง / ประเภทย่อย': TSide;
   นายกรัฐมนตรี: string;
   คำวินิจฉัยที่น่าสนใจ: string;
   'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)': string;
@@ -58,13 +67,12 @@ export type TCaseGroup = {
 
 export type TYear = {
   year: number;
-  data: { category: TCategory; data: TSheet[] }[];
+  data: { type: string; data: TSheet[] }[];
 };
 
 export type TChart = {
   id: number;
   label?: string;
-  labelInfo?: string;
   xAxes: number[];
   yearData: TYear[];
 };

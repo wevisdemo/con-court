@@ -32,7 +32,9 @@ export default function BarStacked({
           style={{ background: i.color, width: `${getPx(i.value)}px` }}
           className={twMerge(
             'h-full',
-            highlights?.length && !highlights?.includes(i.name) && 'opacity-10',
+            !!highlights?.length &&
+              !highlights?.includes(i.name) &&
+              'opacity-10',
           )}
         ></div>
       ))}

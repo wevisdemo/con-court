@@ -75,7 +75,7 @@ export default function SectionPart1() {
           </div>
         </div>
       </SectionBox>
-      <div className="screen"></div>
+      <div id="chart7" className="screen"></div>
       <SectionBox>
         <SituationDetail
           date="11/10/2540"
@@ -122,7 +122,7 @@ export default function SectionPart1() {
           }
         />
       </SectionBox>
-      <SectionBox boxCls="p-12 wv-h10">
+      <SectionBox id="chart8" boxCls="p-12 wv-h10">
         <div>
           หากแบ่งคำวินิจฉัยตามประเภท
           <br />
@@ -141,7 +141,7 @@ export default function SectionPart1() {
         </div>
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox boxCls="p-12">
+      <SectionBox id="chart9" boxCls="p-12">
         <div className="mx-auto flex max-w-[410px] flex-col gap-5">
           <div className="wv-h10">
             ผลของคำวินิจฉัยในคดีตรวจสอบสถาบันทางการเมือง จะปรากฏใน 2 รูปแบบ
