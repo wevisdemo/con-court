@@ -10,7 +10,12 @@ export type TLegend = {
   color?: string;
 };
 
-export type TData = {
+export type TCategory =
+  | 'ตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ'
+  | 'ตรวจสอบสถาบันทางการเมือง'
+  | 'คุ้มครองสิทธิเสรีภาพของประชาชน ระบอบการปกครอง และความมั่นคงของรัฐ';
+
+export type TSheet = {
   ปีวินิจฉัย: number;
   เลขคำวินิจฉัย: string;
   รัฐธรรมนูญ: number;
@@ -23,7 +28,7 @@ export type TData = {
   'Link_เนื้อหา (ย่อสั้น)': string;
   สาระเนื้อหา: string;
   ผลคำวินิจฉัย: string;
-  ประเภทคำวินิจฉัย: string;
+  ประเภทคำวินิจฉัย: TCategory;
   ลักษณะคำวินิจฉัย: string;
   'ฝ่ายทางการเมือง / ประเภทย่อย': string;
   นายกรัฐมนตรี: string;
@@ -51,8 +56,21 @@ export type TCaseGroup = {
   }[];
 };
 
+export type TYear = {
+  year: number;
+  data: { category: TCategory; data: TSheet[] }[];
+};
+
 export type TChart = {
-  label: string;
+  id: number;
+  label?: string;
   labelInfo?: string;
   xAxes: number[];
+  yearData: TYear[];
+};
+
+export type TChartGroup = {
+  id: number;
+  legends: TLegend[];
+  charts: TChart[];
 };

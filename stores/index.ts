@@ -1,9 +1,17 @@
-import { TMenu } from '@/models';
+import { TMenu, TSheet } from '@/models';
 import { proxy } from 'valtio';
+import data from '@/public/data/data-sheet.json';
 
 type State = {
   menuList: TMenu[];
   menuTabs: TMenu[];
+  lawData: TSheet[];
+  politicData: TSheet[];
+  freedomData: TSheet[];
+};
+
+const getDataByCat = (key: string) => {
+  return (data as TSheet[]).filter((i) => i.ประเภทคำวินิจฉัย === key);
 };
 
 export const state = proxy<State>({
@@ -34,5 +42,16 @@ export const state = proxy<State>({
   ],
   get menuTabs() {
     return this.menuList.filter((i: TMenu) => i.icon);
+  },
+  get lawData() {
+    return getDataByCat('ตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ');
+  },
+  get politicData() {
+    return getDataByCat('ตรวจสอบสถาบันทางการเมือง');
+  },
+  get freedomData() {
+    return getDataByCat(
+      'คุ้มครองสิทธิเสรีภาพของประชาชน ระบอบการปกครอง และความมั่นคงของรัฐ',
+    );
   },
 });

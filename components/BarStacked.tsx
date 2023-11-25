@@ -9,9 +9,16 @@ type Props = {
   }[];
   scale: number;
   width: number;
+  highlights?: string[];
 };
 
-export default function BarStacked({ className, data, scale, width }: Props) {
+export default function BarStacked({
+  className,
+  data,
+  scale,
+  width,
+  highlights,
+}: Props) {
   const getPx = (value: number) => {
     const percent = (value / scale) * 100;
     return (width * percent) / 100;
@@ -23,7 +30,10 @@ export default function BarStacked({ className, data, scale, width }: Props) {
         <div
           key={i.name}
           style={{ background: i.color, width: `${getPx(i.value)}px` }}
-          className="h-full"
+          className={twMerge(
+            'h-full',
+            highlights?.length && !highlights?.includes(i.name) && 'opacity-10',
+          )}
         ></div>
       ))}
     </div>

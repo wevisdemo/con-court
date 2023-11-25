@@ -62,7 +62,7 @@ export default function SectionPart1() {
         </BorderBox>
         <ScrollHint mode="dark" />
       </div>
-      <SectionBox boxCls="p-8">
+      <SectionBox id="chart6" boxCls="p-8">
         <div className="mx-auto max-w-[390px]">
           <div className="wv-h5 wv-kondolar font-black">
             ตลอดระยะเวลากว่า 26 ปี ศาลรัฐธรรมนูญได้
@@ -140,6 +140,7 @@ export default function SectionPart1() {
           ))}
         </div>
       </SectionBox>
+      <div className="screen"></div>
       <SectionBox boxCls="p-12">
         <div className="mx-auto flex max-w-[410px] flex-col gap-5">
           <div className="wv-h10">

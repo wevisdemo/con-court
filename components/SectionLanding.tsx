@@ -6,23 +6,27 @@ import BulletList from './BulletList';
 import IconWithBg from './IconWithBg';
 import ScrollHint from './ScrollHint';
 import SectionBox from './SectionBox';
+import { state } from '@/stores';
+import { useSnapshot } from 'valtio';
 
 export default function SectionLanding() {
+  const { lawData, politicData, freedomData } = useSnapshot(state);
+
   const todoList = [
     {
       label: 'ตรวจสอบกฎหมาย',
       color: '#6BB8FF',
-      total: 351,
+      total: lawData.length,
     },
     {
       label: 'ตรวจสอบสถาบันทางการเมือง',
       color: '#FFC164',
-      total: 190,
+      total: politicData.length,
     },
     {
       label: 'คุ้มครองสิทธิเสรีภาพของประชาชนและความมั่นคงของรัฐ',
       color: '#E0AEFF',
-      total: 91,
+      total: freedomData.length,
     },
   ];
 
@@ -58,7 +62,7 @@ export default function SectionLanding() {
 
   return (
     <>
-      <SectionBox boxCls="p-12">
+      <SectionBox id="chart1" boxCls="p-12">
         <div className="mx-auto flex max-w-[460px] flex-col gap-3">
           <div className="wv-h5 wv-kondolar font-black">
             ฉายคำวินิจฉัย
@@ -78,7 +82,7 @@ export default function SectionLanding() {
         </div>
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox boxCls="p-8 wv-h9">
+      <SectionBox id="chart2" boxCls="p-8 wv-h9">
         สัดส่วนประเภทคำวินิจฉัยที่มีมากที่สุดคือ{' '}
         <span className="bg-law font-bold">
           คำวินิจฉัยในเรื่องการตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ
@@ -87,7 +91,8 @@ export default function SectionLanding() {
         และวินิจฉัยอำนาจหน้าที่ขององค์กรอิสระ
         ซึ่งล้วนเป็นการตีความข้อปัญหาให้ตรงตามบทบัญญัติในรัฐธรรมนูญ
       </SectionBox>
-      <SectionBox boxCls="p-8 wv-h9">
+      <div className="screen"></div>
+      <SectionBox id="chart3" boxCls="p-8 wv-h9">
         คำวินิจฉัยที่ได้รับคำวิพากษ์วิจารณ์บ่อยครั้ง คือ{' '}
         <span className="bg-politics font-bold">
           “คำวินิจฉัยในเรื่องการตรวจสอบ สถาบันทางการเมือง”
@@ -96,7 +101,8 @@ export default function SectionLanding() {
         และหลาย คำวินิจฉัยก็ปรากฎให้เห็นถึงนัยซ่อนเร้นทางการเมืองที่ส่งผล
         โดยตรงต่อภาพลักษณ์ความเป็นกลางของศาลรัฐธรรมนูญ
       </SectionBox>
-      <SectionBox boxCls="p-8 wv-h9">
+      <div className="screen"></div>
+      <SectionBox id="chart4" boxCls="p-8 wv-h9">
         ในส่วนของ{' '}
         <span className="bg-freedom font-bold">
           “คำวินิจฉัยในเรื่องการคุ้มครองสิทธิเสรีภาพ ของประชาชน
@@ -106,7 +112,8 @@ export default function SectionLanding() {
         จึงเป็นประเภทคำวินิจฉัยที่ถือว่าใกล้ตัว และมีส่วนได้เสียกับ “เรา”
         ในฐานะประชาชนมากที่สุด
       </SectionBox>
-      <SectionBox boxCls="p-8">
+      <div className="screen"></div>
+      <SectionBox id="chart5" boxCls="p-8">
         <div className="wv-h9 mx-auto flex max-w-[460px] flex-col gap-5">
           <div>งานชิ้นนี้จึงตั้งใจหยิบยกคำวินิจฉัย 2 ประเภทหลัง คือ</div>
           <BulletList list={typeList} />
@@ -125,6 +132,7 @@ export default function SectionLanding() {
           <ScrollHint mode="light" />
         </div>
       </SectionBox>
+      <div className="screen"></div>
       <div className="screen pointer-events-auto flex flex-col justify-center gap-10 bg-black py-20">
         <div className="mx-auto max-w-[600px]">
           <div className="wv-h5 wv-kondolar font-black">

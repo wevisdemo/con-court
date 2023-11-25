@@ -10,7 +10,7 @@ type Props = {
 export default function Legends({
   data = [],
   boxSize = '20px',
-  itemWidth = '230px',
+  itemWidth = 'auto',
 }: Props) {
   return (
     <div className="flex flex-wrap justify-center gap-5">

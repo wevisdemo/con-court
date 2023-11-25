@@ -1,114 +1,20 @@
-import { TChart, TLegend } from '@/models';
+'use client';
+
+import { TChart } from '@/models';
 import Legends from './Legends';
-import { genArrayByNum } from '@/utils/array';
-import { flatten } from 'lodash';
-import Bracket from './Bracket';
-import CustomImg from './CustomImg';
+import { useChart } from '@/hooks/useChart';
 import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/react';
-import Avatar from './Avatar';
+import CustomImg from './CustomImg';
+import Bracket from './Bracket';
 import { twMerge } from 'tailwind-merge';
+import Avatar from './Avatar';
+import BarStacked from './BarStacked';
+import { last } from 'lodash';
+import { LegacyRef, useRef } from 'react';
 
-type Props = {
-  legends: TLegend[];
-  mode: 'stack' | 'box';
-};
-
-export default function Chart({ legends }: Props) {
-  const periods = [
-    {
-      name: '2540',
-      items: genArrayByNum(9),
-    },
-    {
-      name: '2549',
-      items: genArrayByNum(1),
-    },
-    {
-      name: '2550',
-      items: genArrayByNum(7),
-    },
-    {
-      name: '2557',
-      items: genArrayByNum(3),
-    },
-    {
-      name: '2560',
-      items: genArrayByNum(7),
-    },
-  ];
-  const primeMs = [
-    {
-      id: 1,
-      infos: [{ name: 'ชวน หลีกภัย', image: '/images/pm_1.webp' }],
-      items: genArrayByNum(4),
-    },
-    {
-      id: 2,
-      infos: [{ name: 'ทักษิณ ชินวัตร 1', image: '/images/pm_2.webp' }],
-      items: genArrayByNum(4),
-    },
-    {
-      id: 3,
-      infos: [{ name: 'ทักษิณ ชินวัตร 2', image: '/images/pm_2.webp' }],
-      items: genArrayByNum(1),
-    },
-    {
-      id: 4,
-      infos: [{ name: 'สุรยุทธ์ จุลานนท์', image: '/images/pm_3.webp' }],
-      items: genArrayByNum(2),
-    },
-    {
-      id: 5,
-      infos: [
-        { name: 'สมัคร สุนทรเวช', image: '/images/pm_4.webp' },
-        { name: 'สมชาย วงศ์สวัสดิ์', image: '/images/pm_5.webp' },
-      ],
-      items: genArrayByNum(0),
-    },
-    {
-      id: 6,
-      infos: [{ name: 'อภิสิทธิ์ เวชชาชีวะ', image: '/images/pm_6.webp' }],
-      items: genArrayByNum(3),
-    },
-    {
-      id: 7,
-      infos: [{ name: 'ยิ่งลักษณ์ ชินวัตร', image: '/images/pm_7.webp' }],
-      items: genArrayByNum(3),
-    },
-    {
-      id: 8,
-      infos: [{ name: 'ประยุทธ์ จันทร์โอชา 1', image: '/images/pm_8.webp' }],
-      items: genArrayByNum(5),
-    },
-    {
-      id: 9,
-      infos: [{ name: 'ประยุทธ์ จันทร์โอชา 2', image: '/images/pm_8.webp' }],
-      items: genArrayByNum(4),
-    },
-    {
-      id: 10,
-      infos: [{ name: 'เศรษฐา ทวีสิน', image: '/images/pm_9.webp' }],
-      items: genArrayByNum(0),
-    },
-  ];
-  const years = flatten(periods.map((i) => i.items));
-  const xAxes = [5, 10, 15, 20];
-  const charts = [
-    {
-      label: 'ฝ่ายร่วมรัฐบาล',
-      xAxes: [5, 10, 15, 20],
-    },
-    {
-      label: 'ฝ่ายค้าน',
-      xAxes: [5, 10, 15, 20],
-    },
-    {
-      label: 'อื่นๆ',
-      labelInfo:
-        'คือคำวินิจฉัยที่ไม่ได้เกี่ยวข้องกับพรรคร่วมรัฐบาลและพรรคฝ่ายค้าน เช่น คำวินิจฉัยยุบพรรคการเมืองที่ไม่ได้รับเลือกตั้ง คำวินิจฉัยชี้ขาดผู้ดำรงตำแหน่งทางการเมืองท้องถิ่น เป็นต้น',
-      xAxes: [5, 10, 15, 20],
-    },
-  ];
+export default function ChartGroup() {
+  const { group, years, periods, primeMs, highlightCats } = useChart();
+  const chartRef = useRef<Element>(null);
 
   const headLabel = (chart: TChart) => {
     return (
@@ -144,11 +50,11 @@ export default function Chart({ legends }: Props) {
     );
   };
 
-  const xGrid = () => {
+  const xGrid = (chart: TChart) => {
     return (
       <div className="absolute inset-0 flex">
         <div className="wv-h11 absolute -bottom-7 -left-4 w-8">0</div>
-        {xAxes.map((i) => (
+        {chart.xAxes.map((i) => (
           <div
             key={i}
             className="relative flex-1 border-r border-dashed border-white/20"
@@ -163,19 +69,23 @@ export default function Chart({ legends }: Props) {
   const yGrid = () => {
     return (
       <div className="absolute inset-0 flex flex-col">
-        {years.map((i, index) => (
+        {years.map((i) => (
           <div
-            key={index}
+            key={i}
             className="relative flex-1 cursor-pointer hover:rounded-sm hover:outline hover:outline-2 hover:outline-highlight"
           >
-            <div className="wv-h11 absolute -left-8 top-0">{40 + index}</div>
+            <div className="wv-h11 absolute -left-8 top-0">{i - 2500}</div>
           </div>
         ))}
       </div>
     );
   };
 
-  const periodBars = (isLastItem: boolean) => {
+  const periodBars = (chart: TChart, isLastItem: boolean) => {
+    const getDataByYear = (year: number) => {
+      return chart.yearData.find((y) => y.year === year)?.data ?? [];
+    };
+
     return periods.map((p) => (
       <div key={p.name} className="relative border-t border-grey2">
         {isLastItem && (
@@ -197,7 +107,24 @@ export default function Chart({ legends }: Props) {
           </div>
         )}
         {p.items.map((i) => (
-          <div key={i} className="h-5 border-t border-white/5"></div>
+          <div
+            key={i}
+            className="flex h-5 items-center border-t border-white/5"
+          >
+            <BarStacked
+              className="h-3"
+              data={getDataByYear(i).map((i, index) => {
+                return {
+                  name: i.category,
+                  color: group.legends[index].color ?? '',
+                  value: i.data.length,
+                };
+              })}
+              scale={last(chart.xAxes) ?? 0}
+              width={chartRef.current?.clientWidth ?? 0}
+              highlights={highlightCats}
+            />
+          </div>
         ))}
       </div>
     ));
@@ -218,9 +145,9 @@ export default function Chart({ legends }: Props) {
                   m.items.length > 0 && 'mr-3',
                 )}
               >
-                {m.infos.map((i) => (
+                {/* {m.infos.map((i) => (
                   <Avatar key={i.name} image={i.image} />
-                ))}
+                ))} */}
               </div>
               {m.items.length > 0 ? (
                 <Bracket
@@ -247,8 +174,11 @@ export default function Chart({ legends }: Props) {
       <div className="wv-h5 wv-kondolar font-black">
         ภาพรวมสัดส่วนคำวินิจฉัยศาลรัฐธรรมนูญ
       </div>
-      <Legends data={legends} />
-      <div className="relative mb-10 ml-[120px] mr-[86px] mt-12 flex gap-[68px]">
+      <Legends data={group.legends} />
+      <div
+        ref={chartRef as LegacyRef<HTMLDivElement>}
+        className="relative mb-10 ml-[120px] mr-[86px] mt-12 flex gap-[68px]"
+      >
         <div className="wv-h11 absolute -top-8 right-[102%] whitespace-nowrap">
           นายกฯ ปี พศ.
         </div>
@@ -259,14 +189,14 @@ export default function Chart({ legends }: Props) {
           จำนวนคำ วินิจฉัย (คดี)
         </div>
         {primeMsBrackets()}
-        {charts.map((c, cIndex) => (
+        {group.charts.map((c, cIndex) => (
           <div
-            key={c.label}
+            key={c.id}
             className="relative flex-1 border-b border-l  border-b-white border-l-white"
           >
-            {headLabel(c)}
-            {xGrid()}
-            {periodBars(cIndex === charts.length - 1)}
+            {c.label && headLabel(c)}
+            {xGrid(c)}
+            {periodBars(c, cIndex === group.charts.length - 1)}
           </div>
         ))}
         {yGrid()}
