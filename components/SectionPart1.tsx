@@ -46,6 +46,7 @@ export default function SectionPart1() {
 
   return (
     <>
+      <div id="chart6"></div>
       <div
         id="part1"
         className="screen pointer-events-auto flex flex-col items-center justify-center gap-[100px] bg-black"
@@ -62,7 +63,7 @@ export default function SectionPart1() {
         </BorderBox>
         <ScrollHint mode="dark" />
       </div>
-      <SectionBox id="chart6" boxCls="p-8">
+      <SectionBox boxCls="p-8">
         <div className="mx-auto max-w-[390px]">
           <div className="wv-h5 wv-kondolar font-black">
             ตลอดระยะเวลากว่า 26 ปี ศาลรัฐธรรมนูญได้
@@ -199,7 +200,7 @@ export default function SectionPart1() {
         </div>
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox>
+      <SectionBox id="chart10">
         <SituationDetail
           date="06/01/2544"
           title="2544 เลือกตั้งสมาชิกสภาผู้แทนราษฎร"
@@ -241,7 +242,7 @@ export default function SectionPart1() {
         />
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox>
+      <SectionBox id="chart11">
         <SituationDetail
           date="25/04/2549"
           title="ในหลวงรัชกาลที่ 9 มีพระราชดำรัสแก่ผู้พิพากษา"
@@ -304,7 +305,7 @@ export default function SectionPart1() {
         />
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox>
+      <SectionBox id="chart12">
         <SituationDetail
           date="24/08/2550"
           title="รัฐธรรมนูญ 2550 มีผลใช้บังคับ"
@@ -346,7 +347,7 @@ export default function SectionPart1() {
         />
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox>
+      <SectionBox id="chart13">
         <SituationDetail
           date="22/05/2557"
           title="รัฐประหารโดยคณะรักษาความสงบแห่งชาติ (คสช.)"
@@ -403,7 +404,8 @@ export default function SectionPart1() {
           }
         />
       </SectionBox>
-      <SectionBox>
+      <div className="screen"></div>
+      <SectionBox id="chart14">
         <SituationDetail
           date="06/04/2560"
           title="รัฐธรรมนูญ 2560 มีผลใช้บังคับ"

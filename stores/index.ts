@@ -9,19 +9,18 @@ type State = {
   lawData: TSheet[];
   politicData: TSheet[];
   freedomData: TSheet[];
-  govData: TSheet[];
-  oppData: TSheet[];
-  otherData: TSheet[];
 };
 
-const getDataByCat = (key: string) => {
-  return (data as TSheet[]).filter((i) => i.ประเภทคำวินิจฉัย === key);
-};
-
-const getDataBySide = (key: string) => {
-  return (data as TSheet[]).filter(
-    (i) => i['ฝ่ายทางการเมือง / ประเภทย่อย'] === key,
-  );
+export const filterByKeys = (
+  data: TSheet[],
+  keys: { key: string; value: any }[],
+) => {
+  let list = data;
+  for (let index = 0; index < keys.length; index++) {
+    const k = keys[index];
+    list = list.filter((i: any) => i[k.key] === k.value);
+  }
+  return list;
 };
 
 export const state = proxy<State>({
@@ -55,23 +54,28 @@ export const state = proxy<State>({
     return this.menuList.filter((i: TMenu) => i.icon);
   },
   get lawData() {
-    return getDataByCat('ตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ');
+    return filterByKeys(this.allData, [
+      {
+        key: 'ประเภทคำวินิจฉัย',
+        value: 'ตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ',
+      },
+    ]);
   },
   get politicData() {
-    return getDataByCat('ตรวจสอบสถาบันทางการเมือง');
+    return filterByKeys(this.allData, [
+      {
+        key: 'ประเภทคำวินิจฉัย',
+        value: 'ตรวจสอบสถาบันทางการเมือง',
+      },
+    ]);
   },
   get freedomData() {
-    return getDataByCat(
-      'คุ้มครองสิทธิเสรีภาพของประชาชน ระบอบการปกครอง และความมั่นคงของรัฐ',
-    );
-  },
-  get govData() {
-    return getDataBySide('ฝ่ายร่วมรัฐบาล');
-  },
-  get oppData() {
-    return getDataBySide('ฝ่ายค้าน');
-  },
-  get otherData() {
-    return getDataBySide('อื่น ๆ');
+    return filterByKeys(this.allData, [
+      {
+        key: 'ประเภทคำวินิจฉัย',
+        value:
+          'คุ้มครองสิทธิเสรีภาพของประชาชน ระบอบการปกครอง และความมั่นคงของรัฐ',
+      },
+    ]);
   },
 });

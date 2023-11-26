@@ -34,7 +34,7 @@ export default function BarStacked({
             'h-full transition',
             !!highlights?.length &&
               !highlights?.includes(i.name) &&
-              'opacity-10',
+              'opacity-20',
             i.name === 'multicase' && 'stripe-white',
           )}
         ></div>

@@ -179,7 +179,7 @@ export default function ChartGroup() {
                 'h-3 transition',
                 !!highlightYears?.length &&
                   !highlightYears?.includes(i) &&
-                  'opacity-10',
+                  'opacity-20',
               )}
               data={getDataByYear(i).map((i, index) => {
                 return {
