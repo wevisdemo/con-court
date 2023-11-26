@@ -60,6 +60,7 @@ export type TCaseGroup = {
   label: string;
   subLabel?: string;
   items: {
+    id: number;
     color?: string;
     name: React.ReactNode;
     request: {

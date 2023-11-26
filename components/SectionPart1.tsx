@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import BorderBox from './BorderBox';
 import CustomImg from './CustomImg';
 import IconWithBg from './IconWithBg';
@@ -43,6 +46,8 @@ export default function SectionPart1() {
       image: '/images/decision_2.webp',
     },
   ];
+
+  const [showSuggest, setShowSuggest] = useState(true);
 
   return (
     <>
@@ -133,7 +138,7 @@ export default function SectionPart1() {
           {decisionList.map((i) => (
             <div
               key={i.label}
-              className="w-[170px] border-r-2 border-grey0 px-3"
+              className="w-[170px] border-r-2 border-grey0 px-3 last:border-r-0"
             >
               <CustomImg src={i.image} className="mx-auto w-[74px]" />
               <div className="wv-h9 mt-3 font-bold">{i.label}</div>
@@ -470,6 +475,36 @@ export default function SectionPart1() {
         />
       </SectionBox>
       <div className="screen"></div>
+      <div className="screen flex items-center justify-center">
+        <div className="rounded-md bg-white p-5 text-black">
+          <div className="wv-h11 mb-3">
+            เลื่อนต่อเพื่อไปสำรวจ
+            <br />
+            คำวินิจฉัยอย่างละเอียด
+          </div>
+          <ScrollHint mode="light" />
+        </div>
+      </div>
+      <div className="screen flex items-center justify-center">
+        {showSuggest && (
+          <div className="pointer-events-auto relative flex w-[335px] flex-col items-center gap-4 rounded-md bg-grey3 p-5">
+            <CustomImg
+              src="/images/icon_x_white.webp"
+              className="absolute right-3 top-3 w-5 cursor-pointer"
+              onClick={() => setShowSuggest(false)}
+            />
+            <div className="wv-h9 font-bold">ข้อแนะนำในการดูข้อมูล</div>
+            <div className="wv-h11 flex items-center gap-3">
+              <CustomImg src="/images/suggest_1.webp" className="h-6" />
+              สำรวจสมัยนายกฯ ได้
+            </div>
+            <div className="wv-h11 flex items-center gap-3">
+              <CustomImg src="/images/suggest_2.webp" className="h-6" />
+              สำรวจข้อมูลคำวินิจฉัย
+            </div>
+          </div>
+        )}
+      </div>
       <SectionPart1Sum />
     </>
   );

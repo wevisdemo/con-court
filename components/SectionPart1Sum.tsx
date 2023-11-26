@@ -68,6 +68,7 @@ export default function SectionPart1Sum() {
       label: 'พรรคร่วมรัฐบาล',
       items: [
         {
+          id: 1,
           color: '#ACF38A',
           name: (
             <>
@@ -84,6 +85,7 @@ export default function SectionPart1Sum() {
           requirements: [<>ปฏิบัติหน้าที่ได้ตามปกติจนกว่าศาลฯจะวินิจฉัย</>],
         },
         {
+          id: 2,
           color: '#ACF38A',
           name: (
             <>
@@ -100,6 +102,7 @@ export default function SectionPart1Sum() {
           requirements: [<>ปฏิบัติหน้าที่ได้ตามปกติจนกว่าศาลฯจะวินิจฉัย</>],
         },
         {
+          id: 3,
           color: '#ACF38A',
           name: (
             <>
@@ -123,6 +126,7 @@ export default function SectionPart1Sum() {
       subLabel: '(ต่อต้าน คสช.)',
       items: [
         {
+          id: 1,
           color: '#FF9A9A',
           name: (
             <>
@@ -153,6 +157,7 @@ export default function SectionPart1Sum() {
           ],
         },
         {
+          id: 2,
           name: (
             <>
               <span className="font-bold">คดีถือหุ้น</span>สื่อ พิธา
@@ -259,7 +264,7 @@ export default function SectionPart1Sum() {
               <div className="wv-h10 text-left">
                 {g.items.map((i) => (
                   <div
-                    key={JSON.stringify(i.name)}
+                    key={i.id}
                     className="flex gap-4 border-b border-grey3 py-4"
                   >
                     <div className="flex w-[300px] items-center gap-4">
@@ -309,8 +314,8 @@ export default function SectionPart1Sum() {
                     </div>
                     <div className="w-[240px]">
                       <ul className="list-disc pl-6">
-                        {i.requirements.map((r) => (
-                          <li key={JSON.stringify(r)} className="mt-3">
+                        {i.requirements.map((r, index) => (
+                          <li key={index} className="mt-3">
                             {r}
                           </li>
                         ))}

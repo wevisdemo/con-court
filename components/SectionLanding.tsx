@@ -62,7 +62,7 @@ export default function SectionLanding() {
 
   return (
     <>
-      <SectionBox id="chart1" boxCls="p-12">
+      <SectionBox boxCls="p-12">
         <div className="mx-auto flex max-w-[460px] flex-col gap-3">
           <div className="wv-h5 wv-kondolar font-black">
             ฉายคำวินิจฉัย
