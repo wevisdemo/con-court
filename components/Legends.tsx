@@ -1,3 +1,4 @@
+import { twMerge } from 'tailwind-merge';
 import CustomImg from './CustomImg';
 import { TLegend } from '@/models';
 
@@ -26,11 +27,11 @@ export default function Legends({
               width: boxSize,
               height: boxSize,
             }}
-            className="flex-none"
-          >
-            {i.value === 'multi' && (
-              <CustomImg src="/images/stripe.webp" className="h-full w-full" />
+            className={twMerge(
+              'flex-none',
+              i.value === 'multicase' && 'stripe-white',
             )}
+          >
             {i.value === 'interest' && (
               <CustomImg
                 src="/images/icon_star.webp"

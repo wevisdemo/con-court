@@ -31,10 +31,11 @@ export default function BarStacked({
           key={i.name}
           style={{ background: i.color, width: `${getPx(i.value)}px` }}
           className={twMerge(
-            'h-full',
+            'h-full transition',
             !!highlights?.length &&
               !highlights?.includes(i.name) &&
               'opacity-10',
+            i.name === 'multicase' && 'stripe-white',
           )}
         ></div>
       ))}

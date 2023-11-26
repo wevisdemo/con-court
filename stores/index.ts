@@ -5,13 +5,23 @@ import data from '@/public/data/data-sheet.json';
 type State = {
   menuList: TMenu[];
   menuTabs: TMenu[];
+  allData: TSheet[];
   lawData: TSheet[];
   politicData: TSheet[];
   freedomData: TSheet[];
+  govData: TSheet[];
+  oppData: TSheet[];
+  otherData: TSheet[];
 };
 
 const getDataByCat = (key: string) => {
   return (data as TSheet[]).filter((i) => i.ประเภทคำวินิจฉัย === key);
+};
+
+const getDataBySide = (key: string) => {
+  return (data as TSheet[]).filter(
+    (i) => i['ฝ่ายทางการเมือง / ประเภทย่อย'] === key,
+  );
 };
 
 export const state = proxy<State>({
@@ -40,6 +50,7 @@ export const state = proxy<State>({
       id: 'about',
     },
   ],
+  allData: data as TSheet[],
   get menuTabs() {
     return this.menuList.filter((i: TMenu) => i.icon);
   },
@@ -53,5 +64,14 @@ export const state = proxy<State>({
     return getDataByCat(
       'คุ้มครองสิทธิเสรีภาพของประชาชน ระบอบการปกครอง และความมั่นคงของรัฐ',
     );
+  },
+  get govData() {
+    return getDataBySide('ฝ่ายร่วมรัฐบาล');
+  },
+  get oppData() {
+    return getDataBySide('ฝ่ายค้าน');
+  },
+  get otherData() {
+    return getDataBySide('อื่น ๆ');
   },
 });

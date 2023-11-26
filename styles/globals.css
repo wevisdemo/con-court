@@ -15,3 +15,23 @@
   min-height: 900px;
   height: 100%;
 }
+.stripe-white {
+  background: repeating-linear-gradient(
+    -45deg,
+    white,
+    white 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  border: 1px solid white;
+}
+.stripe-grey {
+  background: repeating-linear-gradient(
+    -45deg,
+    theme('colors.grey2'),
+    theme('colors.grey2') 2px,
+    transparent 2px,
+    transparent 8px
+  );
+  border: 2px solid theme('colors.grey2');
+}

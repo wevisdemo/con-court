@@ -177,7 +177,7 @@ export default function SectionPart1() {
           </div>
           <div>
             <div className="flex items-center justify-center gap-3">
-              <CustomImg src="/images/stripe_2.webp" className="w-9" />
+              <div className="stripe-grey h-9 w-9"></div>
               <div className="wv-h10">
                 คำวินิจฉัยที่มีผล
                 <span className="font-bold">คำวินิจฉัยปรากฏเป็น 2 กรณี</span>

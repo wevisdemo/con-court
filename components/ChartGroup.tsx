@@ -92,60 +92,6 @@ export default function ChartGroup() {
     );
   };
 
-  const periodBars = (chart: TChart, isLastItem: boolean) => {
-    const getDataByYear = (year: number) => {
-      return chart.yearData.find((y) => y.year === year)?.data ?? [];
-    };
-
-    return periods.map((p) => (
-      <div key={p.name} className="relative border-t border-grey2">
-        {isLastItem && (
-          <div className="absolute inset-y-0 left-[99%] -mb-[1px] -mt-[1px] flex items-center gap-2">
-            <Bracket
-              position="right"
-              arrowColor="black"
-              borderColor="#6D6D6D"
-              arrowSize="6px"
-            />
-            <div className="wv-h11 relative w-16 opacity-50">
-              <CustomImg
-                src="/images/icon_con_3.webp"
-                className="absolute inset-x-0 -top-5 mx-auto w-4"
-              />
-              <div>ปี {p.name}</div>
-              {['2549', '2557'].includes(p.name) && <div>(ชั่วคราว)</div>}
-            </div>
-          </div>
-        )}
-        {p.items.map((i) => (
-          <div
-            key={i}
-            className="flex h-5 items-center overflow-hidden border-t border-white/5"
-          >
-            <BarStacked
-              className={twMerge(
-                'h-3',
-                !!highlightYears?.length &&
-                  !highlightYears?.includes(i) &&
-                  'opacity-10',
-              )}
-              data={getDataByYear(i).map((i, index) => {
-                return {
-                  name: i.type,
-                  color: group.legends[index].color ?? '',
-                  value: i.data.length,
-                };
-              })}
-              scale={last(chart.xAxes) ?? 0}
-              width={chartRef.current?.clientWidth ?? 0}
-              highlights={highlightCats}
-            />
-          </div>
-        ))}
-      </div>
-    ));
-  };
-
   const primeMsBrackets = () => {
     return (
       <div className="absolute inset-y-3 right-full w-[120px]">
@@ -198,6 +144,60 @@ export default function ChartGroup() {
     );
   };
 
+  const periodBars = (chart: TChart, isLastItem: boolean) => {
+    const getDataByYear = (year: number) => {
+      return chart.yearData.find((y) => y.year === year)?.data ?? [];
+    };
+
+    return periods.map((p) => (
+      <div key={p.name} className="relative border-t border-grey2">
+        {isLastItem && (
+          <div className="absolute inset-y-0 left-[99%] -mb-[1px] -mt-[1px] flex items-center gap-2">
+            <Bracket
+              position="right"
+              arrowColor="black"
+              borderColor="#6D6D6D"
+              arrowSize="6px"
+            />
+            <div className="wv-h11 relative w-16 opacity-50">
+              <CustomImg
+                src="/images/icon_con_3.webp"
+                className="absolute inset-x-0 -top-5 mx-auto w-4"
+              />
+              <div>ปี {p.name}</div>
+              {['2549', '2557'].includes(p.name) && <div>(ชั่วคราว)</div>}
+            </div>
+          </div>
+        )}
+        {p.items.map((i) => (
+          <div
+            key={i}
+            className="flex h-5 items-center overflow-hidden border-t border-white/5"
+          >
+            <BarStacked
+              className={twMerge(
+                'h-3 transition',
+                !!highlightYears?.length &&
+                  !highlightYears?.includes(i) &&
+                  'opacity-10',
+              )}
+              data={getDataByYear(i).map((i, index) => {
+                return {
+                  name: i.type,
+                  color: group.legends[index].color ?? '',
+                  value: i.data.length,
+                };
+              })}
+              scale={last(chart.xAxes) ?? 0}
+              width={chartRef.current?.clientWidth ?? 0}
+              highlights={highlightCats}
+            />
+          </div>
+        ))}
+      </div>
+    ));
+  };
+
   return (
     <div
       id="chart"
@@ -208,7 +208,6 @@ export default function ChartGroup() {
       </div>
       <Legends data={group.legends} />
       <div
-        ref={chartRef as LegacyRef<HTMLDivElement>}
         style={{
           gridTemplateColumns: `repeat(${group.charts.length}, minmax(0, 1fr))`,
         }}
@@ -219,6 +218,7 @@ export default function ChartGroup() {
         {group.charts.map((c, cIndex) => (
           <div
             key={c.id}
+            ref={chartRef as LegacyRef<HTMLDivElement>}
             className="relative flex-1 border-b border-l border-b-white border-l-white"
           >
             {c.label && headLabel(c)}

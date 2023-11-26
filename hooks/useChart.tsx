@@ -5,7 +5,15 @@ import { useEffect, useMemo, useState } from 'react';
 import { useSnapshot } from 'valtio';
 
 export const useChart = () => {
-  const { lawData, politicData, freedomData } = useSnapshot(state);
+  const {
+    allData,
+    lawData,
+    politicData,
+    freedomData,
+    govData,
+    oppData,
+    otherData,
+  } = useSnapshot(state);
 
   const periods = [
     {
@@ -183,11 +191,7 @@ export const useChart = () => {
                 data: [
                   {
                     type: 'ฝ่ายร่วมรัฐบาล',
-                    data: politicData.filter(
-                      (i) =>
-                        i.ปีวินิจฉัย === y &&
-                        i['ฝ่ายทางการเมือง / ประเภทย่อย'] === 'ฝ่ายร่วมรัฐบาล',
-                    ),
+                    data: govData.filter((i) => i.ปีวินิจฉัย === y),
                   },
                 ],
               };
@@ -203,11 +207,7 @@ export const useChart = () => {
                 data: [
                   {
                     type: 'ฝ่ายค้าน',
-                    data: politicData.filter(
-                      (i) =>
-                        i.ปีวินิจฉัย === y &&
-                        i['ฝ่ายทางการเมือง / ประเภทย่อย'] === 'ฝ่ายค้าน',
-                    ),
+                    data: oppData.filter((i) => i.ปีวินิจฉัย === y),
                   },
                 ],
               };
@@ -223,11 +223,7 @@ export const useChart = () => {
                 data: [
                   {
                     type: 'อื่น ๆ',
-                    data: politicData.filter(
-                      (i) =>
-                        i.ปีวินิจฉัย === y &&
-                        i['ฝ่ายทางการเมือง / ประเภทย่อย'] === 'อื่น ๆ',
-                    ),
+                    data: otherData.filter((i) => i.ปีวินิจฉัย === y),
                   },
                 ],
               };
@@ -239,19 +235,18 @@ export const useChart = () => {
         id: 4,
         legends: [
           {
-            label: `คำวินิจฉัยที่ส่งผลกระทบลบต่อผู้ถูกร้อง (xxx คดี)`,
-            value: 'ตรวจสอบสถาบันทางการเมือง1',
+            label: `คำวินิจฉัยที่ส่งผลกระทบบวกต่อผู้ถูกร้อง (xxx คดี)`,
+            value: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
             color: '#ACF38A',
           },
           {
             label: `คำวินิจฉัยที่ส่งผลกระทบลบต่อผู้ถูกร้อง (xxx คดี)`,
-            value: 'ตรวจสอบสถาบันทางการเมือง2',
+            value: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
             color: '#FF9A9A',
           },
           {
-            label: `คำวินิจฉัยที่ส่งผลกระทบลบต่อผู้ถูกร้อง (xxx คดี)`,
-            value: 'ตรวจสอบสถาบันทางการเมือง3',
-            color: '#FFC164',
+            label: `คำวินิจฉัยที่มีผลคำวินิจฉัยปรากฏเป็น 2 กรณี (4 คดี)`,
+            value: 'multicase',
           },
         ],
         charts: [
@@ -264,11 +259,35 @@ export const useChart = () => {
                 year: y,
                 data: [
                   {
-                    type: 'ฝ่ายร่วมรัฐบาล',
-                    data: politicData.filter(
+                    type: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
+                    data: govData.filter(
                       (i) =>
                         i.ปีวินิจฉัย === y &&
-                        i['ฝ่ายทางการเมือง / ประเภทย่อย'] === 'ฝ่ายร่วมรัฐบาล',
+                        i.ลักษณะคำวินิจฉัย === 'ส่งผลกระทบบวกต่อผู้ถูกร้อง' &&
+                        i[
+                          'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)'
+                        ] === 'FALSE',
+                    ),
+                  },
+                  {
+                    type: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
+                    data: govData.filter(
+                      (i) =>
+                        i.ปีวินิจฉัย === y &&
+                        i.ลักษณะคำวินิจฉัย === 'ส่งผลกระทบลบต่อผู้ถูกร้อง' &&
+                        i[
+                          'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)'
+                        ] === 'FALSE',
+                    ),
+                  },
+                  {
+                    type: 'multicase',
+                    data: govData.filter(
+                      (i) =>
+                        i.ปีวินิจฉัย === y &&
+                        i[
+                          'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)'
+                        ] === 'TRUE',
                     ),
                   },
                 ],
@@ -284,11 +303,29 @@ export const useChart = () => {
                 year: y,
                 data: [
                   {
-                    type: 'ฝ่ายค้าน',
-                    data: politicData.filter(
+                    type: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
+                    data: oppData.filter(
                       (i) =>
                         i.ปีวินิจฉัย === y &&
-                        i['ฝ่ายทางการเมือง / ประเภทย่อย'] === 'ฝ่ายค้าน',
+                        i.ลักษณะคำวินิจฉัย === 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
+                    ),
+                  },
+                  {
+                    type: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
+                    data: oppData.filter(
+                      (i) =>
+                        i.ปีวินิจฉัย === y &&
+                        i.ลักษณะคำวินิจฉัย === 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
+                    ),
+                  },
+                  {
+                    type: 'multicase',
+                    data: oppData.filter(
+                      (i) =>
+                        i.ปีวินิจฉัย === y &&
+                        i[
+                          'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)'
+                        ] === 'TRUE',
                     ),
                   },
                 ],
@@ -304,11 +341,29 @@ export const useChart = () => {
                 year: y,
                 data: [
                   {
-                    type: 'อื่น ๆ',
-                    data: politicData.filter(
+                    type: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
+                    data: otherData.filter(
                       (i) =>
                         i.ปีวินิจฉัย === y &&
-                        i['ฝ่ายทางการเมือง / ประเภทย่อย'] === 'อื่น ๆ',
+                        i.ลักษณะคำวินิจฉัย === 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
+                    ),
+                  },
+                  {
+                    type: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
+                    data: otherData.filter(
+                      (i) =>
+                        i.ปีวินิจฉัย === y &&
+                        i.ลักษณะคำวินิจฉัย === 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
+                    ),
+                  },
+                  {
+                    type: 'multicase',
+                    data: otherData.filter(
+                      (i) =>
+                        i.ปีวินิจฉัย === y &&
+                        i[
+                          'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)'
+                        ] === 'TRUE',
                     ),
                   },
                 ],
