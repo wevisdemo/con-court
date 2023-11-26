@@ -14,7 +14,7 @@ export default function SectionIntro() {
   const { goToSection } = usePage();
 
   return (
-    <div id="intro" className="relative pb-14">
+    <div className="relative pb-14">
       <CustomImg
         src="/images/paper_intro.webp"
         className="absolute -left-5 top-[150px] z-10 w-[260px]"
