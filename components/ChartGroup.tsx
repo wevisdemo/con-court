@@ -10,13 +10,13 @@ import { twMerge } from 'tailwind-merge';
 import Avatar from './Avatar';
 import BarStacked from './BarStacked';
 import { last } from 'lodash';
-import { LegacyRef, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function ChartGroup() {
   const { group, years, periods, primeMs, highlightCats, highlightYears } =
     useChart();
-  const chartRef = useRef<Element>(null);
   const [popoverOpen, setPopoverOpen] = useState(false);
+  const [chartWidth, setChartWidth] = useState(0);
 
   const headLabel = (chart: TChart) => {
     return (
@@ -146,7 +146,14 @@ export default function ChartGroup() {
 
   const periodBars = (chart: TChart, isLastItem: boolean) => {
     const getDataByYear = (year: number) => {
-      return chart.yearData.find((y) => y.year === year)?.items ?? [];
+      const res = chart.yearData.find((y) => y.year === year);
+      return res?.items.map((i, index) => {
+        return {
+          name: i.type,
+          color: group.legends[index].color ?? '',
+          value: i.data.length,
+        };
+      });
     };
 
     return periods.map((p) => (
@@ -181,15 +188,9 @@ export default function ChartGroup() {
                   !highlightYears?.includes(i) &&
                   'opacity-20',
               )}
-              data={getDataByYear(i).map((i, index) => {
-                return {
-                  name: i.type,
-                  color: group.legends[index].color ?? '',
-                  value: i.data.length,
-                };
-              })}
+              data={getDataByYear(i) ?? []}
               scale={last(chart.xAxes) ?? 0}
-              width={chartRef.current?.clientWidth ?? 0}
+              width={chartWidth}
               highlights={highlightCats}
             />
           </div>
@@ -197,6 +198,10 @@ export default function ChartGroup() {
       </div>
     ));
   };
+
+  useEffect(() => {
+    setChartWidth(document.querySelector('.chart')?.clientWidth ?? 0);
+  }, [group]);
 
   return (
     <div
@@ -218,8 +223,7 @@ export default function ChartGroup() {
         {group.charts.map((c, cIndex) => (
           <div
             key={c.id}
-            ref={chartRef as LegacyRef<HTMLDivElement>}
-            className="relative flex-1 border-b border-l border-b-white border-l-white"
+            className="chart relative border-b border-l border-b-white border-l-white"
           >
             {c.label && headLabel(c)}
             {xGrid(c)}
