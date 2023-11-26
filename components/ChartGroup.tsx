@@ -146,7 +146,7 @@ export default function ChartGroup() {
 
   const periodBars = (chart: TChart, isLastItem: boolean) => {
     const getDataByYear = (year: number) => {
-      return chart.yearData.find((y) => y.year === year)?.data ?? [];
+      return chart.yearData.find((y) => y.year === year)?.items ?? [];
     };
 
     return periods.map((p) => (

@@ -76,7 +76,7 @@ export type TCaseGroup = {
 
 export type TYear = {
   year: number;
-  data: { type: string; data: TSheet[] }[];
+  items: { type: string; data: TSheet[] }[];
 };
 
 export type TChart = {

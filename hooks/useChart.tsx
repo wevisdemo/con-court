@@ -1,7 +1,7 @@
 import { TCategory, TChartGroup } from '@/models';
 import { filterByKeys, state } from '@/stores';
 import { flatten, throttle } from 'lodash';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useSnapshot } from 'valtio';
 
 export const useChart = () => {
@@ -86,471 +86,475 @@ export const useChart = () => {
     },
   ];
 
-  const years = flatten(periods.map((i) => i.items));
+  const years = useMemo(() => {
+    return flatten(periods.map((i) => i.items));
+  }, [periods]);
 
-  const groupData: TChartGroup[] = [
-    {
-      id: 1,
-      legends: [
-        {
-          label: `ตรวจสอบกฎหมาย (${lawData.length} คดี)`,
-          value: 'ตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ',
-          color: '#6BB8FF',
-        },
-        {
-          label: `ตรวจสอบสถาบันทางการเมือง (${politicData.length} คดี)`,
-          value: 'ตรวจสอบสถาบันทางการเมือง',
-          color: '#FFC164',
-        },
-        {
-          label: `คุ้มครองสิทธิฯ ประชาชนและความมั่นคงของรัฐ (${freedomData.length} คดี)`,
-          value:
-            'คุ้มครองสิทธิเสรีภาพของประชาชน ระบอบการปกครอง และความมั่นคงของรัฐ',
-          color: '#E0AEFF',
-        },
-      ],
-      charts: [
-        {
-          id: 1,
-          xAxes: [10, 20, 30, 40, 50, 60],
-          yearData: years.map((y) => {
-            return {
-              year: y,
-              data: [
-                {
-                  type: 'ตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ',
-                  data: filterByKeys(
-                    [...lawData],
-                    [{ key: 'ปีวินิจฉัย', value: y }],
-                  ),
-                },
-                {
-                  type: 'ตรวจสอบสถาบันทางการเมือง',
-                  data: filterByKeys(
-                    [...politicData],
-                    [{ key: 'ปีวินิจฉัย', value: y }],
-                  ),
-                },
-                {
-                  type: 'คุ้มครองสิทธิเสรีภาพของประชาชน ระบอบการปกครอง และความมั่นคงของรัฐ',
-                  data: filterByKeys(
-                    [...freedomData],
-                    [{ key: 'ปีวินิจฉัย', value: y }],
-                  ),
-                },
-              ],
-            };
-          }),
-        },
-      ],
-    },
-    {
-      id: 2,
-      legends: [
-        {
-          label: `ตรวจสอบสถาบันทางการเมือง (${politicData.length} คดี)`,
-          value: 'ตรวจสอบสถาบันทางการเมือง',
-          color: '#FFC164',
-        },
-      ],
-      charts: [
-        {
-          id: 1,
-          xAxes: [10, 20, 30, 40, 50, 60],
-          yearData: years.map((y) => {
-            return {
-              year: y,
-              data: [
-                {
-                  type: 'ตรวจสอบสถาบันทางการเมือง',
-                  data: filterByKeys(
-                    [...politicData],
-                    [{ key: 'ปีวินิจฉัย', value: y }],
-                  ),
-                },
-              ],
-            };
-          }),
-        },
-      ],
-    },
-    {
-      id: 3,
-      legends: [
-        {
-          label: `ตรวจสอบสถาบันทางการเมือง (${politicData.length} คดี)`,
-          value: 'ตรวจสอบสถาบันทางการเมือง',
-          color: '#FFC164',
-        },
-      ],
-      charts: [
-        {
-          id: 1,
-          label: 'ฝ่ายร่วมรัฐบาล',
-          xAxes: [0, 5, 10, 15, 20],
-          yearData: years.map((y) => {
-            return {
-              year: y,
-              data: [
-                {
-                  type: 'ฝ่ายร่วมรัฐบาล',
-                  data: filterByKeys(
-                    [...politicData],
-                    [
-                      { key: 'ปีวินิจฉัย', value: y },
-                      {
-                        key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
-                        value: 'ฝ่ายร่วมรัฐบาล',
-                      },
-                    ],
-                  ),
-                },
-              ],
-            };
-          }),
-        },
-        {
-          id: 2,
-          label: 'ฝ่ายค้าน',
-          xAxes: [0, 5, 10, 15, 20],
-          yearData: years.map((y) => {
-            return {
-              year: y,
-              data: [
-                {
-                  type: 'ฝ่ายค้าน',
-                  data: filterByKeys(
-                    [...politicData],
-                    [
-                      { key: 'ปีวินิจฉัย', value: y },
-                      {
-                        key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
-                        value: 'ฝ่ายค้าน',
-                      },
-                    ],
-                  ),
-                },
-              ],
-            };
-          }),
-        },
-        {
-          id: 3,
-          label: 'อื่น ๆ',
-          xAxes: [0, 5, 10, 15, 20],
-          yearData: years.map((y) => {
-            return {
-              year: y,
-              data: [
-                {
-                  type: 'อื่น ๆ',
-                  data: filterByKeys(
-                    [...politicData],
-                    [
-                      { key: 'ปีวินิจฉัย', value: y },
-                      {
-                        key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
-                        value: 'อื่น ๆ',
-                      },
-                    ],
-                  ),
-                },
-              ],
-            };
-          }),
-        },
-      ],
-    },
-    {
-      id: 4,
-      legends: [
-        {
-          label: `คำวินิจฉัยที่ส่งผลกระทบบวกต่อผู้ถูกร้อง (${
-            filterByKeys(
-              [...allData],
-              [
-                {
-                  key: 'ลักษณะคำวินิจฉัย',
-                  value: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
-                },
-                {
-                  key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
-                  value: 'FALSE',
-                },
-              ],
-            ).length
-          } คดี)`,
-          value: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
-          color: '#ACF38A',
-        },
-        {
-          label: `คำวินิจฉัยที่ส่งผลกระทบลบต่อผู้ถูกร้อง (${
-            filterByKeys(
-              [...allData],
-              [
-                {
-                  key: 'ลักษณะคำวินิจฉัย',
-                  value: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
-                },
-                {
-                  key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
-                  value: 'FALSE',
-                },
-              ],
-            ).length
-          } คดี)`,
-          value: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
-          color: '#FF9A9A',
-        },
-        {
-          label: `คำวินิจฉัยที่มีผลคำวินิจฉัยปรากฏเป็น 2 กรณี (4 คดี)`,
-          value: 'multicase',
-        },
-      ],
-      charts: [
-        {
-          id: 1,
-          label: 'ฝ่ายร่วมรัฐบาล',
-          xAxes: [0, 5, 10, 15, 20],
-          yearData: years.map((y) => {
-            return {
-              year: y,
-              data: [
-                {
-                  type: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
-                  data: filterByKeys(
-                    [...allData],
-                    [
-                      {
-                        key: 'ปีวินิจฉัย',
-                        value: y,
-                      },
-                      {
-                        key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
-                        value: 'ฝ่ายร่วมรัฐบาล',
-                      },
-                      {
-                        key: 'ลักษณะคำวินิจฉัย',
-                        value: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
-                      },
-                      {
-                        key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
-                        value: 'FALSE',
-                      },
-                    ],
-                  ),
-                },
-                {
-                  type: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
-                  data: filterByKeys(
-                    [...allData],
-                    [
-                      {
-                        key: 'ปีวินิจฉัย',
-                        value: y,
-                      },
-                      {
-                        key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
-                        value: 'ฝ่ายร่วมรัฐบาล',
-                      },
-                      {
-                        key: 'ลักษณะคำวินิจฉัย',
-                        value: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
-                      },
-                      {
-                        key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
-                        value: 'FALSE',
-                      },
-                    ],
-                  ),
-                },
-                {
-                  type: 'multicase',
-                  data: filterByKeys(
-                    [...allData],
-                    [
-                      {
-                        key: 'ปีวินิจฉัย',
-                        value: y,
-                      },
-                      {
-                        key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
-                        value: 'ฝ่ายร่วมรัฐบาล',
-                      },
-                      {
-                        key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
-                        value: 'TRUE',
-                      },
-                    ],
-                  ),
-                },
-              ],
-            };
-          }),
-        },
-        {
-          id: 2,
-          label: 'ฝ่ายค้าน',
-          xAxes: [0, 5, 10, 15, 20],
-          yearData: years.map((y) => {
-            return {
-              year: y,
-              data: [
-                {
-                  type: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
-                  data: filterByKeys(
-                    [...allData],
-                    [
-                      {
-                        key: 'ปีวินิจฉัย',
-                        value: y,
-                      },
-                      {
-                        key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
-                        value: 'ฝ่ายค้าน',
-                      },
-                      {
-                        key: 'ลักษณะคำวินิจฉัย',
-                        value: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
-                      },
-                      {
-                        key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
-                        value: 'FALSE',
-                      },
-                    ],
-                  ),
-                },
-                {
-                  type: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
-                  data: filterByKeys(
-                    [...allData],
-                    [
-                      {
-                        key: 'ปีวินิจฉัย',
-                        value: y,
-                      },
-                      {
-                        key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
-                        value: 'ฝ่ายค้าน',
-                      },
-                      {
-                        key: 'ลักษณะคำวินิจฉัย',
-                        value: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
-                      },
-                      {
-                        key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
-                        value: 'FALSE',
-                      },
-                    ],
-                  ),
-                },
-                {
-                  type: 'multicase',
-                  data: filterByKeys(
-                    [...allData],
-                    [
-                      {
-                        key: 'ปีวินิจฉัย',
-                        value: y,
-                      },
-                      {
-                        key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
-                        value: 'ฝ่ายค้าน',
-                      },
-                      {
-                        key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
-                        value: 'TRUE',
-                      },
-                    ],
-                  ),
-                },
-              ],
-            };
-          }),
-        },
-        {
-          id: 3,
-          label: 'อื่น ๆ',
-          xAxes: [0, 5, 10, 15, 20],
-          yearData: years.map((y) => {
-            return {
-              year: y,
-              data: [
-                {
-                  type: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
-                  data: filterByKeys(
-                    [...allData],
-                    [
-                      {
-                        key: 'ปีวินิจฉัย',
-                        value: y,
-                      },
-                      {
-                        key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
-                        value: 'อื่น ๆ',
-                      },
-                      {
-                        key: 'ลักษณะคำวินิจฉัย',
-                        value: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
-                      },
-                      {
-                        key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
-                        value: 'FALSE',
-                      },
-                    ],
-                  ),
-                },
-                {
-                  type: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
-                  data: filterByKeys(
-                    [...allData],
-                    [
-                      {
-                        key: 'ปีวินิจฉัย',
-                        value: y,
-                      },
-                      {
-                        key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
-                        value: 'อื่น ๆ',
-                      },
-                      {
-                        key: 'ลักษณะคำวินิจฉัย',
-                        value: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
-                      },
-                      {
-                        key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
-                        value: 'FALSE',
-                      },
-                    ],
-                  ),
-                },
-                {
-                  type: 'multicase',
-                  data: filterByKeys(
-                    [...allData],
-                    [
-                      {
-                        key: 'ปีวินิจฉัย',
-                        value: y,
-                      },
-                      {
-                        key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
-                        value: 'อื่น ๆ',
-                      },
-                      {
-                        key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
-                        value: 'TRUE',
-                      },
-                    ],
-                  ),
-                },
-              ],
-            };
-          }),
-        },
-      ],
-    },
-  ];
+  const groupData: TChartGroup[] = useMemo(() => {
+    return [
+      {
+        id: 1,
+        legends: [
+          {
+            label: `ตรวจสอบกฎหมาย (${lawData.length} คดี)`,
+            value: 'ตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ',
+            color: '#6BB8FF',
+          },
+          {
+            label: `ตรวจสอบสถาบันทางการเมือง (${politicData.length} คดี)`,
+            value: 'ตรวจสอบสถาบันทางการเมือง',
+            color: '#FFC164',
+          },
+          {
+            label: `คุ้มครองสิทธิฯ ประชาชนและความมั่นคงของรัฐ (${freedomData.length} คดี)`,
+            value:
+              'คุ้มครองสิทธิเสรีภาพของประชาชน ระบอบการปกครอง และความมั่นคงของรัฐ',
+            color: '#E0AEFF',
+          },
+        ],
+        charts: [
+          {
+            id: 1,
+            xAxes: [10, 20, 30, 40, 50, 60],
+            yearData: years.map((y) => {
+              return {
+                year: y,
+                items: [
+                  {
+                    type: 'ตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ',
+                    data: filterByKeys(
+                      [...lawData],
+                      [{ key: 'ปีวินิจฉัย', value: y }],
+                    ),
+                  },
+                  {
+                    type: 'ตรวจสอบสถาบันทางการเมือง',
+                    data: filterByKeys(
+                      [...politicData],
+                      [{ key: 'ปีวินิจฉัย', value: y }],
+                    ),
+                  },
+                  {
+                    type: 'คุ้มครองสิทธิเสรีภาพของประชาชน ระบอบการปกครอง และความมั่นคงของรัฐ',
+                    data: filterByKeys(
+                      [...freedomData],
+                      [{ key: 'ปีวินิจฉัย', value: y }],
+                    ),
+                  },
+                ],
+              };
+            }),
+          },
+        ],
+      },
+      {
+        id: 2,
+        legends: [
+          {
+            label: `ตรวจสอบสถาบันทางการเมือง (${politicData.length} คดี)`,
+            value: 'ตรวจสอบสถาบันทางการเมือง',
+            color: '#FFC164',
+          },
+        ],
+        charts: [
+          {
+            id: 1,
+            xAxes: [10, 20, 30, 40, 50, 60],
+            yearData: years.map((y) => {
+              return {
+                year: y,
+                items: [
+                  {
+                    type: 'ตรวจสอบสถาบันทางการเมือง',
+                    data: filterByKeys(
+                      [...politicData],
+                      [{ key: 'ปีวินิจฉัย', value: y }],
+                    ),
+                  },
+                ],
+              };
+            }),
+          },
+        ],
+      },
+      // {
+      //   id: 3,
+      //   legends: [
+      //     {
+      //       label: `ตรวจสอบสถาบันทางการเมือง (${politicData.length} คดี)`,
+      //       value: 'ตรวจสอบสถาบันทางการเมือง',
+      //       color: '#FFC164',
+      //     },
+      //   ],
+      //   charts: [
+      //     {
+      //       id: 1,
+      //       label: 'ฝ่ายร่วมรัฐบาล',
+      //       xAxes: [0, 5, 10, 15, 20],
+      //       yearData: years.map((y) => {
+      //         return {
+      //           year: y,
+      //           items: [
+      //             {
+      //               type: 'ฝ่ายร่วมรัฐบาล',
+      //               data: filterByKeys(
+      //                 [...politicData],
+      //                 [
+      //                   { key: 'ปีวินิจฉัย', value: y },
+      //                   {
+      //                     key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+      //                     value: 'ฝ่ายร่วมรัฐบาล',
+      //                   },
+      //                 ],
+      //               ),
+      //             },
+      //           ],
+      //         };
+      //       }),
+      //     },
+      //     {
+      //       id: 2,
+      //       label: 'ฝ่ายค้าน',
+      //       xAxes: [0, 5, 10, 15, 20],
+      //       yearData: years.map((y) => {
+      //         return {
+      //           year: y,
+      //           items: [
+      //             {
+      //               type: 'ฝ่ายค้าน',
+      //               data: filterByKeys(
+      //                 [...politicData],
+      //                 [
+      //                   { key: 'ปีวินิจฉัย', value: y },
+      //                   {
+      //                     key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+      //                     value: 'ฝ่ายค้าน',
+      //                   },
+      //                 ],
+      //               ),
+      //             },
+      //           ],
+      //         };
+      //       }),
+      //     },
+      //     {
+      //       id: 3,
+      //       label: 'อื่น ๆ',
+      //       xAxes: [0, 5, 10, 15, 20],
+      //       yearData: years.map((y) => {
+      //         return {
+      //           year: y,
+      //           items: [
+      //             {
+      //               type: 'อื่น ๆ',
+      //               data: filterByKeys(
+      //                 [...politicData],
+      //                 [
+      //                   { key: 'ปีวินิจฉัย', value: y },
+      //                   {
+      //                     key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+      //                     value: 'อื่น ๆ',
+      //                   },
+      //                 ],
+      //               ),
+      //             },
+      //           ],
+      //         };
+      //       }),
+      //     },
+      //   ],
+      // },
+      // {
+      //   id: 4,
+      //   legends: [
+      //     {
+      //       label: `คำวินิจฉัยที่ส่งผลกระทบบวกต่อผู้ถูกร้อง (${
+      //         filterByKeys(
+      //           [...allData],
+      //           [
+      //             {
+      //               key: 'ลักษณะคำวินิจฉัย',
+      //               value: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
+      //             },
+      //             {
+      //               key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
+      //               value: 'FALSE',
+      //             },
+      //           ],
+      //         ).length
+      //       } คดี)`,
+      //       value: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
+      //       color: '#ACF38A',
+      //     },
+      //     {
+      //       label: `คำวินิจฉัยที่ส่งผลกระทบลบต่อผู้ถูกร้อง (${
+      //         filterByKeys(
+      //           [...allData],
+      //           [
+      //             {
+      //               key: 'ลักษณะคำวินิจฉัย',
+      //               value: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
+      //             },
+      //             {
+      //               key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
+      //               value: 'FALSE',
+      //             },
+      //           ],
+      //         ).length
+      //       } คดี)`,
+      //       value: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
+      //       color: '#FF9A9A',
+      //     },
+      //     {
+      //       label: `คำวินิจฉัยที่มีผลคำวินิจฉัยปรากฏเป็น 2 กรณี (4 คดี)`,
+      //       value: 'multicase',
+      //     },
+      //   ],
+      //   charts: [
+      //     {
+      //       id: 1,
+      //       label: 'ฝ่ายร่วมรัฐบาล',
+      //       xAxes: [0, 5, 10, 15, 20],
+      //       yearData: years.map((y) => {
+      //         return {
+      //           year: y,
+      //           items: [
+      //             {
+      //               type: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
+      //               data: filterByKeys(
+      //                 [...allData],
+      //                 [
+      //                   {
+      //                     key: 'ปีวินิจฉัย',
+      //                     value: y,
+      //                   },
+      //                   {
+      //                     key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+      //                     value: 'ฝ่ายร่วมรัฐบาล',
+      //                   },
+      //                   {
+      //                     key: 'ลักษณะคำวินิจฉัย',
+      //                     value: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
+      //                   },
+      //                   {
+      //                     key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
+      //                     value: 'FALSE',
+      //                   },
+      //                 ],
+      //               ),
+      //             },
+      //             {
+      //               type: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
+      //               data: filterByKeys(
+      //                 [...allData],
+      //                 [
+      //                   {
+      //                     key: 'ปีวินิจฉัย',
+      //                     value: y,
+      //                   },
+      //                   {
+      //                     key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+      //                     value: 'ฝ่ายร่วมรัฐบาล',
+      //                   },
+      //                   {
+      //                     key: 'ลักษณะคำวินิจฉัย',
+      //                     value: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
+      //                   },
+      //                   {
+      //                     key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
+      //                     value: 'FALSE',
+      //                   },
+      //                 ],
+      //               ),
+      //             },
+      //             {
+      //               type: 'multicase',
+      //               data: filterByKeys(
+      //                 [...allData],
+      //                 [
+      //                   {
+      //                     key: 'ปีวินิจฉัย',
+      //                     value: y,
+      //                   },
+      //                   {
+      //                     key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+      //                     value: 'ฝ่ายร่วมรัฐบาล',
+      //                   },
+      //                   {
+      //                     key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
+      //                     value: 'TRUE',
+      //                   },
+      //                 ],
+      //               ),
+      //             },
+      //           ],
+      //         };
+      //       }),
+      //     },
+      //     {
+      //       id: 2,
+      //       label: 'ฝ่ายค้าน',
+      //       xAxes: [0, 5, 10, 15, 20],
+      //       yearData: years.map((y) => {
+      //         return {
+      //           year: y,
+      //           items: [
+      //             {
+      //               type: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
+      //               data: filterByKeys(
+      //                 [...allData],
+      //                 [
+      //                   {
+      //                     key: 'ปีวินิจฉัย',
+      //                     value: y,
+      //                   },
+      //                   {
+      //                     key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+      //                     value: 'ฝ่ายค้าน',
+      //                   },
+      //                   {
+      //                     key: 'ลักษณะคำวินิจฉัย',
+      //                     value: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
+      //                   },
+      //                   {
+      //                     key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
+      //                     value: 'FALSE',
+      //                   },
+      //                 ],
+      //               ),
+      //             },
+      //             {
+      //               type: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
+      //               data: filterByKeys(
+      //                 [...allData],
+      //                 [
+      //                   {
+      //                     key: 'ปีวินิจฉัย',
+      //                     value: y,
+      //                   },
+      //                   {
+      //                     key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+      //                     value: 'ฝ่ายค้าน',
+      //                   },
+      //                   {
+      //                     key: 'ลักษณะคำวินิจฉัย',
+      //                     value: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
+      //                   },
+      //                   {
+      //                     key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
+      //                     value: 'FALSE',
+      //                   },
+      //                 ],
+      //               ),
+      //             },
+      //             {
+      //               type: 'multicase',
+      //               data: filterByKeys(
+      //                 [...allData],
+      //                 [
+      //                   {
+      //                     key: 'ปีวินิจฉัย',
+      //                     value: y,
+      //                   },
+      //                   {
+      //                     key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+      //                     value: 'ฝ่ายค้าน',
+      //                   },
+      //                   {
+      //                     key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
+      //                     value: 'TRUE',
+      //                   },
+      //                 ],
+      //               ),
+      //             },
+      //           ],
+      //         };
+      //       }),
+      //     },
+      //     {
+      //       id: 3,
+      //       label: 'อื่น ๆ',
+      //       xAxes: [0, 5, 10, 15, 20],
+      //       yearData: years.map((y) => {
+      //         return {
+      //           year: y,
+      //           items: [
+      //             {
+      //               type: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
+      //               data: filterByKeys(
+      //                 [...allData],
+      //                 [
+      //                   {
+      //                     key: 'ปีวินิจฉัย',
+      //                     value: y,
+      //                   },
+      //                   {
+      //                     key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+      //                     value: 'อื่น ๆ',
+      //                   },
+      //                   {
+      //                     key: 'ลักษณะคำวินิจฉัย',
+      //                     value: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
+      //                   },
+      //                   {
+      //                     key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
+      //                     value: 'FALSE',
+      //                   },
+      //                 ],
+      //               ),
+      //             },
+      //             {
+      //               type: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
+      //               data: filterByKeys(
+      //                 [...allData],
+      //                 [
+      //                   {
+      //                     key: 'ปีวินิจฉัย',
+      //                     value: y,
+      //                   },
+      //                   {
+      //                     key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+      //                     value: 'อื่น ๆ',
+      //                   },
+      //                   {
+      //                     key: 'ลักษณะคำวินิจฉัย',
+      //                     value: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
+      //                   },
+      //                   {
+      //                     key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
+      //                     value: 'FALSE',
+      //                   },
+      //                 ],
+      //               ),
+      //             },
+      //             {
+      //               type: 'multicase',
+      //               data: filterByKeys(
+      //                 [...allData],
+      //                 [
+      //                   {
+      //                     key: 'ปีวินิจฉัย',
+      //                     value: y,
+      //                   },
+      //                   {
+      //                     key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+      //                     value: 'อื่น ๆ',
+      //                   },
+      //                   {
+      //                     key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
+      //                     value: 'TRUE',
+      //                   },
+      //                 ],
+      //               ),
+      //             },
+      //           ],
+      //         };
+      //       }),
+      //     },
+      //   ],
+      // },
+    ];
+  }, [years, lawData, politicData, freedomData]);
 
   const [group, setGroup] = useState<TChartGroup>(groupData[0]);
   const [highlightCats, setHighlightCats] = useState<TCategory[]>([]);
@@ -564,7 +568,7 @@ export const useChart = () => {
         return top < halfScreen && top > -halfScreen;
       };
 
-      for (let index = 1; index < 20; index++) {
+      for (let index = 1; index <= 14; index++) {
         const elm = document.getElementById(`chart${index}`);
         if (isInView(elm)) {
           if (index === 1) {
