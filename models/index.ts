@@ -8,6 +8,7 @@ export type TChartLegend = {
   label: React.ReactNode;
   value: string;
   color?: string;
+  hide?: boolean;
 };
 
 export type TChartCategory =

@@ -29,15 +29,21 @@ export default function BarStacked({
       {data.map((i) => (
         <div
           key={i.name}
-          style={{ background: i.color, width: `${getPx(i.value)}px` }}
+          style={{
+            background: i.color,
+            width: `${getPx(i.value)}px`,
+          }}
           className={twMerge(
-            'h-full transition',
+            'relative h-full overflow-hidden transition',
             !!highlights?.length &&
               !highlights?.includes(i.name) &&
               'opacity-20',
-            i.name === 'multicase' && 'stripe-white',
           )}
-        ></div>
+        >
+          {i.name.includes('multicase') && (
+            <div className="stripe-black absolute inset-0"></div>
+          )}
+        </div>
       ))}
     </div>
   );
