@@ -1,9 +1,9 @@
 import { twMerge } from 'tailwind-merge';
 import CustomImg from './CustomImg';
-import { TLegend } from '@/models';
+import { TChartLegend } from '@/models';
 
 type Props = {
-  data: TLegend[];
+  data: TChartLegend[];
   boxSize?: string;
   itemWidth?: string;
 };

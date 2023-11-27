@@ -1,11 +1,39 @@
-import { TCategory, TChartGroup } from '@/models';
-import { filterByKeys, state } from '@/stores';
+import {
+  TChartCategory,
+  TChartGroup,
+  TChartMode,
+  TChartSuggest,
+} from '@/models';
+import { state } from '@/stores';
+import { filterByKeys } from '@/utils/array';
 import { flatten, throttle } from 'lodash';
 import { useEffect, useMemo, useState } from 'react';
 import { useSnapshot } from 'valtio';
 
 export const useChart = () => {
   const { allData, lawData, politicData, freedomData } = useSnapshot(state);
+
+  const caseSuggests: TChartSuggest[] = [
+    {
+      image: '/images/suggest_1.webp',
+      label: 'สำรวจสมัยนายกฯ ได้',
+    },
+    {
+      image: '/images/suggest_2.webp',
+      label: 'สำรวจข้อมูลคำวินิจฉัย',
+    },
+  ];
+
+  const freedomSuggests: TChartSuggest[] = [
+    {
+      image: '/images/suggest_1.webp',
+      label: 'สำรวจสมัยนายกฯ ได้',
+    },
+    {
+      image: '/images/suggest_3.webp',
+      label: 'สำรวจข้อมูลได้',
+    },
+  ];
 
   const periods = [
     {
@@ -555,8 +583,11 @@ export const useChart = () => {
   }, []);
 
   const [group, setGroup] = useState<TChartGroup>(groupData[0]);
-  const [highlightCats, setHighlightCats] = useState<TCategory[]>([]);
-  const [highlightYears, setHighlightYears] = useState<number[]>([]);
+  const [highlightCats, setHighlightCats] = useState<TChartCategory[]>([]);
+  const [highlighTChartYears, setHighlighTChartYears] = useState<number[]>([]);
+  const [interactable, setInteractable] = useState(false);
+  const [suggests, seTChartSuggests] = useState<TChartSuggest[] | null>(null);
+  const [mode, setMode] = useState<TChartMode>('stack');
 
   useEffect(() => {
     const handleScroll = throttle(() => {
@@ -566,7 +597,7 @@ export const useChart = () => {
         return top < halfScreen && top > -halfScreen;
       };
 
-      for (let index = 1; index <= 14; index++) {
+      for (let index = 1; index <= 25; index++) {
         const elm = document.getElementById(`chart${index}`);
         if (isInView(elm)) {
           if (index === 1) {
@@ -594,35 +625,43 @@ export const useChart = () => {
           if (index === 6) {
             setGroup(groupData[1]);
             setHighlightCats([]);
-            setHighlightYears([]);
+            setHighlighTChartYears([]);
           }
           if (index === 7) {
             setGroup(groupData[1]);
-            setHighlightYears([
+            setHighlighTChartYears([
               2540, 2541, 2542, 2543, 2544, 2545, 2546, 2547, 2548,
             ]);
           }
           if (index === 8) {
             setGroup(groupData[2]);
-            setHighlightYears([]);
+            setHighlighTChartYears([]);
           }
           if (index === 9) {
             setGroup(groupData[3]);
           }
           if (index === 10) {
-            setHighlightYears([2544, 2545, 2546, 2547, 2548]);
+            setHighlighTChartYears([2544, 2545, 2546, 2547, 2548]);
           }
           if (index === 11) {
-            setHighlightYears([2549]);
+            setHighlighTChartYears([2549]);
           }
           if (index === 12) {
-            setHighlightYears([2550, 2551, 2552, 2553, 2554, 2555, 2556]);
+            setHighlighTChartYears([2550, 2551, 2552, 2553, 2554, 2555, 2556]);
           }
           if (index === 13) {
-            setHighlightYears([2557, 2558, 2559]);
+            setHighlighTChartYears([2557, 2558, 2559]);
           }
           if (index === 14) {
-            setHighlightYears([2560, 2561, 2562, 2563, 2564, 2565, 2566]);
+            setHighlighTChartYears([2560, 2561, 2562, 2563, 2564, 2565, 2566]);
+          }
+          if (index === 15) {
+            setHighlighTChartYears([]);
+          }
+          if (index === 16) {
+            seTChartSuggests(caseSuggests);
+            setInteractable(true);
+            setMode('card');
           }
         }
       }
@@ -635,5 +674,15 @@ export const useChart = () => {
     };
   }, []);
 
-  return { group, years, periods, primeMs, highlightCats, highlightYears };
+  return {
+    group,
+    years,
+    periods,
+    primeMs,
+    highlightCats,
+    highlighTChartYears,
+    interactable,
+    suggests,
+    mode,
+  };
 };

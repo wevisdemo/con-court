@@ -1,6 +1,7 @@
 import { TMenu, TSheet } from '@/models';
 import { proxy } from 'valtio';
 import data from '@/public/data/data-sheet.json';
+import { filterByKeys } from '@/utils/array';
 
 type State = {
   menuList: TMenu[];
@@ -9,18 +10,6 @@ type State = {
   lawData: TSheet[];
   politicData: TSheet[];
   freedomData: TSheet[];
-};
-
-export const filterByKeys = (
-  data: TSheet[],
-  keys: { key: string; value: any }[],
-) => {
-  let list = data;
-  for (let index = 0; index < keys.length; index++) {
-    const k = keys[index];
-    list = list.filter((i: any) => i[k.key] === k.value);
-  }
-  return list;
 };
 
 export const state = proxy<State>({

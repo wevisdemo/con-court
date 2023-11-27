@@ -3,7 +3,15 @@
 import { TChart } from '@/models';
 import Legends from './Legends';
 import { useChart } from '@/hooks/useChart';
-import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/react';
+import {
+  Modal,
+  ModalBody,
+  ModalContent,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+  useDisclosure,
+} from '@nextui-org/react';
 import CustomImg from './CustomImg';
 import Bracket from './Bracket';
 import { twMerge } from 'tailwind-merge';
@@ -13,8 +21,19 @@ import { last } from 'lodash';
 import { useEffect, useState } from 'react';
 
 export default function ChartGroup() {
-  const { group, years, periods, primeMs, highlightCats, highlightYears } =
-    useChart();
+  const {
+    group,
+    years,
+    periods,
+    primeMs,
+    highlightCats,
+    highlighTChartYears,
+    interactable,
+    suggests,
+    mode,
+  } = useChart();
+
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [popoverOpen, setPopoverOpen] = useState(false);
   const [chartWidth, setChartWidth] = useState(0);
 
@@ -79,7 +98,12 @@ export default function ChartGroup() {
 
   const yGrid = () => {
     return (
-      <div className="absolute inset-0 flex flex-col">
+      <div
+        className={twMerge(
+          'absolute inset-0 flex flex-col',
+          !interactable && 'pointer-events-none',
+        )}
+      >
         {years.map((i) => (
           <div
             key={i}
@@ -184,8 +208,8 @@ export default function ChartGroup() {
             <BarStacked
               className={twMerge(
                 'h-3 transition',
-                !!highlightYears?.length &&
-                  !highlightYears?.includes(i) &&
+                !!highlighTChartYears?.length &&
+                  !highlighTChartYears?.includes(i) &&
                   'opacity-20',
               )}
               data={getDataByYear(i) ?? []}
@@ -203,35 +227,67 @@ export default function ChartGroup() {
     setChartWidth(document.querySelector('.chart')?.clientWidth ?? 0);
   }, [group]);
 
+  useEffect(() => {
+    if (suggests) onOpen();
+  }, [suggests]);
+
   return (
-    <div
-      id="chart"
-      className="fixed inset-0 mx-auto flex max-w-[1108px] flex-col justify-center gap-4"
-    >
-      <div className="wv-h5 wv-kondolar font-black">
-        ภาพรวมสัดส่วนคำวินิจฉัยศาลรัฐธรรมนูญ
-      </div>
-      <Legends data={group.legends} />
+    <>
       <div
-        style={{
-          gridTemplateColumns: `repeat(${group.charts.length}, minmax(0, 1fr))`,
-        }}
-        className="relative mb-10 ml-[120px] mr-[86px] mt-12 grid gap-[68px]"
+        id="chart"
+        className="fixed inset-0 mx-auto flex max-w-[1108px] flex-col justify-center gap-4"
       >
-        {gridDescriptions()}
-        {primeMsBrackets()}
-        {group.charts.map((c, cIndex) => (
-          <div
-            key={c.id}
-            className="chart relative border-b border-l border-b-white border-l-white"
-          >
-            {c.label && headLabel(c)}
-            {xGrid(c)}
-            {periodBars(c, cIndex === group.charts.length - 1)}
-          </div>
-        ))}
-        {yGrid()}
+        <div className="wv-h5 wv-kondolar font-black">
+          ภาพรวมสัดส่วนคำวินิจฉัยศาลรัฐธรรมนูญ
+        </div>
+        <Legends data={group.legends} />
+        <div
+          style={{
+            gridTemplateColumns: `repeat(${group.charts.length}, minmax(0, 1fr))`,
+          }}
+          className="relative mb-10 ml-[120px] mr-[86px] mt-12 grid gap-[68px]"
+        >
+          {gridDescriptions()}
+          {primeMsBrackets()}
+          {group.charts.map((c, cIndex) => (
+            <div
+              key={c.id}
+              className="chart relative border-b border-l border-b-white border-l-white"
+            >
+              {c.label && headLabel(c)}
+              {xGrid(c)}
+              {periodBars(c, cIndex === group.charts.length - 1)}
+            </div>
+          ))}
+          {yGrid()}
+        </div>
       </div>
-    </div>
+      <Modal
+        radius="sm"
+        classNames={{
+          base: 'bg-grey3 max-w-[335px]',
+          body: 'p-5',
+          closeButton:
+            'text-white text-4xl p-0 font-black top-1 right-1 hover:bg-opacity-0 active:bg-opacity-0',
+        }}
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+      >
+        <ModalContent>
+          <ModalBody>
+            <div className="wv-h9 font-bold">ข้อแนะนำในการดูข้อมูล</div>
+            {suggests?.map((i) => (
+              <div
+                key={i.label}
+                className="wv-h11 mt-1 flex items-center justify-center gap-3"
+              >
+                <CustomImg src={i.image} className="h-8" />
+                {i.label}
+              </div>
+            ))}
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
   );
 }

@@ -1,6 +1,3 @@
-'use client';
-
-import { useState } from 'react';
 import BorderBox from './BorderBox';
 import CustomImg from './CustomImg';
 import IconWithBg from './IconWithBg';
@@ -46,8 +43,6 @@ export default function SectionPart1() {
       image: '/images/decision_2.webp',
     },
   ];
-
-  const [showSuggest, setShowSuggest] = useState(true);
 
   return (
     <>
@@ -475,7 +470,7 @@ export default function SectionPart1() {
         />
       </SectionBox>
       <div className="screen"></div>
-      <div className="screen flex items-center justify-center">
+      <div id="chart15" className="screen flex items-center justify-center">
         <div className="rounded-md bg-white p-5 text-black">
           <div className="wv-h11 mb-3">
             เลื่อนต่อเพื่อไปสำรวจ
@@ -485,26 +480,8 @@ export default function SectionPart1() {
           <ScrollHint mode="light" />
         </div>
       </div>
-      <div className="screen flex items-center justify-center">
-        {showSuggest && (
-          <div className="pointer-events-auto relative flex w-[335px] flex-col items-center gap-4 rounded-md bg-grey3 p-5">
-            <CustomImg
-              src="/images/icon_x_white.webp"
-              className="absolute right-3 top-3 w-5 cursor-pointer"
-              onClick={() => setShowSuggest(false)}
-            />
-            <div className="wv-h9 font-bold">ข้อแนะนำในการดูข้อมูล</div>
-            <div className="wv-h11 flex items-center gap-3">
-              <CustomImg src="/images/suggest_1.webp" className="h-6" />
-              สำรวจสมัยนายกฯ ได้
-            </div>
-            <div className="wv-h11 flex items-center gap-3">
-              <CustomImg src="/images/suggest_2.webp" className="h-6" />
-              สำรวจข้อมูลคำวินิจฉัย
-            </div>
-          </div>
-        )}
-      </div>
+      <div id="chart16"></div>
+      <div className="screen"></div>
       <SectionPart1Sum />
     </>
   );

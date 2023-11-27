@@ -25,7 +25,7 @@ export default function Avatar({ image, className }: Props) {
       <div>
         <CustomImg
           src={image}
-          className={twMerge('w-6 rounded-full', className)}
+          className={twMerge('w-6 cursor-pointer rounded-full', className)}
         />
       </div>
     </Tooltip>

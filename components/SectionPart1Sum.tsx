@@ -1,4 +1,4 @@
-import { TCaseGroup } from '@/models';
+import { TChartCaseGroup } from '@/models';
 import BarStacked from './BarStacked';
 import Bracket from './Bracket';
 import CustomImg from './CustomImg';
@@ -63,7 +63,7 @@ export default function SectionPart1Sum() {
     },
   ];
 
-  const groups: TCaseGroup[] = [
+  const groups: TChartCaseGroup[] = [
     {
       label: 'พรรคร่วมรัฐบาล',
       items: [
