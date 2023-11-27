@@ -680,7 +680,8 @@ export const useChart = () => {
 
   const [group, setGroup] = useState<TChartGroup>(groupData[0]);
   const [highlightCats, setHighlightCats] = useState<TChartCategory[]>([]);
-  const [highlighTChartYears, setHighlighTChartYears] = useState<number[]>([]);
+  const [highlightYears, setHighlightYears] = useState<number[]>([]);
+  const [guideYears, setGuideYears] = useState<number[]>([]);
   const [interactable, setInteractable] = useState(false);
   const [suggests, seTChartSuggests] = useState<TChartSuggest[] | null>(null);
   const [mode, setMode] = useState<TChartMode>('stack');
@@ -721,43 +722,58 @@ export const useChart = () => {
           if (index === 6) {
             setGroup(groupData[1]);
             setHighlightCats([]);
-            setHighlighTChartYears([]);
+            setHighlightYears([]);
           }
           if (index === 7) {
             setGroup(groupData[1]);
-            setHighlighTChartYears([
+            setHighlightYears([
               2540, 2541, 2542, 2543, 2544, 2545, 2546, 2547, 2548,
             ]);
+            setGuideYears([2540]);
           }
           if (index === 8) {
             setGroup(groupData[2]);
-            setHighlighTChartYears([]);
+            setHighlightYears([]);
           }
           if (index === 9) {
             setGroup(groupData[3]);
           }
           if (index === 10) {
-            setHighlighTChartYears([2544, 2545, 2546, 2547, 2548]);
+            setHighlightYears([2544, 2545, 2546, 2547, 2548]);
+            setGuideYears([2544]);
           }
           if (index === 11) {
-            setHighlighTChartYears([2549]);
+            setHighlightYears([2549]);
+            setGuideYears([2549]);
           }
           if (index === 12) {
-            setHighlighTChartYears([2550, 2551, 2552, 2553, 2554, 2555, 2556]);
+            setHighlightYears([2550, 2551, 2552, 2553, 2554, 2555, 2556]);
+            setGuideYears([2550]);
           }
           if (index === 13) {
-            setHighlighTChartYears([2557, 2558, 2559]);
+            setHighlightYears([2557, 2558, 2559]);
+            setGuideYears([2557]);
           }
           if (index === 14) {
-            setHighlighTChartYears([2560, 2561, 2562, 2563, 2564, 2565, 2566]);
+            setHighlightYears([2560, 2561, 2562, 2563, 2564, 2565, 2566]);
+            setGuideYears([2560]);
           }
           if (index === 15) {
-            setHighlighTChartYears([]);
+            setHighlightYears([]);
             setInteractable(false);
             setMode('stack');
+            setGuideYears([2562]);
           }
           if (index === 16) {
+            setGuideYears([]);
+          }
+          if (index === 17) {
             seTChartSuggests(caseSuggests);
+            setInteractable(true);
+            setMode('card');
+          }
+          if (index === 18) {
+            setGroup(groupData[3]);
             setInteractable(true);
             setMode('card');
           }
@@ -778,7 +794,8 @@ export const useChart = () => {
     periods,
     primeMs,
     highlightCats,
-    highlighTChartYears,
+    highlightYears,
+    guideYears,
     interactable,
     suggests,
     mode,

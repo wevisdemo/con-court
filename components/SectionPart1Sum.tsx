@@ -190,7 +190,7 @@ export default function SectionPart1Sum() {
   ];
 
   return (
-    <div className="pointer-events-auto bg-grey4 pb-[112px]">
+    <div id="chart18" className="pointer-events-auto bg-grey4 pb-[112px]">
       <div className="rounded-b-[200px] bg-black pb-[112px] pt-20">
         <div className="mx-auto w-[720px]">
           <div className="wv-h5 wv-kondolar font-black">

@@ -27,7 +27,8 @@ export default function ChartGroup() {
     periods,
     primeMs,
     highlightCats,
-    highlighTChartYears,
+    highlightYears,
+    guideYears,
     interactable,
     suggests,
     mode,
@@ -110,6 +111,24 @@ export default function ChartGroup() {
             className="relative flex-1 cursor-pointer hover:rounded-sm hover:outline hover:outline-2 hover:outline-highlight"
           >
             <div className="wv-h11 absolute -left-8 top-0">{i - 2500}</div>
+            {guideYears.includes(i) && (
+              <div className="absolute inset-x-0 bottom-0 flex flex-col items-center justify-end">
+                <div className="wv-h11 inline-flex items-center gap-1 rounded-t-md bg-highlight px-3 py-1 font-bold text-black">
+                  <CustomImg src="/images/icon_star_2.webp" className="w-5" />
+                  {[2544, 2562].includes(i) ? (
+                    <>{i} เลือกตั้งสมาชิกสภาผู้แทนราษฎร</>
+                  ) : [2549].includes(i) ? (
+                    <>
+                      {i} ทำรัฐประหารโดยคณะปฏิรูปการปกครองในระบอบประชาธิปไตย
+                      อันมีพระมหากษัตริย์ทรงเป็นประมุข (คปค.){' '}
+                    </>
+                  ) : (
+                    <>รัฐธรรมนูญ {i} มีผลใช้บังคับ</>
+                  )}
+                </div>
+                <div className="h-[4px] w-full bg-highlight"></div>
+              </div>
+            )}
           </div>
         ))}
       </div>
@@ -208,8 +227,8 @@ export default function ChartGroup() {
             <BarStacked
               className={twMerge(
                 'h-3 transition',
-                !!highlighTChartYears?.length &&
-                  !highlighTChartYears?.includes(i) &&
+                !!highlightYears?.length &&
+                  !highlightYears?.includes(i) &&
                   'opacity-20',
               )}
               data={getDataByYear(i) ?? []}

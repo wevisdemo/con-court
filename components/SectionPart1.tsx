@@ -437,7 +437,7 @@ export default function SectionPart1() {
         />
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox>
+      <SectionBox id="chart15">
         <SituationDetail
           date="24/03/2562"
           title="2562 เลือกตั้งสมาชิกสภาผู้แทนราษฎร"
@@ -470,7 +470,7 @@ export default function SectionPart1() {
         />
       </SectionBox>
       <div className="screen"></div>
-      <div id="chart15" className="screen flex items-center justify-center">
+      <div id="chart16" className="screen flex items-center justify-center">
         <div className="rounded-md bg-white p-5 text-black">
           <div className="wv-h11 mb-3">
             เลื่อนต่อเพื่อไปสำรวจ
@@ -480,7 +480,7 @@ export default function SectionPart1() {
           <ScrollHint mode="light" />
         </div>
       </div>
-      <div id="chart16"></div>
+      <div id="chart17" className="screen"></div>
       <div className="screen"></div>
       <SectionPart1Sum />
     </>
