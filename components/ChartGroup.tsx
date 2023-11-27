@@ -97,6 +97,19 @@ export default function ChartGroup() {
     );
   };
 
+  const guideText = (year: number) => {
+    return [2544, 2562].includes(year) ? (
+      <>{year} เลือกตั้งสมาชิกสภาผู้แทนราษฎร</>
+    ) : [2549].includes(year) ? (
+      <>
+        {year} ทำรัฐประหารโดยคณะปฏิรูปการปกครองในระบอบประชาธิปไตย
+        อันมีพระมหากษัตริย์ทรงเป็นประมุข (คปค.){' '}
+      </>
+    ) : (
+      <>รัฐธรรมนูญ {year} มีผลใช้บังคับ</>
+    );
+  };
+
   const yGrid = () => {
     return (
       <div
@@ -115,16 +128,7 @@ export default function ChartGroup() {
               <div className="absolute inset-x-0 bottom-0 flex flex-col items-center justify-end">
                 <div className="wv-h11 inline-flex items-center gap-1 rounded-t-md bg-highlight px-3 py-1 font-bold text-black">
                   <CustomImg src="/images/icon_star_2.webp" className="w-5" />
-                  {[2544, 2562].includes(i) ? (
-                    <>{i} เลือกตั้งสมาชิกสภาผู้แทนราษฎร</>
-                  ) : [2549].includes(i) ? (
-                    <>
-                      {i} ทำรัฐประหารโดยคณะปฏิรูปการปกครองในระบอบประชาธิปไตย
-                      อันมีพระมหากษัตริย์ทรงเป็นประมุข (คปค.){' '}
-                    </>
-                  ) : (
-                    <>รัฐธรรมนูญ {i} มีผลใช้บังคับ</>
-                  )}
+                  {guideText(i)}
                 </div>
                 <div className="h-[4px] w-full bg-highlight"></div>
               </div>
