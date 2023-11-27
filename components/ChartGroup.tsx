@@ -98,16 +98,15 @@ export default function ChartGroup() {
   };
 
   const guideText = (year: number) => {
-    return [2544, 2562].includes(year) ? (
-      <>{year} เลือกตั้งสมาชิกสภาผู้แทนราษฎร</>
-    ) : [2549].includes(year) ? (
-      <>
-        {year} ทำรัฐประหารโดยคณะปฏิรูปการปกครองในระบอบประชาธิปไตย
-        อันมีพระมหากษัตริย์ทรงเป็นประมุข (คปค.){' '}
-      </>
-    ) : (
-      <>รัฐธรรมนูญ {year} มีผลใช้บังคับ</>
-    );
+    let text = `รัฐธรรมนูญ ${year} มีผลใช้บังคับ`;
+    if ([2544, 2562].includes(year)) {
+      text = `${year} เลือกตั้งสมาชิกสภาผู้แทนราษฎร`;
+    }
+    if ([2549].includes(year)) {
+      text = `${year} ทำรัฐประหารโดยคณะปฏิรูปการปกครองในระบอบประชาธิปไตย
+      อันมีพระมหากษัตริย์ทรงเป็นประมุข (คปค.)`;
+    }
+    return text;
   };
 
   const yGrid = () => {
@@ -155,7 +154,7 @@ export default function ChartGroup() {
                 )}
               >
                 {m.infos.map((i) => (
-                  <Avatar key={i.name} image={i.image} />
+                  <Avatar key={i.name} image={i.image} name={i.name} />
                 ))}
               </div>
               {m.items.length > 0 ? (

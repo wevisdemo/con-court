@@ -66,12 +66,12 @@ export const useChart = () => {
     },
     {
       id: 2,
-      infos: [{ name: 'ทักษิณ ชินวัตร 1', image: '/images/pm_2.webp' }],
+      infos: [{ name: 'ทักษิณ ชินวัตร', image: '/images/pm_2.webp' }],
       items: [2544, 2545, 2546, 2547],
     },
     {
       id: 3,
-      infos: [{ name: 'ทักษิณ ชินวัตร 2', image: '/images/pm_2.webp' }],
+      infos: [{ name: 'ทักษิณ ชินวัตร', image: '/images/pm_2.webp' }],
       items: [2548],
     },
     {
@@ -99,12 +99,12 @@ export const useChart = () => {
     },
     {
       id: 8,
-      infos: [{ name: 'ประยุทธ์ จันทร์โอชา 1', image: '/images/pm_8.webp' }],
+      infos: [{ name: 'ประยุทธ์ จันทร์โอชา', image: '/images/pm_8.webp' }],
       items: [2557, 2558, 2559, 2560, 2561],
     },
     {
       id: 9,
-      infos: [{ name: 'ประยุทธ์ จันทร์โอชา 2', image: '/images/pm_8.webp' }],
+      infos: [{ name: 'ประยุทธ์ จันทร์โอชา', image: '/images/pm_8.webp' }],
       items: [2562, 2563, 2564, 2565],
     },
     {

@@ -6,10 +6,11 @@ import { twMerge } from 'tailwind-merge';
 
 type Props = {
   image: string;
+  name: string;
   className?: string;
 };
 
-export default function Avatar({ image, className }: Props) {
+export default function Avatar({ image, name, className }: Props) {
   return (
     <Tooltip
       closeDelay={0}
@@ -17,7 +18,7 @@ export default function Avatar({ image, className }: Props) {
       content={
         <div className="wv-h11 px-2 py-1">
           <div>สมัยนายกฯ</div>
-          <div className="font-bold">xxxxxxxxx</div>
+          <div className="font-bold">{name}</div>
         </div>
       }
       color="foreground"
