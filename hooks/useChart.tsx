@@ -148,21 +148,21 @@ export const useChart = () => {
                 items: [
                   {
                     type: 'ตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ',
-                    data: filterByKeys(
+                    sheetData: filterByKeys(
                       [...lawData],
                       [{ key: 'ปีวินิจฉัย', value: y }],
                     ),
                   },
                   {
                     type: 'ตรวจสอบสถาบันทางการเมือง',
-                    data: filterByKeys(
+                    sheetData: filterByKeys(
                       [...politicData],
                       [{ key: 'ปีวินิจฉัย', value: y }],
                     ),
                   },
                   {
                     type: 'คุ้มครองสิทธิเสรีภาพของประชาชน ระบอบการปกครอง และความมั่นคงของรัฐ',
-                    data: filterByKeys(
+                    sheetData: filterByKeys(
                       [...freedomData],
                       [{ key: 'ปีวินิจฉัย', value: y }],
                     ),
@@ -192,7 +192,7 @@ export const useChart = () => {
                 items: [
                   {
                     type: 'ตรวจสอบสถาบันทางการเมือง',
-                    data: filterByKeys(
+                    sheetData: filterByKeys(
                       [...politicData],
                       [{ key: 'ปีวินิจฉัย', value: y }],
                     ),
@@ -223,7 +223,7 @@ export const useChart = () => {
                 items: [
                   {
                     type: 'ฝ่ายร่วมรัฐบาล',
-                    data: filterByKeys(
+                    sheetData: filterByKeys(
                       [...politicData],
                       [
                         { key: 'ปีวินิจฉัย', value: y },
@@ -248,7 +248,7 @@ export const useChart = () => {
                 items: [
                   {
                     type: 'ฝ่ายค้าน',
-                    data: filterByKeys(
+                    sheetData: filterByKeys(
                       [...politicData],
                       [
                         { key: 'ปีวินิจฉัย', value: y },
@@ -273,7 +273,7 @@ export const useChart = () => {
                 items: [
                   {
                     type: 'อื่น ๆ',
-                    data: filterByKeys(
+                    sheetData: filterByKeys(
                       [...politicData],
                       [
                         { key: 'ปีวินิจฉัย', value: y },
@@ -359,7 +359,7 @@ export const useChart = () => {
                 items: [
                   {
                     type: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
-                    data: filterByKeys(
+                    sheetData: filterByKeys(
                       [...allData],
                       [
                         {
@@ -383,7 +383,7 @@ export const useChart = () => {
                   },
                   {
                     type: 'multicase-plus',
-                    data: filterByKeys(
+                    sheetData: filterByKeys(
                       [...allData],
                       [
                         {
@@ -407,7 +407,7 @@ export const useChart = () => {
                   },
                   {
                     type: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
-                    data: filterByKeys(
+                    sheetData: filterByKeys(
                       [...allData],
                       [
                         {
@@ -431,7 +431,7 @@ export const useChart = () => {
                   },
                   {
                     type: 'multicase-minus',
-                    data: filterByKeys(
+                    sheetData: filterByKeys(
                       [...allData],
                       [
                         {
@@ -467,7 +467,7 @@ export const useChart = () => {
                 items: [
                   {
                     type: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
-                    data: filterByKeys(
+                    sheetData: filterByKeys(
                       [...allData],
                       [
                         {
@@ -491,7 +491,7 @@ export const useChart = () => {
                   },
                   {
                     type: 'multicase-plus',
-                    data: filterByKeys(
+                    sheetData: filterByKeys(
                       [...allData],
                       [
                         {
@@ -515,7 +515,7 @@ export const useChart = () => {
                   },
                   {
                     type: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
-                    data: filterByKeys(
+                    sheetData: filterByKeys(
                       [...allData],
                       [
                         {
@@ -539,7 +539,7 @@ export const useChart = () => {
                   },
                   {
                     type: 'multicase-minus',
-                    data: filterByKeys(
+                    sheetData: filterByKeys(
                       [...allData],
                       [
                         {
@@ -575,7 +575,7 @@ export const useChart = () => {
                 items: [
                   {
                     type: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
-                    data: filterByKeys(
+                    sheetData: filterByKeys(
                       [...allData],
                       [
                         {
@@ -599,7 +599,7 @@ export const useChart = () => {
                   },
                   {
                     type: 'multicase-plus',
-                    data: filterByKeys(
+                    sheetData: filterByKeys(
                       [...allData],
                       [
                         {
@@ -623,7 +623,7 @@ export const useChart = () => {
                   },
                   {
                     type: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
-                    data: filterByKeys(
+                    sheetData: filterByKeys(
                       [...allData],
                       [
                         {
@@ -647,7 +647,396 @@ export const useChart = () => {
                   },
                   {
                     type: 'multicase-minus',
-                    data: filterByKeys(
+                    sheetData: filterByKeys(
+                      [...allData],
+                      [
+                        {
+                          key: 'ปีวินิจฉัย',
+                          value: y,
+                        },
+                        {
+                          key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+                          value: 'อื่น ๆ',
+                        },
+                        {
+                          key: 'ลักษณะคำวินิจฉัย',
+                          value: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
+                        },
+                        {
+                          key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
+                          value: 'TRUE',
+                        },
+                      ],
+                    ),
+                  },
+                ],
+              };
+            }),
+          },
+        ],
+      },
+      {
+        id: 5,
+        legends: [
+          {
+            label: `คำวินิจฉัยที่ส่งผลกระทบบวกต่อผู้ถูกร้อง (${
+              filterByKeys(
+                [...allData],
+                [
+                  {
+                    key: 'ลักษณะคำวินิจฉัย',
+                    value: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
+                  },
+                  {
+                    key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
+                    value: 'FALSE',
+                  },
+                ],
+              ).length
+            } คดี)`,
+            value: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
+            color: '#ACF38A',
+          },
+          {
+            label: 'muliticase-plus',
+            value: 'muliticase-plus',
+            color: '#ACF38A',
+            hide: true,
+          },
+          {
+            label: `คำวินิจฉัยที่ส่งผลกระทบลบต่อผู้ถูกร้อง (${
+              filterByKeys(
+                [...allData],
+                [
+                  {
+                    key: 'ลักษณะคำวินิจฉัย',
+                    value: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
+                  },
+                  {
+                    key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
+                    value: 'FALSE',
+                  },
+                ],
+              ).length
+            } คดี)`,
+            value: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
+            color: '#FF9A9A',
+          },
+          {
+            label: 'muliticase-minus',
+            value: 'muliticase-minus',
+            color: '#FF9A9A',
+            hide: true,
+          },
+          {
+            label: `คำวินิจฉัยที่มีผลคำวินิจฉัยปรากฏเป็น 2 กรณี (4 คดี)`,
+            value: 'multicase',
+          },
+          {
+            label: `คำวินิจฉัยที่น่าสนใจ`,
+            value: 'interest',
+          },
+        ],
+        charts: [
+          {
+            id: 1,
+            label: 'ฝ่ายร่วมรัฐบาล',
+            xAxes: [0, 5, 10, 15, 20],
+            yearData: years.map((y) => {
+              return {
+                year: y,
+                items: [
+                  {
+                    type: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
+                    sheetData: filterByKeys(
+                      [...allData],
+                      [
+                        {
+                          key: 'ปีวินิจฉัย',
+                          value: y,
+                        },
+                        {
+                          key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+                          value: 'ฝ่ายร่วมรัฐบาล',
+                        },
+                        {
+                          key: 'ลักษณะคำวินิจฉัย',
+                          value: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
+                        },
+                        {
+                          key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
+                          value: 'FALSE',
+                        },
+                      ],
+                    ),
+                  },
+                  {
+                    type: 'multicase-plus',
+                    sheetData: filterByKeys(
+                      [...allData],
+                      [
+                        {
+                          key: 'ปีวินิจฉัย',
+                          value: y,
+                        },
+                        {
+                          key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+                          value: 'ฝ่ายร่วมรัฐบาล',
+                        },
+                        {
+                          key: 'ลักษณะคำวินิจฉัย',
+                          value: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
+                        },
+                        {
+                          key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
+                          value: 'TRUE',
+                        },
+                      ],
+                    ),
+                  },
+                  {
+                    type: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
+                    sheetData: filterByKeys(
+                      [...allData],
+                      [
+                        {
+                          key: 'ปีวินิจฉัย',
+                          value: y,
+                        },
+                        {
+                          key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+                          value: 'ฝ่ายร่วมรัฐบาล',
+                        },
+                        {
+                          key: 'ลักษณะคำวินิจฉัย',
+                          value: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
+                        },
+                        {
+                          key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
+                          value: 'FALSE',
+                        },
+                      ],
+                    ),
+                  },
+                  {
+                    type: 'multicase-minus',
+                    sheetData: filterByKeys(
+                      [...allData],
+                      [
+                        {
+                          key: 'ปีวินิจฉัย',
+                          value: y,
+                        },
+                        {
+                          key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+                          value: 'ฝ่ายร่วมรัฐบาล',
+                        },
+                        {
+                          key: 'ลักษณะคำวินิจฉัย',
+                          value: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
+                        },
+                        {
+                          key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
+                          value: 'TRUE',
+                        },
+                      ],
+                    ),
+                  },
+                ],
+              };
+            }),
+          },
+          {
+            id: 2,
+            label: 'ฝ่ายค้าน',
+            xAxes: [0, 5, 10, 15, 20],
+            yearData: years.map((y) => {
+              return {
+                year: y,
+                items: [
+                  {
+                    type: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
+                    sheetData: filterByKeys(
+                      [...allData],
+                      [
+                        {
+                          key: 'ปีวินิจฉัย',
+                          value: y,
+                        },
+                        {
+                          key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+                          value: 'ฝ่ายค้าน',
+                        },
+                        {
+                          key: 'ลักษณะคำวินิจฉัย',
+                          value: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
+                        },
+                        {
+                          key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
+                          value: 'FALSE',
+                        },
+                      ],
+                    ),
+                  },
+                  {
+                    type: 'multicase-plus',
+                    sheetData: filterByKeys(
+                      [...allData],
+                      [
+                        {
+                          key: 'ปีวินิจฉัย',
+                          value: y,
+                        },
+                        {
+                          key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+                          value: 'ฝ่ายค้าน',
+                        },
+                        {
+                          key: 'ลักษณะคำวินิจฉัย',
+                          value: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
+                        },
+                        {
+                          key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
+                          value: 'TRUE',
+                        },
+                      ],
+                    ),
+                  },
+                  {
+                    type: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
+                    sheetData: filterByKeys(
+                      [...allData],
+                      [
+                        {
+                          key: 'ปีวินิจฉัย',
+                          value: y,
+                        },
+                        {
+                          key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+                          value: 'ฝ่ายค้าน',
+                        },
+                        {
+                          key: 'ลักษณะคำวินิจฉัย',
+                          value: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
+                        },
+                        {
+                          key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
+                          value: 'FALSE',
+                        },
+                      ],
+                    ),
+                  },
+                  {
+                    type: 'multicase-minus',
+                    sheetData: filterByKeys(
+                      [...allData],
+                      [
+                        {
+                          key: 'ปีวินิจฉัย',
+                          value: y,
+                        },
+                        {
+                          key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+                          value: 'ฝ่ายร่วมรัฐบาล',
+                        },
+                        {
+                          key: 'ลักษณะคำวินิจฉัย',
+                          value: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
+                        },
+                        {
+                          key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
+                          value: 'TRUE',
+                        },
+                      ],
+                    ),
+                  },
+                ],
+              };
+            }),
+          },
+          {
+            id: 3,
+            label: 'อื่น ๆ',
+            xAxes: [0, 5, 10, 15, 20],
+            yearData: years.map((y) => {
+              return {
+                year: y,
+                items: [
+                  {
+                    type: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
+                    sheetData: filterByKeys(
+                      [...allData],
+                      [
+                        {
+                          key: 'ปีวินิจฉัย',
+                          value: y,
+                        },
+                        {
+                          key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+                          value: 'อื่น ๆ',
+                        },
+                        {
+                          key: 'ลักษณะคำวินิจฉัย',
+                          value: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
+                        },
+                        {
+                          key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
+                          value: 'FALSE',
+                        },
+                      ],
+                    ),
+                  },
+                  {
+                    type: 'multicase-plus',
+                    sheetData: filterByKeys(
+                      [...allData],
+                      [
+                        {
+                          key: 'ปีวินิจฉัย',
+                          value: y,
+                        },
+                        {
+                          key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+                          value: 'อื่น ๆ',
+                        },
+                        {
+                          key: 'ลักษณะคำวินิจฉัย',
+                          value: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
+                        },
+                        {
+                          key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
+                          value: 'TRUE',
+                        },
+                      ],
+                    ),
+                  },
+                  {
+                    type: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
+                    sheetData: filterByKeys(
+                      [...allData],
+                      [
+                        {
+                          key: 'ปีวินิจฉัย',
+                          value: y,
+                        },
+                        {
+                          key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+                          value: 'อื่น ๆ',
+                        },
+                        {
+                          key: 'ลักษณะคำวินิจฉัย',
+                          value: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
+                        },
+                        {
+                          key: 'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)',
+                          value: 'FALSE',
+                        },
+                      ],
+                    ),
+                  },
+                  {
+                    type: 'multicase-minus',
+                    sheetData: filterByKeys(
                       [...allData],
                       [
                         {
@@ -768,12 +1157,13 @@ export const useChart = () => {
             setGuideYears([]);
           }
           if (index === 17) {
+            setGroup(groupData[4]);
             seTChartSuggests(caseSuggests);
             setInteractable(true);
             setMode('card');
           }
           if (index === 18) {
-            setGroup(groupData[3]);
+            setGroup(groupData[4]);
             setInteractable(true);
             setMode('card');
           }

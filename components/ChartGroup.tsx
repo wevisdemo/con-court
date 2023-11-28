@@ -19,6 +19,7 @@ import Avatar from './Avatar';
 import BarStacked from './BarStacked';
 import { last } from 'lodash';
 import { useEffect, useState } from 'react';
+import BarCard from './BarCard';
 
 export default function ChartGroup() {
   const {
@@ -197,7 +198,8 @@ export default function ChartGroup() {
         return {
           name: i.type,
           color: group.legends[index].color ?? '',
-          value: i.data.length,
+          sheetData: i.sheetData,
+          value: i.sheetData.length,
         };
       });
     };
@@ -227,18 +229,28 @@ export default function ChartGroup() {
             key={i}
             className="flex h-5 items-center overflow-hidden border-t border-white/5"
           >
-            <BarStacked
-              className={twMerge(
-                'h-3 transition',
-                !!highlightYears?.length &&
-                  !highlightYears?.includes(i) &&
-                  'opacity-20',
-              )}
-              data={getDataByYear(i) ?? []}
-              scale={last(chart.xAxes) ?? 0}
-              width={chartWidth}
-              highlights={highlightCats}
-            />
+            {mode === 'stack' && (
+              <BarStacked
+                className={twMerge(
+                  'h-3 transition',
+                  !!highlightYears?.length &&
+                    !highlightYears?.includes(i) &&
+                    'opacity-20',
+                )}
+                data={getDataByYear(i) ?? []}
+                scale={last(chart.xAxes) ?? 0}
+                width={chartWidth}
+                highlights={highlightCats}
+              />
+            )}
+            {mode === 'card' && (
+              <BarCard
+                className="h-[15px]"
+                data={getDataByYear(i) ?? []}
+                scale={last(chart.xAxes) ?? 0}
+                width={chartWidth}
+              />
+            )}
           </div>
         ))}
       </div>
@@ -251,7 +263,7 @@ export default function ChartGroup() {
 
   useEffect(() => {
     if (suggests) onOpen();
-  }, [suggests]);
+  }, [suggests, onOpen]);
 
   return (
     <>

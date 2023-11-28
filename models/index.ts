@@ -31,7 +31,7 @@ export type TChartNature =
   | 'วินิจฉัยคุ้มครองสิทธิ์ผู้ถูกร้อง'
   | 'วินิจฉัยไม่คุ้มครองสิทธิ์ผู้ถูกร้อง';
 
-export type TChartMultiCase = 'TRUE' | 'FALSE';
+export type TChartBoolean = 'TRUE' | 'FALSE';
 
 export type TSheet = {
   ปีวินิจฉัย: number;
@@ -50,8 +50,8 @@ export type TSheet = {
   ลักษณะคำวินิจฉัย: TChartNature;
   'ฝ่ายทางการเมือง / ประเภทย่อย': TChartSide;
   นายกรัฐมนตรี: string;
-  คำวินิจฉัยที่น่าสนใจ: string;
-  'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)': TChartMultiCase;
+  คำวินิจฉัยที่น่าสนใจ: TChartBoolean;
+  'คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)': TChartBoolean;
   เลขคำวินิจฉัยในอดีตที่ยกอ้าง: string;
   TAG: string;
   'External link': string;
@@ -77,7 +77,7 @@ export type TChartCaseGroup = {
 
 export type TChartYear = {
   year: number;
-  items: { type: string; data: TSheet[] }[];
+  items: { type: string; sheetData: TSheet[] }[];
 };
 
 export type TChart = {
@@ -99,3 +99,12 @@ export type TChartSuggest = {
 };
 
 export type TChartMode = 'stack' | 'card' | 'scale';
+
+export type TBarChart = {
+  name: string;
+  color: string;
+  value: number;
+  sheetData?: TSheet[];
+};
+
+export type TBarChartCard = TSheet & { color: string };
