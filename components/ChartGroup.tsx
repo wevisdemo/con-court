@@ -302,6 +302,7 @@ export default function ChartGroup() {
         }}
         isOpen={isOpen}
         onOpenChange={onOpenChange}
+        isDismissable={false}
       >
         <ModalContent>
           <ModalBody>
