@@ -987,7 +987,7 @@ export const useChart = () => {
           }
         }
       }
-    }, 100);
+    }, 200);
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
