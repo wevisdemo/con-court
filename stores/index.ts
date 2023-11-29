@@ -10,6 +10,8 @@ type State = {
   lawData: TSheet[];
   politicData: TSheet[];
   freedomData: TSheet[];
+  freedomCases: TSheet[];
+  destroyCases: TSheet[];
 };
 
 export const state = proxy<State>({
@@ -64,6 +66,22 @@ export const state = proxy<State>({
         key: 'ประเภทคำวินิจฉัย',
         value:
           'คุ้มครองสิทธิเสรีภาพของประชาชน ระบอบการปกครอง และความมั่นคงของรัฐ',
+      },
+    ]);
+  },
+  get freedomCases() {
+    return filterByKeys(this.allData, [
+      {
+        key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+        value: 'คดีคุ้มครองสิทธิฯ',
+      },
+    ]);
+  },
+  get destroyCases() {
+    return filterByKeys(this.allData, [
+      {
+        key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
+        value: 'คดีล้มล้างระบอบการปกครอง',
       },
     ]);
   },

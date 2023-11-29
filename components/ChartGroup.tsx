@@ -20,6 +20,7 @@ import BarStacked from './BarStacked';
 import { last } from 'lodash';
 import { useEffect, useState } from 'react';
 import BarCard from './BarCard';
+import BarScaled from './BarScaled';
 
 export default function ChartGroup() {
   const {
@@ -30,9 +31,10 @@ export default function ChartGroup() {
     highlightCats,
     highlightYears,
     guideYears,
+    interactable,
     suggests,
     mode,
-    getCardDataByYear,
+    getBarDataByYear,
     getStackDataByYear,
   } = useChart();
 
@@ -189,7 +191,13 @@ export default function ChartGroup() {
 
   const periodBars = (chart: TChart, isLastItem: boolean) => {
     return periods.map((p) => (
-      <div key={p.name} className="relative border-t border-grey2">
+      <div
+        key={p.name}
+        className={twMerge(
+          'relative border-t border-grey2',
+          !interactable && 'pointer-events-none',
+        )}
+      >
         {isLastItem && (
           <div className="absolute inset-y-0 left-[99%] -mb-[1px] -mt-[1px] flex items-center gap-2">
             <Bracket
@@ -228,9 +236,14 @@ export default function ChartGroup() {
               />
             )}
             {mode === 'card' && (
-              <BarCard
-                className="h-[15px]"
-                data={getCardDataByYear(chart, i)}
+              <BarCard className="h-[15px]" data={getBarDataByYear(chart, i)} />
+            )}
+            {mode === 'scale' && (
+              <BarScaled
+                className="h-3"
+                data={getBarDataByYear(chart, i)}
+                scale={last(chart.xAxes) ?? 0}
+                interactable={interactable}
               />
             )}
           </div>

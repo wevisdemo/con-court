@@ -8,9 +8,16 @@ import BarChartModal from './BarChartModal';
 type Props = {
   className?: string;
   data: TBarChartCard[];
+  scale: number;
+  interactable: boolean;
 };
 
-export default function BarCard({ className, data }: Props) {
+export default function BarScaled({
+  className,
+  data,
+  scale,
+  interactable,
+}: Props) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [card, setCard] = useState<TBarChartCard | null>(null);
 
@@ -21,17 +28,20 @@ export default function BarCard({ className, data }: Props) {
 
   return (
     <>
-      <div className={twMerge('flex h-10 gap-[3px]', className)}>
+      <div
+        style={{ gridTemplateColumns: `repeat(${scale}, minmax(0, 1fr))` }}
+        className={twMerge('grid h-10 flex-1', className)}
+      >
         {data.map((i, index) => (
           <div
             key={index}
             style={{ background: i.color }}
-            className="relative z-10 flex h-full w-[10px] cursor-pointer items-center justify-center hover:!bg-white"
+            className="relative z-10 flex h-full cursor-pointer items-center justify-center hover:!bg-white"
             onClick={() => selectCard(i)}
           >
             {i['คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)'] ===
               'TRUE' && <div className="stripe-black absolute inset-0"></div>}
-            {i.คำวินิจฉัยที่น่าสนใจ === 'TRUE' && (
+            {interactable && i.คำวินิจฉัยที่น่าสนใจ === 'TRUE' && (
               <CustomImg
                 src="/images/icon_star_card.svg"
                 className="w-[10px]"

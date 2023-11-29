@@ -13,7 +13,14 @@ import { useEffect, useMemo, useState } from 'react';
 import { useSnapshot } from 'valtio';
 
 export const useChart = () => {
-  const { allData, lawData, politicData, freedomData } = useSnapshot(state);
+  const {
+    allData,
+    lawData,
+    politicData,
+    freedomData,
+    freedomCases,
+    destroyCases,
+  } = useSnapshot(state);
 
   const caseSuggests: TChartSuggest[] = [
     {
@@ -1066,10 +1073,52 @@ export const useChart = () => {
           },
         ],
       },
+      {
+        id: 6,
+        legends: [
+          {
+            label: `สิทธิเสรีภาพของประชาชน (${freedomCases.length} คดี)`,
+            value: 'คดีคุ้มครองสิทธิฯ',
+            color: '#E0AEFF',
+          },
+          {
+            label: `ความมั่นคงของรัฐ (${destroyCases.length} คดี)`,
+            value: 'คดีล้มล้างระบอบการปกครอง',
+            color: '#A180FE',
+          },
+        ],
+        charts: [
+          {
+            id: 1,
+            xAxes: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            yearData: years.map((y) => {
+              return {
+                year: y,
+                items: [
+                  {
+                    type: 'คดีคุ้มครองสิทธิฯ',
+                    sheetData: filterByKeys(
+                      [...freedomCases],
+                      [{ key: 'ปีวินิจฉัย', value: y }],
+                    ),
+                  },
+                  {
+                    type: 'คดีล้มล้างระบอบการปกครอง',
+                    sheetData: filterByKeys(
+                      [...destroyCases],
+                      [{ key: 'ปีวินิจฉัย', value: y }],
+                    ),
+                  },
+                ],
+              };
+            }),
+          },
+        ],
+      },
     ];
   }, []);
 
-  const getCardDataByYear = (chart: TChart, year: number) => {
+  const getBarDataByYear = (chart: TChart, year: number) => {
     const res = chart.yearData.find((y) => y.year === year);
     if (!res) return [];
     const list: TBarChartCard[] = [];
@@ -1100,7 +1149,8 @@ export const useChart = () => {
   const [highlightCats, setHighlightCats] = useState<TChartCategory[]>([]);
   const [highlightYears, setHighlightYears] = useState<number[]>([]);
   const [guideYears, setGuideYears] = useState<number[]>([]);
-  const [suggests, seTChartSuggests] = useState<TChartSuggest[] | null>(null);
+  const [interactable, setInteractable] = useState(false);
+  const [suggests, setChartSuggests] = useState<TChartSuggest[] | null>(null);
   const [mode, setMode] = useState<TChartMode>('stack');
 
   useEffect(() => {
@@ -1177,6 +1227,7 @@ export const useChart = () => {
           }
           if (index === 15) {
             setHighlightYears([]);
+            setInteractable(false);
             setMode('stack');
             setGuideYears([2562]);
           }
@@ -1185,12 +1236,30 @@ export const useChart = () => {
           }
           if (index === 17) {
             setGroup(groupData[4]);
-            seTChartSuggests(caseSuggests);
+            setChartSuggests(caseSuggests);
+            setInteractable(true);
             setMode('card');
           }
           if (index === 18) {
             setGroup(groupData[4]);
+            setInteractable(true);
             setMode('card');
+          }
+          if (index === 19) {
+            setGroup(groupData[5]);
+            setInteractable(false);
+            setMode('scale');
+          }
+          if (index === 20) {
+          }
+          if (index === 21) {
+          }
+          if (index === 22) {
+            setInteractable(false);
+          }
+          if (index === 23) {
+            setChartSuggests(freedomSuggests);
+            setInteractable(true);
           }
         }
       }
@@ -1211,9 +1280,10 @@ export const useChart = () => {
     highlightCats,
     highlightYears,
     guideYears,
+    interactable,
     suggests,
     mode,
-    getCardDataByYear,
+    getBarDataByYear,
     getStackDataByYear,
   };
 };
