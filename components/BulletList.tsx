@@ -8,7 +8,7 @@ export default function BulletList({ list }: Props) {
       {list.map((i) => (
         <div
           key={i.label}
-          className="flex items-center gap-3 border-b border-black/50 py-5 text-left last:border-none"
+          className="flex items-center gap-3 border-b border-grey2 py-5 text-left last:border-none"
         >
           <div
             style={{ background: i.color }}

@@ -75,7 +75,7 @@ export default function SectionLanding() {
             หากแบ่งคำวินิจฉัยออกตามประเภทหน้าที่ จะสามารถแบ่งออกเป็น 3
             ประเภทคำวินิจฉัย
           </div>
-          <div className="wv-h11 text-black/50">
+          <div className="wv-h11 text-grey2">
             (อัพเดทข้อมูลเมื่อวันที่ xx/xx/xxxx)
           </div>
           <BulletList list={todoList} />
