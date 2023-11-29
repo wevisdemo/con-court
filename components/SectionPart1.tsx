@@ -480,8 +480,8 @@ export default function SectionPart1() {
           <ScrollHint mode="light" />
         </div>
       </div>
-      <div id="chart17" className="screen"></div>
       <div className="screen"></div>
+      <div id="chart17" className="screen"></div>
       <SectionPart1Sum />
     </>
   );

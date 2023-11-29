@@ -28,7 +28,7 @@ export default function ChartGroup() {
     years,
     periods,
     primeMs,
-    highlightCats,
+    highlightKeys,
     highlightYears,
     guideYears,
     interactable,
@@ -232,7 +232,7 @@ export default function ChartGroup() {
                 data={getStackDataByYear(chart, i)}
                 scale={last(chart.xAxes) ?? 0}
                 width={chartWidth}
-                highlights={highlightCats}
+                highlights={highlightKeys}
               />
             )}
             {mode === 'card' && (
@@ -244,6 +244,7 @@ export default function ChartGroup() {
                 data={getBarDataByYear(chart, i)}
                 scale={last(chart.xAxes) ?? 0}
                 interactable={interactable}
+                highlights={highlightKeys}
               />
             )}
           </div>

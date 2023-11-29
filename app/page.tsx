@@ -1,3 +1,5 @@
+'use client';
+
 import SectionIntro from '@/components/SectionIntro';
 import SectionPart1 from '@/components/SectionPart1';
 import SectionWhat from '@/components/SectionWhat';
@@ -8,8 +10,13 @@ import SectionLanding from '@/components/SectionLanding';
 import SectionPart2 from '@/components/SectionPart2';
 import SectionPart3 from '@/components/SectionPart3';
 import SectionPartEnd from '@/components/SectionPartEnd';
+import { useEffect } from 'react';
 
 export default function IndexPage() {
+  useEffect(() => {
+    window.history.scrollRestoration = 'manual';
+  }, []);
+
   return (
     <>
       <ChartGroup />

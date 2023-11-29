@@ -52,7 +52,7 @@ export default function BarChartModal({ isOpen, onOpenChange, data }: Props) {
                 className="border-b border-grey0 py-3 last:border-b-0"
               >
                 <div className="wv-kondolar font-bold">{i.label}</div>
-                <div className="mt-1">{i.text}</div>
+                <div className="mt-1">{i.text || '-'}</div>
               </div>
             ))}
           </div>

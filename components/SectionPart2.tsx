@@ -11,7 +11,7 @@ import { useSnapshot } from 'valtio';
 import { state } from '@/stores';
 
 export default function SectionPart2() {
-  const { freedomCases, destroyCases } = useSnapshot(state);
+  const { freedomCases, destroyCases, protectedKeys } = useSnapshot(state);
 
   const caseList = [
     {
@@ -25,6 +25,14 @@ export default function SectionPart2() {
       total: destroyCases.length,
     },
   ];
+
+  const protectedCases = freedomCases.filter((i) =>
+    protectedKeys.includes(i.ผลคำวินิจฉัย),
+  );
+
+  const changedCase = freedomCases.find(
+    (i) => i.ผลคำวินิจฉัย === protectedKeys[2],
+  );
 
   return (
     <>
@@ -66,8 +74,8 @@ export default function SectionPart2() {
         </div>
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox id="chart20" boxCls="p-8">
-        <div className="wv-h9 mx-auto flex max-w-[540px] flex-col gap-5 font-bold">
+      <SectionBox id="chart20" boxCls="py-8 px-16">
+        <div className="wv-h9 mx-auto flex max-w-[700px] flex-col gap-5 font-bold">
           <div>
             นับตั้งแต่ปี 2540 ศาลรัฐธรรมนูญได้วินิจฉัย
             คดีกรณีการคุ้มครองสิทธิเสรีภาพของประชาชนทั้งหมด{' '}
@@ -76,14 +84,17 @@ export default function SectionPart2() {
           <PaperList
             color="#E0AEFF"
             count={freedomCases.length}
-            actives={[11, 12, 13]}
+            actives={protectedCases.map((i, index) => index + 11)}
           />
-          <div>โดยมีเพียงแค่ 3 คดี ที่ผลคำวินิจฉัยคุ้มครอง สิทธิของประชาชน</div>
+          <div>
+            โดยมีเพียงแค่ {protectedCases.length} คดี ที่ผลคำวินิจฉัยคุ้มครอง
+            สิทธิของประชาชน
+          </div>
         </div>
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox id="chart21" boxCls="p-8">
-        <div className="wv-h9 mx-auto flex max-w-[540px] flex-col gap-5">
+      <SectionBox id="chart21" boxCls="py-8 px-16">
+        <div className="wv-h9 mx-auto flex max-w-[700px] flex-col gap-5">
           <div className="font-bold">
             และมีเพียง 1 คำวินิจฉัย
             <br />
@@ -95,17 +106,17 @@ export default function SectionPart2() {
             actives={[13]}
           />
           <div>
-            เพื่อขยายรับรองสิทธิของประชาชนมากขึ้น คือคำวินิจฉัยที่ 4/2563{' '}
-            <span className="font-bold">
-              กรณีแก้ไขกฎหมายอาญาในประเด็นสิทธิทำแท้ง
-            </span>
-            โดย นางสาวศรีสมัย เชื้อชาติ
+            เพื่อขยายรับรองสิทธิของประชาชนมากขึ้น คือคำวินิจฉัยที่{' '}
+            {changedCase?.เลขคำวินิจฉัย}
+            <br />
+            <span className="font-bold">{changedCase?.เรื่อง_ชื่อย่อ}</span>
+            {/* โดย {changedCase?.ผู้ร้อง} */}
           </div>
         </div>
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox id="chart22" boxCls="p-8">
-        <div className="mx-auto flex max-w-[580px] flex-col gap-5">
+      <SectionBox id="chart22" boxCls="py-8 px-16">
+        <div className="mx-auto flex max-w-[700px] flex-col gap-5">
           <div className="wv-h9 font-bold">
             ในขณะที่คำวินิจฉัยในเรื่องพิทักษ์ระบอบการปกครอง
             และความมั่นคงของรัฐมีทั้งหมด {destroyCases.length} คำวินิจฉัย

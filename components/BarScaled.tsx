@@ -10,6 +10,7 @@ type Props = {
   data: TBarChartCard[];
   scale: number;
   interactable: boolean;
+  highlights?: string[];
 };
 
 export default function BarScaled({
@@ -17,11 +18,13 @@ export default function BarScaled({
   data,
   scale,
   interactable,
+  highlights,
 }: Props) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [card, setCard] = useState<TBarChartCard | null>(null);
 
   const selectCard = (card: TBarChartCard) => {
+    console.log('selectCard ~ card:', card.ผลคำวินิจฉัย);
     setCard(card);
     onOpen();
   };
@@ -36,7 +39,12 @@ export default function BarScaled({
           <div
             key={index}
             style={{ background: i.color }}
-            className="relative z-10 flex h-full cursor-pointer items-center justify-center hover:!bg-white"
+            className={twMerge(
+              'relative z-10 flex h-full cursor-pointer items-center justify-center hover:!bg-white',
+              !!highlights?.length &&
+                !highlights?.includes(i.ผลคำวินิจฉัย) &&
+                'opacity-20',
+            )}
             onClick={() => selectCard(i)}
           >
             {i['คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)'] ===

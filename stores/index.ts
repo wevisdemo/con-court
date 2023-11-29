@@ -7,6 +7,7 @@ type State = {
   menuList: TMenu[];
   menuTabs: TMenu[];
   allData: TSheet[];
+  protectedKeys: string[];
   lawData: TSheet[];
   politicData: TSheet[];
   freedomData: TSheet[];
@@ -41,6 +42,11 @@ export const state = proxy<State>({
     },
   ],
   allData: data as TSheet[],
+  protectedKeys: [
+    'ระเบียบหลักเกณฑ์และวิธีการฟ้องขัดแย้งต่อรัฐธรรมนูญ จึงคุ้มครองสิทธิ์ผู้ร้อง',
+    'คุ้มครองสิทธิ์ผู้ร้อง',
+    'ประมวลกฎหมายอาญาขัดหรือแย้งต่อรัฐธรรมนูญ จึงคุ้มครองสิทธิ์ผู้ร้อง',
+  ],
   get menuTabs() {
     return this.menuList.filter((i: TMenu) => i.icon);
   },

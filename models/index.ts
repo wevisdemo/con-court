@@ -11,11 +11,6 @@ export type TChartLegend = {
   hide?: boolean;
 };
 
-export type TChartCategory =
-  | 'ตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ'
-  | 'ตรวจสอบสถาบันทางการเมือง'
-  | 'คุ้มครองสิทธิเสรีภาพของประชาชน ระบอบการปกครอง และความมั่นคงของรัฐ';
-
 export type TChartSide =
   | 'ฝ่ายร่วมรัฐบาล'
   | 'ฝ่ายค้าน'
@@ -46,7 +41,7 @@ export type TSheet = {
   'Link_เนื้อหา (ย่อสั้น)': string;
   สาระเนื้อหา: string;
   ผลคำวินิจฉัย: string;
-  ประเภทคำวินิจฉัย: TChartCategory;
+  ประเภทคำวินิจฉัย: string;
   ลักษณะคำวินิจฉัย: TChartNature;
   'ฝ่ายทางการเมือง / ประเภทย่อย': TChartSide;
   นายกรัฐมนตรี: string;
