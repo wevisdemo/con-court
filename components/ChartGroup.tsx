@@ -57,12 +57,12 @@ export default function ChartGroup() {
             onOpenChange={setPopoverOpen}
           >
             <PopoverTrigger>
-              <div>
+              <button aria-label="other" className="outline-none">
                 <CustomImg
                   src="/images/icon_info.webp"
                   className="w-6 cursor-pointer rounded-full hover:bg-white/30"
                 />
-              </div>
+              </button>
             </PopoverTrigger>
             <PopoverContent>
               <CustomImg

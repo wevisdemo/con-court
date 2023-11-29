@@ -153,7 +153,7 @@ export default function SectionTodo() {
             onOpenChange={setPopoverOpen}
           >
             <PopoverTrigger>
-              <button className="outline-none">
+              <button aria-label="info" className="outline-none">
                 <CustomImg
                   src="/images/icon_info.webp"
                   className="w-10 cursor-pointer rounded-full hover:bg-white/30"

@@ -45,7 +45,10 @@ export default function NavbarApp() {
             classNames={{ content: 'bg-black p-0' }}
           >
             <DropdownTrigger>
-              <button className="flex flex-col gap-2">
+              <button
+                aria-label="hamburger"
+                className="flex flex-col gap-2 outline-none"
+              >
                 {genArrayByNum(3).map((i) => (
                   <div
                     key={i}
