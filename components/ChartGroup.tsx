@@ -30,9 +30,10 @@ export default function ChartGroup() {
     highlightCats,
     highlightYears,
     guideYears,
-    interactable,
     suggests,
     mode,
+    getCardDataByYear,
+    getStackDataByYear,
   } = useChart();
 
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -112,16 +113,11 @@ export default function ChartGroup() {
 
   const yGrid = () => {
     return (
-      <div
-        className={twMerge(
-          'absolute inset-0 flex flex-col',
-          !interactable && 'pointer-events-none',
-        )}
-      >
+      <div className="pointer-events-none absolute inset-0 flex flex-col">
         {years.map((i) => (
           <div
             key={i}
-            className="relative flex-1 cursor-pointer hover:rounded-sm hover:outline hover:outline-2 hover:outline-highlight"
+            className="relative flex-1 hover:rounded-sm hover:outline hover:outline-2 hover:outline-highlight"
           >
             <div className="wv-h11 absolute -left-8 top-0">{i - 2500}</div>
             {guideYears.includes(i) && (
@@ -192,18 +188,6 @@ export default function ChartGroup() {
   };
 
   const periodBars = (chart: TChart, isLastItem: boolean) => {
-    const getDataByYear = (year: number) => {
-      const res = chart.yearData.find((y) => y.year === year);
-      return res?.items.map((i, index) => {
-        return {
-          name: i.type,
-          color: group.legends[index].color ?? '',
-          sheetData: i.sheetData,
-          value: i.sheetData.length,
-        };
-      });
-    };
-
     return periods.map((p) => (
       <div key={p.name} className="relative border-t border-grey2">
         {isLastItem && (
@@ -237,7 +221,7 @@ export default function ChartGroup() {
                     !highlightYears?.includes(i) &&
                     'opacity-20',
                 )}
-                data={getDataByYear(i) ?? []}
+                data={getStackDataByYear(chart, i)}
                 scale={last(chart.xAxes) ?? 0}
                 width={chartWidth}
                 highlights={highlightCats}
@@ -246,9 +230,7 @@ export default function ChartGroup() {
             {mode === 'card' && (
               <BarCard
                 className="h-[15px]"
-                data={getDataByYear(i) ?? []}
-                scale={last(chart.xAxes) ?? 0}
-                width={chartWidth}
+                data={getCardDataByYear(chart, i)}
               />
             )}
           </div>

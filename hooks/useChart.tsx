@@ -1,4 +1,6 @@
 import {
+  TBarChartCard,
+  TChart,
   TChartCategory,
   TChartGroup,
   TChartMode,
@@ -1067,11 +1069,37 @@ export const useChart = () => {
     ];
   }, []);
 
+  const getCardDataByYear = (chart: TChart, year: number) => {
+    const res = chart.yearData.find((y) => y.year === year);
+    if (!res) return [];
+    const list: TBarChartCard[] = [];
+    res.items?.forEach((i, index) => {
+      const data =
+        i.sheetData?.map((d) => {
+          return { ...d, color: group.legends[index].color ?? '' };
+        }) ?? [];
+      list.push(...data);
+    });
+    return list;
+  };
+
+  const getStackDataByYear = (chart: TChart, year: number) => {
+    const res = chart.yearData.find((y) => y.year === year);
+    if (!res) return [];
+    return res.items?.map((i, index) => {
+      return {
+        name: i.type,
+        color: group.legends[index].color ?? '',
+        sheetData: i.sheetData,
+        value: i.sheetData.length,
+      };
+    });
+  };
+
   const [group, setGroup] = useState<TChartGroup>(groupData[0]);
   const [highlightCats, setHighlightCats] = useState<TChartCategory[]>([]);
   const [highlightYears, setHighlightYears] = useState<number[]>([]);
   const [guideYears, setGuideYears] = useState<number[]>([]);
-  const [interactable, setInteractable] = useState(false);
   const [suggests, seTChartSuggests] = useState<TChartSuggest[] | null>(null);
   const [mode, setMode] = useState<TChartMode>('stack');
 
@@ -1149,7 +1177,6 @@ export const useChart = () => {
           }
           if (index === 15) {
             setHighlightYears([]);
-            setInteractable(false);
             setMode('stack');
             setGuideYears([2562]);
           }
@@ -1159,12 +1186,10 @@ export const useChart = () => {
           if (index === 17) {
             setGroup(groupData[4]);
             seTChartSuggests(caseSuggests);
-            setInteractable(true);
             setMode('card');
           }
           if (index === 18) {
             setGroup(groupData[4]);
-            setInteractable(true);
             setMode('card');
           }
         }
@@ -1186,8 +1211,9 @@ export const useChart = () => {
     highlightCats,
     highlightYears,
     guideYears,
-    interactable,
     suggests,
     mode,
+    getCardDataByYear,
+    getStackDataByYear,
   };
 };

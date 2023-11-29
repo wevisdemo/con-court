@@ -1,9 +1,8 @@
-import { TBarChart } from '@/models';
 import { twMerge } from 'tailwind-merge';
 
 type Props = {
   className?: string;
-  data: TBarChart[];
+  data: { name: string; color: string; value: number }[];
   scale: number;
   width: number;
   highlights?: string[];
