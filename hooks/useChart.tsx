@@ -860,6 +860,13 @@ export const useChart = () => {
   const [suggests, setChartSuggests] = useState<TChartSuggest[] | null>(null);
   const [mode, setMode] = useState<TChartMode>('stack');
 
+  const resetChart = (mode: TChartMode) => {
+    setHighlightKeys([]);
+    setHighlightYears([]);
+    setGuideYears([]);
+    setMode(mode);
+  };
+
   useEffect(() => {
     const handleScroll = throttle(() => {
       const isInView = (elm: HTMLElement | null) => {
@@ -872,8 +879,8 @@ export const useChart = () => {
         const elm = document.getElementById(`chart${index}`);
         if (isInView(elm)) {
           if (index === 1) {
+            resetChart('stack');
             setGroup(groupData[0]);
-            setHighlightKeys([]);
           }
           if (index === 2) {
             setHighlightKeys(['ตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ']);
@@ -893,10 +900,10 @@ export const useChart = () => {
               'คุ้มครองสิทธิเสรีภาพของประชาชน ระบอบการปกครอง และความมั่นคงของรัฐ',
             ]);
           }
+          // part1
           if (index === 6) {
+            resetChart('stack');
             setGroup(groupData[1]);
-            setHighlightKeys([]);
-            setHighlightYears([]);
           }
           if (index === 7) {
             setGroup(groupData[1]);
@@ -906,8 +913,9 @@ export const useChart = () => {
             setGuideYears([2540]);
           }
           if (index === 8) {
-            setGroup(groupData[2]);
             setHighlightYears([]);
+            setGuideYears([]);
+            setGroup(groupData[2]);
           }
           if (index === 9) {
             setGroup(groupData[3]);
@@ -939,8 +947,9 @@ export const useChart = () => {
             setGuideYears([2562]);
           }
           if (index === 16) {
-            setGroup(groupData[3]);
             setGuideYears([]);
+            setMode('stack');
+            setGroup(groupData[3]);
           }
           if (index === 17) {
             setGroup(groupData[4]);
@@ -953,11 +962,11 @@ export const useChart = () => {
             setInteractable(true);
             setMode('card');
           }
+          // part2
           if (index === 19) {
+            resetChart('scale');
             setGroup(groupData[5]);
             setInteractable(false);
-            setMode('scale');
-            setHighlightKeys([]);
           }
           if (index === 20) {
             setHighlightKeys([...protectedKeys]);
@@ -971,10 +980,10 @@ export const useChart = () => {
             setHighlightKeys(destroyCases.map((i) => i.ผลคำวินิจฉัย));
           }
           if (index === 23) {
+            resetChart('scale');
             setChartSuggests(freedomSuggests);
             setGroup(groupData[6]);
             setInteractable(true);
-            setHighlightKeys([]);
           }
         }
       }
