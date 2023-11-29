@@ -9,6 +9,7 @@ import PaperList from './PaperList';
 import SectionPart2Sum from './SectionPart2Sum';
 import { useSnapshot } from 'valtio';
 import { state } from '@/stores';
+import { useMemo } from 'react';
 
 export default function SectionPart2() {
   const { freedomCases, destroyCases, protectedKeys } = useSnapshot(state);
@@ -26,13 +27,13 @@ export default function SectionPart2() {
     },
   ];
 
-  const protectedCases = freedomCases.filter((i) =>
-    protectedKeys.includes(i.ผลคำวินิจฉัย),
-  );
+  const protectedCases = useMemo(() => {
+    return freedomCases.filter((i) => protectedKeys.includes(i.ผลคำวินิจฉัย));
+  }, [freedomCases, protectedKeys]);
 
-  const changedCase = freedomCases.find(
-    (i) => i.ผลคำวินิจฉัย === protectedKeys[2],
-  );
+  const changedCase = useMemo(() => {
+    return freedomCases.find((i) => i.ผลคำวินิจฉัย === protectedKeys[2]);
+  }, [freedomCases, protectedKeys]);
 
   return (
     <>

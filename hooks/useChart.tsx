@@ -123,7 +123,9 @@ export const useChart = () => {
     },
   ];
 
-  const years = flatten(periods.map((i) => i.items));
+  const years = useMemo(() => {
+    return flatten(periods.map((i) => i.items));
+  }, []);
 
   const part1Charts = useMemo(() => {
     return [
