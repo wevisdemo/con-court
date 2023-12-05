@@ -29,7 +29,7 @@ export default function BorderBox({
             key={i}
             style={{ borderColor: color }}
             className={twMerge(
-              'absolute z-10 h-16 w-16 rounded-full border-8 bg-black',
+              'absolute z-10 h-16 w-16 rounded-full border-[7px] bg-black xl:border-8',
               i === 'top-left' && '-left-9 -top-9',
               i === 'top-right' && '-right-9 -top-9',
               i === 'bottom-left' && '-bottom-9 -left-9',
@@ -66,7 +66,7 @@ export default function BorderBox({
       <div
         style={{ borderColor: color }}
         className={twMerge(
-          'group relative w-fit border-8',
+          'group relative w-fit border-[7px] xl:border-8',
           onClick && 'cursor-pointer hover:!border-white',
         )}
         onClick={onClick}
@@ -76,7 +76,7 @@ export default function BorderBox({
           src="/images/border_box_bg.webp"
           className="absolute top-0 h-full"
         />
-        <div className="m-3 overflow-hidden bg-black">
+        <div className="m-2 overflow-hidden bg-black xl:m-3">
           <div className={twMerge('relative border-2 border-white', className)}>
             {cornerInner()}
             {children}

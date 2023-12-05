@@ -3,8 +3,8 @@ import CustomImg from './CustomImg';
 
 export default function SectionSpotlight() {
   return (
-    <div className="screen relative flex items-center justify-center">
-      <BlurBox className="max-w-[1080px] px-[210px] py-[110px]">
+    <div className="screen relative">
+      <BlurBox className="absolute left-2/4 top-2/4 w-[130vw] -translate-x-2/4 -translate-y-2/4 p-20 xl:w-[1080px] xl:px-[210px] xl:py-[110px]">
         <div className="wv-h5 wv-kondolar font-bold">แล้วศาลรัฐธรรมนูญ</div>
         <div className="wv-h4 wv-kondolar mt-2 font-black">
           ได้ทำหน้าที่ตามค่านิยม
