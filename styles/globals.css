@@ -29,11 +29,20 @@
   background: repeating-linear-gradient(
     -45deg,
     black,
-    black 1px,
+    black 0.5px,
     transparent 1px,
-    transparent 4px
+    transparent 2px
   );
-  border: 1px solid black;
+  border: 0.5px solid black;
+  @screen lg {
+    background: repeating-linear-gradient(
+      -45deg,
+      black,
+      black 1px,
+      transparent 1px,
+      transparent 4px
+    );
+  }
 }
 .stripe-grey {
   background: repeating-linear-gradient(

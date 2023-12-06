@@ -5,6 +5,7 @@ import CustomImg from './CustomImg';
 import Legends from './Legends';
 import Paper from './Paper';
 import ScrollHint from './ScrollHint';
+import { useBreakpoint } from '@/hooks/useBreakpoint';
 
 export default function SectionPart1Sum() {
   const situationList = [
@@ -189,6 +190,8 @@ export default function SectionPart1Sum() {
     },
   ];
 
+  const bp = useBreakpoint();
+
   return (
     <div id="chart18" className="pointer-events-auto bg-grey4 pb-[112px]">
       <div className="rounded-b-[100px] bg-black px-4 pb-[112px] pt-20 lg:rounded-b-[200px]">
@@ -230,8 +233,8 @@ export default function SectionPart1Sum() {
           ))}
         </div>
       </div>
-      <div className="flex flex-col gap-6 pt-16">
-        <div className="mx-auto w-[790px]">
+      <div className="flex flex-col gap-6 px-4 pt-16">
+        <div className="mx-auto max-w-[790px]">
           <div className="wv-h5 wv-kondolar font-black">
             เมื่อพิจารณาถึงคดีที่มีข้อเท็จจริงที่คล้ายคลึงกัน
             อย่างกรณีคดีการถือหุ้นของรัฐมนตรี - สส.
@@ -243,19 +246,25 @@ export default function SectionPart1Sum() {
             และข้อกำหนดที่มีต่อพรรคร่วมฝ่ายค้าน
           </div>
         </div>
-        <Legends data={legends} itemWidth="300px" boxCls="w-10 h-10" />
+        <Legends
+          data={legends}
+          itemWidth="300px"
+          boxCls="w-5 h-5 lg:w-10 lg:h-10"
+        />
         <div className="mx-auto w-fit">
-          <div className="wv-h9 flex gap-4 py-4 font-bold">
-            <div className="w-20"></div>
-            <div className="w-[300px]">ชื่อคดี</div>
-            <div className="w-[420px]">ระยะเวลายื่นและรับคำร้อง</div>
-            <div className="w-[240px] text-politics">ข้อกำหนด</div>
+          <div className="wv-h9 flex items-center justify-center gap-4 py-4 font-bold">
+            <div className="w-0 lg:w-20"></div>
+            <div className="w-[100px] lg:w-[300px]">ชื่อคดี</div>
+            <div className="w-[92px] lg:w-[420px]">
+              ระยะเวลายื่นและรับคำร้อง
+            </div>
+            <div className="w-[114px] text-politics lg:w-[240px]">ข้อกำหนด</div>
           </div>
           {groups.map((g) => (
             <div key={g.label} className="flex gap-4">
-              <div className="flex w-20 items-center justify-end gap-6 py-10">
-                <div className="relative h-4 w-4">
-                  <div className="absolute left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4 -rotate-90 whitespace-nowrap text-grey1">
+              <div className="flex w-0 items-center py-10 lg:w-20 lg:gap-6">
+                <div className="relative z-10 h-4 w-4">
+                  <div className="absolute left-2/4 top-2/4 flex -translate-x-2/4 -translate-y-2/4 -rotate-90 gap-1 whitespace-nowrap bg-grey4 p-1 text-grey1 lg:block lg:p-0">
                     <div className="wv-h10 font-bold">{g.label}</div>
                     {g.subLabel && <div className="wv-h11">{g.subLabel}</div>}
                   </div>
@@ -269,64 +278,70 @@ export default function SectionPart1Sum() {
               </div>
               <div className="wv-h10 text-left">
                 {g.items.map((i) => (
-                  <div
-                    key={i.id}
-                    className="flex gap-4 border-b border-grey3 py-4"
-                  >
-                    <div className="flex w-[300px] items-center gap-4">
-                      {i.color ? (
-                        <Paper color={i.color} className="w-[44px] flex-none" />
-                      ) : (
-                        <CustomImg
-                          src="/images/paper_q.webp"
-                          className="w-[44px] flex-none"
-                        />
-                      )}
-
-                      <div>{i.name}</div>
-                    </div>
-                    <div className="flex w-[420px] items-center">
-                      <BarStacked
-                        className="h-[60px]"
-                        data={[
-                          {
-                            name: 'req',
-                            color: '#FF9A7A',
-                            value: i.request.day,
-                          },
-                          {
-                            name: 'acc',
-                            color: '#FFB9A3',
-                            value: i.accept.day,
-                          },
-                        ]}
-                        scale={
-                          groups[0].items[0].request.day +
-                          groups[0].items[0].accept.day
-                        }
-                        width={260}
-                      />
-                      <div className="wv-h9 ml-3 flex flex-none flex-col gap-2">
-                        <div className="text-sentreq">
-                          {i.request.day} วัน {i.request.info && '*'}
-                        </div>
-                        <div className="text-accreq">{i.accept.day} วัน</div>
+                  <div key={i.id} className="border-b border-grey3 py-4">
+                    <div className="flex justify-center gap-2 lg:gap-4">
+                      <div className="flex w-[100px] flex-col items-center justify-center gap-2 lg:w-[300px] lg:flex-row lg:gap-4">
+                        {i.color ? (
+                          <Paper
+                            color={i.color}
+                            className="w-[30px] flex-none lg:w-[44px]"
+                          />
+                        ) : (
+                          <CustomImg
+                            src="/images/paper_q.webp"
+                            className="w-[44px] flex-none"
+                          />
+                        )}
+                        <div className="text-center lg:text-left">{i.name}</div>
                       </div>
-                      {i.request.info && (
-                        <div className="ml-10 text-sentreq">
-                          {i.request.info}
+                      <div className="flex w-[92px] flex-col justify-center lg:w-[420px] lg:flex-row lg:items-center lg:justify-start">
+                        <BarStacked
+                          className="h-[60px]"
+                          data={[
+                            {
+                              name: 'req',
+                              color: '#FF9A7A',
+                              value: i.request.day,
+                            },
+                            {
+                              name: 'acc',
+                              color: '#FFB9A3',
+                              value: i.accept.day,
+                            },
+                          ]}
+                          scale={
+                            groups[0].items[0].request.day +
+                            groups[0].items[0].accept.day
+                          }
+                          width={80}
+                        />
+                        <div className="wv-h9 mt-3 flex flex-none flex-col gap-2 lg:ml-3 lg:mt-0">
+                          <div className="text-sentreq">
+                            {i.request.day} วัน {i.request.info && '*'}
+                          </div>
+                          <div className="text-accreq">{i.accept.day} วัน</div>
                         </div>
-                      )}
+                        {bp === 'lg' && i.request.info && (
+                          <div className="ml-10 text-sentreq">
+                            {i.request.info}
+                          </div>
+                        )}
+                      </div>
+                      <div className="w-[114px] lg:w-[240px]">
+                        <ul className="list-disc pl-6">
+                          {i.requirements.map((r, index) => (
+                            <li key={index} className="mt-3">
+                              {r}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
-                    <div className="w-[240px]">
-                      <ul className="list-disc pl-6">
-                        {i.requirements.map((r, index) => (
-                          <li key={index} className="mt-3">
-                            {r}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                    {bp !== 'lg' && i.request.info && (
+                      <div className="mt-3 pr-4 text-center text-sentreq">
+                        {i.request.info}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
