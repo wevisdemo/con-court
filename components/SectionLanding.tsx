@@ -1,5 +1,3 @@
-'use client';
-
 import { usePage } from '@/hooks/usePage';
 import BorderBox from './BorderBox';
 import BulletList from './BulletList';
@@ -62,7 +60,7 @@ export default function SectionLanding() {
 
   return (
     <>
-      <SectionBox boxCls="p-12">
+      <SectionBox boxCls="p-5 lg:p-12">
         <div className="mx-auto flex max-w-[460px] flex-col gap-3">
           <div className="wv-h5 wv-kondolar font-black">
             ฉายคำวินิจฉัย
@@ -82,7 +80,7 @@ export default function SectionLanding() {
         </div>
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox id="chart2" boxCls="p-8 wv-h9">
+      <SectionBox id="chart2" boxCls="p-5 lg:p-8 wv-h9">
         สัดส่วนประเภทคำวินิจฉัยที่มีมากที่สุดคือ{' '}
         <span className="bg-law font-bold">
           คำวินิจฉัยในเรื่องการตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ
@@ -92,7 +90,7 @@ export default function SectionLanding() {
         ซึ่งล้วนเป็นการตีความข้อปัญหาให้ตรงตามบทบัญญัติในรัฐธรรมนูญ
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox id="chart3" boxCls="p-8 wv-h9">
+      <SectionBox id="chart3" boxCls="p-5 lg:p-8 wv-h9">
         คำวินิจฉัยที่ได้รับคำวิพากษ์วิจารณ์บ่อยครั้ง คือ{' '}
         <span className="bg-politics font-bold">
           “คำวินิจฉัยในเรื่องการตรวจสอบ สถาบันทางการเมือง”
@@ -102,7 +100,7 @@ export default function SectionLanding() {
         โดยตรงต่อภาพลักษณ์ความเป็นกลางของศาลรัฐธรรมนูญ
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox id="chart4" boxCls="p-8 wv-h9">
+      <SectionBox id="chart4" boxCls="p-5 lg:p-8 wv-h9">
         ในส่วนของ{' '}
         <span className="bg-freedom font-bold">
           “คำวินิจฉัยในเรื่องการคุ้มครองสิทธิเสรีภาพ ของประชาชน
@@ -113,7 +111,7 @@ export default function SectionLanding() {
         ในฐานะประชาชนมากที่สุด
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox id="chart5" boxCls="p-8">
+      <SectionBox id="chart5" boxCls="p-5 lg:p-8">
         <div className="wv-h9 mx-auto flex max-w-[460px] flex-col gap-5">
           <div>งานชิ้นนี้จึงตั้งใจหยิบยกคำวินิจฉัย 2 ประเภทหลัง คือ</div>
           <BulletList list={typeList} />
@@ -148,19 +146,19 @@ export default function SectionLanding() {
             หรือไม่?
           </div>
         </div>
-        <div className="flex justify-center gap-8">
+        <div className="flex flex-col items-center justify-center gap-3 lg:flex-row lg:gap-8">
           {partList.map((i) => (
             <BorderBox
               key={i.title}
               color={i.color}
-              className="flex min-h-[375px] w-[560px] items-center justify-center"
+              className="flex min-h-[240px] w-[240px] items-center justify-center p-6 lg:min-h-[375px] lg:w-[560px]"
               onClick={() => goToSection('/', i.id)}
             >
               <div className="max-w-[300px]">
                 <IconWithBg
                   icon={i.icon}
                   color={i.color}
-                  className="mx-auto h-20 w-20 group-hover:!bg-white"
+                  className="mx-auto h-[50px] w-[50px] group-hover:!bg-white lg:h-20 lg:w-20"
                 />
                 <div className="wv-h7 mt-5">{i.label}</div>
                 <div

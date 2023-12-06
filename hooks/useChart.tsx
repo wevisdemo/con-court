@@ -46,23 +46,23 @@ export const useChart = () => {
 
   const periods = [
     {
-      name: '2540',
+      name: 2540,
       items: [2540, 2541, 2542, 2543, 2544, 2545, 2546, 2547, 2548],
     },
     {
-      name: '2549',
+      name: 2549,
       items: [2549],
     },
     {
-      name: '2550',
+      name: 2550,
       items: [2550, 2551, 2552, 2553, 2554, 2555, 2556],
     },
     {
-      name: '2557',
+      name: 2557,
       items: [2557, 2558, 2559],
     },
     {
-      name: '2560',
+      name: 2560,
       items: [2560, 2561, 2562, 2563, 2564, 2565, 2566],
     },
   ];
@@ -132,7 +132,7 @@ export const useChart = () => {
       {
         id: 1,
         label: 'ฝ่ายร่วมรัฐบาล',
-        xAxes: [0, 5, 10, 15, 20],
+        xAxes: [5, 10, 15, 20],
         yearData: years.map((y) => {
           return {
             year: y,
@@ -240,7 +240,7 @@ export const useChart = () => {
       {
         id: 2,
         label: 'ฝ่ายค้าน',
-        xAxes: [0, 5, 10, 15, 20],
+        xAxes: [5, 10, 15, 20],
         yearData: years.map((y) => {
           return {
             year: y,
@@ -348,7 +348,7 @@ export const useChart = () => {
       {
         id: 3,
         label: 'อื่น ๆ',
-        xAxes: [0, 5, 10, 15, 20],
+        xAxes: [5, 10, 15, 20],
         yearData: years.map((y) => {
           return {
             year: y,
@@ -587,7 +587,7 @@ export const useChart = () => {
           {
             id: 1,
             label: 'ฝ่ายร่วมรัฐบาล',
-            xAxes: [0, 5, 10, 15, 20],
+            xAxes: [5, 10, 15, 20],
             yearData: years.map((y) => {
               return {
                 year: y,
@@ -612,7 +612,7 @@ export const useChart = () => {
           {
             id: 2,
             label: 'ฝ่ายค้าน',
-            xAxes: [0, 5, 10, 15, 20],
+            xAxes: [5, 10, 15, 20],
             yearData: years.map((y) => {
               return {
                 year: y,
@@ -637,7 +637,7 @@ export const useChart = () => {
           {
             id: 3,
             label: 'อื่น ๆ',
-            xAxes: [0, 5, 10, 15, 20],
+            xAxes: [5, 10, 15, 20],
             yearData: years.map((y) => {
               return {
                 year: y,

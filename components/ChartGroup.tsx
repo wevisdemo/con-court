@@ -1,5 +1,3 @@
-'use client';
-
 import { TChart } from '@/models';
 import Legends from './Legends';
 import { useChart } from '@/hooks/useChart';
@@ -21,6 +19,7 @@ import { last } from 'lodash';
 import { useEffect, useState } from 'react';
 import BarCard from './BarCard';
 import BarScaled from './BarScaled';
+import { useBreakpoint } from '@/hooks/useBreakpoint';
 
 export default function ChartGroup() {
   const {
@@ -38,13 +37,14 @@ export default function ChartGroup() {
     getStackDataByYear,
   } = useChart();
 
+  const bp = useBreakpoint();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [popoverOpen, setPopoverOpen] = useState(false);
   const [chartWidth, setChartWidth] = useState(0);
 
   const headLabel = (chart: TChart) => {
     return (
-      <div className="wv-h9 absolute inset-x-0 -top-10 flex items-center justify-center gap-2 font-bold">
+      <div className="wv-h9 absolute inset-x-0 bottom-[103%] flex flex-col items-center justify-center font-bold lg:flex-row lg:gap-2">
         {chart.label}
         {chart.label === 'อื่น ๆ' && (
           <Popover
@@ -60,7 +60,7 @@ export default function ChartGroup() {
               <button aria-label="other" className="outline-none">
                 <CustomImg
                   src="/images/icon_info.webp"
-                  className="w-6 cursor-pointer rounded-full hover:bg-white/30"
+                  className="w-5 cursor-pointer rounded-full hover:bg-white/30 lg:w-6"
                 />
               </button>
             </PopoverTrigger>
@@ -121,7 +121,9 @@ export default function ChartGroup() {
             key={i}
             className="relative flex-1 hover:rounded-sm hover:outline hover:outline-2 hover:outline-highlight"
           >
-            <div className="wv-h11 absolute -left-8 top-0">{i - 2500}</div>
+            <div className="wv-h11 absolute -left-6 top-0 lg:-left-8">
+              {i - 2500}
+            </div>
             {guideYears.includes(i) && (
               <div className="absolute inset-x-0 bottom-0 flex flex-col items-center justify-end">
                 <div className="wv-h11 inline-flex items-center gap-1 rounded-t-md bg-highlight px-3 py-1 font-bold text-black">
@@ -139,11 +141,11 @@ export default function ChartGroup() {
 
   const primeMsBrackets = () => {
     return (
-      <div className="absolute inset-y-3 right-full w-[120px]">
+      <div className="absolute inset-y-3 right-full w-[105px] lg:w-[120px]">
         {primeMs.map((m) => (
           <div key={m.id} className="relative">
             {m.items.map((i) => (
-              <div key={i} className="h-5"></div>
+              <div key={i} className="h-4 lg:h-5"></div>
             ))}
             <div className="absolute inset-0 flex items-center">
               <div
@@ -179,12 +181,14 @@ export default function ChartGroup() {
         <div className="wv-h11 absolute -top-8 right-[102%] whitespace-nowrap">
           นายกฯ ปี พศ.
         </div>
-        <div className="wv-h11 absolute -top-12 left-full w-20">
-          ช่วงเวลา รัฐธรรมนูญ
+        <div className="wv-h11 absolute -top-12 left-full whitespace-pre-line">
+          {bp === 'lg' ? 'ช่วงเวลา\nรัฐธรรมนูญ' : 'ช่วง\nรธน.'}
         </div>
-        <div className="wv-h11 absolute -bottom-6 left-[103%] w-16 text-left">
-          จำนวนคำ วินิจฉัย (คดี)
-        </div>
+        {bp === 'lg' && (
+          <div className="wv-h11 absolute -bottom-6 left-[103%] w-16 text-left">
+            จำนวนคำ วินิจฉัย (คดี)
+          </div>
+        )}
       </>
     );
   };
@@ -206,25 +210,31 @@ export default function ChartGroup() {
               borderColor="#6D6D6D"
               arrowSize="6px"
             />
-            <div className="wv-h11 relative w-16 opacity-50">
+            <div className="wv-h11 relative opacity-50 lg:w-16">
               <CustomImg
                 src="/images/icon_con_3.webp"
                 className="absolute inset-x-0 -top-5 mx-auto w-4"
               />
-              <div>ปี {p.name}</div>
-              {['2549', '2557'].includes(p.name) && <div>(ชั่วคราว)</div>}
+              {bp === 'lg' ? (
+                <>
+                  <div>ปี {p.name}</div>
+                  {[2549, 2557].includes(p.name) && <div>(ชั่วคราว)</div>}
+                </>
+              ) : (
+                <div>{p.name - 2500}</div>
+              )}
             </div>
           </div>
         )}
         {p.items.map((i) => (
           <div
             key={i}
-            className="flex h-5 items-center overflow-hidden border-t border-white/5"
+            className="flex h-4 items-center overflow-hidden border-t border-white/5 lg:h-5"
           >
             {mode === 'stack' && (
               <BarStacked
                 className={twMerge(
-                  'h-3 transition',
+                  'h-2 transition lg:h-3',
                   !!highlightYears?.length &&
                     !highlightYears?.includes(i) &&
                     'opacity-20',
@@ -265,17 +275,19 @@ export default function ChartGroup() {
     <>
       <div
         id="chart"
-        className="fixed inset-0 mx-auto flex max-w-[1108px] flex-col justify-center gap-4"
+        className="fixed inset-0 mx-auto flex max-w-[1108px] flex-col justify-center gap-3 lg:gap-4"
       >
-        <div className="wv-h5 wv-kondolar font-black">
-          ภาพรวมสัดส่วนคำวินิจฉัยศาลรัฐธรรมนูญ
+        <div className="flex flex-col gap-1 p-4 pb-0 lg:gap-4">
+          <div className="wv-h5 wv-kondolar font-black">
+            ภาพรวมสัดส่วนคำวินิจฉัยศาลรัฐธรรมนูญ
+          </div>
+          <Legends data={group.legends} boxCls="w-3 h-3 lg:w-5 lg:h-5" />
         </div>
-        <Legends data={group.legends} />
         <div
           style={{
             gridTemplateColumns: `repeat(${group.charts.length}, minmax(0, 1fr))`,
           }}
-          className="relative mb-10 ml-[120px] mr-[86px] mt-12 grid gap-[68px]"
+          className="relative mb-10 ml-[100px] mr-11 mt-12 grid gap-3 lg:ml-[120px] lg:mr-[86px] lg:gap-[68px]"
         >
           {gridDescriptions()}
           {primeMsBrackets()}

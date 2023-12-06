@@ -5,12 +5,11 @@ export const usePage = () => {
   const pathname = usePathname();
 
   const goToSection = (path: string, id: string) => {
-    if (path === pathname) {
+    if (path !== pathname) router.push(path);
+    setTimeout(() => {
       const element = document.getElementById(id);
       if (element) element.scrollIntoView();
-    } else {
-      router.push(`${path}#${id}`);
-    }
+    }, 100);
   };
 
   return { goToSection };

@@ -237,7 +237,7 @@ export default function SectionPart1Sum() {
             และข้อกำหนดที่มีต่อพรรคร่วมฝ่ายค้าน
           </div>
         </div>
-        <Legends data={legends} itemWidth="300px" boxSize="40px" />
+        <Legends data={legends} itemWidth="300px" boxCls="w-10 h-10" />
         <div className="mx-auto w-fit">
           <div className="wv-h9 flex gap-4 py-4 font-bold">
             <div className="w-20"></div>

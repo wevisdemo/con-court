@@ -1,5 +1,3 @@
-'use client';
-
 import BorderBox from './BorderBox';
 import WvSharer from '@wevisdemo/ui/react/sharer';
 

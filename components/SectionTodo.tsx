@@ -1,5 +1,3 @@
-'use client';
-
 import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/react';
 import CustomImg from './CustomImg';
 import IconWithBg from './IconWithBg';
@@ -132,7 +130,7 @@ export default function SectionTodo() {
   const [popoverOpen, setPopoverOpen] = useState(false);
 
   return (
-    <div id="chart1" className="mx-auto max-w-[1180px] py-20">
+    <div id="chart1" className="mx-auto max-w-[260px] py-20 lg:max-w-[1180px]">
       <div className="relative">
         <div className="wv-h4 wv-kondolar font-black">
           ศาลรัฐธรรมนูญ ทำอะไรบ้าง ?
@@ -141,7 +139,7 @@ export default function SectionTodo() {
           คดีรัฐธรรมนูญเริ่มต้นขึ้นเมื่อมี &quot;ผู้ร้อง&quot;
           ส่งคำร้องให้ศาลรัฐธรรมนูญพิจารณาวินิจฉัย
         </div>
-        <div className="wv-h11 absolute right-0 top-0 flex flex-col items-center">
+        <div className="wv-h11 right-0 top-0 mt-4 flex flex-col items-center lg:absolute lg:mt-0">
           คำย่อและอักษรย่อ
           <Popover
             placement="bottom-end"
@@ -184,23 +182,23 @@ export default function SectionTodo() {
           </Popover>
         </div>
       </div>
-      <div className="mt-6 grid grid-cols-3 gap-8">
+      <div className="mt-6 grid gap-6 lg:grid-cols-3 lg:gap-8">
         {todoList.map((t) => (
           <div key={t.name}>
             <div
               style={{ backgroundImage: `url(${t.bg})` }}
-              className="wv-h8 relative flex h-[236px] items-center justify-center overflow-hidden rounded-md bg-cover font-bold text-black"
+              className="wv-h8 relative flex h-[200px] items-center justify-center overflow-hidden rounded-md bg-cover font-bold text-black lg:h-[236px]"
             >
               <div className="absolute inset-0 bg-white/50"></div>
               <div
                 style={{ backgroundColor: t.color }}
                 className="absolute inset-0 mix-blend-screen"
               ></div>
-              <div className="relative flex max-w-[260px] flex-col items-center gap-4">
+              <div className="relative flex max-w-[260px] flex-col items-center gap-4 p-4">
                 <IconWithBg
                   icon={t.icon}
                   color={t.color}
-                  className="h-[80px] w-[80px]"
+                  className="h-[50px] w-[50px] lg:h-20 lg:w-20"
                 />
                 <div
                   style={{
@@ -212,16 +210,16 @@ export default function SectionTodo() {
                 </div>
               </div>
             </div>
-            <div className="max-h-[520px] overflow-y-auto">
+            <div className="overflow-y-auto lg:max-h-[520px]">
               {t.items.map((i) => (
                 <div
                   key={i.name}
-                  className="flex items-center gap-3 border-b border-grey3 p-6 text-left"
+                  className="flex items-center gap-3 border-b border-grey3 p-3 text-left lg:p-6"
                 >
                   <IconWithBg
                     icon={i.icon}
                     color={t.color}
-                    className="h-[80px] w-[80px] flex-none"
+                    className="h-10 w-10 flex-none lg:h-20 lg:w-20"
                   />
                   {i.name}
                 </div>

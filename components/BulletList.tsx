@@ -8,11 +8,11 @@ export default function BulletList({ list }: Props) {
       {list.map((i) => (
         <div
           key={i.label}
-          className="flex items-center gap-3 border-b border-grey2 py-5 text-left last:border-none"
+          className="flex items-center gap-3 border-b border-grey2 py-3 text-left last:border-none lg:py-5"
         >
           <div
             style={{ background: i.color }}
-            className="h-9 w-9 flex-none"
+            className="h-6 w-6 flex-none lg:h-9 lg:w-9"
           ></div>
           <div className="wv-h10">{i.label}</div>
           {i.total && (

@@ -1,5 +1,3 @@
-'use client';
-
 import { Tooltip } from '@nextui-org/react';
 import CustomImg from './CustomImg';
 import { twMerge } from 'tailwind-merge';
@@ -26,7 +24,10 @@ export default function Avatar({ image, name, className }: Props) {
       <div>
         <CustomImg
           src={image}
-          className={twMerge('w-6 cursor-pointer rounded-full', className)}
+          className={twMerge(
+            'w-4 cursor-pointer rounded-full lg:w-6',
+            className,
+          )}
         />
       </div>
     </Tooltip>

@@ -4,34 +4,33 @@ import { TChartLegend } from '@/models';
 
 type Props = {
   data: TChartLegend[];
-  boxSize?: string;
+  boxCls?: string;
   itemWidth?: string;
 };
 
 export default function Legends({
   data = [],
-  boxSize = '20px',
+  boxCls,
   itemWidth = 'auto',
 }: Props) {
   return (
-    <div className="flex flex-wrap justify-center gap-5">
+    <div className="flex flex-wrap justify-center gap-1 lg:gap-5">
       {data
         .filter((i) => !i.hide)
         .map((i) => (
           <div
             key={i.value}
             style={{ maxWidth: itemWidth }}
-            className="wv-h10 flex items-center gap-3 text-left"
+            className="wv-h10 flex items-center gap-2 text-left lg:gap-3"
           >
             <div
               style={{
                 backgroundColor: i.value === 'interest' ? 'white' : i.color,
-                width: boxSize,
-                height: boxSize,
               }}
               className={twMerge(
-                'flex-none',
+                'h-5 w-5 flex-none',
                 i.value === 'multicase' && 'stripe-white',
+                boxCls,
               )}
             >
               {i.value === 'interest' && (

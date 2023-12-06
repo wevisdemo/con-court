@@ -4,7 +4,7 @@ import CustomImg from './CustomImg';
 export default function SectionWhat() {
   const divider = () => {
     return (
-      <div className="my-6 h-[1px] w-[210px] bg-white xl:my-10 xl:w-[374px]"></div>
+      <div className="my-6 h-[1px] w-[210px] bg-white lg:my-10 lg:w-[374px]"></div>
     );
   };
 
@@ -47,7 +47,7 @@ export default function SectionWhat() {
         </div>
         <div className="relative mt-8">
           <BorderBox>
-            <div className="wv-h5 wv-kondolar p-6 font-bold xl:p-10">
+            <div className="wv-h5 wv-kondolar p-6 font-bold lg:p-10">
               ยึดหลักนิติธรรม ค้ำจุนประชาธิปไตย
               <br />
               ห่วงใยสิทธิและเสรีภาพของประชาชน
@@ -55,11 +55,11 @@ export default function SectionWhat() {
           </BorderBox>
           <CustomImg
             src="/images/star.webp"
-            className="absolute -left-4 -top-6 z-10 w-10 xl:-left-14 xl:-top-16 xl:w-[54px]"
+            className="absolute -left-4 -top-6 z-10 w-10 lg:-left-14 lg:-top-16 lg:w-[54px]"
           />
           <CustomImg
             src="/images/star.webp"
-            className="absolute -bottom-6 -right-4 z-10 w-10 xl:-bottom-8 xl:-right-16 xl:w-[54px]"
+            className="absolute -bottom-6 -right-4 z-10 w-10 lg:-bottom-8 lg:-right-16 lg:w-[54px]"
           />
         </div>
       </div>

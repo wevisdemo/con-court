@@ -30,7 +30,7 @@ export default function NavbarApp() {
       shouldHideOnScroll
       maxWidth="full"
       isBlurred={false}
-      classNames={{ wrapper: 'p-0 h-10 xl:h-[66px]' }}
+      classNames={{ wrapper: 'p-0 h-12 lg:h-[66px]' }}
     >
       <div className="w-full">
         <WvNavbar
@@ -47,19 +47,19 @@ export default function NavbarApp() {
             <DropdownTrigger>
               <button
                 aria-label="hamburger"
-                className="flex flex-col justify-center gap-1 outline-none xl:gap-2"
+                className="flex flex-col justify-center gap-1 outline-none lg:gap-2"
               >
                 {genArrayByNum(3).map((i) => (
                   <div
                     key={i}
-                    className="h-[2px] w-5 rounded-lg bg-white xl:h-[5px] xl:w-10"
+                    className="h-[2px] w-5 rounded-lg bg-white lg:h-[5px] lg:w-10"
                   ></div>
                 ))}
               </button>
             </DropdownTrigger>
             <DropdownMenu
               itemClasses={{
-                base: 'w-[200px] xl:w-[316px] rounded-none px-3 xl:px-5 py-2 xl:py-3 border-b border-grey3 text-left',
+                base: 'w-[200px] lg:w-[316px] rounded-none px-3 lg:px-5 py-2 lg:py-3 border-b border-grey3 text-left',
                 title: 'whitespace-normal',
               }}
               classNames={{ base: 'p-0', list: 'gap-0' }}
