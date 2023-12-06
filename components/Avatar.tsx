@@ -1,6 +1,7 @@
 import { Tooltip } from '@nextui-org/react';
 import CustomImg from './CustomImg';
 import { twMerge } from 'tailwind-merge';
+import { useBreakpoint } from '@/hooks/useBreakpoint';
 
 type Props = {
   image: string;
@@ -9,10 +10,13 @@ type Props = {
 };
 
 export default function Avatar({ image, name, className }: Props) {
+  const bp = useBreakpoint();
+
   return (
     <Tooltip
       closeDelay={0}
       showArrow={true}
+      placement={bp === 'lg' ? 'bottom' : 'bottom-start'}
       content={
         <div className="wv-h11 px-2 py-1">
           <div>สมัยนายกฯ</div>

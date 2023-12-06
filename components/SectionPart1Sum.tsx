@@ -191,8 +191,8 @@ export default function SectionPart1Sum() {
 
   return (
     <div id="chart18" className="pointer-events-auto bg-grey4 pb-[112px]">
-      <div className="rounded-b-[200px] bg-black pb-[112px] pt-20">
-        <div className="mx-auto w-[720px]">
+      <div className="rounded-b-[100px] bg-black px-4 pb-[112px] pt-20 lg:rounded-b-[200px]">
+        <div className="mx-auto max-w-[720px]">
           <div className="wv-h5 wv-kondolar font-black">
             หลายครั้ง “ผลลัพธ์สำคัญทางการเมือง” เกิดขึ้น
             จากการวินิจฉัยของศาลรัฐธรรมนูญ
@@ -202,12 +202,18 @@ export default function SectionPart1Sum() {
             สร้างผลประโยชน์หรือโทษทางการเมืองแก่ฝ่ายใดฝ่ายหนึ่ง
           </div>
         </div>
-        <div className="mt-5 flex justify-center gap-5">
+        <div className="mt-5 flex flex-col justify-center gap-5 lg:flex-row">
           {situationList.map((i) => (
-            <div key={i.image} className="flex gap-5">
-              <div className="w-[160px] overflow-hidden rounded-md">
-                <CustomImg src={i.image} className="h-[120px] w-full" />
-                <div className="wv-h10 flex h-[160px] items-center bg-grey3 px-5 font-bold">
+            <div
+              key={i.image}
+              className="flex flex-col items-center gap-5 lg:flex-row"
+            >
+              <div className="flex w-[260px] overflow-hidden rounded-md lg:w-[160px] lg:flex-col">
+                <CustomImg
+                  src={i.image}
+                  className="h-[120px] w-2/4 lg:w-full"
+                />
+                <div className="wv-h10 flex h-[120px] items-center bg-grey3 px-5 font-bold lg:h-[160px]">
                   <div>{i.detail}</div>
                 </div>
               </div>
@@ -216,7 +222,7 @@ export default function SectionPart1Sum() {
                   <div className="wv-h11">{i.next}</div>
                   <CustomImg
                     src="/images/icon_arrow_right.webp"
-                    className="w-9"
+                    className="w-5 rotate-90 lg:w-9 lg:rotate-0"
                   />
                 </div>
               )}

@@ -61,7 +61,7 @@ export default function SituationDetail({
           </AccordionItem>
         </Accordion>
       </div>
-      <CustomImg src={image} className="w-full" />
+      <CustomImg src={image} className="min-h-[150px] w-full" />
       <div className="wv-h9 p-5">{body}</div>
     </>
   );

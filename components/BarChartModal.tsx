@@ -26,8 +26,9 @@ export default function BarChartModal({ isOpen, onOpenChange, data }: Props) {
   return (
     <Modal
       radius="sm"
+      placement="center"
       classNames={{
-        base: 'bg-white max-w-[404px] text-black',
+        base: 'bg-white max-w-[280px] lg:max-w-[404px] text-black',
         body: 'p-0 gap-0',
         closeButton:
           'text-black text-4xl p-0 font-black top-1 right-1 hover:bg-opacity-0 active:bg-opacity-0',
@@ -39,13 +40,13 @@ export default function BarChartModal({ isOpen, onOpenChange, data }: Props) {
         <ModalBody>
           <div
             style={{ background: data.color }}
-            className="flex flex-col gap-1 px-5 py-3"
+            className="flex flex-col gap-1 p-3 lg:px-5"
           >
             <div className="wv-h9 wv-kondolar">คำวินิจฉัย</div>
             <div className="wv-h11">(วันที่วินิจฉัย {data.วันที่})</div>
             <div className="wv-h9 font-bold">{data.เรื่อง_ชื่อย่อ}</div>
           </div>
-          <div className="wv-h10 px-5 py-2 text-left">
+          <div className="wv-h10 px-3 py-1 text-left lg:px-5 lg:py-2">
             {list.map((i) => (
               <div
                 key={i.label}

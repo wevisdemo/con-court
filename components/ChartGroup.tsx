@@ -121,16 +121,25 @@ export default function ChartGroup() {
             key={i}
             className="relative flex-1 hover:rounded-sm hover:outline hover:outline-2 hover:outline-highlight"
           >
-            <div className="wv-h11 absolute -left-6 top-0 lg:-left-8">
+            <div
+              className={twMerge(
+                'wv-h11 absolute -left-6 top-0 opacity-30 lg:-left-8',
+                [2540, 2549, 2550, 2557, 2560, 2566].includes(i) &&
+                  'opacity-100',
+              )}
+            >
               {i - 2500}
             </div>
             {guideYears.includes(i) && (
               <div className="absolute inset-x-0 bottom-0 flex flex-col items-center justify-end">
-                <div className="wv-h11 inline-flex items-center gap-1 rounded-t-md bg-highlight px-3 py-1 font-bold text-black">
-                  <CustomImg src="/images/icon_star_2.webp" className="w-5" />
+                <div className="wv-h11 inline-flex items-center gap-1 rounded-t-md bg-highlight p-1 font-bold text-black lg:px-3">
+                  <CustomImg
+                    src="/images/icon_star_2.webp"
+                    className="w-3 lg:w-5"
+                  />
                   {guideText(i)}
                 </div>
-                <div className="h-[4px] w-full bg-highlight"></div>
+                <div className="h-[2px] w-full bg-highlight lg:h-1"></div>
               </div>
             )}
           </div>
@@ -178,8 +187,8 @@ export default function ChartGroup() {
   const gridDescriptions = () => {
     return (
       <>
-        <div className="wv-h11 absolute -top-8 right-[102%] whitespace-nowrap">
-          นายกฯ ปี พศ.
+        <div className="wv-h11 absolute -top-12 right-[102%] min-w-[60px] whitespace-pre-line lg:-top-8 xl:whitespace-nowrap">
+          {'นายกฯ \nปี พศ.'}
         </div>
         <div className="wv-h11 absolute -top-12 left-full whitespace-pre-line">
           {bp === 'lg' ? 'ช่วงเวลา\nรัฐธรรมนูญ' : 'ช่วง\nรธน.'}
@@ -246,7 +255,10 @@ export default function ChartGroup() {
               />
             )}
             {mode === 'card' && (
-              <BarCard className="h-[15px]" data={getBarDataByYear(chart, i)} />
+              <BarCard
+                className="h-2 lg:h-[15px]"
+                data={getBarDataByYear(chart, i)}
+              />
             )}
             {mode === 'scale' && (
               <BarScaled
@@ -306,6 +318,7 @@ export default function ChartGroup() {
       </div>
       <Modal
         radius="sm"
+        placement="center"
         classNames={{
           base: 'bg-grey3 max-w-[335px]',
           body: 'p-5',

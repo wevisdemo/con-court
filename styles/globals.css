@@ -39,9 +39,19 @@
   background: repeating-linear-gradient(
     -45deg,
     theme('colors.grey2'),
-    theme('colors.grey2') 2px,
-    transparent 2px,
-    transparent 8px
+    theme('colors.grey2') 1px,
+    transparent 1px,
+    transparent 5px
   );
-  border: 2px solid theme('colors.grey2');
+  border: 1px solid theme('colors.grey2');
+  @screen lg {
+    background: repeating-linear-gradient(
+      -45deg,
+      theme('colors.grey2'),
+      theme('colors.grey2') 2px,
+      transparent 2px,
+      transparent 8px
+    );
+    border: 2px solid theme('colors.grey2');
+  }
 }

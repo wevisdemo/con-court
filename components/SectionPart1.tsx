@@ -51,11 +51,14 @@ export default function SectionPart1() {
         id="part1"
         className="screen pointer-events-auto flex flex-col items-center justify-center gap-[100px] bg-black"
       >
-        <BorderBox color="#FFC164" className="w-[790px] px-8 py-[100px]">
+        <BorderBox
+          color="#FFC164"
+          className="w-[300px] px-8 py-[70px] lg:w-[790px] lg:py-[100px]"
+        >
           <IconWithBg
             color="#3E3E3E"
             icon="/images/icon_warning_grey.webp"
-            className="mx-auto h-[110px] w-[110px]"
+            className="mx-auto h-[50px] w-[50px] lg:h-[110px] lg:w-[110px]"
           />
           <div className="wv-h3 wv-kondolar mt-8 font-black text-politics">
             คำวินิจฉัยในเรื่องการตรวจสอบ สถาบันทางการเมือง
@@ -63,7 +66,7 @@ export default function SectionPart1() {
         </BorderBox>
         <ScrollHint mode="dark" />
       </div>
-      <SectionBox boxCls="p-8">
+      <SectionBox boxCls="p-5 lg:p-8">
         <div className="mx-auto max-w-[390px]">
           <div className="wv-h5 wv-kondolar font-black">
             ตลอดระยะเวลากว่า 26 ปี ศาลรัฐธรรมนูญได้
@@ -123,7 +126,7 @@ export default function SectionPart1() {
           }
         />
       </SectionBox>
-      <SectionBox id="chart8" boxCls="p-12 wv-h10">
+      <SectionBox id="chart8" boxCls="p-5 lg:p-12 wv-h10">
         <div>
           หากแบ่งคำวินิจฉัยตามประเภท
           <br />
@@ -135,22 +138,22 @@ export default function SectionPart1() {
               key={i.label}
               className="w-[170px] border-r-2 border-grey0 px-3 last:border-r-0"
             >
-              <CustomImg src={i.image} className="mx-auto w-[74px]" />
+              <CustomImg src={i.image} className="mx-auto w-12 lg:w-[74px]" />
               <div className="wv-h9 mt-3 font-bold">{i.label}</div>
             </div>
           ))}
         </div>
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox id="chart9" boxCls="p-12">
+      <SectionBox id="chart9" boxCls="p-5 lg:p-12">
         <div className="mx-auto flex max-w-[410px] flex-col gap-5">
           <div className="wv-h10">
             ผลของคำวินิจฉัยในคดีตรวจสอบสถาบันทางการเมือง จะปรากฏใน 2 รูปแบบ
             ได้แก่
           </div>
           <div>
-            <div className="flex items-center justify-center gap-3">
-              <div className="h-9 w-9 bg-minus"></div>
+            <div className="flex items-center justify-center gap-3 text-left">
+              <div className="h-5 w-5 flex-none bg-minus lg:h-9 lg:w-9"></div>
               <div className="wv-h10">
                 คำวินิจฉัยที่ส่งผลกระทบ
                 <span className="font-bold">ลบต่อผู้ถูกร้อง</span>
@@ -163,8 +166,8 @@ export default function SectionPart1() {
             </div>
           </div>
           <div>
-            <div className="flex items-center justify-center gap-3">
-              <div className="h-9 w-9 bg-plus"></div>
+            <div className="flex items-center justify-center gap-3 text-left">
+              <div className="h-5 w-5 flex-none bg-plus lg:h-9 lg:w-9"></div>
               <div className="wv-h10">
                 คำวินิจฉัยที่ส่งผลกระทบ
                 <span className="font-bold">บวกต่อผู้ถูกร้อง</span>
@@ -177,15 +180,15 @@ export default function SectionPart1() {
             </div>
           </div>
           <div>
-            <div className="flex items-center justify-center gap-3">
-              <div className="stripe-grey h-9 w-9"></div>
+            <div className="flex items-center justify-center gap-3 text-left">
+              <div className="stripe-grey h-5 w-5 flex-none lg:h-9 lg:w-9"></div>
               <div className="wv-h10">
                 คำวินิจฉัยที่มีผล
                 <span className="font-bold">คำวินิจฉัยปรากฏเป็น 2 กรณี</span>
               </div>
             </div>
             <div className="wv-h11 mt-3 rounded-md border-2 border-grey0 px-5 py-3 text-left">
-              <ul className="list-disc pl-6">
+              <ul className="list-disc pl-4 lg:pl-6">
                 <li>
                   คำวินิจฉัยที่มีผู้ถูกร้องมากกว่า 1
                   คนและมีผลคำวินิจฉัยที่ทั้งส่งผลกระทบบวกและลบ

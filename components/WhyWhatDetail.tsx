@@ -355,6 +355,7 @@ export default function WhyWhatDetail({}: Props) {
       </div>
       <Modal
         radius="sm"
+        placement="center"
         classNames={{
           base: 'bg-white text-black max-w-[800px] overflow-hidden',
           body: 'py-12 px-8',
