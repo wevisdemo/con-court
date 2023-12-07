@@ -24,7 +24,6 @@ export default function BarScaled({
   const [card, setCard] = useState<TBarChartCard | null>(null);
 
   const selectCard = (card: TBarChartCard) => {
-    console.log('selectCard ~ card:', card.ผลคำวินิจฉัย);
     setCard(card);
     onOpen();
   };
