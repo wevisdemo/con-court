@@ -157,7 +157,7 @@ export default function SectionTodo() {
               <button aria-label="info" className="outline-none">
                 <CustomImg
                   src="/images/icon_info.webp"
-                  className="w-10 cursor-pointer rounded-full hover:bg-white/30"
+                  className="w-[30px] cursor-pointer rounded-full hover:bg-white/30 lg:w-10"
                 />
               </button>
             </PopoverTrigger>
@@ -168,13 +168,13 @@ export default function SectionTodo() {
                 onClick={() => setPopoverOpen(false)}
               />
               <div className="wv-h9 p-4 pb-2 font-bold">คำย่อและอักษรย่อ</div>
-              <div className="max-h-[360px] overflow-y-auto px-9 text-left">
+              <div className="max-h-[360px] overflow-y-auto px-6 text-left lg:px-9">
                 {wordList.map((i) => (
                   <div
                     key={i.name}
                     className="wv-h10 flex border-b border-grey0 py-2"
                   >
-                    <div className="w-[100px] flex-none font-bold">
+                    <div className="w-[70px] flex-none font-bold lg:w-[100px]">
                       {i.name}
                     </div>
                     <div>{i.text}</div>
