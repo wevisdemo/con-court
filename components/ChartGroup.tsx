@@ -320,7 +320,7 @@ export default function ChartGroup() {
         radius="sm"
         placement="center"
         classNames={{
-          base: 'bg-grey3 max-w-[250px] lg:max-w-[335px]',
+          base: 'bg-grey3 max-w-[250px] md:max-w-[335px]',
           body: 'p-5',
           closeButton:
             'text-white text-4xl p-0 font-black top-1 right-1 hover:bg-opacity-0 active:bg-opacity-0',

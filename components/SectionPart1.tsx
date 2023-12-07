@@ -53,7 +53,7 @@ export default function SectionPart1() {
       >
         <BorderBox
           color="#FFC164"
-          className="w-[300px] px-8 py-[70px] lg:w-[790px] lg:py-[100px]"
+          className="w-[300px] px-8 py-[70px] md:w-[560px] lg:w-[790px] lg:py-[100px]"
         >
           <IconWithBg
             color="#3E3E3E"
@@ -66,7 +66,7 @@ export default function SectionPart1() {
         </BorderBox>
         <ScrollHint mode="dark" />
       </div>
-      <SectionBox boxCls="p-5 lg:p-8">
+      <SectionBox boxCls="p-5 md:p-8">
         <div className="mx-auto max-w-[390px]">
           <div className="wv-h5 wv-kondolar font-black">
             ตลอดระยะเวลากว่า 26 ปี ศาลรัฐธรรมนูญได้
@@ -127,7 +127,7 @@ export default function SectionPart1() {
           }
         />
       </SectionBox>
-      <SectionBox id="chart8" boxCls="p-5 lg:p-12 wv-h10">
+      <SectionBox id="chart8" boxCls="p-5 md:p-12 wv-h10">
         <div>
           หากแบ่งคำวินิจฉัยตามประเภท
           <br />
@@ -146,7 +146,7 @@ export default function SectionPart1() {
         </div>
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox id="chart9" boxCls="p-5 lg:p-12">
+      <SectionBox id="chart9" boxCls="p-5 md:p-12">
         <div className="mx-auto flex max-w-[410px] flex-col gap-5">
           <div className="wv-h10">
             ผลของคำวินิจฉัยในคดีตรวจสอบสถาบันทางการเมือง จะปรากฏใน 2 รูปแบบ

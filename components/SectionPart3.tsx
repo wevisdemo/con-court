@@ -86,7 +86,7 @@ export default function SectionPart3() {
     >
       <BorderBox
         color="#FFE500"
-        className="w-[300px] px-2 py-8 lg:w-[1000px] lg:px-[150px]"
+        className="w-[300px] px-2 py-8 md:w-[560px] lg:w-[1000px] lg:px-[150px]"
       >
         <IconWithBg
           color="#FFE500"

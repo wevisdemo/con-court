@@ -60,7 +60,7 @@ export default function SectionLanding() {
 
   return (
     <>
-      <SectionBox boxCls="p-5 lg:p-12">
+      <SectionBox boxCls="p-5 md:p-12">
         <div className="mx-auto flex max-w-[460px] flex-col gap-3">
           <div className="wv-h5 wv-kondolar font-black">
             ฉายคำวินิจฉัย
@@ -80,7 +80,7 @@ export default function SectionLanding() {
         </div>
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox id="chart2" boxCls="p-5 lg:p-8 wv-h9">
+      <SectionBox id="chart2" boxCls="p-5 md:p-8 wv-h9">
         สัดส่วนประเภทคำวินิจฉัยที่มีมากที่สุดคือ{' '}
         <span className="bg-law font-bold">
           คำวินิจฉัยในเรื่องการตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ
@@ -90,7 +90,7 @@ export default function SectionLanding() {
         ซึ่งล้วนเป็นการตีความข้อปัญหาให้ตรงตามบทบัญญัติในรัฐธรรมนูญ
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox id="chart3" boxCls="p-5 lg:p-8 wv-h9">
+      <SectionBox id="chart3" boxCls="p-5 md:p-8 wv-h9">
         คำวินิจฉัยที่ได้รับคำวิพากษ์วิจารณ์บ่อยครั้ง คือ{' '}
         <span className="bg-politics font-bold">
           “คำวินิจฉัยในเรื่องการตรวจสอบ สถาบันทางการเมือง”
@@ -100,7 +100,7 @@ export default function SectionLanding() {
         โดยตรงต่อภาพลักษณ์ความเป็นกลางของศาลรัฐธรรมนูญ
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox id="chart4" boxCls="p-5 lg:p-8 wv-h9">
+      <SectionBox id="chart4" boxCls="p-5 md:p-8 wv-h9">
         ในส่วนของ{' '}
         <span className="bg-freedom font-bold">
           “คำวินิจฉัยในเรื่องการคุ้มครองสิทธิเสรีภาพ ของประชาชน
@@ -111,7 +111,7 @@ export default function SectionLanding() {
         ในฐานะประชาชนมากที่สุด
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox id="chart5" boxCls="p-5 lg:p-8">
+      <SectionBox id="chart5" boxCls="p-5 md:p-8">
         <div className="wv-h9 mx-auto flex max-w-[460px] flex-col gap-5">
           <div>งานชิ้นนี้จึงตั้งใจหยิบยกคำวินิจฉัย 2 ประเภทหลัง คือ</div>
           <BulletList list={typeList} />
@@ -151,7 +151,7 @@ export default function SectionLanding() {
             <BorderBox
               key={i.title}
               color={i.color}
-              className="flex min-h-[240px] w-[240px] items-center justify-center p-6 lg:min-h-[375px] lg:w-[560px]"
+              className="flex min-h-[240px] w-[240px] items-center justify-center p-6 md:w-[560px] lg:min-h-[375px]"
               onClick={() => goToSection('/', i.id)}
             >
               <div className="max-w-[300px]">

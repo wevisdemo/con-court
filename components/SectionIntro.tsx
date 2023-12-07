@@ -45,7 +45,7 @@ export default function SectionIntro() {
                 </div>
               </BorderBox>
               <div className="wv-h11 text-grey1">ข้ามไปสำรวจ</div>
-              <div className="flex flex-col rounded-sm border border-white lg:flex-row">
+              <div className="rounded-sm border border-white lg:flex">
                 {menuTabs.map((i) => (
                   <button
                     key={i.id}

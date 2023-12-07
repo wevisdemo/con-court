@@ -9,7 +9,7 @@ export const usePage = () => {
     setTimeout(() => {
       const element = document.getElementById(id);
       if (element) element.scrollIntoView();
-    }, 100);
+    }, 200);
   };
 
   return { goToSection };

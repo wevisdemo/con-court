@@ -254,11 +254,9 @@ export default function SectionPart1Sum() {
         <div className="mx-auto w-fit">
           <div className="wv-h9 flex items-center justify-center gap-4 py-4 font-bold">
             <div className="w-0 lg:w-20"></div>
-            <div className="w-[100px] lg:w-[300px]">ชื่อคดี</div>
-            <div className="w-[92px] lg:w-[420px]">
-              ระยะเวลายื่นและรับคำร้อง
-            </div>
-            <div className="w-[114px] text-politics lg:w-[240px]">ข้อกำหนด</div>
+            <div className="w-[100px] md:w-[300px]">ชื่อคดี</div>
+            <div className="max-w-[420px] flex-1">ระยะเวลายื่นและรับคำร้อง</div>
+            <div className="w-[114px] text-politics md:w-[240px]">ข้อกำหนด</div>
           </div>
           {groups.map((g) => (
             <div key={g.label} className="flex gap-4">
@@ -276,11 +274,11 @@ export default function SectionPart1Sum() {
                   arrowSize="10px"
                 />
               </div>
-              <div className="wv-h10 text-left">
+              <div className="wv-h10 flex-1 text-left">
                 {g.items.map((i) => (
                   <div key={i.id} className="border-b border-grey3 py-4">
                     <div className="flex justify-center gap-2 lg:gap-4">
-                      <div className="flex w-[100px] flex-col items-center justify-center gap-2 lg:w-[300px] lg:flex-row lg:gap-4">
+                      <div className="flex w-[100px] flex-col items-center justify-center gap-2 md:w-[300px] lg:flex-row lg:gap-4">
                         {i.color ? (
                           <Paper
                             color={i.color}
@@ -294,7 +292,7 @@ export default function SectionPart1Sum() {
                         )}
                         <div className="text-center lg:text-left">{i.name}</div>
                       </div>
-                      <div className="flex w-[92px] flex-col justify-center lg:w-[420px] lg:flex-row lg:items-center lg:justify-start">
+                      <div className="flex max-w-[420px] flex-1 flex-col justify-center lg:flex-row lg:items-center lg:justify-start">
                         <BarStacked
                           className="h-[60px]"
                           data={[
@@ -313,7 +311,7 @@ export default function SectionPart1Sum() {
                             groups[0].items[0].request.day +
                             groups[0].items[0].accept.day
                           }
-                          width={80}
+                          width={bp === 'lg' ? 260 : 80}
                         />
                         <div className="wv-h9 mt-3 flex flex-none flex-col gap-2 lg:ml-3 lg:mt-0">
                           <div className="text-sentreq">
@@ -327,7 +325,7 @@ export default function SectionPart1Sum() {
                           </div>
                         )}
                       </div>
-                      <div className="w-[114px] lg:w-[240px]">
+                      <div className="w-[114px] md:w-[240px]">
                         <ul className="list-disc pl-6">
                           {i.requirements.map((r, index) => (
                             <li key={index} className="mt-3">
@@ -338,7 +336,7 @@ export default function SectionPart1Sum() {
                       </div>
                     </div>
                     {bp !== 'lg' && i.request.info && (
-                      <div className="mt-3 pr-4 text-center text-sentreq">
+                      <div className="mt-3 text-center text-sentreq">
                         {i.request.info}
                       </div>
                     )}

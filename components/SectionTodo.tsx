@@ -132,7 +132,7 @@ export default function SectionTodo() {
   const bp = useBreakpoint();
 
   return (
-    <div id="chart1" className="mx-auto max-w-[260px] py-20 lg:max-w-[1180px]">
+    <div id="chart1" className="mx-auto max-w-[80%] py-20 lg:max-w-[1180px]">
       <div className="relative">
         <div className="wv-h4 wv-kondolar font-black">
           ศาลรัฐธรรมนูญ ทำอะไรบ้าง ?
@@ -148,7 +148,7 @@ export default function SectionTodo() {
             radius="md"
             classNames={{
               content:
-                'bg-white text-black w-[250px] lg:w-[386px] p-0 overflow-hidden',
+                'bg-white text-black w-[250px] md:w-[386px] p-0 overflow-hidden',
             }}
             isOpen={popoverOpen}
             onOpenChange={setPopoverOpen}

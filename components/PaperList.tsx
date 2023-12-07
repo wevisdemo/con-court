@@ -10,7 +10,7 @@ type Props = {
 
 export default function PaperList({ color, count, actives }: Props) {
   return (
-    <div className="mx-auto grid w-fit grid-cols-5 justify-center gap-[6px] lg:flex lg:gap-1">
+    <div className="mx-auto grid w-fit grid-cols-5 justify-center gap-[6px] md:flex lg:gap-1">
       {genArrayByNum(count).map((i, index) => (
         <Paper
           key={index}
