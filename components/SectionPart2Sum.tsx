@@ -4,8 +4,11 @@ import Quote from './Quote';
 import PaperBox from './PaperBox';
 import BlurBox from './BlurBox';
 import ScrollHint from './ScrollHint';
+import { useBreakpoint } from '@/hooks/useBreakpoint';
 
 export default function SectionPart2Sum() {
+  const bp = useBreakpoint();
+
   return (
     <div className="pointer-events-auto bg-grey4">
       <div className="h-[77px] rounded-b-[100px] bg-black lg:h-[154px] lg:rounded-b-[200px]"></div>
@@ -52,15 +55,19 @@ export default function SectionPart2Sum() {
           </div>
         </PaperBox>
         <div className="relative">
-          <CustomImg
-            src="/images/questions.webp"
-            className="absolute -left-[230px] w-[110px]"
-          />
-          <CustomImg
-            src="/images/questions.webp"
-            className="absolute -right-[230px] w-[110px]"
-          />
-          <BlurBox className="mt-8 px-[22%] py-20 lg:px-[68px]">
+          {bp === 'lg' && (
+            <>
+              <CustomImg
+                src="/images/questions.webp"
+                className="absolute -left-[230px] w-[110px]"
+              />
+              <CustomImg
+                src="/images/questions.webp"
+                className="absolute -right-[230px] w-[110px]"
+              />
+            </>
+          )}
+          <BlurBox className="mt-8 px-6 py-20 lg:px-[68px]">
             <Quote color="#E0AEFF" className="mx-auto w-11" />
             <div className="wv-h8 my-3 font-bold text-freedom">
               หากการปราศรัยให้มีการ “ปฏิรูปกฎหมายอาญา” เป็นการล้มล้างการปกครอง
@@ -97,7 +104,7 @@ export default function SectionPart2Sum() {
               ที่กฎหมายของคณะรัฐประหาร จะไม่ได้รับการรับรอง
             </div>
           </PaperBox>
-          <BlurBox className="wv-h8 mt-8 px-[22%] py-20 font-bold text-freedom lg:px-20">
+          <BlurBox className="wv-h8 mt-8 px-6 py-20 font-bold text-freedom lg:px-20">
             <div className="flex flex-col items-center gap-3">
               <div className="max-w-[420px]">
                 ดังนั้นแล้ว ชุดคำถามสำคัญที่

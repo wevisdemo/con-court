@@ -349,7 +349,7 @@ export default function WhyWhatDetail({}: Props) {
                   {g.paper.title}
                 </div>
               </div>
-              <div className="mt-5 flex flex-col justify-center gap-5 lg:flex-row">
+              <div className="mt-5 flex flex-col items-center justify-center gap-5 lg:flex-row">
                 {g.paper.items.map((i) => (
                   <div
                     key={i.title}
