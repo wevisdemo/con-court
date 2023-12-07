@@ -3,6 +3,7 @@ import CustomImg from './CustomImg';
 import IconWithBg from './IconWithBg';
 import ScrollHint from './ScrollHint';
 import { useState } from 'react';
+import { useBreakpoint } from '@/hooks/useBreakpoint';
 
 export default function SectionTodo() {
   const todoList = [
@@ -128,6 +129,7 @@ export default function SectionTodo() {
   ];
 
   const [popoverOpen, setPopoverOpen] = useState(false);
+  const bp = useBreakpoint();
 
   return (
     <div id="chart1" className="mx-auto max-w-[260px] py-20 lg:max-w-[1180px]">
@@ -142,10 +144,11 @@ export default function SectionTodo() {
         <div className="wv-h11 right-0 top-0 mt-4 flex flex-col items-center lg:absolute lg:mt-0">
           คำย่อและอักษรย่อ
           <Popover
-            placement="bottom-end"
+            placement={bp === 'lg' ? 'bottom-end' : 'bottom'}
             radius="md"
             classNames={{
-              content: 'bg-white text-black w-[386px] p-0 overflow-hidden',
+              content:
+                'bg-white text-black w-[250px] lg:w-[386px] p-0 overflow-hidden',
             }}
             isOpen={popoverOpen}
             onOpenChange={setPopoverOpen}
