@@ -52,7 +52,7 @@ export default function BarScaled({
             {interactable && i.คำวินิจฉัยที่น่าสนใจ === 'TRUE' && (
               <CustomImg
                 src="/images/icon_star_card.svg"
-                className="w-[10px]"
+                className="w-2 lg:w-[10px]"
               />
             )}
           </div>

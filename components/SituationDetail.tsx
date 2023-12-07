@@ -1,6 +1,7 @@
 import { Accordion, AccordionItem } from '@nextui-org/react';
 import CustomImg from './CustomImg';
 import { useState } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 type Props = {
   date: string;
@@ -46,22 +47,18 @@ export default function SituationDetail({
               title: 'wv-h10 text-black',
               content: 'wv-h11 p-5',
             }}
-            indicator={({ isOpen }) =>
-              isOpen ? (
-                <CustomImg
-                  src="/images/icon_arrow_up.webp"
-                  className="w-4 -rotate-90"
-                />
-              ) : (
-                <CustomImg src="/images/icon_arrow_up.webp" className="w-4" />
-              )
-            }
+            indicator={({ isOpen }) => (
+              <CustomImg
+                src="/images/icon_arrow_up.webp"
+                className={twMerge('w-4', isOpen && '-rotate-90')}
+              />
+            )}
           >
             {collapseDetail}
           </AccordionItem>
         </Accordion>
       </div>
-      <CustomImg src={image} className="min-h-[150px] w-full" />
+      <CustomImg src={image} className="min-h-[110px] w-full" />
       <div className="wv-h9 p-5">{body}</div>
     </>
   );

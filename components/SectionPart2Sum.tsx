@@ -8,7 +8,7 @@ import ScrollHint from './ScrollHint';
 export default function SectionPart2Sum() {
   return (
     <div className="pointer-events-auto bg-grey4">
-      <div className="h-[154px] rounded-b-[200px] bg-black"></div>
+      <div className="h-[77px] rounded-b-[100px] bg-black lg:h-[154px] lg:rounded-b-[200px]"></div>
       <div className="mx-auto max-w-[700px] pb-[150px] pt-10">
         <div className="wv-h5 font-bold text-freedom">
           ตัวอย่างคำวินิจฉัยที่ชวนคิดว่า“ศาลรัฐธรรมนูญ”

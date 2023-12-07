@@ -96,6 +96,7 @@ export default function SectionPart1() {
               </div>
               <CustomImg
                 src="/images/con_2540.webp"
+                mobileSrc="/images/con_2540_mobile.webp"
                 className="mx-auto w-full max-w-[568px]"
               />
             </>
@@ -325,6 +326,7 @@ export default function SectionPart1() {
               </div>
               <CustomImg
                 src="/images/con_2550.webp"
+                mobileSrc="/images/con_2550_mobile.webp"
                 className="mx-auto w-full max-w-[592px]"
               />
             </>
@@ -420,6 +422,7 @@ export default function SectionPart1() {
               </div>
               <CustomImg
                 src="/images/con_2560.webp"
+                mobileSrc="/images/con_2560_mobile.webp"
                 className="mx-auto w-full max-w-[634px]"
               />
             </>

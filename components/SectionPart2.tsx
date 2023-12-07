@@ -40,11 +40,14 @@ export default function SectionPart2() {
         id="part2"
         className="screen pointer-events-auto flex flex-col items-center justify-center gap-12 bg-black"
       >
-        <BorderBox color="#E0AEFF" className="w-[1000px] px-[120px] py-20">
+        <BorderBox
+          color="#E0AEFF"
+          className="w-[300px] px-8 py-4 lg:w-[1000px] lg:px-[120px] lg:py-20"
+        >
           <IconWithBg
             color="#3E3E3E"
             icon="/images/icon_warning_grey.webp"
-            className="mx-auto h-[110px] w-[110px]"
+            className="mx-auto h-[50px] w-[50px] lg:h-[110px] lg:w-[110px]"
           />
           <div className="wv-h3 wv-kondolar mt-8 font-black text-freedom">
             คำวินิจฉัยในเรื่องการคุ้มครอง สิทธิเสรีภาพของประชาชน
@@ -53,7 +56,7 @@ export default function SectionPart2() {
         </BorderBox>
         <ScrollHint mode="dark" />
       </div>
-      <SectionBox boxCls="p-8">
+      <SectionBox boxCls="p-5 lg:p-8">
         <div className="mx-auto flex max-w-[460px] flex-col gap-3">
           <div className="wv-h9">
             นับตั้งแต่ปี 2540 ศาลรัฐธรรมนูญได้วินิจฉัย
@@ -73,7 +76,7 @@ export default function SectionPart2() {
         </div>
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox id="chart20" boxCls="py-8 px-16">
+      <SectionBox id="chart20" boxCls="p-5 lg:py-8 lg:px-16">
         <div className="wv-h9 mx-auto flex max-w-[700px] flex-col gap-5 font-bold">
           <div>
             นับตั้งแต่ปี 2540 ศาลรัฐธรรมนูญได้วินิจฉัย
@@ -92,7 +95,7 @@ export default function SectionPart2() {
         </div>
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox id="chart21" boxCls="py-8 px-16">
+      <SectionBox id="chart21" boxCls="p-5 lg:py-8 lg:px-16">
         <div className="wv-h9 mx-auto flex max-w-[700px] flex-col gap-5">
           <div className="font-bold">
             และมีเพียง 1 คำวินิจฉัย
@@ -114,7 +117,7 @@ export default function SectionPart2() {
         </div>
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox id="chart22" boxCls="py-8 px-16">
+      <SectionBox id="chart22" boxCls="p-5 lg:py-8 lg:px-16">
         <div className="mx-auto flex max-w-[700px] flex-col gap-5">
           <div className="wv-h9 font-bold">
             ในขณะที่คำวินิจฉัยในเรื่องพิทักษ์ระบอบการปกครอง

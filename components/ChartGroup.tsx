@@ -262,7 +262,7 @@ export default function ChartGroup() {
             )}
             {mode === 'scale' && (
               <BarScaled
-                className="h-3"
+                className="h-2 lg:h-3"
                 data={getBarDataByYear(chart, i)}
                 scale={last(chart.xAxes) ?? 0}
                 interactable={interactable}
@@ -320,7 +320,7 @@ export default function ChartGroup() {
         radius="sm"
         placement="center"
         classNames={{
-          base: 'bg-grey3 max-w-[335px]',
+          base: 'bg-grey3 max-w-[250px] lg:max-w-[335px]',
           body: 'p-5',
           closeButton:
             'text-white text-4xl p-0 font-black top-1 right-1 hover:bg-opacity-0 active:bg-opacity-0',
