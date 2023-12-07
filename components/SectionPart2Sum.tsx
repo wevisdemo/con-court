@@ -10,14 +10,14 @@ export default function SectionPart2Sum() {
     <div className="pointer-events-auto bg-grey4">
       <div className="h-[77px] rounded-b-[100px] bg-black lg:h-[154px] lg:rounded-b-[200px]"></div>
       <div className="mx-auto max-w-[700px] pb-[150px] pt-10">
-        <div className="wv-h5 font-bold text-freedom">
+        <div className="wv-h5 px-4 font-bold text-freedom">
           ตัวอย่างคำวินิจฉัยที่ชวนคิดว่า“ศาลรัฐธรรมนูญ”
           ไม่ได้ทำหน้าที่ตามค่านิยม
         </div>
         <PaperBox
           overlayColor="#1D1D1D"
           color="white"
-          className="mt-8 px-10 py-12"
+          className="mt-8 px-5 py-12 lg:px-10"
         >
           <div className="overflow-hidden rounded-md border">
             <div className="p-3">
@@ -60,7 +60,7 @@ export default function SectionPart2Sum() {
             src="/images/questions.webp"
             className="absolute -right-[230px] w-[110px]"
           />
-          <BlurBox className="mt-8 px-[68px] py-[80px]">
+          <BlurBox className="mt-8 px-[22%] py-20 lg:px-[68px]">
             <Quote color="#E0AEFF" className="mx-auto w-11" />
             <div className="wv-h8 my-3 font-bold text-freedom">
               หากการปราศรัยให้มีการ “ปฏิรูปกฎหมายอาญา” เป็นการล้มล้างการปกครอง
@@ -78,7 +78,7 @@ export default function SectionPart2Sum() {
           <PaperBox
             overlayColor="#1D1D1D"
             color="white"
-            className="mt-8 px-10 py-12"
+            className="mt-8 px-5 py-12 lg:px-10"
           >
             <div className="wv-h8 font-bold">
               นับแต่การมีอยู่ของศาลรัฐธรรนูญในปี 2540
@@ -97,7 +97,7 @@ export default function SectionPart2Sum() {
               ที่กฎหมายของคณะรัฐประหาร จะไม่ได้รับการรับรอง
             </div>
           </PaperBox>
-          <BlurBox className="wv-h8 mt-8 px-20 py-10 font-bold text-freedom">
+          <BlurBox className="wv-h8 mt-8 px-[22%] py-20 font-bold text-freedom lg:px-20">
             <div className="flex flex-col items-center gap-3">
               <div className="max-w-[420px]">
                 ดังนั้นแล้ว ชุดคำถามสำคัญที่

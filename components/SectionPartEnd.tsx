@@ -4,7 +4,10 @@ import WvSharer from '@wevisdemo/ui/react/sharer';
 export default function SectionPartEnd() {
   return (
     <div className="screen flex flex-col items-center justify-center gap-12">
-      <BorderBox color="#FFE500" className="w-[1000px] px-[200px] py-[150px]">
+      <BorderBox
+        color="#FFE500"
+        className="w-[300px] px-4 py-5 lg:w-[1000px] lg:px-[200px] lg:py-[150px]"
+      >
         <div className="wv-h8">
           หากยึดตามค่านิยมที่ว่า &quot;ยึดหลักนิติธรรม ค้ำจุนประชาธิปไตย
           ห่วงใยสิทธิและเสรีภาพของประชาชน&quot;

@@ -45,7 +45,10 @@ export default function WhyWhatDetail({}: Props) {
                   จากคำวินิจฉัยที่เกิดขึ้นได้ ในขณะที่กระบวนการทั้งหมดเกิดขึ้น
                   โดยไม่ได้มีกลไกตรวจสอบเหมือนกับสถาบันทางการเมืองจากการเลือกตั้ง
                 </div>
-                <CustomImg src="/images/what_modal_1.webp" className="w-full" />
+                <CustomImg
+                  src="/images/what_modal_1.webp"
+                  className="min-h-[150px] w-full"
+                />
                 <div>
                   งานศึกษาเปรียบเทียบรัฐธรรมนูญของ 7 ประเทศในเอเชีย โดย Albert
                   H. Chen มีผลสรุปว่า{' '}
@@ -88,7 +91,10 @@ export default function WhyWhatDetail({}: Props) {
                   </div>
                   <Quote color="black" className="mx-auto w-8 rotate-180" />
                 </div>
-                <CustomImg src="/images/what_modal_2.webp" className="w-full" />
+                <CustomImg
+                  src="/images/what_modal_2.webp"
+                  className="min-h-[150px] w-full"
+                />
                 <div>
                   ในช่วงการจัดตั้งศาลรัฐธรรมนูญ ศ.(พิเศษ)ดร.กมลชัย รัตนสกาววงศ์
                   ผู้ศึกษาเรื่องศาลรัฐธรรมนูญและวิธีพิจารณาคดีรัฐธรรมนูญ
@@ -112,6 +118,7 @@ export default function WhyWhatDetail({}: Props) {
                 </div>
                 <CustomImg
                   src="/images/what_modal_con_2.webp"
+                  mobileSrc="/images/what_modal_con_2_mobile.webp"
                   className="w-full max-w-[470px]"
                 />
                 <div>
@@ -124,9 +131,12 @@ export default function WhyWhatDetail({}: Props) {
                     ด้านกฎหมายมหาชนหรือรัฐธรรมนูญแต่อย่างใด
                   </span>
                 </div>
-                <div className="flex max-w-[620px] items-center gap-3 rounded-md border px-5 py-3">
-                  <CustomImg src="/images/question.webp" className="w-9" />
-                  <div className="text-left font-bold">
+                <div className="flex max-w-[620px] flex-col items-center gap-3 rounded-md border px-5 py-3 lg:flex-row">
+                  <CustomImg
+                    src="/images/question.webp"
+                    className="w-5 lg:w-9"
+                  />
+                  <div className="font-bold lg:text-left">
                     คำถามสำคัญคือ ทำไมศาลรัฐธรรมนูญไทย จึงไร้ผู้ทรงคุณวุฒิ
                     ทางกฎหมายรัฐธรรมนูญทั้งที่ได้ตระหนักถึงประเด็นนี้มาตั้งแต่
                     แรกเริ่มจัดตั้งศาลรัฐธรรมนูญก่อนปี 2540
@@ -145,7 +155,10 @@ export default function WhyWhatDetail({}: Props) {
                   ที่มาของตุลาการยึดโยงกับประชาชนน้อย
                   จึงไม่ได้ทำงานเพื่อส่งเสริมสิทธิของประชาชน
                 </div>
-                <CustomImg src="/images/what_modal_3.webp" className="w-full" />
+                <CustomImg
+                  src="/images/what_modal_3.webp"
+                  className="min-h-[150px] w-full"
+                />
                 <div>
                   รัฐธรรมนูญ 2560 กำหนดให้{' '}
                   <span className="font-bold">
@@ -157,6 +170,7 @@ export default function WhyWhatDetail({}: Props) {
                 </div>
                 <CustomImg
                   src="/images/what_modal_con_3.webp"
+                  mobileSrc="/images/what_modal_con_3_mobile.webp"
                   className="w-full max-w-[652px]"
                 />
                 <div>
@@ -204,7 +218,10 @@ export default function WhyWhatDetail({}: Props) {
                 <div className="wv-h5 font-bold">
                   สังคมไร้เครื่องมือตรวจสอบอำนาจศาล
                 </div>
-                <CustomImg src="/images/why_modal_1.webp" className="w-full" />
+                <CustomImg
+                  src="/images/why_modal_1.webp"
+                  className="min-h-[150px] w-full"
+                />
                 <div>
                   <span className="font-bold">
                     ในปัจจุบัน ยังไม่มีองค์กรไหนที่สามารถเข้าตรวจสอบคำวินิจฉัย
@@ -244,7 +261,10 @@ export default function WhyWhatDetail({}: Props) {
                 <div className="wv-h5 font-bold">
                   ประชาชนไม่สามารถวิพากษ์วิจารณ์ คำวินิจฉัยศาลได้
                 </div>
-                <CustomImg src="/images/why_modal_2.webp" className="w-full" />
+                <CustomImg
+                  src="/images/why_modal_2.webp"
+                  className="min-h-[150px] w-full"
+                />
                 <div>
                   แม้รัฐธรรมนูญจะรับรองเสรีภาพในการแสดงความเห็น แต่ประเทศไทยก็มี
                   กฎหมายที่ว่าด้วยการละเมิดอำนาจศาล ข้อที่ 10
@@ -296,10 +316,10 @@ export default function WhyWhatDetail({}: Props) {
 
   return (
     <>
-      <div className="mx-auto max-w-[1030px]">
+      <div className="mx-auto max-w-[1030px] px-4 lg:px-0">
         {whyWhatGroups.map((g) => (
           <div key={g.title} className="mt-5">
-            <div className="rounded-md border border-grey2 p-12">
+            <div className="rounded-md border border-grey2 p-5 lg:p-12">
               <IconWithBg
                 icon={g.icon}
                 className="mx-auto h-[110px] w-[110px]"
@@ -313,28 +333,33 @@ export default function WhyWhatDetail({}: Props) {
             <PaperBox
               overlayColor="black"
               color="#FFE500"
-              className="relative mt-16 px-11 py-[100px]"
+              className="relative mt-16 px-5 pb-6 pt-[60px] lg:px-11 lg:py-[100px]"
             >
               <Quote
                 borderColor="black"
-                className="absolute inset-x-0 -top-10 mx-auto w-[120px]"
+                className="absolute inset-x-0 -top-5 mx-auto w-16 lg:-top-10 lg:w-[120px]"
               />
-              <div className="mx-auto flex max-w-[800px] items-center justify-center gap-5">
+              <div className="mx-auto flex max-w-[800px] flex-col items-center justify-center gap-5 lg:flex-row">
                 <IconWithBg
                   icon="/images/icon_chat.webp"
                   color="white"
-                  className="h-[90px] w-[90px] flex-none"
+                  className="h-[70px] w-[70px] flex-none lg:h-[90px] lg:w-[90px]"
                 />
-                <div className="wv-h5 text-left font-bold">{g.paper.title}</div>
+                <div className="wv-h5 font-bold lg:text-left">
+                  {g.paper.title}
+                </div>
               </div>
-              <div className="mt-5 flex justify-center gap-5">
+              <div className="mt-5 flex flex-col justify-center gap-5 lg:flex-row">
                 {g.paper.items.map((i) => (
                   <div
                     key={i.title}
                     className="w-[300px] overflow-hidden rounded-md"
                   >
-                    <CustomImg src={i.image} className="h-[200px] w-full" />
-                    <div className="flex min-h-[240px] flex-col items-center justify-between bg-white p-5">
+                    <CustomImg
+                      src={i.image}
+                      className="h-[150px] w-full lg:h-[200px]"
+                    />
+                    <div className="flex min-h-[160px] flex-col items-center justify-between bg-white p-5 lg:min-h-[240px]">
                       <div className="wv-h8 ">
                         <div className="font-bold">{i.title}</div>
                         {i.subtitle && <div>{i.subtitle}</div>}
@@ -357,8 +382,8 @@ export default function WhyWhatDetail({}: Props) {
         radius="sm"
         placement="center"
         classNames={{
-          base: 'bg-white text-black max-w-[800px] overflow-hidden',
-          body: 'py-12 px-8',
+          base: 'bg-white text-black max-w-[300px] lg:max-w-[800px] overflow-hidden',
+          body: 'py-10 lg:py-12 px-4 lg:px-8',
           closeButton:
             'text-black text-4xl p-0 font-black top-1 right-1 hover:bg-opacity-0 active:bg-opacity-0',
         }}
