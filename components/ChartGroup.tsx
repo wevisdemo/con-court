@@ -85,11 +85,17 @@ export default function ChartGroup() {
     );
   };
 
-  const xGrid = (chart: TChart) => {
+  const xGrid = (chart: TChart, chartIndex: number) => {
+    const max = last(chart.xAxes) ?? 0;
+    const xAxes =
+      bp !== 'lg' && group.charts.length > 1 ? [max / 2, max] : chart.xAxes;
+
     return (
       <div className="absolute inset-0 flex">
-        <div className="wv-h11 absolute -bottom-7 -left-4 w-8">0</div>
-        {chart.xAxes.map((i) => (
+        {(bp === 'lg' || chartIndex === 0) && (
+          <div className="wv-h11 absolute -bottom-7 -left-4 w-8">0</div>
+        )}
+        {xAxes.map((i) => (
           <div
             key={i}
             className="relative flex-1 border-r border-dashed border-white/20"
@@ -309,7 +315,7 @@ export default function ChartGroup() {
               className="chart relative border-b border-l border-b-white border-l-white"
             >
               {c.label && headLabel(c)}
-              {xGrid(c)}
+              {xGrid(c, cIndex)}
               {periodBars(c, cIndex === group.charts.length - 1)}
             </div>
           ))}
