@@ -14,7 +14,7 @@ export default function SectionIntro() {
   const { goToSection } = usePage();
 
   return (
-    <div className="relative overflow-hidden pb-14">
+    <div className="relative overflow-x-hidden pb-14 lg:overflow-x-visible">
       <CustomImg
         src="/images/paper_intro.webp"
         className="absolute -left-5 top-24 z-10 w-[78px] lg:top-[150px] lg:w-[260px]"
