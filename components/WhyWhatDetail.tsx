@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import IconWithBg from './IconWithBg';
 import PaperBox from './PaperBox';

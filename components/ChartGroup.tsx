@@ -1,3 +1,5 @@
+'use client';
+
 import { TChart } from '@/models';
 import Legends from './Legends';
 import { useChart } from '@/hooks/useChart';

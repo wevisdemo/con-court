@@ -1,3 +1,5 @@
+'use client';
+
 import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/react';
 import CustomImg from './CustomImg';
 import IconWithBg from './IconWithBg';

@@ -1,5 +1,3 @@
-'use client';
-
 import SectionIntro from '@/components/SectionIntro';
 import SectionPart1 from '@/components/SectionPart1';
 import SectionWhat from '@/components/SectionWhat';
@@ -10,19 +8,8 @@ import SectionLanding from '@/components/SectionLanding';
 import SectionPart2 from '@/components/SectionPart2';
 import SectionPart3 from '@/components/SectionPart3';
 import SectionPartEnd from '@/components/SectionPartEnd';
-import { useIsClient } from '@/hooks/useIsClient';
 
 export default function IndexPage() {
-  const isClient = useIsClient();
-
-  if (!isClient) {
-    return (
-      <div className="wv-h9 flex h-[80vh] items-center justify-center">
-        กำลังโหลด...
-      </div>
-    );
-  }
-
   return (
     <>
       <ChartGroup />

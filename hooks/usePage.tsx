@@ -1,33 +1,25 @@
 import { usePathname, useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export const usePage = () => {
   const router = useRouter();
   const pathname = usePathname();
-  let interval: NodeJS.Timeout;
+  const [elmId, setElmId] = useState('');
 
-  const goToSection = (path: string, id: string) => {
-    if (path === pathname) {
-      const element = document.getElementById(id);
-      if (element) element.scrollIntoView();
-    } else {
-      router.push(path);
-      if (!id) return;
-      interval = setInterval(() => {
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView();
-          clearInterval(interval);
-        }
-      }, 1);
-    }
+  const goToSection = (path: string, elmId: string) => {
+    if (path !== pathname) router.push(path);
+    setElmId(elmId);
   };
 
   useEffect(() => {
-    return () => {
-      if (interval) clearInterval(interval);
-    };
-  }, []);
+    if (elmId) {
+      const element = document.getElementById(elmId);
+      if (element) {
+        element.scrollIntoView();
+        setElmId('');
+      }
+    }
+  }, [elmId, pathname]);
 
   return { goToSection };
 };

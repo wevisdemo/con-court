@@ -1,3 +1,5 @@
+'use client';
+
 import { usePage } from '@/hooks/usePage';
 import BorderBox from './BorderBox';
 import BulletList from './BulletList';

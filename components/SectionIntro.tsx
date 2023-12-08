@@ -1,3 +1,5 @@
+'use client';
+
 import { useSnapshot } from 'valtio';
 import BorderBox from './BorderBox';
 import CustomImg from './CustomImg';
@@ -38,7 +40,7 @@ export default function SectionIntro() {
                 className="mt-6 w-[294px] lg:mt-10 lg:w-[643px]"
               />
               <BorderBox>
-                <div className="wv-h5 wv-kondolar px-9 py-3 font-bold lg:px-10 lg:py-4">
+                <div className="wv-kondolar w-[200px] p-3 text-xl font-bold md:w-auto md:px-10 md:py-4 md:text-[28px]/[42px]">
                   ชำแหละคำวินิจฉัย
                   <br />
                   ศาลรัฐธรรมนูญไทย

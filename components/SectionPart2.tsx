@@ -1,3 +1,5 @@
+'use client';
+
 import BorderBox from './BorderBox';
 import BulletList from './BulletList';
 import IconWithBg from './IconWithBg';
