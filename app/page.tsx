@@ -17,8 +17,8 @@ export default function IndexPage() {
 
   if (!isClient) {
     return (
-      <div className="wv-h9 flex h-[70vh] items-center justify-center">
-        Loading...
+      <div className="wv-h9 flex h-[80vh] items-center justify-center">
+        กำลังโหลด...
       </div>
     );
   }
