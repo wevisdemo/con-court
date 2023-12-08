@@ -58,6 +58,7 @@ export default function NavbarApp() {
               </button>
             </DropdownTrigger>
             <DropdownMenu
+              aria-label="Static Actions"
               itemClasses={{
                 base: 'w-[200px] md:w-[316px] rounded-none px-3 md:px-5 py-2 md:py-3 border-b border-grey3 text-left',
                 title: 'whitespace-normal',
@@ -66,7 +67,7 @@ export default function NavbarApp() {
               onAction={(key) => selectMenu(key as string)}
             >
               {menuList.map((i) => (
-                <DropdownItem key={i.id}>
+                <DropdownItem key={i.id} textValue={i.label}>
                   <div className="wv-h10">{i.label}</div>
                 </DropdownItem>
               ))}
