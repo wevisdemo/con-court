@@ -15,7 +15,13 @@ import { useIsClient } from '@/hooks/useIsClient';
 export default function IndexPage() {
   const isClient = useIsClient();
 
-  if (!isClient) return;
+  if (!isClient) {
+    return (
+      <div className="wv-h9 flex h-[70vh] items-center justify-center">
+        Loading...
+      </div>
+    );
+  }
 
   return (
     <>
