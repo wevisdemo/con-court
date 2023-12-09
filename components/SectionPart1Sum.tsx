@@ -313,7 +313,7 @@ export default function SectionPart1Sum() {
                             groups[0].items[0].request.day +
                             groups[0].items[0].accept.day
                           }
-                          width={bp === 'lg' ? 260 : 80}
+                          width={bp === 'lg' ? 260 : bp === 'md' ? 200 : 80}
                         />
                         <div className="wv-h9 mt-3 flex flex-none flex-col gap-2 lg:ml-3 lg:mt-0">
                           <div className="text-sentreq">

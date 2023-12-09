@@ -1,3 +1,4 @@
+import debounce from 'lodash/debounce';
 import { useEffect, useState } from 'react';
 
 export const useBreakpoint = () => {
@@ -5,17 +6,17 @@ export const useBreakpoint = () => {
   const breakpoint = width >= 1080 ? 'lg' : width >= 768 ? 'md' : 'sm';
 
   useEffect(() => {
-    if (window) {
-      setWidth(window.innerWidth);
-    }
-  }, []);
+    setWidth(window.innerWidth);
 
-  useEffect(() => {
-    if (window) {
-      const handleWindowResize = () => setWidth(window.innerWidth);
-      window.addEventListener('resize', handleWindowResize);
-      return () => window.removeEventListener('resize', handleWindowResize);
-    }
+    const handleWindowResize = debounce(() => {
+      setWidth(window.innerWidth);
+    }, 200);
+
+    window.addEventListener('resize', handleWindowResize, { passive: true });
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
   }, []);
 
   return breakpoint as 'lg' | 'md' | 'sm';
