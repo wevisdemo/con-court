@@ -27,7 +27,7 @@ export default function SectionIntro() {
         <CustomImg
           src="/images/bg_intro.webp"
           priority={true}
-          className="absolute left-2/4 top-2 w-[120%] max-w-max -translate-x-2/4 lg:w-full"
+          className="absolute left-2/4 top-2 w-[120%] -translate-x-2/4 lg:w-full"
         />
         <div className="relative rounded-t-[50%] bg-black">
           <div className="relative z-10">

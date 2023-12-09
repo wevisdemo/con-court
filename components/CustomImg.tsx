@@ -32,7 +32,7 @@ export default function CustomImg({
       width={0}
       height={0}
       priority={priority}
-      className={twMerge('h-auto w-auto object-cover', className)}
+      className={twMerge('w-auto max-w-none object-cover', className)}
       onClick={onClick}
     />
   );

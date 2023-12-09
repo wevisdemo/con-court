@@ -74,7 +74,7 @@ export default function BorderBox({
         {cornerOuter()}
         <CustomImg
           src="/images/border_box_bg.webp"
-          className="absolute top-0 h-full"
+          className="absolute h-full w-full opacity-70"
         />
         <div className="m-2 overflow-hidden bg-black lg:m-3">
           <div className={twMerge('relative border-2 border-white', className)}>
