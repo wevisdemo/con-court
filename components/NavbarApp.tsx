@@ -1,5 +1,6 @@
 'use client';
 
+import '@wevisdemo/ui/styles/navbar.css';
 import WvNavbar from '@wevisdemo/ui/react/navbar';
 import { usePage } from '@/hooks/usePage';
 import { useSnapshot } from 'valtio';
@@ -9,8 +10,8 @@ import {
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
-  Navbar,
-} from '@nextui-org/react';
+} from '@nextui-org/dropdown';
+import { Navbar } from '@nextui-org/navbar';
 import { genArrayByNum } from '@/utils/array';
 
 export default function NavbarApp() {

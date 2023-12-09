@@ -1,6 +1,7 @@
 'use client';
 
 import BorderBox from './BorderBox';
+import '@wevisdemo/ui/styles/sharer.css';
 import WvSharer from '@wevisdemo/ui/react/sharer';
 
 export default function SectionPartEnd() {

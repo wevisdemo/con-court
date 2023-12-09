@@ -5,13 +5,9 @@ import IconWithBg from './IconWithBg';
 import PaperBox from './PaperBox';
 import CustomImg from './CustomImg';
 import Quote from './Quote';
-import {
-  Modal,
-  ModalContent,
-  ModalBody,
-  Button,
-  useDisclosure,
-} from '@nextui-org/react';
+import { Modal, ModalContent, ModalBody } from '@nextui-org/modal';
+import { Button } from '@nextui-org/button';
+import { useDisclosure } from '@nextui-org/use-disclosure';
 
 type Props = {};
 

@@ -3,21 +3,15 @@
 import { TChart } from '@/models';
 import Legends from './Legends';
 import { useChart } from '@/hooks/useChart';
-import {
-  Modal,
-  ModalBody,
-  ModalContent,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-  useDisclosure,
-} from '@nextui-org/react';
+import { Modal, ModalBody, ModalContent } from '@nextui-org/modal';
+import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/popover';
+import { useDisclosure } from '@nextui-org/use-disclosure';
 import CustomImg from './CustomImg';
 import Bracket from './Bracket';
 import { twMerge } from 'tailwind-merge';
 import Avatar from './Avatar';
 import BarStacked from './BarStacked';
-import { last } from 'lodash';
+import last from 'lodash/last';
 import { useEffect, useState } from 'react';
 import BarCard from './BarCard';
 import BarScaled from './BarScaled';

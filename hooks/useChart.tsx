@@ -7,7 +7,8 @@ import {
 } from '@/models';
 import { state } from '@/stores';
 import { filterByKeys } from '@/utils/array';
-import { flatten, throttle } from 'lodash';
+import flatten from 'lodash/flatten';
+import throttle from 'lodash/throttle';
 import { useEffect, useMemo, useState } from 'react';
 import { useSnapshot } from 'valtio';
 

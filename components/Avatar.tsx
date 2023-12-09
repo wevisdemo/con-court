@@ -1,4 +1,4 @@
-import { Tooltip } from '@nextui-org/react';
+import { Tooltip } from '@nextui-org/tooltip';
 import CustomImg from './CustomImg';
 import { twMerge } from 'tailwind-merge';
 import { useBreakpoint } from '@/hooks/useBreakpoint';

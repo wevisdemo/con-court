@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import '@wevisdemo/ui/styles/index.css';
+import '@wevisdemo/ui/styles/typography.css';
 import '../styles/globals.scss';
 import NavbarApp from '@/components/NavbarApp';
 import { Providers } from './providers';

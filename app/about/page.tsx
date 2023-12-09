@@ -1,5 +1,11 @@
 'use client';
 
+import '@wevisdemo/ui/styles/container.css';
+import '@wevisdemo/ui/styles/paragraph-group.css';
+import '@wevisdemo/ui/styles/button-group.css';
+import '@wevisdemo/ui/styles/button.css';
+import '@wevisdemo/ui/styles/sharer.css';
+import '@wevisdemo/ui/styles/footer.css';
 import WvContainer from '@wevisdemo/ui/react/container';
 import WvParagraphGroup from '@wevisdemo/ui/react/paragraph-group';
 import WvButtonGroup from '@wevisdemo/ui/react/button-group';

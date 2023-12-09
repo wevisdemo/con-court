@@ -1,6 +1,6 @@
 'use client';
 
-import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/react';
+import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/popover';
 import CustomImg from './CustomImg';
 import IconWithBg from './IconWithBg';
 import ScrollHint from './ScrollHint';
@@ -13,7 +13,7 @@ export default function SectionTodo() {
       name: 'หน้าที่ตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ',
       color: '#6BB8FF',
       icon: '/images/icon_inspect_blue.webp',
-      bg: 'images/bg_inspect.webp',
+      bg: '/images/bg_inspect.webp',
       items: [
         {
           name: 'ตรวจสอบ “ร่างกฎหมาย” ก่อนประกาศใช้',
@@ -37,7 +37,7 @@ export default function SectionTodo() {
       name: 'หน้าที่ตรวจสอบสถาบันทางการเมือง',
       color: '#FFC164',
       icon: '/images/icon_protect_orange.webp',
-      bg: 'images/bg_protect.webp',
+      bg: '/images/bg_protect.webp',
       items: [
         {
           name: 'ตรวจสอบคุณสมบัติและวินิจฉัยสถานะ ของ สส. สว. และคณะรัฐมนตรี',
@@ -61,7 +61,7 @@ export default function SectionTodo() {
       name: 'หน้าที่คุ้มครองสิทธิเสรีภาพของประชาชนและความมั่นคงของรัฐ',
       color: '#E0AEFF',
       icon: '/images/icon_why_purple.webp',
-      bg: 'images/bg_why.webp',
+      bg: '/images/bg_why.webp',
       items: [
         {
           name: ' ให้สิทธิประชาชนยื่นคำร้องเมื่อถูกละเมิดสิทธิหรือเสรีภาพ',
@@ -190,11 +190,8 @@ export default function SectionTodo() {
       <div className="mt-6 grid gap-6 lg:grid-cols-3 lg:gap-8">
         {todoList.map((t) => (
           <div key={t.name}>
-            <div
-              style={{ backgroundImage: `url(${t.bg})` }}
-              className="wv-h8 relative flex h-[200px] items-center justify-center overflow-hidden rounded-md bg-cover font-bold text-black lg:h-[236px]"
-            >
-              <div className="absolute inset-0 bg-white/50"></div>
+            <div className="wv-h8 relative flex h-[200px] items-center justify-center overflow-hidden rounded-md bg-white font-bold text-black lg:h-[236px]">
+              <CustomImg src={t.bg} className="absolute h-full w-full" />
               <div
                 style={{ backgroundColor: t.color }}
                 className="absolute inset-0 mix-blend-screen"

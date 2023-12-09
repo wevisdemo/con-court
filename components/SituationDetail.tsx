@@ -1,6 +1,6 @@
 'use client';
 
-import { Accordion, AccordionItem } from '@nextui-org/react';
+import { Accordion, AccordionItem } from '@nextui-org/accordion';
 import CustomImg from './CustomImg';
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
