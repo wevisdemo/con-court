@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import '@wevisdemo/ui/styles/typography.css';
 import '../styles/globals.scss';
 import NavbarApp from '@/components/NavbarApp';
-import { Providers } from './providers';
+import Providers from '@/components/Providers';
 
 export const metadata: Metadata = {
   title: 'Create Next App',

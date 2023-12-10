@@ -37,6 +37,7 @@ export default function SectionIntro() {
             <div className="flex flex-col items-center gap-6">
               <CustomImg
                 src="/images/logo_intro.webp"
+                priority={true}
                 className="mt-6 w-[294px] lg:mt-10 lg:w-[643px]"
               />
               <BorderBox>
