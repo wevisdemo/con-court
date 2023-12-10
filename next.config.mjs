@@ -12,6 +12,9 @@ const nextConfig = {
   env: {
     basePath: basePath,
   },
+  experimental: {
+    webpackBuildWorker: true,
+  },
 };
 
 const millionConfig = {
