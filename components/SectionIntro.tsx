@@ -10,7 +10,7 @@ import IconWithBg from './IconWithBg';
 import ArrowDown from './ArrowDown';
 
 export default function SectionIntro() {
-  const { menuTabs } = useSnapshot(state);
+  const { menuTabs, updatedDate } = useSnapshot(state);
   const { goToSection } = usePage();
 
   return (
@@ -32,7 +32,7 @@ export default function SectionIntro() {
         <div className="relative rounded-t-[50%] bg-black">
           <div className="relative z-10">
             <div className="wv-h11 whitespace-pre-line text-grey1 lg:whitespace-normal">
-              {'(อัพเดทข้อมูล\nเมื่อวันที่ xx/xx/xxxx)'}
+              {`(อัพเดทข้อมูล\nเมื่อวันที่ ${updatedDate})`}
             </div>
             <div className="flex flex-col items-center gap-6">
               <CustomImg

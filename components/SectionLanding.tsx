@@ -10,7 +10,7 @@ import { state } from '@/stores';
 import { useSnapshot } from 'valtio';
 
 export default function SectionLanding() {
-  const { lawData, politicData, freedomData } = useSnapshot(state);
+  const { lawData, politicData, freedomData, updatedDate } = useSnapshot(state);
 
   const todoList = [
     {
@@ -76,7 +76,7 @@ export default function SectionLanding() {
             ประเภทคำวินิจฉัย
           </div>
           <div className="wv-h11 text-grey2">
-            (อัพเดทข้อมูลเมื่อวันที่ xx/xx/xxxx)
+            (อัพเดทข้อมูลเมื่อวันที่ {updatedDate})
           </div>
           <BulletList list={todoList} />
         </div>

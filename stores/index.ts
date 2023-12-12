@@ -4,6 +4,7 @@ import data from '@/public/data/data-sheet.json';
 import { filterByKeys } from '@/utils/array';
 
 type State = {
+  updatedDate: string;
   menuList: TMenu[];
   menuTabs: TMenu[];
   allData: TSheet[];
@@ -16,6 +17,7 @@ type State = {
 };
 
 export const state = proxy<State>({
+  updatedDate: '21/12/2566',
   menuList: [
     {
       label: 'หน้าแรก',
