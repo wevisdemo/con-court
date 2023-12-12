@@ -3,11 +3,13 @@ import SectionPart1 from '@/components/SectionPart1';
 import SectionWhat from '@/components/SectionWhat';
 import SectionSpotlight from '@/components/SectionSpotlight';
 import SectionTodo from '@/components/SectionTodo';
-import ChartGroup from '@/components/ChartGroup';
 import SectionLanding from '@/components/SectionLanding';
 import SectionPart2 from '@/components/SectionPart2';
 import SectionPart3 from '@/components/SectionPart3';
 import SectionPartEnd from '@/components/SectionPartEnd';
+import dynamic from 'next/dynamic';
+
+const ChartGroup = dynamic(() => import('@/components/ChartGroup'));
 
 export default function IndexPage() {
   return (

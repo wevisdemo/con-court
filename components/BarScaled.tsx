@@ -3,7 +3,9 @@ import { twMerge } from 'tailwind-merge';
 import CustomImg from './CustomImg';
 import { useDisclosure } from '@nextui-org/use-disclosure';
 import { useState } from 'react';
-import BarChartModal from './BarChartModal';
+import dynamic from 'next/dynamic';
+
+const BarChartModal = dynamic(() => import('./BarChartModal'));
 
 type Props = {
   className?: string;

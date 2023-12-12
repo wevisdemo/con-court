@@ -868,14 +868,14 @@ export const useChart = () => {
     setMode(mode);
   };
 
+  const isInView = (elm: HTMLElement | null) => {
+    const top = elm?.getBoundingClientRect().top ?? 0;
+    const halfScreen = window.screen.height / 2;
+    return top < halfScreen && top > -halfScreen;
+  };
+
   useEffect(() => {
     const handleScroll = throttle(() => {
-      const isInView = (elm: HTMLElement | null) => {
-        const top = elm?.getBoundingClientRect().top ?? 0;
-        const halfScreen = window.screen.height / 2;
-        return top < halfScreen && top > -halfScreen;
-      };
-
       for (let index = 1; index <= 23; index++) {
         const elm = document.getElementById(`chart${index}`);
         if (isInView(elm)) {

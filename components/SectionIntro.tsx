@@ -8,9 +8,10 @@ import { usePage } from '@/hooks/usePage';
 import ScrollHint from './ScrollHint';
 import IconWithBg from './IconWithBg';
 import ArrowDown from './ArrowDown';
-import Lottie from 'lottie-react';
 import paperLAnimation from '@/public/lotties/paper_l.json';
-import paperRAnimation from '@/public/lotties/paper_r.json';
+import dynamic from 'next/dynamic';
+
+const Lottie = dynamic(() => import('lottie-react'));
 
 export default function SectionIntro() {
   const { menuTabs, updatedDate } = useSnapshot(state);
@@ -24,9 +25,9 @@ export default function SectionIntro() {
         className="absolute -left-5 top-0 z-10 w-[78px] lg:w-[260px]"
       />
       <Lottie
-        animationData={paperRAnimation}
+        animationData={paperLAnimation}
         loop={true}
-        className="absolute -right-5 top-0 z-10 w-[78px] lg:w-[260px]"
+        className="absolute -right-5 top-0 z-10 w-[78px] -scale-x-100 lg:w-[260px]"
       />
       <div className="relative bg-grey3 pt-10 lg:pt-[100px]">
         <CustomImg
