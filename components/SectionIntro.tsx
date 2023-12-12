@@ -8,6 +8,9 @@ import { usePage } from '@/hooks/usePage';
 import ScrollHint from './ScrollHint';
 import IconWithBg from './IconWithBg';
 import ArrowDown from './ArrowDown';
+import Lottie from 'lottie-react';
+import paperLAnimation from '@/public/lotties/paper_l.json';
+import paperRAnimation from '@/public/lotties/paper_r.json';
 
 export default function SectionIntro() {
   const { menuTabs, updatedDate } = useSnapshot(state);
@@ -15,13 +18,15 @@ export default function SectionIntro() {
 
   return (
     <div className="relative overflow-x-hidden pb-14 lg:overflow-x-visible">
-      <CustomImg
-        src="/images/paper_intro.webp"
-        className="absolute -left-5 top-24 z-10 w-[78px] lg:top-[150px] lg:w-[260px]"
+      <Lottie
+        animationData={paperLAnimation}
+        loop={true}
+        className="absolute -left-5 top-0 z-10 w-[78px] lg:w-[260px]"
       />
-      <CustomImg
-        src="/images/paper_intro.webp"
-        className="absolute -right-5 top-24 z-10 w-[78px] -scale-x-100 lg:top-[150px] lg:w-[260px]"
+      <Lottie
+        animationData={paperRAnimation}
+        loop={true}
+        className="absolute -right-5 top-0 z-10 w-[78px] lg:w-[260px]"
       />
       <div className="relative bg-grey3 pt-10 lg:pt-[100px]">
         <CustomImg
