@@ -136,7 +136,7 @@ export default function ChartGroup() {
             </div>
             {guideYears.includes(i) && (
               <div className="absolute inset-x-0 bottom-0 flex flex-col items-center justify-end">
-                <div className="wv-h11 inline-flex max-w-[85%] items-center justify-center gap-1 rounded-t-md bg-highlight p-1 font-bold text-black md:px-3">
+                <div className="wv-h11 inline-flex max-w-[85%] items-center justify-center gap-1 rounded-t-md bg-highlight p-1 font-bold text-black md:px-3 lg:max-w-[90%]">
                   <CustomImg
                     src="/images/icon_star_2.webp"
                     className="w-3 lg:w-5"
