@@ -1,5 +1,4 @@
 import { TBarChartCard } from '@/models';
-import { twMerge } from 'tailwind-merge';
 import CustomImg from './CustomImg';
 import { useDisclosure } from '@nextui-org/use-disclosure';
 import { useState } from 'react';
@@ -8,11 +7,10 @@ import dynamic from 'next/dynamic';
 const BarChartModal = dynamic(() => import('./BarChartModal'));
 
 type Props = {
-  className?: string;
   data: TBarChartCard[];
 };
 
-export default function BarCard({ className, data }: Props) {
+export default function BarCard({ data }: Props) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [card, setCard] = useState<TBarChartCard | null>(null);
 
@@ -23,7 +21,7 @@ export default function BarCard({ className, data }: Props) {
 
   return (
     <>
-      <div className={twMerge('flex h-10 gap-[1px] lg:gap-[3px]', className)}>
+      <div className="flex h-2 gap-[1px] lg:h-3.5 lg:gap-[3px] 2xl:h-[15px]">
         {data.map((i, index) => (
           <div
             key={index}

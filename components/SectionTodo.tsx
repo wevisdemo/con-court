@@ -76,7 +76,7 @@ export default function SectionTodo() {
           icon: '/images/icon_why_3.webp',
         },
         {
-          name: 'วินิจฉัยความชอบด้วย รัฐธรรมนูญของร่างรัฐธรรมนูญแก้ไขเพิ่มเติม',
+          name: 'วินิจฉัยความชอบด้วยรัฐธรรมนูญของร่างรัฐธรรมนูญแก้ไขเพิ่มเติม',
           icon: '/images/icon_why_4.webp',
         },
       ],

@@ -58,7 +58,7 @@ export default function SectionIntro() {
                 {menuTabs.map((i) => (
                   <button
                     key={i.id}
-                    className="wv-h11 flex w-[200px] items-center gap-2 border-b border-white bg-black px-3 py-2 text-start last:border-0 hover:bg-white/20 lg:w-[300px] lg:border-b-0 lg:border-r"
+                    className="wv-h11 flex w-[200px] items-center gap-2 border-b border-white bg-black px-3 py-2 text-start last:border-0 hover:bg-white/20 lg:w-[312px] lg:border-b-0 lg:border-r"
                     onClick={() => goToSection('/', i.id)}
                   >
                     <IconWithBg

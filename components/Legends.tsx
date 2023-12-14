@@ -14,7 +14,7 @@ export default function Legends({
   itemWidth = 'auto',
 }: Props) {
   return (
-    <div className="flex flex-wrap justify-center gap-1 lg:gap-5">
+    <div className="flex flex-wrap justify-center gap-1 lg:gap-3 2xl:gap-5">
       {data
         .filter((i) => !i.hide)
         .map((i) => (

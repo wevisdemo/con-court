@@ -34,7 +34,7 @@ export const state = proxy<State>({
       icon: '/images/icon_protect.webp',
     },
     {
-      label: 'เพราะเหตุใดศาลรัฐธรรมนูญไม่ทำหน้าที่ตามค่านิยม ?',
+      label: 'เพราะเหตุใดศาลรัฐธรรมนูญจึงถูกวิจารณ์ว่าไม่ทำหน้าที่ตามค่านิยม ?',
       id: 'part3',
       icon: '/images/icon_why.webp',
     },

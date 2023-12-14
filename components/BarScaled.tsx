@@ -8,7 +8,6 @@ import dynamic from 'next/dynamic';
 const BarChartModal = dynamic(() => import('./BarChartModal'));
 
 type Props = {
-  className?: string;
   data: TBarChartCard[];
   scale: number;
   interactable: boolean;
@@ -16,7 +15,6 @@ type Props = {
 };
 
 export default function BarScaled({
-  className,
   data,
   scale,
   interactable,
@@ -34,7 +32,7 @@ export default function BarScaled({
     <>
       <div
         style={{ gridTemplateColumns: `repeat(${scale}, minmax(0, 1fr))` }}
-        className={twMerge('grid h-10 flex-1', className)}
+        className="grid h-2 flex-1 lg:h-2.5 2xl:h-3"
       >
         {data.map((i, index) => (
           <div

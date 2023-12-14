@@ -2,6 +2,7 @@ import { Tooltip } from '@nextui-org/tooltip';
 import CustomImg from './CustomImg';
 import { twMerge } from 'tailwind-merge';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
+import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/popover';
 
 type Props = {
   image: string;
@@ -12,19 +13,8 @@ type Props = {
 export default function Avatar({ image, name, className }: Props) {
   const bp = useBreakpoint();
 
-  return (
-    <Tooltip
-      closeDelay={0}
-      showArrow={true}
-      placement={bp === 'lg' ? 'bottom' : 'bottom-start'}
-      content={
-        <div className="wv-h11 px-2 py-1">
-          <div>สมัยนายกฯ</div>
-          <div className="font-bold">{name}</div>
-        </div>
-      }
-      color="foreground"
-    >
+  const btnTrigger = () => {
+    return (
       <div>
         <CustomImg
           src={image}
@@ -34,6 +24,36 @@ export default function Avatar({ image, name, className }: Props) {
           )}
         />
       </div>
-    </Tooltip>
+    );
+  };
+
+  const content = () => {
+    return (
+      <div className="wv-h11 px-2 py-1">
+        <div>สมัยนายกฯ</div>
+        <div className="font-bold">{name}</div>
+      </div>
+    );
+  };
+
+  if (bp === 'lg') {
+    return (
+      <Tooltip
+        closeDelay={0}
+        showArrow
+        placement="bottom"
+        content={content()}
+        color="foreground"
+      >
+        {btnTrigger()}
+      </Tooltip>
+    );
+  }
+
+  return (
+    <Popover placement="bottom-start" radius="md" showArrow color="foreground">
+      <PopoverTrigger>{btnTrigger()}</PopoverTrigger>
+      <PopoverContent>{content()}</PopoverContent>
+    </Popover>
   );
 }

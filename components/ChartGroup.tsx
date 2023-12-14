@@ -38,6 +38,7 @@ export default function ChartGroup() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [popoverOpen, setPopoverOpen] = useState(false);
   const [chartWidth, setChartWidth] = useState(0);
+  const barSpace = 'h-4 lg:h-[18px] 2xl:h-5';
 
   const headLabel = (chart: TChart) => {
     return (
@@ -157,7 +158,7 @@ export default function ChartGroup() {
         {primeMs.map((m) => (
           <div key={m.id} className="relative">
             {m.items.map((i) => (
-              <div key={i} className="h-4 lg:h-5"></div>
+              <div key={i} className={barSpace}></div>
             ))}
             <div className="absolute inset-0 flex items-center">
               <div
@@ -191,7 +192,7 @@ export default function ChartGroup() {
     return (
       <>
         <div className="wv-h11 absolute -top-12 right-[102%] min-w-[60px] whitespace-pre-line lg:-top-8 xl:whitespace-nowrap">
-          {'นายกฯ \nปี พศ.'}
+          {'นายกฯ \nปี พ.ศ.'}
         </div>
         <div className="wv-h11 absolute -top-12 left-full whitespace-pre-line">
           {bp === 'lg' ? 'ช่วงเวลา\nรัฐธรรมนูญ' : 'ช่วง\nรธน.'}
@@ -241,12 +242,15 @@ export default function ChartGroup() {
         {p.items.map((i) => (
           <div
             key={i}
-            className="flex h-4 items-center overflow-hidden border-t border-white/5 lg:h-5"
+            className={twMerge(
+              'flex items-center overflow-hidden border-t border-white/5',
+              barSpace,
+            )}
           >
             {mode === 'stack' && (
               <BarStacked
                 className={twMerge(
-                  'h-2 transition lg:h-3',
+                  'h-2 transition lg:h-2.5 2xl:h-3',
                   !!highlightYears?.length &&
                     !highlightYears?.includes(i) &&
                     'opacity-20',
@@ -257,15 +261,9 @@ export default function ChartGroup() {
                 highlights={highlightKeys}
               />
             )}
-            {mode === 'card' && (
-              <BarCard
-                className="h-2 lg:h-[15px]"
-                data={getBarDataByYear(chart, i)}
-              />
-            )}
+            {mode === 'card' && <BarCard data={getBarDataByYear(chart, i)} />}
             {mode === 'scale' && (
               <BarScaled
-                className="h-2 lg:h-3"
                 data={getBarDataByYear(chart, i)}
                 scale={last(chart.xAxes) ?? 0}
                 interactable={interactable}
@@ -291,11 +289,11 @@ export default function ChartGroup() {
       <div
         id="chart"
         className={twMerge(
-          'fixed inset-0 mx-auto flex max-w-[1108px] flex-col justify-center gap-3 lg:gap-4',
+          'fixed inset-0 mx-auto flex max-w-[1108px] flex-col justify-center gap-3 2xl:gap-4',
           !showChart && 'opacity-0',
         )}
       >
-        <div className="flex flex-col gap-1 p-4 pb-0 lg:gap-4">
+        <div className="flex flex-col gap-1 px-4 pt-4 lg:gap-3 2xl:gap-4">
           <div className="wv-h5 wv-kondolar font-black">
             ภาพรวมสัดส่วนคำวินิจฉัยศาลรัฐธรรมนูญ
           </div>
