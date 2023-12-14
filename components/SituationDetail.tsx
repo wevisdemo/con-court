@@ -52,7 +52,7 @@ export default function SituationDetail({
             indicator={({ isOpen }) => (
               <CustomImg
                 src="/images/icon_arrow_up.webp"
-                className={twMerge('w-4', isOpen && '-rotate-90')}
+                className={twMerge('w-4 rotate-180', isOpen && 'rotate-90')}
               />
             )}
           >

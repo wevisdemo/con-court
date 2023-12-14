@@ -26,7 +26,7 @@ export default function IndexPage() {
         <SectionPart1 />
         <SectionPart2 />
         <SectionPart3 />
-        <div className="pointer-events-auto bg-black">
+        <div id="chart24" className="pointer-events-auto bg-black">
           <SectionPartEnd />
         </div>
       </div>

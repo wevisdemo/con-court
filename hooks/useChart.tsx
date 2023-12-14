@@ -860,6 +860,7 @@ export const useChart = () => {
   const [interactable, setInteractable] = useState(false);
   const [suggests, setChartSuggests] = useState<TChartSuggest[] | null>(null);
   const [mode, setMode] = useState<TChartMode>('stack');
+  const [showChart, setShowChart] = useState(true);
 
   const resetChart = (mode: TChartMode) => {
     setHighlightKeys([]);
@@ -876,7 +877,7 @@ export const useChart = () => {
 
   useEffect(() => {
     const handleScroll = throttle(() => {
-      for (let index = 1; index <= 23; index++) {
+      for (let index = 1; index <= 24; index++) {
         const elm = document.getElementById(`chart${index}`);
         if (isInView(elm)) {
           if (index === 1) {
@@ -985,6 +986,10 @@ export const useChart = () => {
             setChartSuggests(freedomSuggests);
             setGroup(groupData[6]);
             setInteractable(true);
+            setShowChart(true);
+          }
+          if (index === 24) {
+            setShowChart(false);
           }
         }
       }
@@ -1008,6 +1013,7 @@ export const useChart = () => {
     interactable,
     suggests,
     mode,
+    showChart,
     getBarDataByYear,
     getStackDataByYear,
   };
