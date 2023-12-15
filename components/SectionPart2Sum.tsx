@@ -23,7 +23,7 @@ export default function SectionPart2Sum() {
             color="white"
             className="mt-8 px-5 py-12 lg:px-10"
           >
-            <div className="overflow-hidden rounded-md border">
+            <div className="overflow-clip rounded-md border">
               <div className="p-3">
                 <div className="wv-h10 flex justify-center gap-2">
                   <CustomImg src="/images/icon_con_2.webp" className="w-6" />
@@ -69,14 +69,16 @@ export default function SectionPart2Sum() {
             </>
           )}
           <BlurBox className="mt-8 px-6 py-20 lg:px-[68px]">
-            <Quote color="#E0AEFF" className="mx-auto w-11" />
-            <div className="wv-h8 my-3 font-bold text-freedom">
-              หากการปราศรัยให้มีการ “ปฏิรูปกฎหมายอาญา” เป็นการล้มล้างการปกครอง
-              แล้วเหตุใดการทำรัฐประหาร ที่ฉีกรัฐธรรมนูญอันเป็นกฎหมายสูงสุดทิ้ง
-              และร่างใหม่ โดยคณะบุคคลที่เข้ามายึดอำนาจ
-              จึงไม่ถือเป็นการล้มล้างการปกครองด้วย?
+            <div className="flex flex-col items-center gap-3">
+              <Quote color="#E0AEFF" className="w-7 md:w-11" />
+              <div className="wv-h8 font-bold text-freedom">
+                หากการปราศรัยให้มีการ “ปฏิรูปกฎหมายอาญา” เป็นการล้มล้างการปกครอง
+                แล้วเหตุใดการทำรัฐประหาร ที่ฉีกรัฐธรรมนูญอันเป็นกฎหมายสูงสุดทิ้ง
+                และร่างใหม่ โดยคณะบุคคลที่เข้ามายึดอำนาจ
+                จึงไม่ถือเป็นการล้มล้างการปกครองด้วย?
+              </div>
+              <Quote color="#E0AEFF" className="w-7 rotate-180 md:w-11" />
             </div>
-            <Quote color="#E0AEFF" className="mx-auto w-11 rotate-180" />
           </BlurBox>
           <div className="mt-[125px] px-4 md:px-0">
             <div className="wv-h5 font-bold text-freedom">
@@ -112,14 +114,14 @@ export default function SectionPart2Sum() {
                 ดังนั้นแล้ว ชุดคำถามสำคัญที่
                 ศาลรัฐธรรมนูญต้องตอบประชาชนให้ได้คือ
               </div>
-              <Quote color="#E0AEFF" className="mx-auto w-11" />
+              <Quote color="#E0AEFF" className="w-7 md:w-11" />
               <ul>
                 <li>การรัฐประหารเป็นการล้มล้างรัฐธรรมนูญหรือไม่?</li>
                 <li>
                   การได้อำนาจในการปกครองประเทศโดยไม่ได้รับความยินยอมพร้อมใจจากประชาชนเท่ากับเป็นการล้มล้างระบอบประชาธิปไตยหรือไม่?
                 </li>
               </ul>
-              <Quote color="#E0AEFF" className="mx-auto w-11 rotate-180" />
+              <Quote color="#E0AEFF" className="w-7 rotate-180 md:w-11" />
             </div>
           </BlurBox>
           <ScrollHint mode="dark" className="mt-14" />

@@ -62,7 +62,7 @@ export default function BorderBox({
   };
 
   return (
-    <div className="overflow-hidden bg-black">
+    <div className="overflow-clip bg-black">
       <div
         style={{ borderColor: color }}
         className={twMerge(
@@ -76,7 +76,7 @@ export default function BorderBox({
           src="/images/border_box_bg.webp"
           className="absolute h-full w-full opacity-70"
         />
-        <div className="m-2 overflow-hidden bg-black lg:m-3">
+        <div className="m-2 overflow-clip bg-black lg:m-3">
           <div className={twMerge('relative border-2 border-white', className)}>
             {cornerInner()}
             {children}

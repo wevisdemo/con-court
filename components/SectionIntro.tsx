@@ -18,7 +18,7 @@ export default function SectionIntro() {
   const { goToSection } = usePage();
 
   return (
-    <div className="relative overflow-x-hidden pb-14 lg:overflow-x-visible">
+    <div className="relative pb-14">
       <Lottie
         animationData={paperLAnimation}
         loop={true}

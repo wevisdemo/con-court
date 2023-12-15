@@ -18,8 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="wv-ibmplex text-center">
-      <body id="intro" className="overflow-x-hidden">
+    <html lang="en" className="wv-ibmplex overflow-x-clip text-center">
+      <body id="intro" className="overflow-x-clip">
         <Providers>
           <NavbarApp />
           {children}

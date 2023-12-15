@@ -150,7 +150,7 @@ export default function SectionTodo() {
             radius="md"
             classNames={{
               content:
-                'bg-white text-black w-[250px] md:w-[386px] p-0 overflow-hidden',
+                'bg-white text-black w-[250px] md:w-[386px] p-0 overflow-clip',
             }}
             isOpen={popoverOpen}
             onOpenChange={setPopoverOpen}
@@ -190,7 +190,7 @@ export default function SectionTodo() {
       <div className="mt-6 grid gap-6 lg:grid-cols-3 lg:gap-8">
         {todoList.map((t) => (
           <div key={t.name}>
-            <div className="wv-h8 relative flex h-[200px] items-center justify-center overflow-hidden rounded-md bg-white font-bold text-black lg:h-[236px]">
+            <div className="wv-h8 relative flex h-[200px] items-center justify-center overflow-clip rounded-md bg-white font-bold text-black lg:h-[236px]">
               <CustomImg src={t.bg} className="absolute h-full w-full" />
               <div
                 style={{ backgroundColor: t.color }}

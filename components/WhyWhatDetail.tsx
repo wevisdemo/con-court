@@ -341,7 +341,7 @@ export default function WhyWhatDetail({}: Props) {
                 {g.paper.items.map((i) => (
                   <div
                     key={i.title}
-                    className="w-[300px] overflow-hidden rounded-md"
+                    className="w-[300px] overflow-clip rounded-md"
                   >
                     <CustomImg
                       src={i.image}
@@ -370,7 +370,7 @@ export default function WhyWhatDetail({}: Props) {
         radius="sm"
         placement="center"
         classNames={{
-          base: 'bg-white text-black max-w-[300px] lg:max-w-[800px] overflow-hidden',
+          base: 'bg-white text-black max-w-[300px] lg:max-w-[800px] overflow-clip',
           body: 'py-10 lg:py-12 px-4 lg:px-8',
           closeButton:
             'text-black text-4xl p-0 font-black top-1 right-1 hover:bg-opacity-0 active:bg-opacity-0',

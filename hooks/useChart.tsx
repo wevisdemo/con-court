@@ -1000,7 +1000,7 @@ export const useChart = () => {
           }
         }
       }
-    }, 50);
+    }, 100);
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 

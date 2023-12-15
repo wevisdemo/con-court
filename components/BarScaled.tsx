@@ -39,7 +39,7 @@ export default function BarScaled({
             key={index}
             style={{ background: i.color }}
             className={twMerge(
-              'relative z-10 flex h-full cursor-pointer items-center justify-center overflow-hidden hover:!bg-white',
+              'relative z-10 flex h-full cursor-pointer items-center justify-center overflow-clip hover:!bg-white',
               !!highlights?.length &&
                 !highlights?.includes(i.ผลคำวินิจฉัย) &&
                 'opacity-20',

@@ -213,7 +213,7 @@ export default function SectionPart1Sum() {
               key={i.image}
               className="flex flex-col items-center gap-5 lg:flex-row"
             >
-              <div className="flex w-[260px] overflow-hidden rounded-md lg:w-[160px] lg:flex-col">
+              <div className="flex w-[260px] overflow-clip rounded-md lg:w-[160px] lg:flex-col">
                 <CustomImg
                   src={i.image}
                   className="h-[120px] w-2/4 lg:w-full"

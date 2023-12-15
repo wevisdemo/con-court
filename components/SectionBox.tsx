@@ -11,7 +11,7 @@ export default function SectionBox({ id, children, boxCls }: Props) {
     <div id={id} className="screen flex items-center justify-center">
       <div
         className={twMerge(
-          'pointer-events-auto w-full max-w-[290px] overflow-hidden rounded-md bg-white text-black md:max-w-[700px]',
+          'pointer-events-auto w-full max-w-[290px] overflow-clip rounded-md bg-white text-black md:max-w-[700px]',
           boxCls as string,
         )}
       >

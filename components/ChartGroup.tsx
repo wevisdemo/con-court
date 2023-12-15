@@ -258,7 +258,7 @@ export default function ChartGroup() {
           <div
             key={i}
             className={twMerge(
-              'flex items-center overflow-hidden border-t border-white/5',
+              'flex items-center overflow-clip border-t border-white/5',
               barSpace,
             )}
           >

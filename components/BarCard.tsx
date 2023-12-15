@@ -26,7 +26,7 @@ export default function BarCard({ data }: Props) {
           <div
             key={index}
             style={{ background: i.color }}
-            className="relative z-10 flex h-full w-[3px] cursor-pointer items-center justify-center overflow-hidden hover:!bg-white lg:w-[10px]"
+            className="relative z-10 flex h-full w-[3px] cursor-pointer items-center justify-center overflow-clip hover:!bg-white lg:w-[10px]"
             onClick={() => selectCard(i)}
           >
             {i['คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)'] ===
