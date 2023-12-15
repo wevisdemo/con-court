@@ -1,15 +1,12 @@
 import {
   TBarChartCard,
   TChart,
-  TChartBoolean,
   TChartGroup,
   TChartMode,
-  TChartNature,
-  TChartSide,
   TChartSuggest,
-  TSheet,
 } from '@/models';
 import { state } from '@/stores';
+import { filterData } from '@/utils/array';
 import flatten from 'lodash/flatten';
 import throttle from 'lodash/throttle';
 import { useEffect, useMemo, useState } from 'react';
@@ -126,34 +123,6 @@ export const useChart = () => {
       items: [],
     },
   ];
-
-  const filterData = (
-    data: TSheet[],
-    year?: number,
-    sides?: TChartSide[],
-    nature?: TChartNature,
-    isMulti?: TChartBoolean,
-  ) => {
-    let res = data;
-    if (year) {
-      res = res.filter((i) => i.ปีวินิจฉัย === year);
-    }
-    if (sides) {
-      res = res.filter((i) =>
-        sides.includes(i['ฝ่ายทางการเมือง / ประเภทย่อย']),
-      );
-    }
-    if (nature) {
-      res = res.filter((i) => i.ลักษณะคำวินิจฉัย === nature);
-    }
-    if (isMulti) {
-      res = res.filter(
-        (i) =>
-          i['คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)'] === isMulti,
-      );
-    }
-    return res;
-  };
 
   const years = useMemo(() => {
     return flatten(periods.map((i) => i.items));

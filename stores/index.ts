@@ -2,6 +2,7 @@ import { TMenu, TSheet } from '@/models';
 import { proxy } from 'valtio';
 import data from '@/public/data/data-sheet.json';
 import uniqBy from 'lodash/uniqBy';
+import { filterData } from '@/utils/array';
 
 type State = {
   updatedDate: string;
@@ -72,14 +73,9 @@ export const state = proxy<State>({
     );
   },
   get freedomCases() {
-    return this.allData.filter(
-      (i: TSheet) => i['ฝ่ายทางการเมือง / ประเภทย่อย'] === 'คดีคุ้มครองสิทธิฯ',
-    );
+    return filterData(this.allData, undefined, ['คดีคุ้มครองสิทธิฯ']);
   },
   get destroyCases() {
-    return this.allData.filter(
-      (i: TSheet) =>
-        i['ฝ่ายทางการเมือง / ประเภทย่อย'] === 'คดีล้มล้างระบอบการปกครอง',
-    );
+    return filterData(this.allData, undefined, ['คดีล้มล้างระบอบการปกครอง']);
   },
 });

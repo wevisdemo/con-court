@@ -347,7 +347,7 @@ export default function WhyWhatDetail({}: Props) {
                       src={i.image}
                       className="h-[150px] w-full lg:h-[200px]"
                     />
-                    <div className="flex min-h-[160px] flex-col items-center justify-between bg-white p-5 lg:min-h-[240px]">
+                    <div className="flex min-h-[160px] flex-col items-center justify-between gap-3 bg-white p-5 lg:min-h-[240px]">
                       <div className="wv-h8 ">
                         <div className="font-bold">{i.title}</div>
                         {i.subtitle && <div>{i.subtitle}</div>}
@@ -370,7 +370,7 @@ export default function WhyWhatDetail({}: Props) {
         radius="sm"
         placement="center"
         classNames={{
-          base: 'bg-white text-black max-w-[300px] lg:max-w-[800px] overflow-clip',
+          base: 'bg-white text-black max-w-[300px] md:max-w-[500px] lg:max-w-[800px] overflow-clip',
           body: 'py-10 lg:py-12 px-4 lg:px-8',
           closeButton:
             'text-black text-4xl p-0 font-black top-1 right-1 hover:bg-opacity-0 active:bg-opacity-0',
