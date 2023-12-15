@@ -37,7 +37,7 @@ export default function SectionPart2() {
 
   return (
     <>
-      <div id="chart19"></div>
+      <div id="chart21"></div>
       <div
         id="part2"
         className="screen pointer-events-auto flex flex-col items-center justify-center gap-12 bg-black"
@@ -78,7 +78,7 @@ export default function SectionPart2() {
         </div>
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox id="chart20" boxCls="p-5 md:py-8 md:px-16">
+      <SectionBox id="chart22" boxCls="p-5 md:py-8 md:px-16">
         <div className="wv-h9 mx-auto flex max-w-[700px] flex-col gap-5 font-bold">
           <div>
             นับตั้งแต่ปี 2540 ศาลรัฐธรรมนูญได้วินิจฉัย
@@ -97,7 +97,7 @@ export default function SectionPart2() {
         </div>
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox id="chart21" boxCls="p-5 md:py-8 md:px-16">
+      <SectionBox id="chart23" boxCls="p-5 md:py-8 md:px-16">
         <div className="wv-h9 mx-auto flex max-w-[700px] flex-col gap-5">
           <div className="font-bold">
             และมีเพียง 1 คำวินิจฉัย
@@ -119,7 +119,7 @@ export default function SectionPart2() {
         </div>
       </SectionBox>
       <div className="screen"></div>
-      <SectionBox id="chart22" boxCls="p-5 md:py-8 md:px-16">
+      <SectionBox id="chart24" boxCls="p-5 md:py-8 md:px-16">
         <div className="mx-auto flex max-w-[700px] flex-col gap-5">
           <div className="wv-h9 font-bold">
             ในขณะที่คำวินิจฉัยในเรื่องพิทักษ์ระบอบการปกครอง
@@ -147,7 +147,7 @@ export default function SectionPart2() {
         <ScrollHint mode="light" className="mt-3" />
       </SectionBox>
       <div className="screen"></div>
-      <div id="chart23" className="screen"></div>
+      <div id="chart25" className="screen"></div>
       <SectionPart2Sum />
     </>
   );

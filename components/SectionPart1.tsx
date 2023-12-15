@@ -108,7 +108,7 @@ export default function SectionPart1() {
                 ตลอดช่วงการบังคับใช้รัฐธรรมนูญ 2540 ศาลรัฐธรรมนูญ
                 มีบทบาทอย่างแข็งขันในการวินิจฉัยชี้ขาดกรณีที่พรรคการเมืองใดทำผิด
                 พ.ร.ป. ว่าด้วยพรรคการเมืองฯ{' '}
-                <span className="bg-politics font-bold leading-8">
+                <span className="bg-politics font-bold leading-6 md:leading-8">
                   มีผลทำให้พรรคการเมืองขนาดเล็ก จำนวน 76
                   พรรคถูกยุบพรรคลงเพราะไม่สามารถปฏิบัติตามเงื่อนไข
                   ให้ถูกต้องตามกฎหมายได้
@@ -118,7 +118,7 @@ export default function SectionPart1() {
                 และยังมีอำนาจในการชี้ขาดว่า ผู้ที่ดำรงตำแหน่งทางการเมืองใด
                 จงใจไม่ยื่นบัญชีแสดงรายการทรัพย์สินฯ หรือแสดงรายการทรัพย์สิน
                 อันเป็นเท็จฯ ต่อคณะกรรมการ ป.ป.ช. เมื่อเข้ารับหรือออกจากตำแหน่ง
-                <span className="bg-politics font-bold">
+                <span className="bg-politics font-bold leading-6 md:leading-8">
                   ส่งผลให้ศาลวินิจฉัยชี้ขาดและสิ้นสุดสถานะผู้ดำรงตำแหน่งทางการเมือง
                   ไปกว่า 28 ราย
                 </span>
@@ -203,8 +203,8 @@ export default function SectionPart1() {
           </div>
         </div>
       </SectionBox>
-      <div className="screen"></div>
-      <SectionBox id="chart10">
+      <div id="chart10" className="screen"></div>
+      <SectionBox>
         <SituationDetail
           date="06/01/2544"
           title="2544 เลือกตั้งสมาชิกสภาผู้แทนราษฎร"
@@ -245,8 +245,8 @@ export default function SectionPart1() {
           }
         />
       </SectionBox>
-      <div className="screen"></div>
-      <SectionBox id="chart11">
+      <div id="chart11" className="screen"></div>
+      <SectionBox>
         <SituationDetail
           date="25/04/2549"
           title="ในหลวงรัชกาลที่ 9 มีพระราชดำรัสแก่ผู้พิพากษา"
@@ -277,6 +277,7 @@ export default function SectionPart1() {
           }
         />
       </SectionBox>
+      <div id="chart12" className="screen"></div>
       <SectionBox>
         <SituationDetail
           date="19/09/2549"
@@ -308,8 +309,8 @@ export default function SectionPart1() {
           }
         />
       </SectionBox>
-      <div className="screen"></div>
-      <SectionBox id="chart12">
+      <div id="chart13" className="screen"></div>
+      <SectionBox>
         <SituationDetail
           date="24/08/2550"
           title="รัฐธรรมนูญ 2550 มีผลใช้บังคับ"
@@ -350,8 +351,8 @@ export default function SectionPart1() {
           }
         />
       </SectionBox>
-      <div className="screen"></div>
-      <SectionBox id="chart13">
+      <div id="chart14" className="screen"></div>
+      <SectionBox>
         <SituationDetail
           date="22/05/2557"
           title="รัฐประหารโดยคณะรักษาความสงบแห่งชาติ (คสช.)"
@@ -380,6 +381,7 @@ export default function SectionPart1() {
           }
         />
       </SectionBox>
+      <div id="chart15" className="screen"></div>
       <SectionBox>
         <SituationDetail
           date="22/07/2557"
@@ -409,8 +411,8 @@ export default function SectionPart1() {
           }
         />
       </SectionBox>
-      <div className="screen"></div>
-      <SectionBox id="chart14">
+      <div id="chart16" className="screen"></div>
+      <SectionBox>
         <SituationDetail
           date="06/04/2560"
           title="รัฐธรรมนูญ 2560 มีผลใช้บังคับ"
@@ -443,8 +445,8 @@ export default function SectionPart1() {
           }
         />
       </SectionBox>
-      <div className="screen"></div>
-      <SectionBox id="chart15">
+      <div id="chart17" className="screen"></div>
+      <SectionBox>
         <SituationDetail
           date="24/03/2562"
           title="2562 เลือกตั้งสมาชิกสภาผู้แทนราษฎร"
@@ -477,7 +479,7 @@ export default function SectionPart1() {
         />
       </SectionBox>
       <div className="screen"></div>
-      <div id="chart16" className="screen flex items-center justify-center">
+      <div id="chart18" className="screen flex items-center justify-center">
         <div className="rounded-md bg-white p-5 text-black">
           <div className="wv-h11 mb-3">
             เลื่อนต่อเพื่อไปสำรวจ
@@ -488,7 +490,7 @@ export default function SectionPart1() {
         </div>
       </div>
       <div className="screen"></div>
-      <div id="chart17" className="screen"></div>
+      <div id="chart19" className="screen"></div>
       <SectionPart1Sum />
     </>
   );

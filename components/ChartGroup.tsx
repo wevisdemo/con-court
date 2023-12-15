@@ -87,18 +87,19 @@ export default function ChartGroup() {
     const max = last(chart.xAxes) ?? 0;
     const xAxes =
       bp !== 'lg' && group.charts.length > 1 ? [max / 2, max] : chart.xAxes;
+    const axesCls = 'wv-h11 absolute -bottom-6 md:-bottom-7 w-8';
 
     return (
       <div className="absolute inset-0 flex">
         {(bp === 'lg' || chartIndex === 0) && (
-          <div className="wv-h11 absolute -bottom-7 -left-4 w-8">0</div>
+          <div className={twMerge('-left-4', axesCls)}>0</div>
         )}
         {xAxes.map((i) => (
           <div
             key={i}
             className="relative flex-1 border-r border-dashed border-white/20"
           >
-            <div className="wv-h11 absolute -bottom-7 -right-4 w-8">{i}</div>
+            <div className={twMerge('-right-4', axesCls)}>{i}</div>
           </div>
         ))}
       </div>
@@ -111,8 +112,14 @@ export default function ChartGroup() {
       text = `${year} เลือกตั้งสมาชิกสภาผู้แทนราษฎร`;
     }
     if ([2549].includes(year)) {
-      text = `${year} ทำรัฐประหารโดยคณะปฏิรูปการปกครองในระบอบประชาธิปไตย
+      text = `${year} ในหลวงรัชกาลที่ 9 มีพระราชดำรัสแก่ผู้พิพากษา`;
+    }
+    if ([2549_2].includes(year)) {
+      text = `${2549} ทำรัฐประหารโดยคณะปฏิรูปการปกครองในระบอบประชาธิปไตย
       อันมีพระมหากษัตริย์ทรงเป็นประมุข (คปค.)`;
+    }
+    if ([2557_1].includes(year)) {
+      text = `${2557} รัฐประหารโดยคณะรักษาความสงบแห่งชาติ (คสช.)`;
     }
     return text;
   };
@@ -134,14 +141,22 @@ export default function ChartGroup() {
             >
               {i - 2500}
             </div>
-            {guideYears.includes(i) && (
+            {(guideYears.includes(i) ||
+              (guideYears.includes(2549_2) && i === 2549) ||
+              (guideYears.includes(2557_1) && i === 2557)) && (
               <div className="absolute inset-x-0 bottom-0 flex flex-col items-center justify-end">
                 <div className="wv-h11 inline-flex max-w-[85%] items-center justify-center gap-1 rounded-t-md bg-highlight p-1 font-bold text-black md:px-3 lg:max-w-[90%]">
                   <CustomImg
                     src="/images/icon_star_2.webp"
                     className="w-3 lg:w-5"
                   />
-                  {guideText(i)}
+                  {guideText(
+                    guideYears.includes(2557_1)
+                      ? 2557_1
+                      : guideYears.includes(2549_2)
+                        ? 2549_2
+                        : i,
+                  )}
                 </div>
                 <div className="h-[2px] w-full bg-highlight lg:h-1"></div>
               </div>
@@ -294,7 +309,7 @@ export default function ChartGroup() {
         )}
       >
         <div className="flex flex-col gap-1 px-4 pt-4 lg:gap-3 2xl:gap-4">
-          <div className="wv-h5 wv-kondolar font-black">
+          <div className="wv-kondolar text-2xl/6 font-black md:text-4xl">
             ภาพรวมสัดส่วนคำวินิจฉัยศาลรัฐธรรมนูญ
           </div>
           <Legends data={group.legends} boxCls="w-3 h-3 lg:w-5 lg:h-5" />

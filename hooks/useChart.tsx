@@ -877,7 +877,7 @@ export const useChart = () => {
 
   useEffect(() => {
     const handleScroll = throttle(() => {
-      for (let index = 1; index <= 24; index++) {
+      for (let index = 1; index <= 26; index++) {
         const elm = document.getElementById(`chart${index}`);
         if (isInView(elm)) {
           if (index === 1) {
@@ -931,69 +931,75 @@ export const useChart = () => {
             setGuideYears([2549]);
           }
           if (index === 12) {
+            setGuideYears([2549_2]);
+          }
+          if (index === 13) {
             setHighlightYears([2550, 2551, 2552, 2553, 2554, 2555, 2556]);
             setGuideYears([2550]);
           }
-          if (index === 13) {
+          if (index === 14) {
             setHighlightYears([2557, 2558, 2559]);
+            setGuideYears([2557_1]);
+          }
+          if (index === 15) {
             setGuideYears([2557]);
           }
-          if (index === 14) {
+          if (index === 16) {
             setHighlightYears([2560, 2561, 2562, 2563, 2564, 2565, 2566]);
             setGuideYears([2560]);
           }
-          if (index === 15) {
+          if (index === 17) {
             setHighlightYears([]);
             setInteractable(false);
             setMode('stack');
             setGuideYears([2562]);
           }
-          if (index === 16) {
+          if (index === 18) {
             setGuideYears([]);
             setMode('stack');
             setGroup(groupData[3]);
           }
-          if (index === 17) {
+          if (index === 19) {
             setGroup(groupData[4]);
             setChartSuggests(caseSuggests);
             setInteractable(true);
             setMode('card');
           }
-          if (index === 18) {
+          if (index === 20) {
             setGroup(groupData[4]);
             setInteractable(true);
             setMode('card');
           }
           // part2
-          if (index === 19) {
+          if (index === 21) {
             resetChart('scale');
             setGroup(groupData[5]);
             setInteractable(false);
           }
-          if (index === 20) {
+          if (index === 22) {
             setHighlightKeys([...protectedKeys]);
           }
-          if (index === 21) {
+          if (index === 23) {
             setHighlightKeys([protectedKeys[2]]);
           }
-          if (index === 22) {
+          if (index === 24) {
             setGroup(groupData[5]);
             setInteractable(false);
             setHighlightKeys(destroyCases.map((i) => i.ผลคำวินิจฉัย));
           }
-          if (index === 23) {
+          if (index === 25) {
             resetChart('scale');
             setChartSuggests(freedomSuggests);
             setGroup(groupData[6]);
             setInteractable(true);
             setShowChart(true);
           }
-          if (index === 24) {
+          if (index === 26) {
             setShowChart(false);
           }
         }
       }
-    }, 100);
+    }, 50);
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 

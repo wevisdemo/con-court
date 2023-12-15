@@ -195,7 +195,7 @@ export default function SectionPart1Sum() {
   const bp = useBreakpoint();
 
   return (
-    <div id="chart18" className="pointer-events-auto bg-grey4 pb-[112px]">
+    <div id="chart20" className="pointer-events-auto bg-grey4 pb-[112px]">
       <div className="rounded-b-[100px] bg-black px-4 pb-[112px] pt-20 lg:rounded-b-[200px]">
         <div className="mx-auto max-w-[720px]">
           <div className="wv-h5 wv-kondolar font-black">
