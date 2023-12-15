@@ -9,7 +9,7 @@ export default function SectionPartEnd() {
     <div className="screen flex items-center justify-center">
       <BorderBox
         color="#FFE500"
-        className="w-[300px] px-4 py-5 md:w-[560px] lg:w-[1000px] lg:px-[200px] lg:py-[150px]"
+        className="w-[300px] px-4 py-5 md:w-[560px] md:p-12 lg:w-[1000px] lg:px-[200px] lg:py-[150px]"
       >
         <div className="wv-h8">
           หากยึดตามค่านิยมที่ว่า &quot;ยึดหลักนิติธรรม ค้ำจุนประชาธิปไตย

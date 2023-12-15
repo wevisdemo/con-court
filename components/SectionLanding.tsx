@@ -85,7 +85,7 @@ export default function SectionLanding() {
       <div className="screen"></div>
       <SectionBox id="chart2" boxCls="p-5 md:p-8 wv-h9">
         สัดส่วนประเภทคำวินิจฉัยที่มีมากที่สุดคือ{' '}
-        <span className="bg-law font-bold">
+        <span className="bg-law font-bold leading-6 md:leading-8">
           คำวินิจฉัยในเรื่องการตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ
         </span>{' '}
         จากการวินิจฉัยว่ากฎหมายหรือร่างกฎหมายใดขัดหรือแย้งต่อรัฐธรรมนูญ
@@ -95,7 +95,7 @@ export default function SectionLanding() {
       <div className="screen"></div>
       <SectionBox id="chart3" boxCls="p-5 md:p-8 wv-h9">
         คำวินิจฉัยที่ได้รับคำวิพากษ์วิจารณ์บ่อยครั้ง คือ{' '}
-        <span className="bg-politics font-bold">
+        <span className="bg-politics font-bold leading-6 md:leading-8">
           “คำวินิจฉัยในเรื่องการตรวจสอบ สถาบันทางการเมือง”
         </span>{' '}
         เพราะเป็นการวินิจฉัยต่อบุคคล หรือสถาบันที่มาจากการเลือกตั้งโดยประชาชน
@@ -105,7 +105,7 @@ export default function SectionLanding() {
       <div className="screen"></div>
       <SectionBox id="chart4" boxCls="p-5 md:p-8 wv-h9">
         ในส่วนของ{' '}
-        <span className="bg-freedom font-bold">
+        <span className="bg-freedom font-bold leading-6 md:leading-8">
           “คำวินิจฉัยในเรื่องการคุ้มครองสิทธิเสรีภาพของประชาชน
           และความมั่นคงของรัฐ”
         </span>{' '}
