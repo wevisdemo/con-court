@@ -1,7 +1,6 @@
 import { TMenu, TSheet } from '@/models';
 import { proxy } from 'valtio';
 import data from '@/public/data/data-sheet.json';
-import { filterByKeys } from '@/utils/array';
 import uniqBy from 'lodash/uniqBy';
 
 type State = {
@@ -15,7 +14,6 @@ type State = {
   freedomData: TSheet[];
   freedomCases: TSheet[];
   destroyCases: TSheet[];
-  politicTotal: number;
 };
 
 export const state = proxy<State>({
@@ -55,47 +53,33 @@ export const state = proxy<State>({
     return this.menuList.filter((i: TMenu) => i.icon);
   },
   get lawData() {
-    return filterByKeys(this.allData, [
-      {
-        key: 'ประเภทคำวินิจฉัย',
-        value: 'ตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ',
-      },
-    ]);
+    return this.allData.filter(
+      (i: TSheet) =>
+        i.ประเภทคำวินิจฉัย === 'ตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ',
+    );
   },
   get politicData() {
-    return filterByKeys(this.allData, [
-      {
-        key: 'ประเภทคำวินิจฉัย',
-        value: 'ตรวจสอบสถาบันทางการเมือง',
-      },
-    ]);
+    const data = this.allData.filter(
+      (i: TSheet) => i.ประเภทคำวินิจฉัย === 'ตรวจสอบสถาบันทางการเมือง',
+    );
+    return uniqBy<TSheet>(data, 'เลขคำวินิจฉัย');
   },
   get freedomData() {
-    return filterByKeys(this.allData, [
-      {
-        key: 'ประเภทคำวินิจฉัย',
-        value:
-          'คุ้มครองสิทธิเสรีภาพของประชาชน ระบอบการปกครอง และความมั่นคงของรัฐ',
-      },
-    ]);
+    return this.allData.filter(
+      (i: TSheet) =>
+        i.ประเภทคำวินิจฉัย ===
+        'คุ้มครองสิทธิเสรีภาพของประชาชน ระบอบการปกครอง และความมั่นคงของรัฐ',
+    );
   },
   get freedomCases() {
-    return filterByKeys(this.allData, [
-      {
-        key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
-        value: 'คดีคุ้มครองสิทธิฯ',
-      },
-    ]);
+    return this.allData.filter(
+      (i: TSheet) => i['ฝ่ายทางการเมือง / ประเภทย่อย'] === 'คดีคุ้มครองสิทธิฯ',
+    );
   },
   get destroyCases() {
-    return filterByKeys(this.allData, [
-      {
-        key: 'ฝ่ายทางการเมือง / ประเภทย่อย',
-        value: 'คดีล้มล้างระบอบการปกครอง',
-      },
-    ]);
-  },
-  get politicTotal() {
-    return uniqBy(this.politicData, 'เลขคำวินิจฉัย').length;
+    return this.allData.filter(
+      (i: TSheet) =>
+        i['ฝ่ายทางการเมือง / ประเภทย่อย'] === 'คดีล้มล้างระบอบการปกครอง',
+    );
   },
 });
