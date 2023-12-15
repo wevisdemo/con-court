@@ -76,7 +76,7 @@ export default function SectionLanding() {
             ประเภทคำวินิจฉัย
           </div>
           <div className="wv-h11 text-grey2">
-            (อัพเดทข้อมูลเมื่อวันที่ {updatedDate})
+            (อัปเดทข้อมูลเมื่อวันที่ {updatedDate})
           </div>
           <BulletList list={todoList} />
         </div>
