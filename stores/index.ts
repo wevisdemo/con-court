@@ -2,6 +2,7 @@ import { TMenu, TSheet } from '@/models';
 import { proxy } from 'valtio';
 import data from '@/public/data/data-sheet.json';
 import { filterByKeys } from '@/utils/array';
+import uniqBy from 'lodash/uniqBy';
 
 type State = {
   updatedDate: string;
@@ -14,6 +15,7 @@ type State = {
   freedomData: TSheet[];
   freedomCases: TSheet[];
   destroyCases: TSheet[];
+  politicTotal: number;
 };
 
 export const state = proxy<State>({
@@ -92,5 +94,8 @@ export const state = proxy<State>({
         value: 'คดีล้มล้างระบอบการปกครอง',
       },
     ]);
+  },
+  get politicTotal() {
+    return uniqBy(this.politicData, 'เลขคำวินิจฉัย').length;
   },
 });

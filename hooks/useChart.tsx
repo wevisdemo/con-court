@@ -21,6 +21,7 @@ export const useChart = () => {
     freedomCases,
     destroyCases,
     protectedKeys,
+    politicTotal,
   } = useSnapshot(state);
 
   const caseSuggests: TChartSuggest[] = [
@@ -498,7 +499,7 @@ export const useChart = () => {
             color: '#6BB8FF',
           },
           {
-            label: `ตรวจสอบสถาบันทางการเมือง (${politicData.length} คดี)`,
+            label: `ตรวจสอบสถาบันทางการเมือง (${politicTotal} คดี)`,
             value: 'ตรวจสอบสถาบันทางการเมือง',
             color: '#FFC164',
           },
@@ -548,7 +549,7 @@ export const useChart = () => {
         id: 2,
         legends: [
           {
-            label: `ตรวจสอบสถาบันทางการเมือง (${politicData.length} คดี)`,
+            label: `ตรวจสอบสถาบันทางการเมือง (${politicTotal} คดี)`,
             value: 'ตรวจสอบสถาบันทางการเมือง',
             color: '#FFC164',
           },
@@ -579,7 +580,7 @@ export const useChart = () => {
         id: 3,
         legends: [
           {
-            label: `ตรวจสอบสถาบันทางการเมือง (${politicData.length} คดี)`,
+            label: `ตรวจสอบสถาบันทางการเมือง (${politicTotal} คดี)`,
             value: 'ตรวจสอบสถาบันทางการเมือง',
             color: '#FFC164',
           },
