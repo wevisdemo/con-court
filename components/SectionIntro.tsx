@@ -38,7 +38,7 @@ export default function SectionIntro() {
         <div className="relative rounded-t-[50%] bg-black">
           <div className="relative z-10">
             <div className="wv-h11 whitespace-pre-line text-grey1 lg:whitespace-normal">
-              {`(อัปเดทข้อมูล\nเมื่อวันที่ ${updatedDate})`}
+              {`(อัปเดตข้อมูล\nเมื่อวันที่ ${updatedDate})`}
             </div>
             <div className="flex flex-col items-center gap-6">
               <CustomImg
