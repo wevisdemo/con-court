@@ -47,8 +47,8 @@ export default function SectionPart2() {
           className="w-[300px] px-8 py-4 md:w-[560px] lg:w-[1000px] lg:px-[120px] lg:py-20"
         >
           <IconWithBg
-            color="#3E3E3E"
-            icon="/images/icon_warning_grey.webp"
+            color="#E0AEFF"
+            icon="/images/icon_why_purple.webp"
             className="mx-auto h-[50px] w-[50px] lg:h-[110px] lg:w-[110px]"
           />
           <div className="wv-h3 wv-kondolar mt-8 font-black text-freedom">
