@@ -35,7 +35,7 @@ export default function SectionIntro() {
           priority={true}
           className="absolute left-2/4 top-2 w-[120%] -translate-x-2/4 lg:w-full"
         />
-        <div className="relative rounded-t-[50%] bg-black">
+        <div className="relative rounded-t-full bg-black">
           <div className="relative z-10">
             <div className="wv-h11 whitespace-pre-line text-grey1 lg:whitespace-normal">
               {`(อัปเดตข้อมูล\nเมื่อวันที่ ${updatedDate})`}
