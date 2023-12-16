@@ -125,12 +125,12 @@ export default function WhyWhatDetail({}: Props) {
                     บุคคลที่เคยดำรงตำแหน่งก็ไม่ใช่ผู้ทรงคุณวุฒิด้านกฎหมายมหาชนหรือรัฐธรรมนูญแต่อย่างใด
                   </span>
                 </div>
-                <div className="flex max-w-[620px] flex-col items-center gap-3 rounded-md border px-5 py-3 lg:flex-row">
+                <div className="flex max-w-[620px] flex-col items-center gap-3 rounded-md border px-5 py-3 xl:flex-row">
                   <CustomImg
                     src="/images/question.webp"
-                    className="w-5 lg:w-9"
+                    className="w-5 xl:w-9"
                   />
-                  <div className="font-bold lg:text-left">
+                  <div className="font-bold xl:text-left">
                     คำถามสำคัญคือ
                     ทำไมศาลรัฐธรรมนูญไทยจึงไร้ผู้ทรงคุณวุฒิทางกฎหมายรัฐธรรมนูญทั้งที่ได้ตระหนักถึงประเด็นนี้มาตั้งแต่แรกเริ่มจัดตั้งศาลรัฐธรรมนูญก่อนปี
                     2540
@@ -304,10 +304,10 @@ export default function WhyWhatDetail({}: Props) {
 
   return (
     <>
-      <div className="mx-auto max-w-[1030px] px-4 lg:px-0">
+      <div className="mx-auto max-w-[1030px] px-4 xl:px-0">
         {whyWhatGroups.map((g) => (
           <div key={g.title} className="mt-5">
-            <div className="rounded-md border border-grey2 p-5 lg:p-12">
+            <div className="rounded-md border border-grey2 p-5 xl:p-12">
               <IconWithBg
                 icon={g.icon}
                 className="mx-auto h-[110px] w-[110px]"
@@ -321,23 +321,23 @@ export default function WhyWhatDetail({}: Props) {
             <PaperBox
               overlayColor="black"
               color="#FFE500"
-              className="relative mt-16 px-5 pb-6 pt-[60px] lg:px-11 lg:py-[100px]"
+              className="relative mt-16 px-5 pb-6 pt-[60px] xl:px-11 xl:py-[100px]"
             >
               <Quote
                 borderColor="black"
-                className="absolute inset-x-0 -top-5 mx-auto w-16 lg:-top-10 lg:w-[120px]"
+                className="absolute inset-x-0 -top-5 mx-auto w-16 xl:-top-10 xl:w-[120px]"
               />
-              <div className="mx-auto flex max-w-[800px] flex-col items-center justify-center gap-5 lg:flex-row">
+              <div className="mx-auto flex max-w-[800px] flex-col items-center justify-center gap-5 xl:flex-row">
                 <IconWithBg
                   icon="/images/icon_chat.webp"
                   color="white"
-                  className="h-[70px] w-[70px] flex-none lg:h-[90px] lg:w-[90px]"
+                  className="h-[70px] w-[70px] flex-none xl:h-[90px] xl:w-[90px]"
                 />
-                <div className="wv-h5 font-bold lg:text-left">
+                <div className="wv-h5 font-bold xl:text-left">
                   {g.paper.title}
                 </div>
               </div>
-              <div className="mt-5 flex flex-col items-center justify-center gap-5 lg:flex-row">
+              <div className="mt-5 flex flex-col items-center justify-center gap-5 xl:flex-row">
                 {g.paper.items.map((i) => (
                   <div
                     key={i.title}
@@ -345,9 +345,9 @@ export default function WhyWhatDetail({}: Props) {
                   >
                     <CustomImg
                       src={i.image}
-                      className="h-[150px] w-full lg:h-[200px]"
+                      className="h-[150px] w-full xl:h-[200px]"
                     />
-                    <div className="flex min-h-[160px] flex-col items-center justify-between gap-3 bg-white p-5 lg:min-h-[240px]">
+                    <div className="flex min-h-[160px] flex-col items-center justify-between gap-3 bg-white p-5 xl:min-h-[240px]">
                       <div className="wv-h8 ">
                         <div className="font-bold">{i.title}</div>
                         {i.subtitle && <div>{i.subtitle}</div>}
@@ -370,8 +370,8 @@ export default function WhyWhatDetail({}: Props) {
         radius="sm"
         placement="center"
         classNames={{
-          base: 'bg-white text-black max-w-[300px] md:max-w-[500px] lg:max-w-[800px] overflow-clip',
-          body: 'py-10 lg:py-12 px-4 lg:px-8',
+          base: 'bg-white text-black max-w-[300px] md:max-w-[500px] xl:max-w-[800px] overflow-clip',
+          body: 'py-10 xl:py-12 px-4 xl:px-8',
           closeButton:
             'text-black text-4xl p-0 font-black top-1 right-1 hover:bg-opacity-0 active:bg-opacity-0',
         }}

@@ -53,12 +53,12 @@ export default function SectionPart1() {
       >
         <BorderBox
           color="#FFC164"
-          className="w-[300px] px-8 py-[70px] md:w-[560px] lg:w-[790px] lg:py-[100px]"
+          className="w-[300px] px-8 py-[70px] md:w-[560px] xl:w-[790px] xl:py-[100px]"
         >
           <IconWithBg
             color="#FFC164"
             icon="/images/icon_protect_orange.webp"
-            className="mx-auto h-[50px] w-[50px] lg:h-[110px] lg:w-[110px]"
+            className="mx-auto h-[50px] w-[50px] xl:h-[110px] xl:w-[110px]"
           />
           <div className="wv-h3 wv-kondolar mt-8 font-black text-politics">
             คำวินิจฉัยในเรื่องการตรวจสอบ สถาบันทางการเมือง
@@ -139,7 +139,7 @@ export default function SectionPart1() {
               key={i.label}
               className="w-[170px] border-r-2 border-grey0 px-3 last:border-r-0"
             >
-              <CustomImg src={i.image} className="mx-auto w-12 lg:w-[74px]" />
+              <CustomImg src={i.image} className="mx-auto w-12 xl:w-[74px]" />
               <div className="wv-h9 mt-3 font-bold">{i.label}</div>
             </div>
           ))}
@@ -154,7 +154,7 @@ export default function SectionPart1() {
           </div>
           <div>
             <div className="flex items-center justify-center gap-3 text-left">
-              <div className="h-5 w-5 flex-none bg-minus lg:h-9 lg:w-9"></div>
+              <div className="h-5 w-5 flex-none bg-minus xl:h-9 xl:w-9"></div>
               <div className="wv-h10">
                 คำวินิจฉัยที่ส่งผลกระทบ
                 <span className="font-bold">ลบต่อผู้ถูกร้อง</span>
@@ -168,7 +168,7 @@ export default function SectionPart1() {
           </div>
           <div>
             <div className="flex items-center justify-center gap-3 text-left">
-              <div className="h-5 w-5 flex-none bg-plus lg:h-9 lg:w-9"></div>
+              <div className="h-5 w-5 flex-none bg-plus xl:h-9 xl:w-9"></div>
               <div className="wv-h10">
                 คำวินิจฉัยที่ส่งผลกระทบ
                 <span className="font-bold">บวกต่อผู้ถูกร้อง</span>
@@ -182,14 +182,14 @@ export default function SectionPart1() {
           </div>
           <div>
             <div className="flex items-center justify-center gap-3 text-left">
-              <div className="stripe-grey h-5 w-5 flex-none lg:h-9 lg:w-9"></div>
+              <div className="stripe-grey h-5 w-5 flex-none xl:h-9 xl:w-9"></div>
               <div className="wv-h10">
                 คำวินิจฉัยที่มีผล
                 <span className="font-bold">คำวินิจฉัยปรากฏเป็น 2 กรณี</span>
               </div>
             </div>
             <div className="wv-h11 mt-3 rounded-md border-2 border-grey0 px-5 py-3 text-left">
-              <ul className="list-disc pl-4 lg:pl-6">
+              <ul className="list-disc pl-4 xl:pl-6">
                 <li>
                   คำวินิจฉัยที่มีผู้ถูกร้องมากกว่า 1
                   คนและมีผลคำวินิจฉัยที่ทั้งส่งผลกระทบบวกและลบ

@@ -57,7 +57,7 @@ export default function BarChartModal({ isOpen, onOpenChange, data }: Props) {
         <ModalBody>
           <div
             style={{ background: data.color }}
-            className="flex flex-col gap-1 p-3 lg:px-5"
+            className="flex flex-col gap-1 p-3 xl:px-5"
           >
             <div className="wv-h9 wv-kondolar">คำวินิจฉัย</div>
             <div className="wv-h11">(วันที่วินิจฉัย {data.วันที่})</div>

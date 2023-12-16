@@ -32,7 +32,7 @@ export default function BarScaled({
     <>
       <div
         style={{ gridTemplateColumns: `repeat(${scale}, minmax(0, 1fr))` }}
-        className="grid h-2 flex-1 lg:h-2.5 2xl:h-3"
+        className="grid h-2 flex-1 xl:h-2.5 2xl:h-3"
       >
         {data.map((i, index) => (
           <div
@@ -51,7 +51,7 @@ export default function BarScaled({
             {interactable && i.คำวินิจฉัยที่น่าสนใจ === 'TRUE' && (
               <CustomImg
                 src="/images/icon_star_card.svg"
-                className="w-2 lg:w-[10px]"
+                className="w-2 xl:w-[10px]"
               />
             )}
           </div>

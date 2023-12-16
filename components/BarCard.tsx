@@ -21,12 +21,12 @@ export default function BarCard({ data }: Props) {
 
   return (
     <>
-      <div className="flex h-2 gap-[1px] lg:h-3.5 lg:gap-[3px] 2xl:h-[15px]">
+      <div className="flex h-2 gap-[1px] xl:h-3.5 xl:gap-[3px] 2xl:h-[15px]">
         {data.map((i, index) => (
           <div
             key={index}
             style={{ background: i.color }}
-            className="relative z-10 flex h-full w-[3px] cursor-pointer items-center justify-center overflow-clip hover:!bg-white lg:w-[10px]"
+            className="relative z-10 flex h-full w-[3px] cursor-pointer items-center justify-center overflow-clip hover:!bg-white xl:w-[10px]"
             onClick={() => selectCard(i)}
           >
             {i['คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)'] ===
@@ -34,7 +34,7 @@ export default function BarCard({ data }: Props) {
             {i.คำวินิจฉัยที่น่าสนใจ === 'TRUE' && (
               <CustomImg
                 src="/images/icon_star_card.svg"
-                className="w-1 lg:w-[10px]"
+                className="w-1 xl:w-[10px]"
               />
             )}
           </div>

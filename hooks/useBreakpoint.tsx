@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 export const useBreakpoint = () => {
   const [width, setWidth] = useState(0);
-  const breakpoint = width >= 1024 ? 'lg' : width >= 768 ? 'md' : 'sm';
+  const breakpoint = width >= 1280 ? 'xl' : width >= 768 ? 'md' : 'sm';
 
   useEffect(() => {
     setWidth(window.innerWidth);
@@ -19,5 +19,5 @@ export const useBreakpoint = () => {
     };
   }, []);
 
-  return breakpoint as 'lg' | 'md' | 'sm';
+  return breakpoint as 'xl' | 'md' | 'sm';
 };

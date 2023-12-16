@@ -86,12 +86,12 @@ export default function SectionPart3() {
     >
       <BorderBox
         color="#FFE500"
-        className="w-[300px] px-2 py-8 md:w-[560px] lg:w-[1000px] lg:px-[150px]"
+        className="w-[300px] px-2 py-8 md:w-[560px] xl:w-[1000px] xl:px-[150px]"
       >
         <IconWithBg
           color="#FFE500"
           icon="/images/icon_q.webp"
-          className="mx-auto h-[70px] w-[70px] lg:h-[110px] lg:w-[110px]"
+          className="mx-auto h-[70px] w-[70px] xl:h-[110px] xl:w-[110px]"
         />
         <div className="wv-h3 wv-kondolar mt-8 font-black text-highlight">
           เพราะเหตุใดศาลรัฐธรรมนูญ จึงถูกวิจารณ์ว่าไม่ทำหน้าที่ตามค่านิยม ?
@@ -112,7 +112,7 @@ export default function SectionPart3() {
       </div>
       <WhyWhatDetail />
       <ScrollHint mode="dark" className="mt-12" />
-      <div className="mx-auto max-w-[1030px] px-4 pt-16 lg:px-0">
+      <div className="mx-auto max-w-[1030px] px-4 pt-16 xl:px-0">
         <div className="wv-h4 wv-kondolar font-black text-highlight">
           ข้อเสนอของนักวิชาการ
           <br />
@@ -121,12 +121,12 @@ export default function SectionPart3() {
         <PaperBox
           overlayColor="black"
           color="white"
-          className="mt-5 flex flex-col gap-10 px-6 py-11 lg:px-[124px]"
+          className="mt-5 flex flex-col gap-10 px-6 py-11 xl:px-[124px]"
         >
           {proposalList.map((p) => (
             <div
               key={p.title}
-              className="rounded-md border border-grey1 p-3 lg:p-8"
+              className="rounded-md border border-grey1 p-3 xl:p-8"
             >
               <div className="mx-auto flex max-w-[600px] flex-col items-center gap-3">
                 <div className="wv-h5 max-w-[472px] border-b-2 border-grey0 pb-3 font-bold">
@@ -138,14 +138,14 @@ export default function SectionPart3() {
               {p.items.map((i) => (
                 <div
                   key={i.icon}
-                  className="mt-5 flex flex-col items-center gap-5 lg:flex-row lg:items-start"
+                  className="mt-5 flex flex-col items-center gap-5 xl:flex-row xl:items-start"
                 >
                   <IconWithBg
                     icon={i.icon}
                     color="#FFE500"
                     className="h-[70px] w-[70px] flex-none"
                   />
-                  <div className="wv-h9 lg:text-left">{i.text}</div>
+                  <div className="wv-h9 xl:text-left">{i.text}</div>
                 </div>
               ))}
             </div>

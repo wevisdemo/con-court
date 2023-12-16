@@ -38,11 +38,11 @@ export default function ChartGroup() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [popoverOpen, setPopoverOpen] = useState(false);
   const [chartWidth, setChartWidth] = useState(0);
-  const barSpace = 'h-4 lg:h-[18px] 2xl:h-5';
+  const barSpace = 'h-4 xl:h-[18px] 2xl:h-5';
 
   const headLabel = (chart: TChart) => {
     return (
-      <div className="wv-h9 absolute inset-x-0 bottom-[103%] flex flex-col items-center justify-center font-bold lg:flex-row lg:gap-2">
+      <div className="wv-h9 absolute inset-x-0 bottom-[103%] flex flex-col items-center justify-center font-bold xl:flex-row xl:gap-2">
         {chart.label}
         {chart.label === 'อื่น ๆ' && (
           <Popover
@@ -58,7 +58,7 @@ export default function ChartGroup() {
               <button aria-label="other" className="outline-none">
                 <CustomImg
                   src="/images/icon_info.webp"
-                  className="w-5 cursor-pointer rounded-full hover:bg-white/30 lg:w-6"
+                  className="w-5 cursor-pointer rounded-full hover:bg-white/30 xl:w-6"
                 />
               </button>
             </PopoverTrigger>
@@ -86,12 +86,12 @@ export default function ChartGroup() {
   const xGrid = (chart: TChart, chartIndex: number) => {
     const max = last(chart.xAxes) ?? 0;
     const xAxes =
-      bp !== 'lg' && group.charts.length > 1 ? [max / 2, max] : chart.xAxes;
+      bp !== 'xl' && group.charts.length > 1 ? [max / 2, max] : chart.xAxes;
     const axesCls = 'wv-h11 absolute -bottom-6 md:-bottom-7 w-8';
 
     return (
       <div className="absolute inset-0 flex">
-        {(bp === 'lg' || chartIndex === 0) && (
+        {(bp === 'xl' || chartIndex === 0) && (
           <div className={twMerge('-left-4', axesCls)}>0</div>
         )}
         {xAxes.map((i) => (
@@ -134,7 +134,7 @@ export default function ChartGroup() {
           >
             <div
               className={twMerge(
-                'wv-h11 absolute -left-6 top-0 opacity-30 lg:-left-8',
+                'wv-h11 absolute -left-6 top-0 opacity-30 xl:-left-8',
                 [2540, 2549, 2550, 2557, 2560, 2566].includes(i) &&
                   'opacity-100',
               )}
@@ -145,10 +145,10 @@ export default function ChartGroup() {
               (guideYears.includes(2549_2) && i === 2549) ||
               (guideYears.includes(2557_1) && i === 2557)) && (
               <div className="absolute inset-x-0 bottom-0 flex flex-col items-center justify-end">
-                <div className="wv-h11 inline-flex max-w-[85%] items-center justify-center gap-1 rounded-t-md bg-highlight p-1 font-bold text-black md:px-3 lg:max-w-[90%]">
+                <div className="wv-h11 inline-flex max-w-[85%] items-center justify-center gap-1 rounded-t-md bg-highlight p-1 font-bold text-black md:px-3 xl:max-w-[90%]">
                   <CustomImg
                     src="/images/icon_star_2.webp"
-                    className="w-3 lg:w-5"
+                    className="w-3 xl:w-5"
                   />
                   {guideText(
                     guideYears.includes(2557_1)
@@ -158,7 +158,7 @@ export default function ChartGroup() {
                         : i,
                   )}
                 </div>
-                <div className="h-[2px] w-full bg-highlight lg:h-1"></div>
+                <div className="h-[2px] w-full bg-highlight xl:h-1"></div>
               </div>
             )}
           </div>
@@ -169,7 +169,7 @@ export default function ChartGroup() {
 
   const primeMsBrackets = () => {
     return (
-      <div className="absolute inset-y-3 right-full w-[105px] lg:w-[120px]">
+      <div className="absolute inset-y-3 right-full w-[105px] xl:w-[120px]">
         {primeMs.map((m) => (
           <div key={m.id} className="relative">
             {m.items.map((i) => (
@@ -206,13 +206,13 @@ export default function ChartGroup() {
   const gridDescriptions = () => {
     return (
       <>
-        <div className="wv-h11 absolute -top-12 right-[102%] min-w-[60px] whitespace-pre-line lg:-top-8 xl:whitespace-nowrap">
+        <div className="wv-h11 absolute -top-12 right-[102%] min-w-[60px] whitespace-pre-line xl:-top-8 xl:whitespace-nowrap">
           {'นายกฯ \nปี พ.ศ.'}
         </div>
         <div className="wv-h11 absolute -top-12 left-full whitespace-pre-line">
-          {bp === 'lg' ? 'ช่วงเวลา\nรัฐธรรมนูญ' : 'ช่วง\nรธน.'}
+          {bp === 'xl' ? 'ช่วงเวลา\nรัฐธรรมนูญ' : 'ช่วง\nรธน.'}
         </div>
-        {bp === 'lg' && (
+        {bp === 'xl' && (
           <div className="wv-h11 absolute -bottom-6 left-[103%] w-16 text-left">
             จำนวนคำ วินิจฉัย (คดี)
           </div>
@@ -238,12 +238,12 @@ export default function ChartGroup() {
               borderColor="#6D6D6D"
               arrowSize="6px"
             />
-            <div className="wv-h11 relative opacity-50 lg:w-16">
+            <div className="wv-h11 relative opacity-50 xl:w-16">
               <CustomImg
                 src="/images/icon_con_3.webp"
                 className="absolute inset-x-0 -top-5 mx-auto w-4"
               />
-              {bp === 'lg' ? (
+              {bp === 'xl' ? (
                 <>
                   <div>ปี {p.name}</div>
                   {[2549, 2557].includes(p.name) && <div>(ชั่วคราว)</div>}
@@ -265,7 +265,7 @@ export default function ChartGroup() {
             {mode === 'stack' && (
               <BarStacked
                 className={twMerge(
-                  'h-2 transition lg:h-2.5 2xl:h-3',
+                  'h-2 transition xl:h-2.5 2xl:h-3',
                   !!highlightYears?.length &&
                     !highlightYears?.includes(i) &&
                     'opacity-20',
@@ -308,17 +308,17 @@ export default function ChartGroup() {
           !showChart && 'opacity-0',
         )}
       >
-        <div className="flex flex-col gap-1 px-4 pt-4 lg:gap-3 2xl:gap-4">
+        <div className="flex flex-col gap-1 px-4 pt-4 xl:gap-3 2xl:gap-4">
           <div className="wv-kondolar text-2xl/6 font-black md:text-4xl">
             ภาพรวมสัดส่วนคำวินิจฉัยศาลรัฐธรรมนูญ
           </div>
-          <Legends data={group.legends} boxCls="w-3 h-3 lg:w-5 lg:h-5" />
+          <Legends data={group.legends} boxCls="w-3 h-3 xl:w-5 xl:h-5" />
         </div>
         <div
           style={{
             gridTemplateColumns: `repeat(${group.charts.length}, minmax(0, 1fr))`,
           }}
-          className="relative mb-10 ml-[100px] mr-11 mt-12 grid gap-3 lg:ml-[120px] lg:mr-[86px] lg:gap-[68px]"
+          className="relative mb-10 ml-[100px] mr-11 mt-12 grid gap-3 xl:ml-[120px] xl:mr-[86px] xl:gap-[68px]"
         >
           {gridDescriptions()}
           {primeMsBrackets()}

@@ -23,7 +23,7 @@ export default function CustomImg({
   onClick,
 }: Props) {
   const bp = useBreakpoint();
-  const _src = bp !== 'lg' && mobileSrc ? mobileSrc : src;
+  const _src = bp !== 'xl' && mobileSrc ? mobileSrc : src;
 
   return (
     <Image

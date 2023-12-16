@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 ::-webkit-scrollbar {
-  @screen lg {
+  @screen xl {
     width: 10px;
   }
 }
 ::-webkit-scrollbar-track {
-  @screen lg {
+  @screen xl {
     background: theme('colors.grey0');
   }
 }
 ::-webkit-scrollbar-thumb {
-  @screen lg {
+  @screen xl {
     background: theme('colors.grey2');
   }
 }
@@ -40,7 +40,7 @@
     transparent 2px
   );
   border: 0.5px solid black;
-  @screen lg {
+  @screen xl {
     background: repeating-linear-gradient(
       -45deg,
       black,
@@ -59,7 +59,7 @@
     transparent 5px
   );
   border: 1px solid theme('colors.grey2');
-  @screen lg {
+  @screen xl {
     background: repeating-linear-gradient(
       -45deg,
       theme('colors.grey2'),

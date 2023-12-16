@@ -148,19 +148,19 @@ export default function SectionLanding() {
             หรือไม่?
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center gap-3 lg:flex-row lg:gap-8">
+        <div className="flex flex-col items-center justify-center gap-3 xl:flex-row xl:gap-8">
           {partList.map((i) => (
             <BorderBox
               key={i.title}
               color={i.color}
-              className="flex min-h-[240px] w-[240px] items-center justify-center p-6 md:w-[560px] lg:min-h-[375px]"
+              className="flex min-h-[240px] w-[240px] items-center justify-center p-6 md:w-[560px] xl:min-h-[375px]"
               onClick={() => goToSection('/', i.id)}
             >
               <div className="max-w-[300px]">
                 <IconWithBg
                   icon={i.icon}
                   color={i.color}
-                  className="mx-auto h-[50px] w-[50px] group-hover:!bg-white lg:h-20 lg:w-20"
+                  className="mx-auto h-[50px] w-[50px] group-hover:!bg-white xl:h-20 xl:w-20"
                 />
                 <div className="wv-h7 mt-5">{i.label}</div>
                 <div

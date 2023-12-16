@@ -14,14 +14,14 @@ export default function Legends({
   itemWidth = 'auto',
 }: Props) {
   return (
-    <div className="flex flex-wrap justify-center gap-1 lg:gap-3 2xl:gap-5">
+    <div className="flex flex-wrap justify-center gap-1 xl:gap-3 2xl:gap-5">
       {data
         .filter((i) => !i.hide)
         .map((i) => (
           <div
             key={i.value}
             style={{ maxWidth: itemWidth }}
-            className="wv-h10 flex items-center gap-2 text-left lg:gap-3"
+            className="wv-h10 flex items-center gap-2 text-left xl:gap-3"
           >
             <div
               style={{

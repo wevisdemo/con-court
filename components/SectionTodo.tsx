@@ -134,7 +134,7 @@ export default function SectionTodo() {
   const bp = useBreakpoint();
 
   return (
-    <div id="chart1" className="mx-auto max-w-[80%] py-20 lg:max-w-[1180px]">
+    <div id="chart1" className="mx-auto max-w-[80%] py-20 xl:max-w-[1180px]">
       <div className="relative">
         <div className="wv-h4 wv-kondolar font-black">
           ศาลรัฐธรรมนูญ ทำอะไรบ้าง ?
@@ -143,10 +143,10 @@ export default function SectionTodo() {
           คดีรัฐธรรมนูญเริ่มต้นขึ้นเมื่อมี &quot;ผู้ร้อง&quot;
           ส่งคำร้องให้ศาลรัฐธรรมนูญพิจารณาวินิจฉัย
         </div>
-        <div className="wv-h11 right-0 top-0 mt-4 flex flex-col items-center lg:absolute lg:mt-0">
+        <div className="wv-h11 right-0 top-0 mt-4 flex flex-col items-center xl:absolute xl:mt-0">
           คำย่อและอักษรย่อ
           <Popover
-            placement={bp === 'lg' ? 'bottom-end' : 'bottom'}
+            placement={bp === 'xl' ? 'bottom-end' : 'bottom'}
             radius="md"
             classNames={{
               content:
@@ -159,7 +159,7 @@ export default function SectionTodo() {
               <button aria-label="info" className="outline-none">
                 <CustomImg
                   src="/images/icon_info.webp"
-                  className="w-[30px] cursor-pointer rounded-full hover:bg-white/30 lg:w-10"
+                  className="w-[30px] cursor-pointer rounded-full hover:bg-white/30 xl:w-10"
                 />
               </button>
             </PopoverTrigger>
@@ -170,13 +170,13 @@ export default function SectionTodo() {
                 onClick={() => setPopoverOpen(false)}
               />
               <div className="wv-h9 p-4 pb-2 font-bold">คำย่อและอักษรย่อ</div>
-              <div className="max-h-[360px] overflow-y-auto px-6 text-left lg:px-9">
+              <div className="max-h-[360px] overflow-y-auto px-6 text-left xl:px-9">
                 {wordList.map((i) => (
                   <div
                     key={i.name}
                     className="wv-h10 flex border-b border-grey0 py-2"
                   >
-                    <div className="w-[70px] flex-none font-bold lg:w-[100px]">
+                    <div className="w-[70px] flex-none font-bold xl:w-[100px]">
                       {i.name}
                     </div>
                     <div>{i.text}</div>
@@ -187,10 +187,10 @@ export default function SectionTodo() {
           </Popover>
         </div>
       </div>
-      <div className="mt-6 grid gap-6 lg:grid-cols-3 lg:gap-8">
+      <div className="mt-6 grid gap-6 xl:grid-cols-3 xl:gap-8">
         {todoList.map((t) => (
           <div key={t.name}>
-            <div className="wv-h8 relative flex h-[200px] items-center justify-center overflow-clip rounded-md bg-white font-bold text-black lg:h-[236px]">
+            <div className="wv-h8 relative flex h-[200px] items-center justify-center overflow-clip rounded-md bg-white font-bold text-black xl:h-[236px]">
               <CustomImg src={t.bg} className="absolute h-full w-full" />
               <div
                 style={{ backgroundColor: t.color }}
@@ -200,7 +200,7 @@ export default function SectionTodo() {
                 <IconWithBg
                   icon={t.icon}
                   color={t.color}
-                  className="h-[50px] w-[50px] lg:h-20 lg:w-20"
+                  className="h-[50px] w-[50px] xl:h-20 xl:w-20"
                 />
                 <div
                   style={{
@@ -212,16 +212,16 @@ export default function SectionTodo() {
                 </div>
               </div>
             </div>
-            <div className="overflow-y-auto lg:max-h-[520px]">
+            <div className="overflow-y-auto xl:max-h-[520px]">
               {t.items.map((i) => (
                 <div
                   key={i.name}
-                  className="flex items-center gap-3 border-b border-grey3 p-3 text-left lg:p-6"
+                  className="flex items-center gap-3 border-b border-grey3 p-3 text-left xl:p-6"
                 >
                   <IconWithBg
                     icon={i.icon}
                     color={t.color}
-                    className="h-10 w-10 flex-none lg:h-20 lg:w-20"
+                    className="h-10 w-10 flex-none xl:h-20 xl:w-20"
                   />
                   {i.name}
                 </div>

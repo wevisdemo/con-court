@@ -19,7 +19,7 @@ export default function Avatar({ image, name, className }: Props) {
         <CustomImg
           src={image}
           className={twMerge(
-            'w-4 cursor-pointer rounded-full lg:w-6',
+            'w-4 cursor-pointer rounded-full xl:w-6',
             className,
           )}
         />
@@ -36,7 +36,7 @@ export default function Avatar({ image, name, className }: Props) {
     );
   };
 
-  if (bp === 'lg') {
+  if (bp === 'xl') {
     return (
       <Tooltip
         closeDelay={0}

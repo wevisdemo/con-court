@@ -196,7 +196,7 @@ export default function SectionPart1Sum() {
 
   return (
     <div id="chart20" className="pointer-events-auto bg-grey4 pb-[112px]">
-      <div className="rounded-b-[100px] bg-black px-4 pb-[112px] pt-20 lg:rounded-b-[200px]">
+      <div className="rounded-b-[100px] bg-black px-4 pb-[112px] pt-20 xl:rounded-b-[200px]">
         <div className="mx-auto max-w-[720px]">
           <div className="wv-h5 wv-kondolar font-black">
             หลายครั้ง “ผลลัพธ์สำคัญทางการเมือง” เกิดขึ้น
@@ -207,18 +207,18 @@ export default function SectionPart1Sum() {
             สร้างผลประโยชน์หรือโทษทางการเมืองแก่ฝ่ายใดฝ่ายหนึ่ง
           </div>
         </div>
-        <div className="mt-5 flex flex-col justify-center gap-5 lg:flex-row">
+        <div className="mt-5 flex flex-col justify-center gap-5 xl:flex-row">
           {situationList.map((i) => (
             <div
               key={i.image}
-              className="flex flex-col items-center gap-5 lg:flex-row"
+              className="flex flex-col items-center gap-5 xl:flex-row"
             >
-              <div className="flex w-[260px] overflow-clip rounded-md lg:w-[160px] lg:flex-col">
+              <div className="flex w-[260px] overflow-clip rounded-md xl:w-[160px] xl:flex-col">
                 <CustomImg
                   src={i.image}
-                  className="h-[120px] w-2/4 lg:w-full"
+                  className="h-[120px] w-2/4 xl:w-full"
                 />
-                <div className="wv-h10 flex h-[120px] items-center bg-grey3 px-5 font-bold lg:h-[160px]">
+                <div className="wv-h10 flex h-[120px] items-center bg-grey3 px-5 font-bold xl:h-[160px]">
                   <div>{i.detail}</div>
                 </div>
               </div>
@@ -227,7 +227,7 @@ export default function SectionPart1Sum() {
                   <div className="wv-h11">{i.next}</div>
                   <CustomImg
                     src="/images/icon_arrow_right.webp"
-                    className="w-5 rotate-90 lg:w-9 lg:rotate-0"
+                    className="w-5 rotate-90 xl:w-9 xl:rotate-0"
                   />
                 </div>
               )}
@@ -251,20 +251,20 @@ export default function SectionPart1Sum() {
         <Legends
           data={legends}
           itemWidth="300px"
-          boxCls="w-5 h-5 lg:w-10 lg:h-10"
+          boxCls="w-5 h-5 xl:w-10 xl:h-10"
         />
         <div className="mx-auto w-fit">
           <div className="wv-h9 flex items-center justify-center gap-4 py-4 font-bold">
-            <div className="w-0 lg:w-20"></div>
+            <div className="w-0 xl:w-20"></div>
             <div className="w-[100px] md:w-[300px]">ชื่อคดี</div>
             <div className="max-w-[420px] flex-1">ระยะเวลายื่นและรับคำร้อง</div>
             <div className="w-[114px] text-politics md:w-[240px]">ข้อกำหนด</div>
           </div>
           {groups.map((g) => (
             <div key={g.label} className="flex gap-4">
-              <div className="flex w-0 items-center py-10 lg:w-20 lg:gap-6">
+              <div className="flex w-0 items-center py-10 xl:w-20 xl:gap-6">
                 <div className="relative z-10 h-4 w-4">
-                  <div className="absolute left-2/4 top-2/4 flex -translate-x-2/4 -translate-y-2/4 -rotate-90 gap-1 whitespace-nowrap bg-grey4 p-1 text-grey1 lg:block lg:p-0">
+                  <div className="absolute left-2/4 top-2/4 flex -translate-x-2/4 -translate-y-2/4 -rotate-90 gap-1 whitespace-nowrap bg-grey4 p-1 text-grey1 xl:block xl:p-0">
                     <div className="wv-h10 font-bold">{g.label}</div>
                     {g.subLabel && <div className="wv-h11">{g.subLabel}</div>}
                   </div>
@@ -279,12 +279,12 @@ export default function SectionPart1Sum() {
               <div className="wv-h10 flex-1 text-left">
                 {g.items.map((i) => (
                   <div key={i.id} className="border-b border-grey3 py-4">
-                    <div className="flex justify-center gap-2 lg:gap-4">
-                      <div className="flex w-[100px] flex-col items-center justify-center gap-2 md:w-[300px] lg:flex-row lg:gap-4">
+                    <div className="flex justify-center gap-2 xl:gap-4">
+                      <div className="flex w-[100px] flex-col items-center justify-center gap-2 md:w-[300px] xl:flex-row xl:gap-4">
                         {i.color ? (
                           <Paper
                             color={i.color}
-                            className="w-[30px] flex-none lg:w-[44px]"
+                            className="w-[30px] flex-none xl:w-[44px]"
                           />
                         ) : (
                           <CustomImg
@@ -292,9 +292,9 @@ export default function SectionPart1Sum() {
                             className="w-[44px] flex-none"
                           />
                         )}
-                        <div className="text-center lg:text-left">{i.name}</div>
+                        <div className="text-center xl:text-left">{i.name}</div>
                       </div>
-                      <div className="flex max-w-[420px] flex-1 flex-col justify-center lg:flex-row lg:items-center lg:justify-start">
+                      <div className="flex max-w-[420px] flex-1 flex-col justify-center xl:flex-row xl:items-center xl:justify-start">
                         <BarStacked
                           className="h-[60px]"
                           data={[
@@ -313,15 +313,15 @@ export default function SectionPart1Sum() {
                             groups[0].items[0].request.day +
                             groups[0].items[0].accept.day
                           }
-                          width={bp === 'lg' ? 260 : bp === 'md' ? 200 : 80}
+                          width={bp === 'xl' ? 260 : bp === 'md' ? 200 : 80}
                         />
-                        <div className="wv-h9 mt-3 flex flex-none flex-col gap-2 lg:ml-3 lg:mt-0">
+                        <div className="wv-h9 mt-3 flex flex-none flex-col gap-2 xl:ml-3 xl:mt-0">
                           <div className="text-sentreq">
                             {i.request.day} วัน {i.request.info && '*'}
                           </div>
                           <div className="text-accreq">{i.accept.day} วัน</div>
                         </div>
-                        {bp === 'lg' && i.request.info && (
+                        {bp === 'xl' && i.request.info && (
                           <div className="ml-10 text-sentreq">
                             {i.request.info}
                           </div>
@@ -337,7 +337,7 @@ export default function SectionPart1Sum() {
                         </ul>
                       </div>
                     </div>
-                    {bp !== 'lg' && i.request.info && (
+                    {bp !== 'xl' && i.request.info && (
                       <div className="mt-3 text-center text-sentreq">
                         {i.request.info}
                       </div>

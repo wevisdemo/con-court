@@ -11,7 +11,7 @@ export default function SectionPart2Sum() {
 
   return (
     <div className="pointer-events-auto bg-grey4">
-      <div className="h-[77px] rounded-b-[100px] bg-black lg:h-[154px] lg:rounded-b-[200px]"></div>
+      <div className="h-[77px] rounded-b-[100px] bg-black xl:h-[154px] xl:rounded-b-[200px]"></div>
       <div className="mx-auto max-w-[700px] pb-[150px] pt-10">
         <div className="px-4 md:px-0">
           <div className="wv-h5 px-4 font-bold text-freedom">
@@ -21,7 +21,7 @@ export default function SectionPart2Sum() {
           <PaperBox
             overlayColor="#1D1D1D"
             color="white"
-            className="mt-8 px-5 py-12 lg:px-10"
+            className="mt-8 px-5 py-12 xl:px-10"
           >
             <div className="overflow-clip rounded-md border">
               <div className="p-3">
@@ -56,7 +56,7 @@ export default function SectionPart2Sum() {
           </PaperBox>
         </div>
         <div className="relative">
-          {bp === 'lg' && (
+          {bp === 'xl' && (
             <>
               <CustomImg
                 src="/images/questions.webp"
@@ -68,7 +68,7 @@ export default function SectionPart2Sum() {
               />
             </>
           )}
-          <BlurBox className="mt-8 px-6 py-20 lg:px-[68px]">
+          <BlurBox className="mt-8 px-6 py-20 xl:px-[68px]">
             <div className="flex flex-col items-center gap-3">
               <Quote color="#E0AEFF" className="w-7 md:w-11" />
               <div className="wv-h8 font-bold text-freedom">
@@ -89,7 +89,7 @@ export default function SectionPart2Sum() {
             <PaperBox
               overlayColor="#1D1D1D"
               color="white"
-              className="mt-8 px-5 py-12 lg:px-10"
+              className="mt-8 px-5 py-12 xl:px-10"
             >
               <div className="wv-h8 font-bold">
                 นับแต่การมีอยู่ของศาลรัฐธรรนูญในปี 2540
@@ -108,7 +108,7 @@ export default function SectionPart2Sum() {
               </div>
             </PaperBox>
           </div>
-          <BlurBox className="wv-h8 mt-8 px-6 py-20 font-bold text-freedom lg:px-20">
+          <BlurBox className="wv-h8 mt-8 px-6 py-20 font-bold text-freedom xl:px-20">
             <div className="flex flex-col items-center gap-3">
               <div className="max-w-[420px]">
                 ดังนั้นแล้ว ชุดคำถามสำคัญที่
