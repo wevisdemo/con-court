@@ -15,6 +15,7 @@ type State = {
   freedomData: TSheet[];
   freedomCases: TSheet[];
   destroyCases: TSheet[];
+  allTotal: number;
 };
 
 export const state = proxy<State>({
@@ -77,5 +78,10 @@ export const state = proxy<State>({
   },
   get destroyCases() {
     return filterData(this.allData, undefined, ['คดีล้มล้างระบอบการปกครอง']);
+  },
+  get allTotal() {
+    return (
+      this.lawData.length + this.politicData.length + this.freedomData.length
+    );
   },
 });

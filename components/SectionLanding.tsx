@@ -10,7 +10,8 @@ import { state } from '@/stores';
 import { useSnapshot } from 'valtio';
 
 export default function SectionLanding() {
-  const { lawData, politicData, freedomData, updatedDate } = useSnapshot(state);
+  const { allTotal, lawData, politicData, freedomData, updatedDate } =
+    useSnapshot(state);
 
   const todoList = [
     {
@@ -71,7 +72,7 @@ export default function SectionLanding() {
           </div>
           <div className="wv-h9">
             นับตั้งแต่ถูกจัดตั้งเป็นองค์กรตุลาการตามรัฐธรรมนูญในปี 2540
-            ศาลรัฐธรรมนูญได้วินิจฉัยคดีไปมากกว่า 560 เรื่อง
+            ศาลรัฐธรรมนูญได้วินิจฉัยคดีไปมากกว่า {allTotal} เรื่อง
             หากแบ่งคำวินิจฉัยออกตามประเภทหน้าที่ จะสามารถแบ่งออกเป็น 3
             ประเภทคำวินิจฉัย
           </div>
