@@ -6,7 +6,7 @@ import {
   TChartSuggest,
 } from '@/models';
 import { state } from '@/stores';
-import { filterData } from '@/utils/array';
+import { filterSheetData } from '@/utils/array';
 import flatten from 'lodash/flatten';
 import throttle from 'lodash/throttle';
 import { useEffect, useMemo, useState } from 'react';
@@ -129,24 +129,44 @@ export const useChart = () => {
   }, []);
 
   const plusCases = useMemo(() => {
-    return filterData([...allData], {
+    return filterSheetData([...allData], {
       nature: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
       isMulti: 'FALSE',
     });
   }, []);
 
   const minusCases = useMemo(() => {
-    return filterData([...allData], {
+    return filterSheetData([...allData], {
       nature: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
       isMulti: 'FALSE',
     });
   }, []);
 
   const multiCases = useMemo(() => {
-    return filterData([...allData], {
+    return filterSheetData([...allData], {
       isMulti: 'TRUE',
     });
   }, []);
+
+  const plusCaseTotal = useMemo(() => {
+    return filterSheetData([...allData], {
+      nature: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
+      isUniq: true,
+    }).length;
+  }, []);
+
+  const minusCaseTotal = useMemo(() => {
+    return filterSheetData([...allData], {
+      nature: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
+      isUniq: true,
+    }).length;
+  }, []);
+
+  const multiCaseTotal = useMemo(() => {
+    return filterSheetData(multiCases, {
+      isUniq: true,
+    }).length;
+  }, [multiCases]);
 
   const part1Charts = useMemo(() => {
     return [
@@ -160,14 +180,14 @@ export const useChart = () => {
             items: [
               {
                 type: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
-                sheetData: filterData(plusCases, {
+                sheetData: filterSheetData(plusCases, {
                   year: y,
                   sides: ['ฝ่ายร่วมรัฐบาล', 'รัฐบาลจากคณะรัฐประหาร'],
                 }),
               },
               {
                 type: 'multicase-plus',
-                sheetData: filterData(multiCases, {
+                sheetData: filterSheetData(multiCases, {
                   year: y,
                   sides: ['ฝ่ายร่วมรัฐบาล', 'รัฐบาลจากคณะรัฐประหาร'],
                   nature: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
@@ -175,14 +195,14 @@ export const useChart = () => {
               },
               {
                 type: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
-                sheetData: filterData(minusCases, {
+                sheetData: filterSheetData(minusCases, {
                   year: y,
                   sides: ['ฝ่ายร่วมรัฐบาล', 'รัฐบาลจากคณะรัฐประหาร'],
                 }),
               },
               {
                 type: 'multicase-minus',
-                sheetData: filterData(multiCases, {
+                sheetData: filterSheetData(multiCases, {
                   year: y,
                   sides: ['ฝ่ายร่วมรัฐบาล', 'รัฐบาลจากคณะรัฐประหาร'],
                   nature: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
@@ -202,14 +222,14 @@ export const useChart = () => {
             items: [
               {
                 type: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
-                sheetData: filterData(plusCases, {
+                sheetData: filterSheetData(plusCases, {
                   year: y,
                   sides: ['ฝ่ายค้าน', 'ฝ่ายรัฐบาลเดิม'],
                 }),
               },
               {
                 type: 'multicase-plus',
-                sheetData: filterData(multiCases, {
+                sheetData: filterSheetData(multiCases, {
                   year: y,
                   sides: ['ฝ่ายค้าน', 'ฝ่ายรัฐบาลเดิม'],
                   nature: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
@@ -217,14 +237,14 @@ export const useChart = () => {
               },
               {
                 type: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
-                sheetData: filterData(minusCases, {
+                sheetData: filterSheetData(minusCases, {
                   year: y,
                   sides: ['ฝ่ายค้าน', 'ฝ่ายรัฐบาลเดิม'],
                 }),
               },
               {
                 type: 'multicase-minus',
-                sheetData: filterData(multiCases, {
+                sheetData: filterSheetData(multiCases, {
                   year: y,
                   sides: ['ฝ่ายค้าน', 'ฝ่ายรัฐบาลเดิม'],
                   nature: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
@@ -244,14 +264,14 @@ export const useChart = () => {
             items: [
               {
                 type: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
-                sheetData: filterData(plusCases, {
+                sheetData: filterSheetData(plusCases, {
                   year: y,
                   sides: ['อื่น ๆ'],
                 }),
               },
               {
                 type: 'multicase-plus',
-                sheetData: filterData(multiCases, {
+                sheetData: filterSheetData(multiCases, {
                   year: y,
                   sides: ['อื่น ๆ'],
                   nature: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
@@ -259,14 +279,14 @@ export const useChart = () => {
               },
               {
                 type: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
-                sheetData: filterData(minusCases, {
+                sheetData: filterSheetData(minusCases, {
                   year: y,
                   sides: ['อื่น ๆ'],
                 }),
               },
               {
                 type: 'multicase-minus',
-                sheetData: filterData(multiCases, {
+                sheetData: filterSheetData(multiCases, {
                   year: y,
                   sides: ['อื่น ๆ'],
                   nature: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
@@ -290,11 +310,11 @@ export const useChart = () => {
             items: [
               {
                 type: 'คดีคุ้มครองสิทธิฯ',
-                sheetData: filterData([...freedomCases], { year: y }),
+                sheetData: filterSheetData([...freedomCases], { year: y }),
               },
               {
                 type: 'คดีล้มล้างระบอบการปกครอง',
-                sheetData: filterData([...destroyCases], { year: y }),
+                sheetData: filterSheetData([...destroyCases], { year: y }),
               },
             ],
           };
@@ -335,15 +355,15 @@ export const useChart = () => {
                 items: [
                   {
                     type: 'ตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ',
-                    sheetData: filterData([...lawData], { year: y }),
+                    sheetData: filterSheetData([...lawData], { year: y }),
                   },
                   {
                     type: 'ตรวจสอบสถาบันทางการเมือง',
-                    sheetData: filterData([...politicData], { year: y }),
+                    sheetData: filterSheetData([...politicData], { year: y }),
                   },
                   {
                     type: 'คุ้มครองสิทธิเสรีภาพของประชาชน ระบอบการปกครอง และความมั่นคงของรัฐ',
-                    sheetData: filterData([...freedomData], { year: y }),
+                    sheetData: filterSheetData([...freedomData], { year: y }),
                   },
                 ],
               };
@@ -370,7 +390,7 @@ export const useChart = () => {
                 items: [
                   {
                     type: 'ตรวจสอบสถาบันทางการเมือง',
-                    sheetData: filterData([...politicData], { year: y }),
+                    sheetData: filterSheetData([...politicData], { year: y }),
                   },
                 ],
               };
@@ -399,7 +419,7 @@ export const useChart = () => {
                 items: [
                   {
                     type: 'ฝ่ายร่วมรัฐบาล',
-                    sheetData: filterData([...politicData], {
+                    sheetData: filterSheetData([...politicData], {
                       year: y,
                       sides: ['ฝ่ายร่วมรัฐบาล', 'รัฐบาลจากคณะรัฐประหาร'],
                     }),
@@ -418,7 +438,7 @@ export const useChart = () => {
                 items: [
                   {
                     type: 'ฝ่ายค้าน',
-                    sheetData: filterData([...politicData], {
+                    sheetData: filterSheetData([...politicData], {
                       year: y,
                       sides: ['ฝ่ายค้าน', 'ฝ่ายรัฐบาลเดิม'],
                     }),
@@ -437,7 +457,7 @@ export const useChart = () => {
                 items: [
                   {
                     type: 'อื่น ๆ',
-                    sheetData: filterData([...politicData], {
+                    sheetData: filterSheetData([...politicData], {
                       year: y,
                       sides: ['อื่น ๆ'],
                     }),
@@ -452,7 +472,7 @@ export const useChart = () => {
         id: 4,
         legends: [
           {
-            label: `คำวินิจฉัยที่ส่งผลกระทบบวกต่อผู้ถูกร้อง (${plusCases.length} คดี)`,
+            label: `คำวินิจฉัยที่ส่งผลกระทบบวกต่อผู้ถูกร้อง (${plusCaseTotal} คดี)`,
             value: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
             color: '#ACF38A',
           },
@@ -463,7 +483,7 @@ export const useChart = () => {
             hide: true,
           },
           {
-            label: `คำวินิจฉัยที่ส่งผลกระทบลบต่อผู้ถูกร้อง (${minusCases.length} คดี)`,
+            label: `คำวินิจฉัยที่ส่งผลกระทบลบต่อผู้ถูกร้อง (${minusCaseTotal} คดี)`,
             value: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
             color: '#FF9A9A',
           },
@@ -474,7 +494,7 @@ export const useChart = () => {
             hide: true,
           },
           {
-            label: `คำวินิจฉัยที่มีผลคำวินิจฉัยปรากฏเป็น 2 กรณี (${multiCases.length} คดี)`,
+            label: `คำวินิจฉัยที่มีผลคำวินิจฉัยปรากฏเป็น 2 กรณี (${multiCaseTotal} คดี)`,
             value: 'multicase',
           },
         ],
@@ -484,7 +504,7 @@ export const useChart = () => {
         id: 5,
         legends: [
           {
-            label: `คำวินิจฉัยที่ส่งผลกระทบบวกต่อผู้ถูกร้อง (${plusCases.length} คดี)`,
+            label: `คำวินิจฉัยที่ส่งผลกระทบบวกต่อผู้ถูกร้อง (${plusCaseTotal} คดี)`,
             value: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
             color: '#ACF38A',
           },
@@ -495,7 +515,7 @@ export const useChart = () => {
             hide: true,
           },
           {
-            label: `คำวินิจฉัยที่ส่งผลกระทบลบต่อผู้ถูกร้อง (${minusCases.length} คดี)`,
+            label: `คำวินิจฉัยที่ส่งผลกระทบลบต่อผู้ถูกร้อง (${minusCaseTotal} คดี)`,
             value: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
             color: '#FF9A9A',
           },
@@ -506,7 +526,7 @@ export const useChart = () => {
             hide: true,
           },
           {
-            label: `คำวินิจฉัยที่มีผลคำวินิจฉัยปรากฏเป็น 2 กรณี (${multiCases.length} คดี)`,
+            label: `คำวินิจฉัยที่มีผลคำวินิจฉัยปรากฏเป็น 2 กรณี (${multiCaseTotal} คดี)`,
             value: 'multicase',
           },
           {

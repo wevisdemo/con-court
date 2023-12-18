@@ -1,7 +1,7 @@
 import { TMenu, TSheet } from '@/models';
 import { proxy } from 'valtio';
 import data from '@/public/data/data-sheet.json';
-import { filterData } from '@/utils/array';
+import { filterSheetData } from '@/utils/array';
 
 type State = {
   updatedDate: string;
@@ -54,26 +54,28 @@ export const state = proxy<State>({
     return this.menuList.filter((i: TMenu) => i.icon);
   },
   get lawData() {
-    return filterData(this.allData, {
+    return filterSheetData(this.allData, {
       type: 'ตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ',
     });
   },
   get politicData() {
-    return filterData(this.allData, {
+    return filterSheetData(this.allData, {
       type: 'ตรวจสอบสถาบันทางการเมือง',
       isUniq: true,
     });
   },
   get freedomData() {
-    return filterData(this.allData, {
+    return filterSheetData(this.allData, {
       type: 'คุ้มครองสิทธิเสรีภาพของประชาชน ระบอบการปกครอง และความมั่นคงของรัฐ',
     });
   },
   get freedomCases() {
-    return filterData(this.allData, { sides: ['คดีคุ้มครองสิทธิฯ'] });
+    return filterSheetData(this.allData, { sides: ['คดีคุ้มครองสิทธิฯ'] });
   },
   get destroyCases() {
-    return filterData(this.allData, { sides: ['คดีล้มล้างระบอบการปกครอง'] });
+    return filterSheetData(this.allData, {
+      sides: ['คดีล้มล้างระบอบการปกครอง'],
+    });
   },
   get allTotal() {
     return (

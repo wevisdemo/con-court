@@ -11,7 +11,7 @@ export const genArrayByNum = (num: number) => {
   return new Array(num).fill('').map(() => crypto.randomUUID());
 };
 
-export const filterData = (
+export const filterSheetData = (
   data: TSheet[],
   {
     year,

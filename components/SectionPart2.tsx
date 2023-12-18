@@ -10,7 +10,7 @@ import SectionPart2Sum from './SectionPart2Sum';
 import { useSnapshot } from 'valtio';
 import { state } from '@/stores';
 import { useMemo } from 'react';
-import { filterData } from '@/utils/array';
+import { filterSheetData } from '@/utils/array';
 
 export default function SectionPart2() {
   const { freedomCases, destroyCases, protectedKeys } = useSnapshot(state);
@@ -29,7 +29,7 @@ export default function SectionPart2() {
   ];
 
   const protectedCases = useMemo(() => {
-    return filterData([...freedomCases], { results: [...protectedKeys] });
+    return filterSheetData([...freedomCases], { results: [...protectedKeys] });
   }, [freedomCases, protectedKeys]);
 
   const changedCase = useMemo(() => {
