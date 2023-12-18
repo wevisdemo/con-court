@@ -26,7 +26,7 @@ export default function BarCard({ data }: Props) {
           <div
             key={index}
             style={{ background: i.color }}
-            className="relative z-10 h-full w-[0.65vw] max-w-[10px] cursor-pointer hover:!bg-white"
+            className="relative z-10 h-full w-[0.65vw] max-w-[10px] cursor-pointer overflow-clip hover:!bg-white"
             onClick={() => selectCard(i)}
           >
             {i['คำวินิจฉัยที่มี 2 กรณี (legend ลายขวางเส้นเฉียง)'] ===
@@ -34,7 +34,7 @@ export default function BarCard({ data }: Props) {
             {i.คำวินิจฉัยที่น่าสนใจ === 'TRUE' && (
               <CustomImg
                 src="/images/icon_star_card.svg"
-                className="absolute inset-0 m-auto w-1 lg:w-2 xl:w-[10px]"
+                className="absolute left-2/4 top-2/4 w-1 -translate-x-2/4 -translate-y-2/4 lg:w-2 xl:w-[10px]"
               />
             )}
           </div>
