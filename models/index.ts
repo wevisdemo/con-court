@@ -28,6 +28,11 @@ export type TChartNature =
 
 export type TChartBoolean = 'TRUE' | 'FALSE';
 
+export type TChartType =
+  | 'ตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ'
+  | 'ตรวจสอบสถาบันทางการเมือง'
+  | 'คุ้มครองสิทธิเสรีภาพของประชาชน ระบอบการปกครอง และความมั่นคงของรัฐ';
+
 export type TSheet = {
   ปีวินิจฉัย: number;
   เลขคำวินิจฉัย: string;
@@ -41,7 +46,7 @@ export type TSheet = {
   'Link_เนื้อหา (ย่อสั้น)': string;
   สาระเนื้อหา: string;
   ผลคำวินิจฉัย: string;
-  ประเภทคำวินิจฉัย: string;
+  ประเภทคำวินิจฉัย: TChartType;
   ลักษณะคำวินิจฉัย: TChartNature;
   'ฝ่ายทางการเมือง / ประเภทย่อย': TChartSide;
   นายกรัฐมนตรี: string;

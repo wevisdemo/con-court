@@ -1,7 +1,6 @@
 import { TMenu, TSheet } from '@/models';
 import { proxy } from 'valtio';
 import data from '@/public/data/data-sheet.json';
-import uniqBy from 'lodash/uniqBy';
 import { filterData } from '@/utils/array';
 
 type State = {
@@ -55,29 +54,26 @@ export const state = proxy<State>({
     return this.menuList.filter((i: TMenu) => i.icon);
   },
   get lawData() {
-    return this.allData.filter(
-      (i: TSheet) =>
-        i.ประเภทคำวินิจฉัย === 'ตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ',
-    );
+    return filterData(this.allData, {
+      type: 'ตรวจสอบกฎหมายให้ตรงตามเงื่อนไขในรัฐธรรมนูญ',
+    });
   },
   get politicData() {
-    const data = this.allData.filter(
-      (i: TSheet) => i.ประเภทคำวินิจฉัย === 'ตรวจสอบสถาบันทางการเมือง',
-    );
-    return uniqBy<TSheet>(data, 'เลขคำวินิจฉัย');
+    return filterData(this.allData, {
+      type: 'ตรวจสอบสถาบันทางการเมือง',
+      isUniq: true,
+    });
   },
   get freedomData() {
-    return this.allData.filter(
-      (i: TSheet) =>
-        i.ประเภทคำวินิจฉัย ===
-        'คุ้มครองสิทธิเสรีภาพของประชาชน ระบอบการปกครอง และความมั่นคงของรัฐ',
-    );
+    return filterData(this.allData, {
+      type: 'คุ้มครองสิทธิเสรีภาพของประชาชน ระบอบการปกครอง และความมั่นคงของรัฐ',
+    });
   },
   get freedomCases() {
-    return filterData(this.allData, undefined, ['คดีคุ้มครองสิทธิฯ']);
+    return filterData(this.allData, { sides: ['คดีคุ้มครองสิทธิฯ'] });
   },
   get destroyCases() {
-    return filterData(this.allData, undefined, ['คดีล้มล้างระบอบการปกครอง']);
+    return filterData(this.allData, { sides: ['คดีล้มล้างระบอบการปกครอง'] });
   },
   get allTotal() {
     return (
