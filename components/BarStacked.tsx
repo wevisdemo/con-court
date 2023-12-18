@@ -30,7 +30,7 @@ export default function BarStacked({
             width: `${getPx(i.value)}px`,
           }}
           className={twMerge(
-            'relative h-full overflow-clip transition',
+            'relative h-full transition',
             !!highlights?.length &&
               !highlights?.includes(i.name) &&
               'opacity-20',

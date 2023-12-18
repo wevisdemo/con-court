@@ -39,7 +39,7 @@ export default function BarScaled({
             key={index}
             style={{ background: i.color }}
             className={twMerge(
-              'relative z-10 flex h-full cursor-pointer items-center justify-center overflow-clip hover:!bg-white',
+              'relative z-10 h-full cursor-pointer hover:!bg-white',
               !!highlights?.length &&
                 !highlights?.includes(i.ผลคำวินิจฉัย) &&
                 'opacity-20',
@@ -51,7 +51,7 @@ export default function BarScaled({
             {interactable && i.คำวินิจฉัยที่น่าสนใจ === 'TRUE' && (
               <CustomImg
                 src="/images/icon_star_card.svg"
-                className="w-2 xl:w-[10px]"
+                className="absolute inset-0 m-auto w-2 xl:w-[10px]"
               />
             )}
           </div>
