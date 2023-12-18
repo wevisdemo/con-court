@@ -10,7 +10,7 @@ import { state } from '@/stores';
 import { useSnapshot } from 'valtio';
 
 export default function SectionLanding() {
-  const { allTotal, lawData, politicData, freedomData, updatedDate } =
+  const { allTotal, lawData, politicTotal, freedomData, updatedDate } =
     useSnapshot(state);
 
   const todoList = [
@@ -22,7 +22,7 @@ export default function SectionLanding() {
     {
       label: 'ตรวจสอบสถาบันทางการเมือง',
       color: '#FFC164',
-      total: politicData.length,
+      total: politicTotal,
     },
     {
       label: 'คุ้มครองสิทธิเสรีภาพของประชาชนและความมั่นคงของรัฐ',

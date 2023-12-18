@@ -14,7 +14,7 @@ import { useSnapshot } from 'valtio';
 
 export const useChart = () => {
   const {
-    allData,
+    politicTotal,
     politicData,
     lawData,
     freedomData,
@@ -129,37 +129,21 @@ export const useChart = () => {
   }, []);
 
   const plusCases = useMemo(() => {
-    return filterSheetData([...allData], {
+    return filterSheetData([...politicData], {
       nature: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
-      isMulti: 'FALSE',
     });
   }, []);
 
   const minusCases = useMemo(() => {
-    return filterSheetData([...allData], {
+    return filterSheetData([...politicData], {
       nature: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
-      isMulti: 'FALSE',
     });
   }, []);
 
   const multiCases = useMemo(() => {
-    return filterSheetData([...allData], {
+    return filterSheetData([...politicData], {
       isMulti: 'TRUE',
     });
-  }, []);
-
-  const plusCaseTotal = useMemo(() => {
-    return filterSheetData([...allData], {
-      nature: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
-      isUniq: true,
-    }).length;
-  }, []);
-
-  const minusCaseTotal = useMemo(() => {
-    return filterSheetData([...allData], {
-      nature: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
-      isUniq: true,
-    }).length;
   }, []);
 
   const multiCaseTotal = useMemo(() => {
@@ -183,6 +167,7 @@ export const useChart = () => {
                 sheetData: filterSheetData(plusCases, {
                   year: y,
                   sides: ['ฝ่ายร่วมรัฐบาล', 'รัฐบาลจากคณะรัฐประหาร'],
+                  isMulti: 'FALSE',
                 }),
               },
               {
@@ -198,6 +183,7 @@ export const useChart = () => {
                 sheetData: filterSheetData(minusCases, {
                   year: y,
                   sides: ['ฝ่ายร่วมรัฐบาล', 'รัฐบาลจากคณะรัฐประหาร'],
+                  isMulti: 'FALSE',
                 }),
               },
               {
@@ -225,6 +211,7 @@ export const useChart = () => {
                 sheetData: filterSheetData(plusCases, {
                   year: y,
                   sides: ['ฝ่ายค้าน', 'ฝ่ายรัฐบาลเดิม'],
+                  isMulti: 'FALSE',
                 }),
               },
               {
@@ -240,6 +227,7 @@ export const useChart = () => {
                 sheetData: filterSheetData(minusCases, {
                   year: y,
                   sides: ['ฝ่ายค้าน', 'ฝ่ายรัฐบาลเดิม'],
+                  isMulti: 'FALSE',
                 }),
               },
               {
@@ -267,6 +255,7 @@ export const useChart = () => {
                 sheetData: filterSheetData(plusCases, {
                   year: y,
                   sides: ['อื่น ๆ'],
+                  isMulti: 'FALSE',
                 }),
               },
               {
@@ -282,6 +271,7 @@ export const useChart = () => {
                 sheetData: filterSheetData(minusCases, {
                   year: y,
                   sides: ['อื่น ๆ'],
+                  isMulti: 'FALSE',
                 }),
               },
               {
@@ -334,7 +324,7 @@ export const useChart = () => {
             color: '#6BB8FF',
           },
           {
-            label: `ตรวจสอบสถาบันทางการเมือง (${politicData.length} คดี)`,
+            label: `ตรวจสอบสถาบันทางการเมือง (${politicTotal} คดี)`,
             value: 'ตรวจสอบสถาบันทางการเมือง',
             color: '#FFC164',
           },
@@ -375,7 +365,7 @@ export const useChart = () => {
         id: 2,
         legends: [
           {
-            label: `ตรวจสอบสถาบันทางการเมือง (${politicData.length} คดี)`,
+            label: `ตรวจสอบสถาบันทางการเมือง (${politicTotal} คดี)`,
             value: 'ตรวจสอบสถาบันทางการเมือง',
             color: '#FFC164',
           },
@@ -403,7 +393,7 @@ export const useChart = () => {
         id: 3,
         legends: [
           {
-            label: `ตรวจสอบสถาบันทางการเมือง (${politicData.length} คดี)`,
+            label: `ตรวจสอบสถาบันทางการเมือง (${politicTotal} คดี)`,
             value: 'ตรวจสอบสถาบันทางการเมือง',
             color: '#FFC164',
           },
@@ -472,7 +462,7 @@ export const useChart = () => {
         id: 4,
         legends: [
           {
-            label: `คำวินิจฉัยที่ส่งผลกระทบบวกต่อผู้ถูกร้อง (${plusCaseTotal} คดี)`,
+            label: `คำวินิจฉัยที่ส่งผลกระทบบวกต่อผู้ถูกร้อง (${plusCases.length} คดี)`,
             value: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
             color: '#ACF38A',
           },
@@ -483,7 +473,7 @@ export const useChart = () => {
             hide: true,
           },
           {
-            label: `คำวินิจฉัยที่ส่งผลกระทบลบต่อผู้ถูกร้อง (${minusCaseTotal} คดี)`,
+            label: `คำวินิจฉัยที่ส่งผลกระทบลบต่อผู้ถูกร้อง (${minusCases.length} คดี)`,
             value: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
             color: '#FF9A9A',
           },
@@ -494,7 +484,7 @@ export const useChart = () => {
             hide: true,
           },
           {
-            label: `คำวินิจฉัยที่มีผลคำวินิจฉัยปรากฏเป็น 2 กรณี (${multiCaseTotal} คดี)`,
+            label: `กรณีที่คำวินิจฉัยมี 2 ผลลัพธ์ (${multiCaseTotal} คดี)`,
             value: 'multicase',
           },
         ],
@@ -504,7 +494,7 @@ export const useChart = () => {
         id: 5,
         legends: [
           {
-            label: `คำวินิจฉัยที่ส่งผลกระทบบวกต่อผู้ถูกร้อง (${plusCaseTotal} คดี)`,
+            label: `คำวินิจฉัยที่ส่งผลกระทบบวกต่อผู้ถูกร้อง (${plusCases.length} คดี)`,
             value: 'ส่งผลกระทบบวกต่อผู้ถูกร้อง',
             color: '#ACF38A',
           },
@@ -515,7 +505,7 @@ export const useChart = () => {
             hide: true,
           },
           {
-            label: `คำวินิจฉัยที่ส่งผลกระทบลบต่อผู้ถูกร้อง (${minusCaseTotal} คดี)`,
+            label: `คำวินิจฉัยที่ส่งผลกระทบลบต่อผู้ถูกร้อง (${minusCases.length} คดี)`,
             value: 'ส่งผลกระทบลบต่อผู้ถูกร้อง',
             color: '#FF9A9A',
           },
@@ -526,7 +516,7 @@ export const useChart = () => {
             hide: true,
           },
           {
-            label: `คำวินิจฉัยที่มีผลคำวินิจฉัยปรากฏเป็น 2 กรณี (${multiCaseTotal} คดี)`,
+            label: `กรณีที่คำวินิจฉัยมี 2 ผลลัพธ์ (${multiCaseTotal} คดี)`,
             value: 'multicase',
           },
           {

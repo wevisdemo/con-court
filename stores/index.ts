@@ -14,6 +14,7 @@ type State = {
   freedomData: TSheet[];
   freedomCases: TSheet[];
   destroyCases: TSheet[];
+  politicTotal: number;
   allTotal: number;
 };
 
@@ -61,7 +62,6 @@ export const state = proxy<State>({
   get politicData() {
     return filterSheetData(this.allData, {
       type: 'ตรวจสอบสถาบันทางการเมือง',
-      isUniq: true,
     });
   },
   get freedomData() {
@@ -77,9 +77,12 @@ export const state = proxy<State>({
       sides: ['คดีล้มล้างระบอบการปกครอง'],
     });
   },
+  get politicTotal() {
+    return filterSheetData(this.politicData, {
+      isUniq: true,
+    }).length;
+  },
   get allTotal() {
-    return (
-      this.lawData.length + this.politicData.length + this.freedomData.length
-    );
+    return this.lawData.length + this.politicTotal + this.freedomData.length;
   },
 });
