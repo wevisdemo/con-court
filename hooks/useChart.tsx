@@ -573,7 +573,7 @@ export const useChart = () => {
     res.items?.forEach((i, index) => {
       const data =
         i.sheetData?.map((d) => {
-          return { ...d, color: group.legends[index].color ?? '' };
+          return { ...d, color: group?.legends[index].color ?? '' };
         }) ?? [];
       list.push(...data);
     });
@@ -586,14 +586,14 @@ export const useChart = () => {
     return res.items?.map((i, index) => {
       return {
         name: i.type,
-        color: group.legends[index].color ?? '',
+        color: group?.legends[index].color ?? '',
         sheetData: i.sheetData,
         value: i.sheetData.length,
       };
     });
   };
 
-  const [group, setGroup] = useState<TChartGroup>(groupData[0]);
+  const [group, setGroup] = useState<TChartGroup | null>(null);
   const [highlightKeys, setHighlightKeys] = useState<string[]>([]);
   const [highlightYears, setHighlightYears] = useState<number[]>([]);
   const [guideYears, setGuideYears] = useState<number[]>([]);
@@ -607,6 +607,7 @@ export const useChart = () => {
     setHighlightYears([]);
     setGuideYears([]);
     setMode(mode);
+    setShowChart(true);
   };
 
   const isInView = (elm: HTMLElement | null) => {

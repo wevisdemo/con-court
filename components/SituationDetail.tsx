@@ -1,5 +1,3 @@
-'use client';
-
 import { Accordion, AccordionItem } from '@nextui-org/accordion';
 import CustomImg from './CustomImg';
 import { useState } from 'react';

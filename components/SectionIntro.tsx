@@ -1,5 +1,3 @@
-'use client';
-
 import { useSnapshot } from 'valtio';
 import BorderBox from './BorderBox';
 import CustomImg from './CustomImg';

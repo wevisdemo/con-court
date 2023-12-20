@@ -1,5 +1,3 @@
-'use client';
-
 import { TChart } from '@/models';
 import Legends from './Legends';
 import { useChart } from '@/hooks/useChart';
@@ -85,8 +83,9 @@ export default function ChartGroup() {
 
   const xGrid = (chart: TChart, chartIndex: number) => {
     const max = last(chart.xAxes) ?? 0;
+    const chartsLength = group?.charts.length ?? 1;
     const xAxes =
-      bp !== 'xl' && group.charts.length > 1 ? [max / 2, max] : chart.xAxes;
+      bp !== 'xl' && chartsLength > 1 ? [max / 2, max] : chart.xAxes;
     const axesCls = 'wv-h11 absolute -bottom-6 md:-bottom-7 w-8';
 
     return (
@@ -298,6 +297,8 @@ export default function ChartGroup() {
   useEffect(() => {
     if (suggests) onOpen();
   }, [suggests, onOpen]);
+
+  if (!group) return <></>;
 
   return (
     <>

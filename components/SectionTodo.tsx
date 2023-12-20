@@ -1,5 +1,3 @@
-'use client';
-
 import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/popover';
 import CustomImg from './CustomImg';
 import IconWithBg from './IconWithBg';

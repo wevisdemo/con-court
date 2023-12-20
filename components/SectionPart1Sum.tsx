@@ -1,5 +1,3 @@
-'use client';
-
 import { TChartCaseGroup } from '@/models';
 import BarStacked from './BarStacked';
 import Bracket from './Bracket';

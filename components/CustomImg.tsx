@@ -1,5 +1,3 @@
-'use client';
-
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 import { basePath } from '@/utils/basePath';
 import Image from 'next/image';
