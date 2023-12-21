@@ -3,6 +3,8 @@ import '@wevisdemo/ui/styles/typography.css';
 import '../styles/globals.scss';
 import NavbarApp from '@/components/NavbarApp';
 import Providers from '@/components/Providers';
+import PlausibleProvider from 'next-plausible';
+import Consent from '@/components/Consent';
 
 export const metadata: Metadata = {
   title:
@@ -19,11 +21,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="wv-ibmplex overflow-x-clip text-center">
+      <head>
+        <PlausibleProvider domain="wevis.info/con-court" />
+      </head>
       <body id="intro" className="overflow-x-clip">
         <Providers>
           <NavbarApp />
           {children}
         </Providers>
+        <Consent />
       </body>
     </html>
   );
