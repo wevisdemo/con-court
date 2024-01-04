@@ -22,7 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="wv-ibmplex overflow-x-clip text-center">
       <head>
-        <PlausibleProvider domain="wevis.info/con-court" />
+        <PlausibleProvider
+          domain="wevis.info/con-court"
+          customDomain="https://analytics.punchup.world"
+          selfHosted
+        />
       </head>
       <body id="intro" className="overflow-x-clip">
         <Providers>
